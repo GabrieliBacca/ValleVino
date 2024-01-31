@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="/translation.js" defer></script>
+    <title>Valle Vino</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-logo"><a href="#">Valle Vino</a></div>
+        <ul class="nav-links">
+            <li class="link"><a href="#">Home</a></li>
+            <li class="link"><a href="#">Quizz</a></li>
+            <li class="link"><a href="#">Loja</a></li>
+            <li class="link"><a href="#">Newsletter</a></li>
+            <li class="link"><a href="#">Sobre</a></li>
+            <li class="link"><a href="#" class="nav-btn">Register</a></li>
+            <li class="language-selector">
+                <select id="languageSelector" onchange="changeLanguage(event)">
+                    <option value="pt-BR">🇧🇷 Português</option>
+                    <option value="en">🇬🇧 English</option>
+                </select>
+            </li>
+        </ul>
+    </nav>
+    <section class="container" id="mainContent">
+        <div class="content-container">
+            <h1 id="mainTitle">
+                VINÍCOLA TRADICIONAL<br />
+                <span class="texto-1">Vinhos de todo o MUNDO</span><br />
+                <span class="texto-2"></span>
+            </h1>
+            <p id="mainText">
+                A Valle Vino é sua porta de entrada para o sabor italiano excepcional. Em nosso site, apresentamos uma
+                seleção única de
+                vinhos, cada garrafa uma verdadeira obra de arte engarrafada. Descubra a paixão e a tradição italianas
+                em cada taça com
+                a Valle Vino.
+            </p>
+            <form>
+                <input type="text" id="searchInput" placeholder="Qual vinho você busca?" />
+                <button type="submit" id="searchButton">Procurar Vinho</button>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="/BokeNoir19-300.png" alt="header" />
+            <img src="/Cuvette2018-300.png" alt="header" />
+        </div>
+    </section>
+</body>
+
+</html>
