@@ -1,0 +1,72 @@
+main {
+    margin-top: 100px;
+}
+
+.container {
+    width: 506px;
+    height: 255px;
+    flex-shrink: 0;
+    background-color: #F5EBDA;
+    border-radius: 11.442px;
+    border: 1px solid #482817;
+}
+
+.card {
+    position: relative;
+    margin: 0;
+    padding: 20px;
+
+}
+
+.titulo-vinho {
+    color: #482817;
+    font-family: "Libre Baskerville";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 200px;
+    height: 60px;
+    margin-left: 167px;
+    margin-top: 6px;
+}
+
+.imagem-vinho {
+    margin-top: -182px;
+    margin-left: 15px;
+}
+
+.btn-heart,
+.btn-cart {
+    width: 57px;
+    height: 56px;
+    border: 2px solid #9E845C;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 140px;
+    background-color: #F5EBDA;
+
+}
+
+.heart-icon,
+.cart-icon {
+    width: 24.647px;
+    height: 21.978px;
+    flex-shrink: 0;
+    color: #AF6900;
+    font-size: 24px;
+}
+
+.button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    margin-right: 35px;
+}
+
+.btn-heart:hover,
+.btn-cart:hover {
+    background-color: white;
+    cursor: pointer;
+}
