@@ -160,7 +160,17 @@ nav {
     transform: translateY(-70px);
 }
 
+.language-selector {
+    display: block;
+}
 
+.language-selector select {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    outline: none;
+    border: none;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+}
 
 @media (width < 900px) {
     .link a:not(.nav__btn) {
