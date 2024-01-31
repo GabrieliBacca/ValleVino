@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  address   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Type {
+  id   Int    @id @default(autoincrement())
+  type String @unique
+  Wine Wine[]
+}
+
+model Contry {
+  id      Int    @id @default(autoincrement())
+  country String @unique
+  Wine    Wine[]
+}
+
+model Grape {
+  id    Int    @id @default(autoincrement())
+  grape String @unique
+  Wine  Wine[]
+}
+
+model Harmony {
+  id      Int    @id @default(autoincrement())
+  harmony String @unique
+  Wine    Wine[]
+}
+
+model Wine {
+  id       Int    @id @default(autoincrement())
+  label    String
+  price    Float
+  quantity Int
+
+  type     Type   @relation(fields: [typeTipo], references: [type]) //se nao for depois atualizo pelo ID...
+  typeTipo String
+
+  country     Contry @relation(fields: [countryPais], references: [country])
+  countryPais String
+
+  grape    Grape  @relation(fields: [grapeUva], references: [grape])
+  grapeUva String
+
+  harmony             Harmony @relation(fields: [harmonyHarmonizacao], references: [harmony])
+  harmonyHarmonizacao String
+}
