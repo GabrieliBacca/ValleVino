@@ -12,14 +12,15 @@ datasource db {
 
 //modelo User para fazer o cadastro de usuario
 model User {
-  id        Int      @id @default(autoincrement())
+  id        Int        @id @default(autoincrement())
   name      String
-  email     String   @unique
+  email     String     @unique
   password  String
   address   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
   Review    Review[]
+  Shopping  Shopping[]
 }
 
 //modelo Review para os posts de review do usuario
@@ -30,6 +31,15 @@ model Review {
   user      User     @relation(fields: [userId], references: [id])
   userId    Int
   review    String
+}
+
+model Shopping {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  shopping  String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
 }
 
 //modelo Type para o tipo de vinho: espumante, tinto, champagne...
@@ -79,7 +89,7 @@ model Wine {
   WineHarmony WineHarmony[]
 }
 
-// tabela intermediária WineHarmony
+// tabela intermediária WineHarmony N para N
 model WineHarmony {
   wine   Wine @relation(fields: [wineId], references: [id])
   wineId Int
