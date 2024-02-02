@@ -46,14 +46,16 @@ body {
     inset: 0;
 }
 
+
 #video-bg {
-    position: fixed;
+    position: absolute;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
     z-index: -1;
     filter: brightness(0.3);
+    object-fit: cover;
 }
 
 .nav-links {
@@ -265,7 +267,7 @@ body {
 }
 
 .call-to-action-container button {
-    padding: 15px 135px;
+    padding: 10px 150px;
     background: transparent;
     border-radius: 50px;
     color: #fff;
@@ -283,4 +285,9 @@ a {
 .call-to-action-container button:hover {
     background-color: #fff;
     color: #000;
+}
+
+.content-container.hidden {
+    opacity: 0;
+    transition: opacity 0.9s ease-out;
 }
