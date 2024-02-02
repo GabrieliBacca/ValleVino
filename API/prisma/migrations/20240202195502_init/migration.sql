@@ -19,7 +19,9 @@ CREATE TABLE "Review" (
     "updatedAt" DATETIME NOT NULL,
     "userId" INTEGER NOT NULL,
     "review" TEXT NOT NULL,
-    CONSTRAINT "Review_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    "wineId" INTEGER,
+    CONSTRAINT "Review_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Review_wineId_fkey" FOREIGN KEY ("wineId") REFERENCES "Wine" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- CreateTable

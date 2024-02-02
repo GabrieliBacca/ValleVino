@@ -17,6 +17,8 @@ type UserDTO = {
 
 type ReviewDTO = {
     review: string,
+    createdAt: Date,
+    updatedAt: Date,
 
 }
 
@@ -53,8 +55,11 @@ type WineDTO = {
     wineReview: ReviewDTO,
 }
 
+type wineHarmony = {
+    wineid: number,
+    harmonyid: number
+}
 
-//pode adicionar no BookDTO o authorID: Number e mudar no connect para $book.authorID ...e retirar no parametro o $authorID : number)
 
 //Criar um novo User
 async function AddNewUser($userDTO: UserDTO) {
@@ -63,7 +68,6 @@ async function AddNewUser($userDTO: UserDTO) {
     })
     console.log(user)
 }
-
 
 //Criar um novo Usuario
 let user1: UserDTO = {
@@ -76,74 +80,149 @@ let user1: UserDTO = {
     telephone: 47988035265,
 }
 
-let autor2: AuthorDTO = {
-    firstName: 'Serei',
-    lastName: 'Apagado'
+let user2: UserDTO = {
+    name: 'Rodrigo Joel',
+    email: 'devrodrigobnu@gmail.com',
+    password: 'vinho123',
+    address: 'Rua dos vinhos, 123',
+    birthday: new Date(1990, 11, 26), //ano, mes, dia e janeiro = 0  
+    gender: 'Masculino',
+    telephone: 47996740173,
 }
 
-// AddNewAuthor(autor1)
-
-// AddNewAuthor(autor2)
-
-
-// funcao para mostrar todos os Autores... GET
-async function getAllAuthor() {
-    const authors = await prisma.author.findMany()
-    console.log(authors)
+let user3: UserDTO = {
+    name: 'Gabrieli Bacca',
+    email: ' ',
+    password: 'vinho123',
+    address: 'Rua dos vinhos, 123',
+    birthday: new Date(1982, 0, 7), //ano, mes, dia e janeiro = 0  
+    gender: 'Feminino',
+    telephone:  ,
 }
-// getAllAuthor()
 
-// funcao para buscar o Autor pelo ID
-async function getAuthorID(id: number) {
-    const authorID = await prisma.author.findUnique({
+let user4: UserDTO = {
+    name: 'Bruno',
+    email: ' ',
+    password: 'vinho123',
+    address: 'Rua dos vinhos, 123',
+    birthday: new Date(1982, 0, 7), //ano, mes, dia e janeiro = 0  
+    gender: 'Masculino',
+    telephone:  ,
+}
+
+//rodar a funcao pra criar os 4 usuarios
+AddNewUser(user1)
+AddNewUser(user2)
+AddNewUser(user3)
+AddNewUser(user4)
+
+
+// funcao para mostrar todos os Usuários... GET
+async function getAllUsers() {
+    const users = await prisma.user.findMany()
+    console.log(users)
+}
+//rodar a função
+getAllUsers()
+
+// funcao para buscar o Usuário pelo ID
+async function getUserId(id: number) {
+    const userId = await prisma.user.findUnique({
         where: {
             id: id
         }
     })
-    if (authorID == null) {
-        console.log('Autor não encontrado')
+    if (userId == null) {
+        console.log('Usuário não encontrado')
     } else {
-        console.log(authorID)
+        console.log(userId)
     }
-
 }
-// para retornar o Autor do id 1, que existe
 
-// getAuthorID(1)
+
+// para retornar o Usuário do id 1, que existe
+
+getUserId(1)
 
 // para retornar o Autor do id 2, que não existe
 
-getAuthorID(2)
+getUserId(2)
 
 
 
-async function deleteAuthor(id: number) {
-    const author = await prisma.author.delete({
+// Deletar usuario por ID
+async function deleteUser(id: number) {
+    const user = await prisma.user.delete({
         where: {
             id: id
         }
     })
-    if (author == null) {
-        console.log('Autor não encontrado')
+    if (user == null) {
+        console.log('Usuário não encontrado')
     } else {
-        console.log('Autor deletado com sucesso')
+        console.log('Usuário deletado com sucesso')
     }
 }
 
-async function updateAuthor(id: number, authorDTO: AuthorDTO) {
-    const author = await prisma.author.update({
+async function updateUser(id: number, userDTO: UserDTO) {
+    const user = await prisma.user.update({
         where: {
             id: id
         },
-        data: authorDTO
+        data: userDTO
     })
-    if (author == null) {
-        console.log('Autor não encontrado')
+    if (user == null) {
+        console.log('Usuário não encontrado')
     } else {
-        console.log('Autor atualizado com sucesso: ' + (author))
+        console.log('Usuário atualizado com sucesso: ' + (user))
     }
 
 }
+
+//agora para o Review
+async function addNewReview($review: ReviewDTO, $userID: number, $wineID: number) {
+    const review = await prisma.review.create({
+        data: {
+            review: $review.review,
+            createdAt: $review.createdAt,
+            updatedAt: $review.updatedAt,
+
+            user: {
+                connect: {
+                    id: $userID,
+                    id: $wineID
+                }
+            }
+        }
+    })
+    console.log(review)
+}
+
+// Criar o livro...
+
+// let livro1 = {
+//     title: 'Senhor dos Colares',
+//     isFiction: true,
+//     datePublished: new Date(),
+// }
+
+
+// Para criar o Livro....
+
+// addNewBook(livro1, 1)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 async function addNewBook($book: AddBookDTO, $authorID: number) {
     const book = await prisma.book.create({
