@@ -24,6 +24,8 @@ type ReviewDTO = {
 
 type ShoppingDTO = {
     shopping: string,
+    createdAt: Date,
+    updatedAt: Date,
 
 }
 
@@ -77,7 +79,7 @@ let user1: UserDTO = {
     address: 'Rua dos vinhos, 123',
     birthday: new Date(1982, 0, 7), //ano, mes, dia e janeiro = 0  
     gender: 'Masculino',
-    telephone: 47988035265,
+    telephone: 5547988035265,
 }
 
 let user2: UserDTO = {
@@ -87,27 +89,27 @@ let user2: UserDTO = {
     address: 'Rua dos vinhos, 123',
     birthday: new Date(1990, 11, 26), //ano, mes, dia e janeiro = 0  
     gender: 'Masculino',
-    telephone: 47996740173,
+    telephone: 5547996740173,
 }
 
 let user3: UserDTO = {
     name: 'Gabrieli Bacca',
-    email: ' ',
-    password: 'vinho123',
-    address: 'Rua dos vinhos, 123',
-    birthday: new Date(1982, 0, 7), //ano, mes, dia e janeiro = 0  
+    email: 'baccagabrieli@gmail.com',
+    password: '1234',
+    address: 'Rua Bonifácio Carlos Deschamps, 120',
+    birthday: new Date(2005, 2, 16), //ano, mes, dia e janeiro = 0  
     gender: 'Feminino',
-    telephone:  ,
+    telephone: 5547984196733,
 }
 
 let user4: UserDTO = {
-    name: 'Bruno',
-    email: ' ',
-    password: 'vinho123',
-    address: 'Rua dos vinhos, 123',
-    birthday: new Date(1982, 0, 7), //ano, mes, dia e janeiro = 0  
+    name: 'Bruno Amaral',
+    email: 'brunexcorp@gmail.com',
+    password: '1234',
+    address: 'Estrada das Videiras S/N, km 88',
+    birthday: new Date(1981, 0, 30), //ano, mes, dia e janeiro = 0  
     gender: 'Masculino',
-    telephone:  ,
+    telephone: 5547992421400,
 }
 
 //rodar a funcao pra criar os 4 usuarios
@@ -176,8 +178,19 @@ async function updateUser(id: number, userDTO: UserDTO) {
     } else {
         console.log('Usuário atualizado com sucesso: ' + (user))
     }
-
 }
+
+// Rodar a função para update o user 1 e alterar o nome  ***verificar se alterou só o nome...ARRUMAR
+updateUser(1, {
+    name: 'Rodrigo Ulir',
+    email: '',
+    password: '',
+    address: '',
+    birthday: new Date(),
+    gender: '',
+    telephone: 0
+});
+
 
 //agora para o Review
 async function addNewReview($review: ReviewDTO, $userID: number, $wineID: number) {
@@ -189,8 +202,7 @@ async function addNewReview($review: ReviewDTO, $userID: number, $wineID: number
 
             user: {
                 connect: {
-                    id: $userID,
-                    id: $wineID
+                    id: $userID & $wineID         //CONFERIR SE ESTÁ FUNCIONANDO
                 }
             }
         }
@@ -198,87 +210,204 @@ async function addNewReview($review: ReviewDTO, $userID: number, $wineID: number
     console.log(review)
 }
 
-// Criar o livro...
+// Criar o review...
 
-// let livro1 = {
-//     title: 'Senhor dos Colares',
-//     isFiction: true,
-//     datePublished: new Date(),
-// }
-
-
-// Para criar o Livro....
-
-// addNewBook(livro1, 1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-async function addNewBook($book: AddBookDTO, $authorID: number) {
-    const book = await prisma.book.create({
-        data: {
-            title: $book.title,
-            isFiction: $book.isFiction,
-            datePublished: $book.datePublished,
-            author: {
-                connect: {
-                    id: $authorID
-                }
-            }
-        }
-    })
-    console.log(book)
+let review1 = {
+    review: 'Bom vinho, com notas elegante',
+    createdAt: new Date(),
+    updatedAt: new Date(),
 }
 
+// Para rodar  a funcao do Review, feito pelo user de id 1 e para o wine 1
+addNewReview(review1, 1, 1)
 
-// Criar o livro...
+//função para mostrar todos os Reviews
+async function getAllReviews() {
+    const reviews = await prisma.review.findMany()
+    console.log(reviews)
+}
 
-// let livro1 = {
-//     title: 'Senhor dos Colares',
-//     isFiction: true,
-//     datePublished: new Date(),
-// }
-
-
-// Para criar o Livro....
-
-// addNewBook(livro1, 1)
+// Rodar a função para mostrar todos os Reviews
+getAllReviews()
 
 
-async function getBookID(id: number) {
-    const BookID = await prisma.book.findUnique({
+// função de pegar o Review pelo Id
+async function getReviewId(id: number) {
+    const ReviewId = await prisma.review.findUnique({
         where: {
             id: id
         },
         include: {
-            author: {}
+            user: {},
+            Wine: {}
         }
     })
-    if (BookID == null) {
-        console.log('Livro não encontrado')
+    if (ReviewId == null) {
+        console.log('Review não encontrado')
     } else {
-        console.log(BookID)
+        console.log(ReviewId)
     }
 }
 
-getBookID(2)
+// Rodar a função para mostrar o Review do id 1
+getReviewId(1)
+
+
+// Deletar Review por ID
+async function deleteReview(id: number) {
+    const review = await prisma.review.delete({
+        where: {
+            id: id
+        }
+    })
+    if (review == null) {
+        console.log('Review não encontrado')
+    } else {
+        console.log('Review deletado com sucesso')
+    }
+}
+
+// Rodar função para deletar o Review do id 1
+deleteReview(1)
+
+// Função de Atualizar o Review
+
+async function updateReview(id: number, reviewDTO: ReviewDTO) {
+    const review = await prisma.review.update({
+        where: {
+            id: id
+        },
+        data: reviewDTO
+    })
+    if (review == null) {
+        console.log('Review não encontrado')
+    } else {
+        console.log('Review atualizado com sucesso: ' + (review))
+    }
+}
+
+// Rodar a função para update o Review do id 1, VERIFICAR ****
+
+updateReview(1, {
+    review: 'Bom vinho, com nota elegante',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+})
+
+
+// Funções para Shopping / compras historico  
+
+async function addNewShopping($shopping: ShoppingDTO, $userID: number) {
+    const shopping = await prisma.shopping.create({
+        data: {
+            shopping: $shopping.shopping,
+            createdAt: $shopping.createdAt,
+            updatedAt: $shopping.updatedAt,
+
+            user: {
+                connect: {
+                    id: $userID,
+
+                }
+            }
+        }
+    })
+    console.log(shopping)
+}
+
+// Criar a compra...
+
+let shopping1 = {
+    shopping: '3 vinhos modelo, preço total de R$ 300,00',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+}
+
+// Para rodar  a funcao do Review, feito pelo user de id 1  
+addNewShopping(shopping1, 1)
+
+//função para mostrar todos as Compras
+async function getAllShoppings() {
+    const shoppings = await prisma.shopping.findMany()
+    console.log(shoppings)
+}
+
+// Rodar a função para mostrar todos as Compras
+getAllShoppings()
+
+
+// função de pegar a Compra pelo Id
+async function getShoppingId(id: number) {
+    const ShoppingId = await prisma.shopping.findUnique({
+        where: {
+            id: id
+        },
+        include: {
+            user: {},
+            Wine: {}
+        }
+    })
+    if (ShoppingId == null) {
+        console.log('Review não encontrado')
+    } else {
+        console.log(ShoppingId)
+    }
+}
+
+// Rodar a função para mostrar o Compra do id 1
+getShoppingId(1)
+
+
+// Deletar Compra por ID
+async function deleteShopping(id: number) {
+    const shopping = await prisma.shopping.delete({
+        where: {
+            id: id
+        }
+    })
+    if (shopping == null) {
+        console.log('Compra não encontrada')
+    } else {
+        console.log('Compra deletada com sucesso')
+    }
+}
+
+// Rodar função para deletar o Review do id 1
+deleteShopping(1)
+
+// Função de Atualizar o Review
+
+async function updateShopping(id: number, shoppingDTO: ShoppingDTO) {
+    const shopping = await prisma.shopping.update({
+        where: {
+            id: id
+        },
+        data: shoppingDTO
+    })
+    if (shopping == null) {
+        console.log('Compra não encontrada')
+    } else {
+        console.log('Compra atualizada com sucesso: ' + (shopping))
+    }
+}
+
+// Rodar a função para update o Review do id 1, VERIFICAR ****
+
+updateShopping(1, {
+    shopping: 'Comprou 2 vinhos, preco total de R$ 600,00',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+})
+
+
+// FALTA FAZER AS FUNÇOES DE  Country, Grape, Harmony, Type e Wine 
 
 
 
 
 
 async function main() {
-    // ... you will write your Prisma Client queries here
+    console.log('Hello world')
 }
 
 main()

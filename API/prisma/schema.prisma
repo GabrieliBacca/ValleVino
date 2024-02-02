@@ -45,6 +45,7 @@ model Shopping {
   shopping  String
   user      User     @relation(fields: [userId], references: [id])
   userId    Int
+  Wine      Wine[]
 }
 
 //modelo Type para o tipo de vinho: espumante, tinto, champagne...
@@ -95,6 +96,8 @@ model Wine {
   review Review[]
 
   WineHarmony WineHarmony[]
+  Shopping    Shopping?     @relation(fields: [shoppingId], references: [id])
+  shoppingId  Int?
 }
 
 // tabela intermediária WineHarmony N para N
