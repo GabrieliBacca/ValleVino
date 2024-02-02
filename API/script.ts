@@ -323,7 +323,7 @@ let shopping1 = {
     updatedAt: new Date(),
 }
 
-// Para rodar  a funcao do Review, feito pelo user de id 1  
+// Para rodar  a funcao do Compra, feito pelo user de id 1  
 addNewShopping(shopping1, 1)
 
 //função para mostrar todos as Compras
@@ -372,10 +372,10 @@ async function deleteShopping(id: number) {
     }
 }
 
-// Rodar função para deletar o Review do id 1
+// Rodar função para deletar o Compra do id 1
 deleteShopping(1)
 
-// Função de Atualizar o Review
+// Função de Atualizar o Compra
 
 async function updateShopping(id: number, shoppingDTO: ShoppingDTO) {
     const shopping = await prisma.shopping.update({
@@ -391,7 +391,7 @@ async function updateShopping(id: number, shoppingDTO: ShoppingDTO) {
     }
 }
 
-// Rodar a função para update o Review do id 1, VERIFICAR ****
+// Rodar a função para update a Compra do id 1, VERIFICAR ****
 
 updateShopping(1, {
     shopping: 'Comprou 2 vinhos, preco total de R$ 600,00',
@@ -399,11 +399,108 @@ updateShopping(1, {
     updatedAt: new Date(),
 })
 
+// Funções Type / tipo de vinho  
 
-// FALTA FAZER AS FUNÇOES DE  Country, Grape, Harmony, Type e Wine 
+async function addNewType($type: TypeDTO) {
+    const type = await prisma.type.create({
+        data: {
+            type: $type.type,
+        }
+    })
+    console.log(type)
+}
+
+// Criar o tipo...
+
+let type1 = {
+    type: 'Espumante',
+}
+
+let type2 = {
+    type: 'Champagne',
+}
+
+let type3 = {
+    type: 'Tinto',
+}
+
+
+// Para rodar  a funcao do tipo de uva.
+addNewType(type1)
+addNewType(type2)
+addNewType(type3)
 
 
 
+//função para mostrar todos os tipos de vinhos
+async function getAllTypes() {
+    const types = await prisma.type.findMany()
+    console.log(types)
+}
+
+// Rodar a função para mostrar todos os tipos de vinhos
+getAllTypes()
+
+
+// função de pegar o Type pelo Id
+async function getTypeId(id: number) {
+    const TypeId = await prisma.type.findUnique({
+        where: {
+            id: id
+        },
+
+    })
+    if (TypeId == null) {
+        console.log('Tipo de vinho não encontrado')
+    } else {
+        console.log(TypeId)
+    }
+}
+
+// Rodar a função para mostrar o tipo do vinho do id 1
+getTypeId(1)
+
+
+// Deletar Type  por ID
+async function deleteType(id: number) {
+    const type = await prisma.type.delete({
+        where: {
+            id: id
+        }
+    })
+    if (type == null) {
+        console.log('Tipo de vinho não encontrado')
+    } else {
+        console.log('Tipo de vinho deletado com sucesso')
+    }
+}
+
+// Rodar função para deletar o Compra do id 1
+deleteType(1)
+
+// Função de Atualizar o tipo de uva pelo id
+
+async function updateType(id: number, typeDTO: TypeDTO) {
+    const type = await prisma.type.update({
+        where: {
+            id: id
+        },
+        data: typeDTO
+    })
+    if (type == null) {
+        console.log('Tipo de vinho não encontrado')
+    } else {
+        console.log('Tipo de vinho atualizado com sucesso: ' + (type))
+    }
+}
+
+// Rodar a função para update a Type do id 1, VERIFICAR ****
+
+updateType(1, {
+    type: 'Espumante 2.0',
+})
+
+// FALTA FAZER AS FUNÇOES DE  Country, Grape, Harmony e Wine  (WineHarmony)
 
 
 async function main() {
