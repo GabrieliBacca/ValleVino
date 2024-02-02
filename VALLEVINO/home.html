@@ -7,17 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/VALLEVINO/assets/css/home.css" />
     <script src="https://kit.fontawesome.com/717cb95cb1.js" crossorigin="anonymous"></script>
+    <script src="/VALLEVINO/assets/js/header.js" defer></script>
     <title>Valle Vino</title>
 </head>
 
 <body>
-    <div>
-        <video autoplay muted loop id="video-bg">
-            <source src="/VALLEVINO/assets/video/home.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <header>
+    <header id="mainHeader">
         <nav class="nav-bar">
             <div class="nav-logo"><a href="#"><img src="/VALLEVINO/assets/img/vallevino-txtVasado-White.png" alt=""></a>
             </div>
@@ -36,6 +31,7 @@
             </div>
         </nav>
     </header>
+
     <section class="container" id="mainContent">
         <div class="content-container">
             <h1 id="mainTitle">
@@ -48,15 +44,18 @@
                 Nosso objetivo é
                 fazer com que você se sinta experimentando uma obra de arte engarrafada.
             </p>
+            <div class="call-to-action-container">
+                <button><a href="#">SHOP NOW</a></button>
+            </div>
         </div>
-        <div class="call-to-action-container">
-            <!-- <h1 class="frase-efeito">VOCÊ ESTÁ PRONTO PARA VIVER ESSA EXPERIÊNCIA?</h1> -->
-            <button><a href="#">SHOP NOW</a></button>
+
+        <div>
+            <div class="video-container">
+                <video autoplay muted loop id="video-bg">
+                    <source src="/VALLEVINO/assets/video/home.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
-    </section>
-
-    <section>
-
     </section>
 </body>
 
