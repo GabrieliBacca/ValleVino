@@ -1136,7 +1136,6 @@ async function updateWine(id: number, wine: WineDTO, typeId: number, countryId: 
 // }, wine1.type, wine1.country, wine1.grape, wine1.harmony, wine1.review);
 
 
-
 // Deletar Vinho  por ID
 async function deleteWine(id: number) {
     const wine = await prisma.wine.delete({
