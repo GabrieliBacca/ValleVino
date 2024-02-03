@@ -64,14 +64,19 @@ CREATE TABLE "Wine" (
     "label" TEXT NOT NULL,
     "price" REAL NOT NULL,
     "quantity" INTEGER NOT NULL,
+    "vinicula" TEXT NOT NULL,
     "year" INTEGER NOT NULL,
+    "alchoolic" INTEGER NOT NULL,
+    "description" TEXT NOT NULL,
     "typeId" INTEGER NOT NULL,
     "countryId" INTEGER NOT NULL,
     "grapeId" INTEGER NOT NULL,
+    "harmonyId" INTEGER NOT NULL,
     "shoppingId" INTEGER,
     CONSTRAINT "Wine_typeId_fkey" FOREIGN KEY ("typeId") REFERENCES "Type" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Wine_countryId_fkey" FOREIGN KEY ("countryId") REFERENCES "Country" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Wine_grapeId_fkey" FOREIGN KEY ("grapeId") REFERENCES "Grape" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Wine_harmonyId_fkey" FOREIGN KEY ("harmonyId") REFERENCES "Harmony" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Wine_shoppingId_fkey" FOREIGN KEY ("shoppingId") REFERENCES "Shopping" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
