@@ -142,3 +142,20 @@ export const deleteWineById = async (id: number): Promise<Wine | null> => {
         }
     })
 }
+
+
+//modelo JSON para adicionar/atualizar um vinho:
+
+// {
+//     "label": "Angelica Zapata Cabernet Franc",
+//         "price": 145.00,
+//             "quantity": 1,
+//                 "vinicula": "Catena Zapata",
+//                     "year": 2019,
+//                         "alchoolic": 14.00,
+//                             "description": "Angelica Zapata Cabernet Franc é uma prova de que a Argentina não se resume apenas à Malbec. A Cabernet Franc origina vinhos fantásticos no país, principalmente nas mãos da Catena – produtor que faz muito sucesso entre os clientes da Vino Mundi. O vinho é elegância pura. Longo, persistente e com a intensidade de um tinto que descansou por 18 meses em carvalho.",
+//                                 "typeId": 2,
+//                                     "countryId": 3,
+//                                         "grapeId": 10,
+//                                             "harmonyId": 1
+// }
