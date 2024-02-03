@@ -116,10 +116,10 @@ let user4: UserDTO = {
 }
 
 //rodar a funcao pra criar os 4 usuarios
-AddNewUser(user1)
-AddNewUser(user2)
-AddNewUser(user3)
-AddNewUser(user4)
+// AddNewUser(user1)
+// AddNewUser(user2)
+// AddNewUser(user3)
+// AddNewUser(user4)
 
 
 // funcao para mostrar todos os Usuários... GET
@@ -128,9 +128,9 @@ async function getAllUsers() {
     console.log(users)
 }
 //rodar a função
-getAllUsers()
+// getAllUsers()
 
-// funcao para buscar o Usuário pelo ID
+// // funcao para buscar o Usuário pelo ID
 async function getUserId(id: number) {
     const userId = await prisma.user.findUnique({
         where: {
@@ -147,14 +147,14 @@ async function getUserId(id: number) {
 
 // para retornar o Usuário do id 1, que existe
 
-getUserId(1)
+// getUserId(1)
 
 // para retornar o Usuário do id 5, que não existe
 
 getUserId(5)
 
 
-
+// Funcao para atualizar o Usuário
 async function updateUser(id: number, userDTO: UserDTO) {
     const user = await prisma.user.update({
         where: {
@@ -170,17 +170,19 @@ async function updateUser(id: number, userDTO: UserDTO) {
 }
 
 // Rodar a função para update o user 1 e alterar o nome  ***verificar se alterou só o nome...ARRUMAR
-updateUser(1, {
-    name: 'Rodrigo Ulir Braz',
-    email: '',
-    password: '',
-    address: '',
-    birthday: new Date(),
-    gender: '',
-    telephone: 0
-});
+// updateUser(1, {
+//     name: 'Rodrigo Ulir Braz',
+//     email: 'rulir@hotmail.com',
+//     password: 'vinho123',
+//     address: 'Rua dos vinhos, 123',
+//     birthday: new Date(1982, 0, 7), //ano, mes, dia e janeiro = 0  
+//     gender: 'Masculino',
+//     telephone: 5547988035265,
+// });
 
-// Deletar usuario por ID
+
+getAllUsers()
+// // Deletar usuario por ID
 async function deleteUser(id: number) {
     const user = await prisma.user.delete({
         where: {
@@ -193,7 +195,8 @@ async function deleteUser(id: number) {
         console.log('Usuário deletado com sucesso')
     }
 }
-deleteUser(6)
+//Rodar a função para deletar o user 1
+// deleteUser(1)
 
 //agora para o Review
 async function addNewReview($review: ReviewDTO, $userID: number, $wineID: number) {
@@ -205,7 +208,7 @@ async function addNewReview($review: ReviewDTO, $userID: number, $wineID: number
 
             user: {
                 connect: {
-                    id: $userID & $wineID         //CONFERIR SE ESTÁ FUNCIONANDO
+                    id: $userID | $wineID         //ARRUMAR aqui o ID do wine e do user
                 }
             }
         }
@@ -227,9 +230,9 @@ let review2 = {
     updatedAt: new Date(),
 }
 
-// Para rodar  a funcao do Review, feito pelo user de id 1 e para o wine 1
-addNewReview(review1, 1, 1)
-addNewReview(review2, 2, 2)
+// Para rodar  a funcao do Review, feito pelo user de id 2 e para o wine 1
+// addNewReview(review1, 1, 1)
+// addNewReview(review2, 2, 2)
 
 //função para mostrar todos os Reviews
 async function getAllReviews() {
@@ -238,7 +241,7 @@ async function getAllReviews() {
 }
 
 // Rodar a função para mostrar todos os Reviews
-getAllReviews()
+// getAllReviews()
 
 
 // função de pegar o Review pelo Id
@@ -259,10 +262,10 @@ async function getReviewId(id: number) {
     }
 }
 
-// Rodar a função para mostrar o Review do id 1
-getReviewId(1)
+// // Rodar a função para mostrar o Review do id 1
+// getReviewId(1)
 
-// Função de Atualizar o Review
+// // Função de Atualizar o Review
 
 async function updateReview(id: number, reviewDTO: ReviewDTO) {
     const review = await prisma.review.update({
@@ -278,13 +281,13 @@ async function updateReview(id: number, reviewDTO: ReviewDTO) {
     }
 }
 
-// Rodar a função para update o Review do id 1, VERIFICAR ****
+// // Rodar a função para update o Review do id 1, VERIFICAR ****
 
-updateReview(1, {
-    review: 'Bom vinho, com nota elegante',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-})
+// updateReview(1, {
+//     review: 'Bom vinho, com nota elegante',
+//     createdAt: new Date(),
+//     updatedAt: new Date(),
+// })
 
 // Deletar Review por ID
 async function deleteReview(id: number) {
@@ -300,11 +303,11 @@ async function deleteReview(id: number) {
     }
 }
 
-// Rodar função para deletar o Review do id 1
-deleteReview(1)
+// // Rodar função para deletar o Review do id 1
+// deleteReview(1)
 
 
-// Funções para Shopping / compras historico  
+// // Funções para Shopping / compras historico  
 
 async function addNewShopping($shopping: ShoppingDTO, $userID: number) {
     const shopping = await prisma.shopping.create({
@@ -324,7 +327,7 @@ async function addNewShopping($shopping: ShoppingDTO, $userID: number) {
     console.log(shopping)
 }
 
-// Criar a compra...
+// // Criar a compra...
 
 let shopping1 = {
     shopping: '3 vinhos modelo, preço total de R$ 300,00',
@@ -333,7 +336,7 @@ let shopping1 = {
 }
 
 // Para rodar  a funcao do Compra, feito pelo user de id 1  
-addNewShopping(shopping1, 1)
+// addNewShopping(shopping1, 1)
 
 //função para mostrar todos as Compras
 async function getAllShoppings() {
@@ -366,7 +369,7 @@ async function getShoppingId(id: number) {
 // Rodar a função para mostrar o Compra do id 1
 getShoppingId(1)
 
-// Função de Atualizar o Compra
+// // Função de Atualizar a Compra
 
 async function updateShopping(id: number, shoppingDTO: ShoppingDTO) {
     const shopping = await prisma.shopping.update({
@@ -382,15 +385,17 @@ async function updateShopping(id: number, shoppingDTO: ShoppingDTO) {
     }
 }
 
-// Rodar a função para update a Compra do id 1, VERIFICAR ****
+// // Rodar a função para update a Compra do id 1, VERIFICAR ****
 
-updateShopping(1, {
-    shopping: 'Comprou 2 vinhos, preco total de R$ 600,00',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-})
+// updateShopping(1, {
+//     shopping: 'Comprou 2 vinhos, preco total de R$ 600,00',
+//     createdAt: new Date(),
+//     updatedAt: new Date(),
+// })
 
-// Deletar Compra por ID
+
+
+// // Deletar Compra por ID
 async function deleteShopping(id: number) {
     const shopping = await prisma.shopping.delete({
         where: {
@@ -404,12 +409,12 @@ async function deleteShopping(id: number) {
     }
 }
 
-// Rodar função para deletar o Compra do id 1
-deleteShopping(1)
+// // Rodar função para deletar o Compra do id 1
+// deleteShopping(1)
 
+getAllShoppings()
 
-
-// Funções Type / tipo de vinho  
+// // Funções Type / tipo de vinho  
 
 async function addNewType($type: TypeDTO) {
     const type = await prisma.type.create({
@@ -440,10 +445,10 @@ let type4 = {
 
 
 // Para rodar  a funcao do tipo de uva.
-addNewType(type1)
-addNewType(type2)
-addNewType(type3)
-addNewType(type4)
+// addNewType(type1)
+// addNewType(type2)
+// addNewType(type3)
+// addNewType(type4)
 
 
 
@@ -472,10 +477,10 @@ async function getTypeId(id: number) {
     }
 }
 
-// Rodar a função para mostrar o tipo do vinho do id 1
+// // Rodar a função para mostrar o tipo do vinho do id 1
 getTypeId(1)
 
-// Função de Atualizar o tipo de uva pelo id
+// // Função de Atualizar o tipo de uva pelo id
 
 async function updateType(id: number, typeDTO: TypeDTO) {
     const type = await prisma.type.update({
@@ -493,11 +498,15 @@ async function updateType(id: number, typeDTO: TypeDTO) {
 
 // Rodar a função para update a Type do id 1, VERIFICAR ****
 
-updateType(1, {
-    type: 'Espumante',
-})
+// updateType(1, {
+//     type: 'Espumante',
+// })
 
-// Deletar Type  por ID
+// updateType(3, {
+//     type: 'Champagne',
+// })
+
+// // Deletar Type  por ID
 async function deleteType(id: number) {
     const type = await prisma.type.delete({
         where: {
@@ -511,11 +520,11 @@ async function deleteType(id: number) {
     }
 }
 
-// Rodar função para deletar o Type do id 1
-deleteType(6)
+// // Rodar função para deletar o Type do id 1
+// // deleteType(6)
 
 
-// Funções Country / país  
+// // Funções Country / país  
 
 async function addNewCountry($country: CountryDTO) {
     const country = await prisma.country.create({
@@ -554,12 +563,12 @@ let country6 = {
 
 
 // Para rodar  a funcao dos paises.
-addNewCountry(country1)
-addNewCountry(country2)
-addNewCountry(country3)
-addNewCountry(country4)
-addNewCountry(country5)
-addNewCountry(country6)
+// addNewCountry(country1)
+// addNewCountry(country2)
+// addNewCountry(country3)
+// addNewCountry(country4)
+// addNewCountry(country5)
+// addNewCountry(country6)
 
 //função para mostrar todos os paises cadastrados
 async function getAllCountries() {
@@ -605,11 +614,11 @@ async function updateCountry(id: number, countryDTO: CountryDTO) {
     }
 }
 
-// Rodar a função para update do Country do id 1, VERIFICAR ****
+// // Rodar a função para update do Country do id 1, VERIFICAR ****
 
-updateCountry(1, {
-    country: 'Espanha',
-})
+// updateCountry(2, {
+//     country: 'Espanha',
+// })
 
 // Deletar Country  por ID
 async function deleteCountry(id: number) {
@@ -626,22 +635,20 @@ async function deleteCountry(id: number) {
 }
 
 // Rodar função para deletar o Country do id 1
-deleteCountry(11)
-
-
-
-// FALTA FAZER AS FUNÇOES DE   Harmony e Wine  (WineHarmony)
+// deleteCountry(11)
 
 // Funções Grape / uva  
 
-async function addNewGrape($grape: GrapeDTO) {
-    const grape = await prisma.grape.create({
+async function addNewGrape(grape: GrapeDTO) {
+    const Newgrape = await prisma.grape.create({
         data: {
-            grape: $grape.grape,
+            grape: grape.grape,
         }
     })
-    console.log(grape)
+    console.log(Newgrape)
 }
+
+
 
 // Criar as uvas...
 
@@ -691,17 +698,17 @@ let grape11 = {
 
 
 // Para rodar  a funcao cadastrar das uvas.
-addNewGrape(grape1)
-addNewGrape(grape2)
-addNewGrape(grape3)
-addNewGrape(grape4)
-addNewGrape(grape5)
-addNewGrape(grape6)
-addNewGrape(grape7)
-addNewGrape(grape8)
-addNewGrape(grape9)
-addNewGrape(grape10)
-addNewGrape(grape11)
+// addNewGrape(grape1)
+// addNewGrape(grape2)
+// addNewGrape(grape3)
+// addNewGrape(grape4)
+// addNewGrape(grape5)
+// addNewGrape(grape6)
+// addNewGrape(grape7)
+// addNewGrape(grape8)
+// addNewGrape(grape9)
+// addNewGrape(grape10)
+// addNewGrape(grape11)
 
 
 //função para mostrar todos as uvas cadastrados
@@ -750,9 +757,9 @@ async function updateGrape(id: number, grapeDTO: GrapeDTO) {
 
 // Rodar a função para update da Uva do id 1, VERIFICAR ****
 
-updateGrape(1, {
-    grape: 'Trepat e Grenache',
-})
+// updateGrape(7, {
+//     grape: 'Trepat e Grenache',
+// })
 
 
 // Deletar Uva  por ID
@@ -770,7 +777,7 @@ async function deleteGrape(id: number) {
 }
 
 // Rodar função para deletar a Uva do id 1
-deleteGrape(19)
+// deleteGrape(19)
 
 
 
@@ -837,18 +844,17 @@ let harmony11 = {
 //fiz até o Luigi Bosca Malbec 2022
 
 // Para rodar  a funcao cadastrar das harmonizacoes.
-addNewHarmony(harmony1)
-addNewHarmony(harmony2)
-addNewHarmony(harmony3)
-addNewHarmony(harmony4)
-addNewHarmony(harmony5)
-addNewHarmony(harmony6)
-addNewHarmony(harmony7)
-addNewHarmony(harmony8)
-addNewHarmony(harmony9)
-addNewHarmony(harmony10)
-addNewHarmony(harmony11)
-
+// addNewHarmony(harmony1)
+// addNewHarmony(harmony2)
+// addNewHarmony(harmony3)
+// addNewHarmony(harmony4)
+// addNewHarmony(harmony5)
+// addNewHarmony(harmony6)
+// addNewHarmony(harmony7)
+// addNewHarmony(harmony8)
+// addNewHarmony(harmony9)
+// addNewHarmony(harmony10)
+// addNewHarmony(harmony11)
 
 //função para mostrar todos as harmonizacoes cadastradas
 async function getAllHarmonies() {
@@ -856,7 +862,7 @@ async function getAllHarmonies() {
     console.log(harmonys)
 }
 
-// Rodar a função para mostrar todas as uvas
+// Rodar a função para mostrar todas as harmonizacoes
 getAllHarmonies()
 
 
@@ -878,7 +884,7 @@ async function getHarmonyId(id: number) {
 // Rodar a função para mostrar a harmonizacao do id 1
 getHarmonyId(1)
 
-// Função de Atualizar a Harmonizacao pelo id
+// // Função de Atualizar a Harmonizacao pelo id
 
 async function updateHarmony(id: number, harmonyDTO: HarmonyDTO) {
     const harmony = await prisma.harmony.update({
@@ -894,11 +900,11 @@ async function updateHarmony(id: number, harmonyDTO: HarmonyDTO) {
     }
 }
 
-// Rodar a função para update da harmonizacao do id 1, VERIFICAR ****
+// // Rodar a função para update da harmonizacao do id 1, VERIFICAR ****
 
-updateHarmony(1, {
-    harmony: 'Carpaccio de salmão defumado, escalopinho de mignon, casquinha de siri, risoto de abóbora com quadradinhos de legumes, fettucine all matriciana, sashimi, puchero, cassoulet, feijoada, berinjela gratinada com ricota defumada, Grenache.',
-})
+// updateHarmony(10, {
+//     harmony: 'Carpaccio de salmão defumado, escalopinho de mignon, casquinha de siri, risoto de abóbora com quadradinhos de legumes, fettucine all matriciana, sashimi, puchero, cassoulet, feijoada, berinjela gratinada com ricota defumada, Grenache.',
+// })
 
 // Deletar Harmonizacao  por ID
 async function deleteHarmony(id: number) {
@@ -915,55 +921,56 @@ async function deleteHarmony(id: number) {
 }
 
 // Rodar função para deletar a harmonizacao do id 1
-deleteHarmony(19)
+// deleteHarmony(19)
 
 
-// Funções Wine  
-
-// Criar um novo vinho
+// Function addNewWine refactored with error handling
 async function addNewWine(wine: WineDTO, typeId: number, countryId: number, grapeId: number, harmonyId: number, reviewId: number) {
-    const newWine = await prisma.wine.create({
-        data: {
-            label: wine.label,
-            price: wine.price,
-            quantity: wine.quantity,
-            year: wine.year,
-            vinicula: wine.vinicula,
-            alchoolic: wine.alchoolic,
-            description: wine.description,
+    try {
+        const newWine = await prisma.wine.create({
+            data: {
+                label: wine.label,
+                price: wine.price,
+                quantity: wine.quantity,
+                year: wine.year,
+                vinicula: wine.vinicula,
+                alchoolic: wine.alchoolic,
+                description: wine.description,
 
-            type: {
-                connect: {
-                    id: typeId
-                }
-            },
-            country: {
-                connect: {
-                    id: countryId
-                }
-            },
-            grape: {
-                connect: {
-                    id: grapeId
-                }
-            },
-            harmony: {
-                connect: {
-                    id: harmonyId
-                }
-            },
-            review: {
-                connect: {
-                    id: reviewId
-                }
-            },
-        }
-    });
-    console.log(newWine);
+                type: {
+                    connect: {
+                        id: typeId
+                    }
+                },
+                country: {
+                    connect: {
+                        id: countryId
+                    }
+                },
+                grape: {
+                    connect: {
+                        id: grapeId
+                    }
+                },
+                harmony: {
+                    connect: {
+                        id: harmonyId
+                    }
+                },
+                review: {
+                    connect: {
+                        id: reviewId
+                    }
+                },
+            }
+        });
+        console.log(newWine);
+    } catch (error) {
+        console.error('Error adding new wine:', error);
+    }
 }
 
-// Criar os vinhos com os ID de referencia...
-
+// Criar os vinhos usando os IDs recém-criados
 let wine1 = {
     label: "Freixenet Cava Cordon Rosado Brut Rosee",
     price: 75.00,
@@ -973,13 +980,11 @@ let wine1 = {
     alchoolic: 12.00,
     description: "Essa cava rosé com uma coloração cereja brilhante e aromas de framboesas e amoras, notas de louro, é muito refrescante com suas borbulhas. Uma tradição na produção de espumantes através do método tradicional a Freixenet é a empresa mais conhecida na Espanha e referência no mercado internacional.",
     type: 1,
-    country: 1,
-    grape: 1,
-    harmony: 1,
-    review: 1
+    country: 2,
+    grape: 2,
+    harmony: 2,
+    review: 1 // Você precisa definir um ID de revisão válido
 }
-
-
 let wine2 = {
     label: "Freixenet Cava Cordon Negro Brut",
     price: 75.00,
@@ -992,7 +997,7 @@ let wine2 = {
     country: 1,
     grape: 2,
     harmony: 2,
-    review: 2
+    review: 1
 }
 
 let wine3 = {
@@ -1007,7 +1012,7 @@ let wine3 = {
     country: 1,
     grape: 3,
     harmony: 3,
-    review: 3
+    review: 2
 }
 
 let wine4 = {
@@ -1022,20 +1027,20 @@ let wine4 = {
     country: 2,
     grape: 4,
     harmony: 4,
-    review: 4
+    review: 2
 }
 //fiz até o Veuve Clicquot, tem que rodar o prisma pra anotar os ID de referência..
 
-// Para rodar  a funcao cadastrar dos  vinhos.
 
-addNewWine(wine1, wine1.type, wine1.country, wine1.grape, wine1.harmony, wine1.review);
-addNewWine(wine2, wine2.type, wine2.country, wine2.grape, wine2.harmony, wine2.review);
-addNewWine(wine3, wine3.type, wine3.country, wine3.grape, wine3.harmony, wine3.review);
-addNewWine(wine4, wine4.type, wine4.country, wine4.grape, wine4.harmony, wine4.review);
+// Para rodar a função cadastrar dos vinhos. Funcionou, mas precisou ser 1 por vez...
+
+// addNewWine(wine1, wine1.type, wine1.country, wine1.grape, wine1.harmony, wine1.review);
+// addNewWine(wine2, wine2.type, wine2.country, wine2.grape, wine2.harmony, wine2.review);
+// addNewWine(wine3, wine3.type, wine3.country, wine3.grape, wine3.harmony, wine3.review);
+// addNewWine(wine4, wine4.type, wine4.country, wine4.grape, wine4.harmony, wine4.review);
 
 
-
-//função para mostrar todos os vinhos cadastrados
+// //função para mostrar todos os vinhos cadastrados
 async function getAllWines() {
     const wines = await prisma.wine.findMany()
     console.log(wines)
@@ -1063,7 +1068,7 @@ async function getWineId(id: number) {
 // Rodar a função para mostrar o vinho do id 1
 getWineId(1)
 
-// Função de Atualizar a Harmonizacao pelo id
+// Função de Atualizar o Vinho pelo id
 
 async function updateWine(id: number, wine: WineDTO, typeId: number, countryId: number, grapeId: number, harmonyId: number, reviewId: number) {
     const upwine = await prisma.wine.update({
@@ -1078,6 +1083,7 @@ async function updateWine(id: number, wine: WineDTO, typeId: number, countryId: 
             vinicula: wine.vinicula,
             alchoolic: wine.alchoolic,
             description: wine.description,
+
             type: {
                 connect: {
                     id: typeId
@@ -1103,64 +1109,65 @@ async function updateWine(id: number, wine: WineDTO, typeId: number, countryId: 
                     id: reviewId
                 }
             },
-        }
-    });
+        },
+    }
+    )
     if (upwine == null) {
         console.log('Vinho não encontrado')
     } else {
         console.log('Vinho atualizado com sucesso: ' + (upwine))
     }
+}
+// Rodar a função para update do vinho do id 1, VERIFICAR ****
 
-    // Rodar a função para update do vinho do id 1, VERIFICAR ****
 
 
-    updateWine(1, {
-        label: "Freixenet Cava Cordon Rosado Brut Rosé",
-        price: 75.00,
-        quantity: 9,
-        year: 0,
-        vinicula: "Freixenet",
-        alchoolic: 12.00,
-        description: "Essa cava rosé com uma coloração cereja brilhante e aromas de framboesas e amoras, notas de louro, é muito refrescante com suas borbulhas. Uma tradição na produção de espumantes através do método tradicional a Freixenet é a empresa mais conhecida na Espanha e referência no mercado internacional.",
-        type: 1,
-        country: 1,
-        grape: 1,
-        harmony: 1,
-        review: 1
-    }, typeId, countryId, grapeId, harmonyId, reviewId);
+updateWine(1, {
+    label: "Freixenet Cava Cordon Rosado Brut Rosé",
+    price: 75.00,
+    quantity: 9,
+    year: 0,
+    vinicula: "Freixenet",
+    alchoolic: 12.00,
+    description: "Essa cava rosé com uma coloração cereja brilhante e aromas de framboesas e amoras, notas de louro, é muito refrescante com suas borbulhas. Uma tradição na produção de espumantes através do método tradicional a Freixenet é a empresa mais conhecida na Espanha e referência no mercado internacional.",
+    type: 1,
+    country: 1,
+    grape: 1,
+    harmony: 1,
+    review: 1
+}, wine1.type, wine1.country, wine1.grape, wine1.harmony, wine1.review);
 
-    // Deletar Vinho  por ID
-    async function deleteWine(id: number) {
-        const wine = await prisma.wine.delete({
-            where: {
-                id: id
-            }
-        })
-        if (wine == null) {
-            console.log('Vinho não encontrado')
-        } else {
-            console.log('Vinho deletado com sucesso')
+// Deletar Vinho  por ID
+async function deleteWine(id: number) {
+    const wine = await prisma.wine.delete({
+        where: {
+            id: id
         }
+    })
+    if (wine == null) {
+        console.log('Vinho não encontrado')
+    } else {
+        console.log('Vinho deletado com sucesso')
     }
+}
 
-    // Rodar função para deletar a harmonizacao do id 1
-    deleteWine(51)
+// Rodar função para deletar a harmonizacao do id 1
+// deleteWine(51)
 
 
 
-    // FALTA FAZER AS FUNÇOES DE   WineHarmony?
+// FALTA FAZER AS FUNÇOES DE   WineHarmony?
 
-    async function main() {
-        console.log('Hello world')
-    }
+async function main() {
+    console.log('Hello world')
+}
 
-    main()
-        .then(async () => {
-            await prisma.$disconnect()
-        })
-        .catch(async (e) => {
-            console.error(e)
-            await prisma.$disconnect()
-            process.exit(1)
-        })
-}   
+main()
+    .then(async () => {
+        await prisma.$disconnect()
+    })
+    .catch(async (e) => {
+        console.error(e)
+        await prisma.$disconnect()
+        process.exit(1)
+    })

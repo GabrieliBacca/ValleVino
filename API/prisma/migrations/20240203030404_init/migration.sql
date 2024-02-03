@@ -3,7 +3,7 @@ CREATE TABLE "User" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "telephone" INTEGER NOT NULL,
+    "telephone" BIGINT NOT NULL,
     "password" TEXT NOT NULL,
     "address" TEXT NOT NULL,
     "birthday" DATETIME NOT NULL,
