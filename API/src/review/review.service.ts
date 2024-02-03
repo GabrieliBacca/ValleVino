@@ -43,7 +43,7 @@ export const createReview = async (review: Review, userId: number, wineId: numbe
         data: {
             review: review.review,
             user: { connect: { id: userId } },
-            wine: { connect: { id: wineId } }
+            Wine: { connect: { id: wineId } }
         },
         select: {
             id: true,
@@ -60,7 +60,7 @@ export const updateReview = async (review: Omit<Review, "id">, id: number, userI
         data: {
             review: review.review,
             user: { connect: { id: userId } },
-            wine: { connect: { id: wineId } }
+            Wine: { connect: { id: wineId } }
         },
         select: {
             id: true,

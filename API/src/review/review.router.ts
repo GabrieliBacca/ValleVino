@@ -35,18 +35,20 @@ ReviewRouter.get("/:id", async (request: Request, response: Response) => {
     }
 });
 // rota para criar um novo review
-ReviewRouter.post('/', body("shopping").isString(), body("userId").isNumeric(), body("wineId").isNumeric(),
+ReviewRouter.post('/',
+    body("shopping").isString(),
+    body("userId").isNumeric(),
+    body("wineId").isNumeric(),
     async (request: Request, response: Response) => {
         try {
-            const review = request.body
-            const newReview = await ReviewService.createReview(review, review.userId, review.wineId) // use userId em vez de userid
-            return response.status(201).json(newReview)
-        }
-        catch (error: any) {
-            return response.status(500).json(error.message)
+            const { userId, wineId, ...reviewData } = request.body;
+            const newReview = await ReviewService.createReview(reviewData, userId, wineId);
+            return response.status(201).json(newReview);
+        } catch (error: any) {
+            return response.status(500).json(error.message);
         }
     }
-)
+);
 // rota para atualizar um review
 ReviewRouter.put('/:id', body("shopping").isString(), body("userId").isNumeric(), body("wineId").isNumeric(),
     async (request: Request, response: Response) => {
