@@ -1120,22 +1120,22 @@ async function updateWine(id: number, wine: WineDTO, typeId: number, countryId: 
 }
 // Rodar a função para update do vinho do id 1, VERIFICAR ****
 
+// updateWine(1, {
+//     label: "Freixenet Cava Cordon Rosado Brut Rosé",
+//     price: 75.00,
+//     quantity: 9,
+//     year: 0,
+//     vinicula: "Freixenet",
+//     alchoolic: 12.00,
+//     description: "Essa cava rosé com uma coloração cereja brilhante e aromas de framboesas e amoras, notas de louro, é muito refrescante com suas borbulhas. Uma tradição na produção de espumantes através do método tradicional a Freixenet é a empresa mais conhecida na Espanha e referência no mercado internacional.",
+//     type: 1,
+//     country: 1,
+//     grape: 1,
+//     harmony: 1,
+//     review: 1
+// }, wine1.type, wine1.country, wine1.grape, wine1.harmony, wine1.review);
 
 
-updateWine(1, {
-    label: "Freixenet Cava Cordon Rosado Brut Rosé",
-    price: 75.00,
-    quantity: 9,
-    year: 0,
-    vinicula: "Freixenet",
-    alchoolic: 12.00,
-    description: "Essa cava rosé com uma coloração cereja brilhante e aromas de framboesas e amoras, notas de louro, é muito refrescante com suas borbulhas. Uma tradição na produção de espumantes através do método tradicional a Freixenet é a empresa mais conhecida na Espanha e referência no mercado internacional.",
-    type: 1,
-    country: 1,
-    grape: 1,
-    harmony: 1,
-    review: 1
-}, wine1.type, wine1.country, wine1.grape, wine1.harmony, wine1.review);
 
 // Deletar Vinho  por ID
 async function deleteWine(id: number) {

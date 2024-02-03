@@ -8,61 +8,58 @@ export type Country = {
     country: string,
 }
 
-// ARRUMAR....
-// seria isso aqui   async function   = async (): Promise<Author[]> => {}               ....
-export const getAuthors = async (): Promise<Author[]> => {
-    // const author = await db.author.findMany()   // ou pode tirar o const e colocar direto no return....
-    return await db.author.findMany({
+// servico para pegar todos os paises.               ....
+export const getCountrys = async (): Promise<Country[]> => {
+    return await db.country.findMany({
         select: {
             id: true,
-            firsName: true,
-            lastName: true
+            country: true,
         }
 
     })
 }
 
-export const getAuthorsById = async (id: number): Promise<Author | null> => {
-    return db.author.findUnique({
+
+//servico para pegar o pais pelo ID
+export const getCountryById = async (id: number): Promise<Country | null> => {
+    return db.country.findUnique({
         where: {
             id: id
         }, select: {
             id: true,
-            firsName: true,
-            lastName: true
+            country: true,
         }
     })
 }
 
-//nesse modelo o Omit vai omitir o campo ID do Author....semelhante ao uso do select e false no atributo....
-export const createAuthor = async (author: Omit<Author, "id">): Promise<Author> => {
-    return db.author.create({
-        data: author,
+// servico para criar um novo pais
+export const createCountry = async (country: Omit<Country, "id">): Promise<Country> => {
+    return db.country.create({
+        data: country,
         select: {
             id: true,
-            firsName: true,
-            lastName: true
+            country: true,
         }
     })
 }
 
-// o Omit omite o ID do Front pelo JSON ao pedir mas pega o ID da ROTA
-export const updateAuthor = async (author: Omit<Author, "id">, id: number): Promise<Author> => {
-    return db.author.update({
+// servico para atualizar um  pais
+export const updateCountry = async (country: Omit<Country, "id">, id: number): Promise<Country> => {
+    return db.country.update({
         where: {
             id: id
         },
-        data: author,
+        data: country,
         select: {
             id: true,
-            firsName: true,
-            lastName: true
+            country: true,
         }
     })
 }
 
-export const deleteAuthorById = async (id: number): Promise<Author | null> => {
-    return db.author.delete({
+// servico para deletar um  pais
+export const deleteCountryById = async (id: number): Promise<Country | null> => {
+    return db.country.delete({
         where: {
             id: id
         }
