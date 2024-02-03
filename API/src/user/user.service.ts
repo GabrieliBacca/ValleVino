@@ -92,11 +92,20 @@ export const createUser = async (user: Omit<User, "id">): Promise<User> => {
 
 // servico para atualizar um user
 export const updateUser = async (user: Omit<User, "id">, id: number): Promise<User> => {
+
+    const newUser = {
+        ...user,
+        telephone: BigInt(user.telephone) // Convertendo para BigInt
+    };
+
+    // Convertendo a string de data para um objeto Date
+    newUser.birthday = new Date(user.birthday);
+
     return db.user.update({
         where: {
             id: id
         },
-        data: user,
+        data: newUser,
         select: {
             id: true,
             name: true,
