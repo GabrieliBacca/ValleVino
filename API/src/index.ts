@@ -6,6 +6,7 @@ import { GrapeRouter } from "./grape/grape.router";
 import { HarmonyRouter } from "./harmony/harmony.router";
 import { TypeRouter } from "./type/type.router";
 import { UserRouter } from "./user/user.router";
+import { ShoppingRouter } from "./shopping/shopping.router";
 
 //fazer o import de todas as rotas
 
@@ -28,6 +29,7 @@ app.use("/api/grape", GrapeRouter)
 app.use("/api/harmony", HarmonyRouter)
 app.use("/api/type", TypeRouter)
 app.use("/api/user", UserRouter)
+app.use("/api/shopping", ShoppingRouter)
 
 
 app.listen(PORT, () => {
