@@ -10,11 +10,11 @@ export const CountryRouter = express.Router()
 
 //ARRUMAR PRA BAIXO
 //GET: lista com todos os autores                    o ASYNC é para não criar lista de "espera" e de forma asyncrona o servidor vai responder todas sem ficar em fila....
-authorRouter.get("/", async (request: Request, response: Response) => {
+CountryRouter.get("/", async (request: Request, response: Response) => {
     try {
 
-        const authors = await AuthorService.getAuthors();
-        return response.status(200).json(authors)
+        const country = await CountryService.getCountrys();
+        return response.status(200).json(country)
 
     } catch (error: any) {
         return response.status(500).json(error.message)
