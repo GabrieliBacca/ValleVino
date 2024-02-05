@@ -15,7 +15,7 @@ model User {
   id        Int        @id @default(autoincrement())
   name      String
   email     String     @unique
-  telephone Int        @unique
+  telephone BigInt     @unique
   password  String
   address   String
   birthday  DateTime
@@ -74,15 +74,19 @@ model Harmony {
   id          Int           @id @default(autoincrement())
   harmony     String        @unique
   WineHarmony WineHarmony[]
+  Wine        Wine[]
 }
 
 // modelo Wine para os vinhos
 model Wine {
-  id       Int    @id @default(autoincrement())
-  label    String
-  price    Float
-  quantity Int
-  year     Int
+  id          Int    @id @default(autoincrement())
+  label       String
+  price       Float
+  quantity    Int
+  vinicula    String
+  year        Int
+  alchoolic   Int
+  description String
 
   type   Type @relation(fields: [typeId], references: [id]) //se nao for depois atualizo pelo ID...
   typeId Int
@@ -94,6 +98,9 @@ model Wine {
   grapeId Int
 
   review Review[]
+
+  harmony   Harmony @relation(fields: [harmonyId], references: [id])
+  harmonyId Int
 
   WineHarmony WineHarmony[]
   Shopping    Shopping?     @relation(fields: [shoppingId], references: [id])

@@ -46,7 +46,6 @@ body {
     inset: 0;
 }
 
-
 #video-bg {
     position: absolute;
     right: 0;
@@ -90,8 +89,12 @@ body {
     width: 100%;
 }
 
+.link a {
+    display: inline-block;
+}
+
 .link a:hover {
-    color: var(--primary-color);
+    transform: scale(1.08);
 }
 
 .link .nav-btn {
