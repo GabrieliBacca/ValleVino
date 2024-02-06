@@ -1,19 +1,9 @@
 <template>
   <header>
     <nav class="container">
-      <a href="/"
-        ><img
-          id="logo"
-          alt="Logo Valle Vino"
-          src="../assets/img/logoValleVinoBlack.png"
-      /></a>
+      <a href="/"><img id="logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoBlack.png" /></a>
       <!-- //? bt menu -->
-      <img
-        v-on:click="openMenu"
-        id="bt-menu"
-        src="../assets/img/ico-menu-hb.svg"
-        alt="botão de menu lateral"
-      />
+      <img v-on:click="openMenu" id="bt-menu" src="../assets/img/ico-menu-hb.svg" alt="botão de menu lateral" />
       <!-- //? overlay menu lateral -->
       <div v-on:click="closeMenu" id="menu-overlay" v-if="menuActive"></div>
 
@@ -21,42 +11,24 @@
       <div id="menu-itens" :class="{ active: menuActive }">
         <!-- //? logo menu -->
 
-        <img
-          id="menu-logo"
-          alt="Logo Valle Vino"
-          src="../assets/img/logoValleVinoWhite.png"
-        />
+        <img id="menu-logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoWhite.png" />
         <!-- //? links menu -->
 
         <ul>
           <li><a href="./">Home</a></li>
           <li><a href="./">Loja</a></li>
-          <li><a href="./">Quizz</a></li>
+          <li><a href="./">Quiz</a></li>
           <li><a href="./">Sobre</a></li>
         </ul>
         <!-- //? icones menu -->
 
-        <a href="/"
-          ><img
-            id="bt-usuario"
-            src="../assets/img/ico-usuario.svg"
-            alt="botão de logim usuario"
-        /></a>
+        <a href="/"><img id="bt-usuario" src="../assets/img/ico-usuario.svg" alt="botão de logim usuario" /></a>
 
-        <a href="/"
-          ><img
-            id="bt-carrinho"
-            src="../assets/img/ico-carrinho.svg"
-            alt="botão de carrinho"
-        /></a>
+        <a href="/"><img id="bt-carrinho" src="../assets/img/ico-carrinho.svg" alt="botão de carrinho" /></a>
 
         <!-- //! colocar esse botao no rodape do menu via css -->
-        <img
-          v-on:click="closeMenu"
-          id="bt-esconder-menu"
-          alt="botao esconder menu lateral"
-          src="../assets/img/ico-setas-direita.svg"
-        />
+        <img v-on:click="closeMenu" id="bt-esconder-menu" alt="botao esconder menu lateral"
+          src="../assets/img/ico-setas-direita.svg" />
       </div>
     </nav>
   </header>
@@ -118,12 +90,14 @@ nav {
 #logo {
   width: 130px;
 }
+
 #bt-usuario {
   width: 25px;
   display: flex;
   flex-direction: row;
   margin: 30px;
 }
+
 #bt-carrinho {
   width: 25px;
   display: flex;
@@ -150,11 +124,13 @@ nav {
   background-color: var(--color-background-dark);
   opacity: 0.3;
 }
+
 #menu-logo {
   width: 110px;
   margin-top: 30px;
   margin-bottom: 10px;
 }
+
 #menu-itens {
   position: fixed;
   top: 0;
@@ -168,6 +144,7 @@ nav {
   align-items: center;
   font-size: 20px;
 }
+
 #menu-itens.active {
   display: flex;
 }
@@ -176,9 +153,11 @@ ul {
   list-style: none;
   text-align: center;
 }
+
 ul li {
   margin: 60px 0px;
 }
+
 ul li a {
   color: var(--color-text-dark);
 }
@@ -186,12 +165,14 @@ ul li a {
 /* deixando responsivo para web */
 
 @media (min-width: 700px) {
+
   #menu-logo,
   #menu-overlay,
   #bt-esconder-menu,
   #bt-menu {
     display: none;
   }
+
   #menu-itens {
     display: flex;
     position: static;
@@ -199,11 +180,13 @@ ul li a {
     width: auto;
     flex-direction: row;
   }
+
   ul {
     display: flex;
     height: 60px;
     align-items: center;
   }
+
   ul li {
     margin: 0;
     margin-right: 20px;
