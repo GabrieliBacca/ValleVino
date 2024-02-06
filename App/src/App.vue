@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Home />
+    <Header />
     <Home />
   </div>
 </template>
@@ -9,7 +9,7 @@
 import "./styles/global.css"; //aplicando as configurações do css global
 
 import Header from "./components/Header.vue";
-import Home from "./pages/Home";
+import Home from "./pages/Home.vue";
 
 export default {
   name: "App",
