@@ -6,10 +6,11 @@
     </h1>
 
     <div class="textBox">
-        <input id="email" type="text" placeholder="Digite seu email">
-        <input id="password" type="password" placeholder="Digite sua senha">
-        <p><a href="#">Esqueceu a senha?</a></p>
+      <input id="email" type="text" placeholder="Digite seu email" />
+      <input id="password" type="password" placeholder="Digite sua senha" />
+      <p><a href="#">Esqueceu a senha?</a></p>
     </div>
+    <!-- //! colocar o icone de olho no text para revelar  a senha -->
   </div>
 </template>
 

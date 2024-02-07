@@ -1,13 +1,22 @@
 <template>
-  <button></button>
+  <button @click="activate">teste</button>
+  <span v-show="active">ativado</span>
 </template>
 
 <script>
 export default {
   name: "Button",
-  
+  data() {
+    return {
+      active: false,
+    };
+  },
+  methods: {
+    activate() {
+      this.active = !this.activate;
+    },
+  },
 };
-
 </script>
 
 <!-- 
@@ -18,5 +27,4 @@ export default {
 --------------------------- 
 -->
 
-<style scoped>
-</style>
+<style scoped></style>
