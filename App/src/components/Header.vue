@@ -17,7 +17,7 @@
           <li><a href="./">Home</a></li>
           <li><a href="/loja">Loja</a></li>
           <li><a href="/wineQuiz">Quiz</a></li>
-          <li><a href="./">Sobre</a></li>
+          <li><a href="/WineForm">ADM</a></li>
         </ul>
         <!-- //? icones menu -->
 

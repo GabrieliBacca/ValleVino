@@ -13,6 +13,7 @@ import Home from './pages/Home.vue';
 import Loja from './pages/Loja.vue';
 import WineQuiz from './pages/WineQuiz.vue';
 import WineCard from './components/WineCard.vue';
+import WineForm from './pages/WineForm.vue';
 
 // Defina as rotas
 const routes = [
@@ -20,7 +21,8 @@ const routes = [
     { path: '/home', component: Home },
     { path: '/loja', component: Loja },
     { path: '/wineCard', component: WineCard },
-    { path: '/wineQuiz', component: WineQuiz }
+    { path: '/wineQuiz', component: WineQuiz },
+    { path: '/wineForm', component: WineForm },
 ];
 
 // Crie o roteador
