@@ -25,8 +25,8 @@
         <!-- //? links menu -->
         <ul>
           <li><a href="./">Home</a></li>
-          <li><router-link to="/loja">Loja</router-link></li>
-          <li><router-link to="/quiz">Quiz</router-link></li>
+          <li><a href="/loja">Loja</a></li>
+          <li><a href="/quiz">Quiz</a></li>
           <li><a href="./">Sobre</a></li>
         </ul>
         <!-- //? icones menu -->
