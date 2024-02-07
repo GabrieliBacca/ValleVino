@@ -14,10 +14,12 @@
         <img id="menu-logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoWhite.png" />
         <!-- //? links menu -->
         <ul>
-          <li><a href="./">Home</a></li>
+          <li><a href="/home">Home</a></li>
           <li><a href="/loja">Loja</a></li>
           <li><a href="/wineQuiz">Quiz</a></li>
           <li><a href="/WineForm">ADM</a></li>
+          <li><a href="/PopUp">18+</a></li>
+          <li><a href="/WineCard">Wine Card</a></li>
         </ul>
         <!-- //? icones menu -->
 

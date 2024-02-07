@@ -1,3 +1,4 @@
+// main.js
 import { createApp } from "vue";
 import App from "./App.vue";
 import PrimeVue from 'primevue/config';
@@ -6,13 +7,15 @@ import 'primevue/resources/themes/saga-blue/theme.css'; // Tema do PrimeVue
 import 'primevue/resources/primevue.min.css'; // Estilos do PrimeVue
 import 'primeicons/primeicons.css'; // Ícones do PrimeVue
 import './styles/tailwind.css'; // Arquivo CSS gerado pelo Tailwind
+import ConfirmationService from 'primevue/confirmationservice'; // Importe o ConfirmationService aqui
 
 // Importe os componentes e páginas necessários
 import Header from './components/Header.vue';
+import WineCard from './components/WineCard.vue';
+import PopUp from './components/PopUp.vue';
 import Home from './pages/Home.vue';
 import Loja from './pages/Loja.vue';
 import WineQuiz from './pages/WineQuiz.vue';
-import WineCard from './components/WineCard.vue';
 import WineForm from './pages/WineForm.vue';
 
 // Defina as rotas
@@ -23,6 +26,7 @@ const routes = [
     { path: '/wineCard', component: WineCard },
     { path: '/wineQuiz', component: WineQuiz },
     { path: '/wineForm', component: WineForm },
+    { path: '/popUp', component: PopUp },
 ];
 
 // Crie o roteador
@@ -36,6 +40,7 @@ const app = createApp(App);
 app.use(PrimeVue, { unstyled: true }); // Use o plugin PrimeVue
 app.component('Header', Header); // Registre o componente Header globalmente
 app.use(router); // Use o roteador criado
+app.use(ConfirmationService); // Use o ConfirmationService como um plugin Vue
 
 // Monte o aplicativo Vue no elemento com o id "app"
 app.mount('#app');

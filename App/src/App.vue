@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Header />
-    <!-- <WineCard /> -->
-    <router-view></router-view>
+    <PopUp v-if="showPopup" @confirm="proceed" @reject="reloadPage" />
+    <div v-else>
+      <Header />
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -12,11 +14,14 @@ import "./styles/global.css"; //aplicando as configurações do css global
 //componentes 
 import Header from "./components/Header.vue";
 import WineCard from "./components/WineCard.vue";
+import PopUp from './components/PopUp.vue';
+
 
 // pages
 import Home from "./pages/Home.vue";
 import Loja from "./pages/Loja.vue";
 import WineQuiz from "./pages/WineQuiz.vue";
+import WineForm from './pages/WineForm.vue';
 
 export default {
   name: "App",
@@ -26,8 +31,26 @@ export default {
     Loja,
     WineQuiz,
     WineCard,
+    WineForm,
+    PopUp,
+  }, data() {
+    return {
+      showPopup: true,
+    };
+  },
+  methods: {
+    proceed() {
+      // Lógica para prosseguir se o usuário tiver mais de 18 anos
+      // Por exemplo, redirecionar para a página principal
+      this.showPopup = false;
+    },
+    reloadPage() {
+      // Recarrega a página se o usuário não tiver mais de 18 anos
+      window.location.reload();
+    },
   },
 };
+
 </script>
 
 <style scoped></style>
