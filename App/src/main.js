@@ -7,7 +7,11 @@ import 'primevue/resources/themes/saga-blue/theme.css'; // Tema do PrimeVue
 import 'primevue/resources/primevue.min.css'; // Estilos do PrimeVue
 import 'primeicons/primeicons.css'; // Ícones do PrimeVue
 import './styles/tailwind.css'; // Arquivo CSS gerado pelo Tailwind
-import ConfirmationService from 'primevue/confirmationservice'; // Importe o ConfirmationService aqui
+import DataView from 'primevue/dataview';
+import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
+
+
+
 
 // Importe os componentes e páginas necessários
 import Header from './components/Header.vue';
@@ -41,8 +45,10 @@ const router = createRouter({
 const app = createApp(App);
 app.use(PrimeVue, { unstyled: true }); // Use o plugin PrimeVue
 app.component('Header', Header); // Registre o componente Header globalmente
+app.component('DataView', DataView);
+app.component('DataViewLayoutOptions', DataViewLayoutOptions);
 app.use(router); // Use o roteador criado
-app.use(ConfirmationService); // Use o ConfirmationService como um plugin Vue
+
 
 // Monte o aplicativo Vue no elemento com o id "app"
 app.mount('#app');

@@ -1,35 +1,92 @@
 <template>
-  <div class="card flex items-center justify-center custom-card">
-    <Card style="width: 10em">
+  <div class="card">
+    <DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
       <template #header>
-        <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" width="220em" />
+        <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price"
+          @change="onSortChange($event)" />
       </template>
-      <template #title> Advanced Card </template>
-      <template #subtitle> Card subtitle </template>
-      <template #content>
-        <p class="m-0">
-          Texto
-        </p>
+      <template #list="slotProps">
+        <div class="flex flex-wrap">
+          <div v-for="(item, index) in slotProps.items" :key="index" class="w-full p-3">
+            <div class="flex flex-col xl:flex-row xl:items-start p-4 gap-4"
+              :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
+              <img class="w-9/12 sm:w-[16rem] xl:w-[10rem] shadow-md block xl:block mx-auto rounded"
+                :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" />
+              <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-4">
+                <div class="flex flex-col items-center sm:items-start gap-3">
+                  <div class="text-2xl font-bold text-surface-900 dark:text-surface-0">{{ item.name }}</div>
+                  <Rating :modelValue="item.rating" readonly :cancel="false"></Rating>
+                  <div class="flex items-center gap-3">
+                    <span class="flex items-center gap-2">
+                      <i class="pi pi-tag"></i>
+                      <span class="font-semibold">{{ item.category }}</span>
+                    </span>
+                    <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                  </div>
+                </div>
+                <div class="flex sm:flex-col items-center sm:items-end gap-3 sm:gap-2">
+                  <span class="text-2xl font-semibold">${{ item.price }}</span>
+                  <Button icon="pi pi-shopping-cart" rounded :disabled="item.inventoryStatus === 'OUTOFSTOCK'"></Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </template>
-      <template #footer class="p-d-flex">
-        <Button icon="pi pi-check" label="Save" />
-        <Button icon="pi pi-times" label="Cancel" severity="secondary" style="margin-left: 0.5em" />
-        <h1>fim</h1>
-      </template>
-    </Card>
+    </DataView>
   </div>
 </template>
 
 <script setup>
-import Card from 'primevue/card';
+import { ref, onMounted } from "vue";
+import { ProductService } from "../components/ProductService.vue";
+
+onMounted(() => {
+  ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 5)));
+});
+
+const products = ref();
+const sortKey = ref();
+const sortOrder = ref();
+const sortField = ref();
+const sortOptions = ref([
+  { label: 'Price High to Low', value: '!price' },
+  { label: 'Price Low to High', value: 'price' },
+]);
+const onSortChange = (event) => {
+  const value = event.value.value;
+  const sortValue = event.value;
+
+  if (value.indexOf('!') === 0) {
+    sortOrder.value = -1;
+    sortField.value = value.substring(1, value.length);
+    sortKey.value = sortValue;
+  }
+  else {
+    sortOrder.value = 1;
+    sortField.value = value;
+    sortKey.value = sortValue;
+  }
+};
+const getSeverity = (product) => {
+  switch (product.inventoryStatus) {
+    case 'INSTOCK':
+      return 'success';
+
+    case 'LOWSTOCK':
+      return 'warning';
+
+    case 'OUTOFSTOCK':
+      return 'danger';
+
+    default:
+      return null;
+  }
+};
 </script>
 
-<style scoped>
-.custom-card {
-  border: 2px solid black;
-  /* Adiciona uma borda preta de 2px ao redor do card */
-}
-</style>
+
+
 
 <!-- <template>
   <div class="card xl:flex xl:justify-center">
@@ -56,7 +113,7 @@ import Card from 'primevue/card';
 
 <script setup>
 import { ref, onMounted } from "vue";
-// import { ProductService } from '@/service/ProductService'
+import { ProductService } from '@/service/ProductService'
 
 const products = ref(null);
 
@@ -65,4 +122,7 @@ onMounted(() => {
 });
 
 
-</script> -->
+</script> 
+
+
+<style scoped></style> -->
