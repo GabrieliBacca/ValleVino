@@ -7,7 +7,7 @@ import 'primevue/resources/primevue.min.css'                 // Estilos do Prime
 import 'primeicons/primeicons.css'                            // Ícones do PrimeVue
 import './styles/tailwind.css'                                         // Arquivo CSS gerado pelo Tailwind
 import Loja from './pages/Loja.vue'
-import Quiz from './pages/QuizVinho.vue'
+import Quiz from './pages/WineQuiz.vue'
 
 const routes = [
     { path: '/', component: App },
