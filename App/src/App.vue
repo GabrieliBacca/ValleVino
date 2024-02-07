@@ -5,6 +5,11 @@
     <!-- <Loja /> -->
     <!-- <WineCard /> -->
     <Login />
+    <Cadastro />
+    <EsqueceuSenha />
+    <ValidarCodigo />
+    <CriarSenha />
+    <SenhaAlterada />
   </div>
 </template>
 
@@ -12,6 +17,7 @@
 import "./styles/global.css"; //aplicando as configurações do css global
 
 //componentes
+import Button from "./components/Button.vue";
 import Header from "./components/Header.vue";
 import WineCard from "./components/WineCard.vue";
 
@@ -29,6 +35,7 @@ import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
 export default {
   name: "App",
   components: {
+    Button,
     Header,
     Home,
     Loja,

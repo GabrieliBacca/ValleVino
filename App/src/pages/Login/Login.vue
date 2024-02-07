@@ -11,12 +11,20 @@
       <p><a href="#">Esqueceu a senha?</a></p>
     </div>
     <!-- //! colocar o icone de olho no text para revelar  a senha -->
+
+    <Button />
   </div>
 </template>
 
 <script>
+//importações
+import Button from "@/components/Button.vue";
+//exportações
 export default {
   name: "Login",
+  components: {
+    Button,
+  },
 };
 </script>
 

@@ -21,7 +21,11 @@
       <div id="menu-itens" :class="{ active: menuActive }">
         <!-- //? logo menu -->
 
-        <img id="menu-logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoWhite.png" />
+        <img
+          id="menu-logo"
+          alt="Logo Valle Vino"
+          src="../assets/img/logoValleVinoWhite.png"
+        />
         <!-- //? links menu -->
         <ul>
           <li><a href="./">Home</a></li>
@@ -31,13 +35,27 @@
         </ul>
         <!-- //? icones menu -->
 
-        <a href="../pages/Login.vue"><img id="bt-usuario" src="../assets/img/ico-usuario.svg" alt="botão de login usuario" /></a>
+        <a href="../pages/Login.vue"
+          ><img
+            id="bt-usuario"
+            src="../assets/img/ico-usuario.svg"
+            alt="botão de login usuario"
+        /></a>
 
-        <a href="/"><img id="bt-carrinho" src="../assets/img/ico-carrinho.svg" alt="botão de carrinho" /></a>
+        <a href="/"
+          ><img
+            id="bt-carrinho"
+            src="../assets/img/ico-carrinho.svg"
+            alt="botão de carrinho"
+        /></a>
 
         <!-- //! colocar esse botao no rodape do menu via css -->
-        <img v-on:click="closeMenu" id="bt-esconder-menu" alt="botao esconder menu lateral"
-          src="../assets/img/ico-setas-direita.svg" />
+        <img
+          v-on:click="closeMenu"
+          id="bt-esconder-menu"
+          alt="botao esconder menu lateral"
+          src="../assets/img/ico-setas-direita.svg"
+        />
       </div>
     </nav>
   </header>

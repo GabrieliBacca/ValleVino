@@ -4,7 +4,6 @@
       Olá! <br />
       Registre-se para começar...
     </h1>
-
     <div class="textBox">
       <input id="user" type="text" placeholder="Nome de usuário" />
       <input id="email" type="text" placeholder="Seu email" />
@@ -15,12 +14,18 @@
         placeholder="Confirme sua senha"
       />
     </div>
+    <Button />
   </div>
 </template>
 
 <script>
+import Button from "@/components/Button.vue";
+
 export default {
   name: "Cadastro",
+  components: {
+    Button,
+  },
 };
 </script>
 

@@ -12,12 +12,17 @@
       <input id="validaCodigo3" type="text" placeholder="9" />
       <input id="validaCodigo4" type="text" placeholder="9" />
     </div>
+    <Button />
   </div>
 </template>
 
 <script>
+import Button from "@/components/Button.vue";
 export default {
   name: "ValidarCodigo",
+  components: {
+    Button,
+  },
 };
 </script>
 

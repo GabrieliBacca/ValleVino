@@ -6,11 +6,14 @@ import "primevue/resources/themes/saga-blue/theme.css"; // Tema do PrimeVue
 import "primevue/resources/primevue.min.css"; // Estilos do PrimeVue
 import "primeicons/primeicons.css"; // Ícones do PrimeVue
 import "./styles/tailwind.css"; // Arquivo CSS gerado pelo Tailwind
-import Home from "./pages/Home.vue"; // Importe o componente Home
+
+//componentes - reutiliza em outros componetes
+import Home from "./pages/Home.vue";
 import Loja from "./pages/Loja.vue";
 import Quiz from "./pages/WineQuiz.vue";
 import WineCard from "./components/WineCard.vue";
-//paginas de login
+
+//paginas de login - visualização unica
 import Login from "./pages/Login/Login.vue";
 import Cadastro from "./pages/Login/Cadastro.vue";
 import EsqueceuSenha from "./pages/Login/EsqueceuSenha.vue";

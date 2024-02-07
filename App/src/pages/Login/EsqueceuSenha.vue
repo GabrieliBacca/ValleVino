@@ -9,12 +9,17 @@
     <div class="textBox">
       <input id="email" type="text" placeholder="Seu email" />
     </div>
+    <Button />
   </div>
 </template>
 
 <script>
+import Button from "@/components/Button.vue";
 export default {
   name: "EsqueceuSenha",
+  components: {
+    Button,
+  },
 };
 </script>
 

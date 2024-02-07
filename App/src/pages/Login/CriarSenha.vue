@@ -11,12 +11,17 @@
         placeholder="Confirmar senha"
       />
     </div>
+    <Button />
   </div>
 </template>
 
 <script>
+import Button from "@/components/Button.vue";
 export default {
   name: "CriarSenha",
+  components: {
+    Button,
+  },
 };
 </script>
 
