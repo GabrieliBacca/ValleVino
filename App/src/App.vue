@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <Home />
-    <Loja />
-    <WineCard />
+    <router-view></router-view>
   </div>
 </template>
 
