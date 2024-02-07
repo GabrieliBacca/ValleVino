@@ -19,7 +19,8 @@
           <li><a href="/wineQuiz">Quiz</a></li>
           <li><a href="/WineForm">ADM</a></li>
           <li><a href="/PopUp">18+</a></li>
-          <li><a href="/WineCard">Wine Card</a></li>
+          <li><a href="/WineCard">WineCard</a></li>
+          <li><a href="/WineList">WineList</a></li>
         </ul>
         <!-- //? icones menu -->
 
