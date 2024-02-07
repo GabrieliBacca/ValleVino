@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav class="container">
-      <a href="/"><img id="logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoBlack.png" /></a>
+      <router-link to="/"><img id="logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoBlack.png" /></router-link>
       <!-- //? bt menu -->
       <img v-on:click="openMenu" id="bt-menu" src="../assets/img/ico-menu-hb.svg" alt="botão de menu lateral" />
       <!-- //? overlay menu lateral -->
@@ -10,55 +10,38 @@
       <!-- //? menu -->
       <div id="menu-itens" :class="{ active: menuActive }">
         <!-- //? logo menu -->
-
         <img id="menu-logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoWhite.png" />
         <!-- //? links menu -->
-
         <ul>
-          <li><a href="./">Home</a></li>
-          <li><a href="./">Loja</a></li>
-          <li><a href="./">Quiz</a></li>
-          <li>
-            <a href="./">Home</a>
-          </li>
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/loja">Loja</router-link></li>
+          <li><router-link to="/quiz">Quiz</router-link></li>
+          <!-- Adicionei router-link para Loja e Quiz -->
+          <!-- Removi o link redundante para Home -->
         </ul>
         <!-- //? icones menu -->
-
-        <a href="/"><img id="bt-usuario" src="../assets/img/ico-usuario.svg" alt="botão de logim usuario" /></a>
-
+        <a href="/"><img id="bt-usuario" src="../assets/img/ico-usuario.svg" alt="botão de login usuário" /></a>
         <a href="/"><img id="bt-carrinho" src="../assets/img/ico-carrinho.svg" alt="botão de carrinho" /></a>
-
         <!-- //! colocar esse botao no rodape do menu via css -->
-        <img v-on:click="closeMenu" id="bt-esconder-menu" alt="botao esconder menu lateral"
+        <img v-on:click="closeMenu" id="bt-esconder-menu" alt="botão esconder menu lateral"
           src="../assets/img/ico-setas-direita.svg" />
       </div>
     </nav>
   </header>
 </template>
 
-<!-- 
----------------------------
-|                         |
-|         scripts         |
-|                         |
---------------------------- 
--->
-
 <script>
 export default {
-  name: "Header", //padrao
-  //funcao para menu lateral
+  name: "Header",
   data() {
     return {
       menuActive: false,
     };
   },
   methods: {
-    //ativar menu lateral
     openMenu: function () {
       this.menuActive = true;
     },
-    //desativar menu lateral
     closeMenu: function () {
       this.menuActive = false;
     },
