@@ -35,7 +35,7 @@ export default {
     PopUp,
   }, data() {
     return {
-      showPopup: true,
+      showPopup: !localStorage.getItem('popupShown'), // Exibir o popup apenas se não estiver armazenado no localStorage
     };
   },
   methods: {
@@ -43,6 +43,7 @@ export default {
       // Lógica para prosseguir se o usuário tiver mais de 18 anos
       // Por exemplo, redirecionar para a página principal
       this.showPopup = false;
+      localStorage.setItem('popupShown', true); // Armazenar no localStorage que o popup já foi exibido
     },
     reloadPage() {
       // Recarrega a página se o usuário não tiver mais de 18 anos
