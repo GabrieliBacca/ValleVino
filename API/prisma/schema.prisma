@@ -15,11 +15,13 @@ model User {
   id        Int        @id @default(autoincrement())
   name      String
   email     String     @unique
-  telephone BigInt     @unique
+  telephone String     @unique
   password  String
   address   String
+  isAdm     Boolean    @default(false)
   birthday  DateTime
   gender    String
+  img       String
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   Review    Review[]
@@ -71,10 +73,10 @@ model Grape {
 
 // modelo Harmony para fazer a harmonização, o que combina....
 model Harmony {
-  id          Int           @id @default(autoincrement())
-  harmony     String        @unique
-  WineHarmony WineHarmony[]
-  Wine        Wine[]
+  id      Int    @id @default(autoincrement())
+  harmony String @unique
+  // WineHarmony WineHarmony[]
+  Wine    Wine[]
 }
 
 // modelo Wine para os vinhos
@@ -87,6 +89,7 @@ model Wine {
   year        Int
   alchoolic   Int
   description String
+  img         String
 
   type   Type @relation(fields: [typeId], references: [id]) //se nao for depois atualizo pelo ID...
   typeId Int
@@ -102,18 +105,18 @@ model Wine {
   harmony   Harmony @relation(fields: [harmonyId], references: [id])
   harmonyId Int
 
-  WineHarmony WineHarmony[]
-  Shopping    Shopping?     @relation(fields: [shoppingId], references: [id])
-  shoppingId  Int?
+  // WineHarmony WineHarmony[]
+  Shopping   Shopping? @relation(fields: [shoppingId], references: [id])
+  shoppingId Int?
 }
 
-// tabela intermediária WineHarmony N para N
-model WineHarmony {
-  wine   Wine @relation(fields: [wineId], references: [id])
-  wineId Int
+// // tabela intermediária WineHarmony N para N
+// model WineHarmony {
+//   wine   Wine @relation(fields: [wineId], references: [id])
+//   wineId Int
 
-  harmony   Harmony @relation(fields: [harmonyId], references: [id])
-  harmonyId Int
+//   harmony   Harmony @relation(fields: [harmonyId], references: [id])
+//   harmonyId Int
 
-  @@id([wineId, harmonyId])
-}
+//   @@id([wineId, harmonyId])
+// }

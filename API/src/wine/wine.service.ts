@@ -12,6 +12,9 @@ export type Wine = {
     vinicula: string,
     alchoolic: number,
     description: string,
+    img: string,
+
+
 
 }
 
@@ -28,16 +31,27 @@ export const getWines = async (): Promise<any[]> => {
             vinicula: true,
             alchoolic: true,
             description: true,
-            type: true,
-            country: true,
-            grape: true,
+            type: { select: { type: true } },
+            country: { select: { country: true } },
+            grape: { select: { grape: true } },
             harmony: true,
             review: true,
+            img: true,
+
         }
     });
 
-    return wines
+    // Usar o Map nos wines para retornar somente os dados necessários
+    const formattedWines = wines.map(wine => ({
+        ...wine,
+        type: wine.type.type,
+        country: wine.country.country,
+        grape: wine.grape.grape
+    }));
+
+    return formattedWines;
 }
+
 
 //servico para pegar um vinho pelo ID
 export const getWineById = async (id: number): Promise<any | null> => {
@@ -54,6 +68,9 @@ export const getWineById = async (id: number): Promise<any | null> => {
             vinicula: true,
             alchoolic: true,
             description: true,
+            img: true,
+
+
 
         }
     });
@@ -75,6 +92,8 @@ export const createWine = async (newWineData: Omit<Wine, "id">, typeId: number, 
             country: { connect: { id: countryId } },
             grape: { connect: { id: grapeId } },
             harmony: { connect: { id: harmonyId } },
+            img: newWineData.img,
+
         },
         select: {
             id: true,
@@ -90,6 +109,8 @@ export const createWine = async (newWineData: Omit<Wine, "id">, typeId: number, 
             grape: true,
             harmony: true,
             review: true,
+            img: true,
+
 
         }
     });
@@ -115,6 +136,7 @@ export const updateWine = async (newWineData: Omit<Wine, "id">, id: number, type
             country: { connect: { id: countryId } },
             grape: { connect: { id: grapeId } },
             harmony: { connect: { id: harmonyId } },
+            img: newWineData.img,
         },
         select: {
             id: true,
@@ -130,6 +152,8 @@ export const updateWine = async (newWineData: Omit<Wine, "id">, id: number, type
             grape: true,
             harmony: true,
             review: true,
+            img: true,
+
         }
     })
 }

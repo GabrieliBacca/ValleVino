@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="card">
     <DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
       <template #header>
@@ -39,7 +39,6 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-// import { ProductService } from "../components/ProductService.vue"; ERRO AQUI
 import ProductService from "../components/ProductService.vue";
 
 onMounted(() => {
@@ -85,11 +84,11 @@ const getSeverity = (product) => {
   }
 };
 </script>
+ -->
 
 
 
-
-<!-- <template>
+<template>
   <div class="card xl:flex xl:justify-center">
     <OrderList v-model="products" listStyle="height:auto" dataKey="id">
       <template #header> List of Products </template>
@@ -114,7 +113,7 @@ const getSeverity = (product) => {
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { ProductService } from '@/service/ProductService'
+import ProductService from "../components/ProductService.vue";
 
 const products = ref(null);
 
@@ -126,4 +125,4 @@ onMounted(() => {
 </script> 
 
 
-<style scoped></style> -->
+<style scoped></style> 

@@ -13,17 +13,30 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
+async function getProductsSmall() {
+    try {
+        const response = await axios.get("http://localhost:8000/api/wines");
+        const data = response.data;
+
+        // Apply the transformation to remove "id" and "type" properties
+        const transformedData = data.map((product) => {
+            const { id, type, ...rest } = product;
+            return rest;
+        });
+
+        return transformedData;
+    } catch (error) {
+        console.error('Error fetching wines:', error);
+        return [];
+    }
+}
+
 export default {
     setup() {
         const wines = ref([]);
 
         onMounted(async () => {
-            try {
-                const response = await axios.get("http://localhost:8000/api/wines"); // Substitua "http://localhost:3000" pela URL do seu backend
-                wines.value = response.data;
-            } catch (error) {
-                console.error('Error fetching wines:', error);
-            }
+            wines.value = await getProductsSmall();
         });
 
         return {

@@ -40,7 +40,7 @@ export default {
     methods: {
         async getWines() {
             try {
-                const response = await fetch('http://localhost:3000/api/wines');
+                const response = await fetch('http://localhost:8000/api/wines');
                 const data = await response.json();
                 this.wines = data;
             } catch (error) {

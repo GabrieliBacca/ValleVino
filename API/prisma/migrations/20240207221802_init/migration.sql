@@ -3,11 +3,13 @@ CREATE TABLE "User" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "telephone" BIGINT NOT NULL,
+    "telephone" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "address" TEXT NOT NULL,
+    "isAdm" BOOLEAN NOT NULL DEFAULT false,
     "birthday" DATETIME NOT NULL,
     "gender" TEXT NOT NULL,
+    "img" TEXT NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL
 );
@@ -68,6 +70,7 @@ CREATE TABLE "Wine" (
     "year" INTEGER NOT NULL,
     "alchoolic" INTEGER NOT NULL,
     "description" TEXT NOT NULL,
+    "img" TEXT NOT NULL,
     "typeId" INTEGER NOT NULL,
     "countryId" INTEGER NOT NULL,
     "grapeId" INTEGER NOT NULL,
@@ -78,16 +81,6 @@ CREATE TABLE "Wine" (
     CONSTRAINT "Wine_grapeId_fkey" FOREIGN KEY ("grapeId") REFERENCES "Grape" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Wine_harmonyId_fkey" FOREIGN KEY ("harmonyId") REFERENCES "Harmony" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Wine_shoppingId_fkey" FOREIGN KEY ("shoppingId") REFERENCES "Shopping" ("id") ON DELETE SET NULL ON UPDATE CASCADE
-);
-
--- CreateTable
-CREATE TABLE "WineHarmony" (
-    "wineId" INTEGER NOT NULL,
-    "harmonyId" INTEGER NOT NULL,
-
-    PRIMARY KEY ("wineId", "harmonyId"),
-    CONSTRAINT "WineHarmony_wineId_fkey" FOREIGN KEY ("wineId") REFERENCES "Wine" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "WineHarmony_harmonyId_fkey" FOREIGN KEY ("harmonyId") REFERENCES "Harmony" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateIndex

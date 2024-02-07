@@ -33,7 +33,7 @@ app.use("/api/type", TypeRouter)
 app.use("/api/user", UserRouter)
 app.use("/api/shopping", ShoppingRouter)
 app.use("/api/review", ReviewRouter)
-app.use("/api/wine", WineRouter)
+app.use("/api/wines", WineRouter)
 
 
 app.listen(PORT, () => {

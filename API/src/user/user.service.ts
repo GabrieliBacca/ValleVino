@@ -9,9 +9,11 @@ export type User = {
     email: string,
     password: string,
     address: string,
+    isAdm: boolean,
     birthday: Date,
     gender: string,
-    telephone: bigint,
+    telephone: string,
+    img: string,
 }
 
 // servico para pegar todos os users.               .... 
@@ -27,6 +29,8 @@ export const getUsers = async (): Promise<any[]> => {
             birthday: true,
             gender: true,
             telephone: true,
+            img: true,
+            isAdm: true,
         }
     });
 
@@ -52,6 +56,8 @@ export const getUserById = async (id: number): Promise<any | null> => {
             birthday: true,
             gender: true,
             telephone: true,
+            img: true,
+            isAdm: true,
         }
     });
 
@@ -67,16 +73,11 @@ export const getUserById = async (id: number): Promise<any | null> => {
 
 // servico para criar um novo user
 export const createUser = async (user: Omit<User, "id">): Promise<User> => {
-    const newUser = {
-        ...user,
-        telephone: BigInt(user.telephone) // Convertendo para BigInt
-    };
-
     // Convertendo a string de data para um objeto Date
-    newUser.birthday = new Date(user.birthday);
+    user.birthday = new Date(user.birthday);
 
     return db.user.create({
-        data: newUser,
+        data: user,
         select: {
             id: true,
             name: true,
@@ -86,6 +87,8 @@ export const createUser = async (user: Omit<User, "id">): Promise<User> => {
             birthday: true,
             gender: true,
             telephone: true,
+            img: true,
+            isAdm: true,
         }
     });
 }
@@ -93,19 +96,14 @@ export const createUser = async (user: Omit<User, "id">): Promise<User> => {
 // servico para atualizar um user
 export const updateUser = async (user: Omit<User, "id">, id: number): Promise<User> => {
 
-    const newUser = {
-        ...user,
-        telephone: BigInt(user.telephone) // Convertendo para BigInt
-    };
-
     // Convertendo a string de data para um objeto Date
-    newUser.birthday = new Date(user.birthday);
+    user.birthday = new Date(user.birthday);
 
     return db.user.update({
         where: {
             id: id
         },
-        data: newUser,
+        data: user,
         select: {
             id: true,
             name: true,
@@ -115,6 +113,8 @@ export const updateUser = async (user: Omit<User, "id">, id: number): Promise<Us
             birthday: true,
             gender: true,
             telephone: true,
+            img: true,
+            isAdm: true,
         }
     })
 }
