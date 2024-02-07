@@ -1,19 +1,9 @@
 <template>
   <header>
     <nav class="container">
-      <a href="/"
-        ><img
-          id="logo"
-          alt="Logo Valle Vino"
-          src="../assets/img/logoValleVinoBlack.png"
-      /></a>
+      <a href="/"><img id="logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoBlack.png" /></a>
       <!-- //? bt menu -->
-      <img
-        v-on:click="openMenu"
-        id="bt-menu"
-        src="../assets/img/ico-menu-hb.svg"
-        alt="botão de menu lateral"
-      />
+      <img v-on:click="openMenu" id="bt-menu" src="../assets/img/ico-menu-hb.svg" alt="botão de menu lateral" />
       <!-- //? overlay menu lateral -->
       <div v-on:click="closeMenu" id="menu-overlay" v-if="menuActive"></div>
 
@@ -26,7 +16,7 @@
         <ul>
           <li><a href="./">Home</a></li>
           <li><a href="/loja">Loja</a></li>
-          <li><a href="/quiz">Quiz</a></li>
+          <li><a href="/wineQuiz">Quiz</a></li>
           <li><a href="./">Sobre</a></li>
         </ul>
         <!-- //? icones menu -->
@@ -163,6 +153,7 @@ ul li a {
 /* deixando responsivo para web */
 
 @media (min-width: 700px) {
+
   #menu-logo,
   #menu-overlay,
   #bt-esconder-menu,

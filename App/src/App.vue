@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <!-- <WineCard /> -->
     <router-view></router-view>
   </div>
 </template>
@@ -15,7 +16,7 @@ import WineCard from "./components/WineCard.vue";
 // pages
 import Home from "./pages/Home.vue";
 import Loja from "./pages/Loja.vue";
-import Quiz from "./pages/WineQuiz.vue";
+import WineQuiz from "./pages/WineQuiz.vue";
 
 export default {
   name: "App",
@@ -23,7 +24,7 @@ export default {
     Header,
     Home,
     Loja,
-    Quiz,
+    WineQuiz,
     WineCard,
   },
 };
