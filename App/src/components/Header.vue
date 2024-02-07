@@ -21,70 +21,40 @@
       <div id="menu-itens" :class="{ active: menuActive }">
         <!-- //? logo menu -->
 
-        <img
-          id="menu-logo"
-          alt="Logo Valle Vino"
-          src="../assets/img/logoValleVinoWhite.png"
-        />
+        <img id="menu-logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoWhite.png" />
         <!-- //? links menu -->
-
         <ul>
           <li><a href="./">Home</a></li>
-          <li><a href="../pages/Loja.vue">Loja</a></li>
-          <li><a href="..page/WineQuiz">Quiz</a></li>
+          <li><router-link to="/loja">Loja</router-link></li>
+          <li><router-link to="/quiz">Quiz</router-link></li>
           <li><a href="./">Sobre</a></li>
         </ul>
         <!-- //? icones menu -->
 
-        <a href="/"
-          ><img
-            id="bt-usuario"
-            src="../assets/img/ico-usuario.svg"
-            alt="botão de logim usuario"
-        /></a>
+        <a href="/"><img id="bt-usuario" src="../assets/img/ico-usuario.svg" alt="botão de logim usuario" /></a>
 
-        <a href="/"
-          ><img
-            id="bt-carrinho"
-            src="../assets/img/ico-carrinho.svg"
-            alt="botão de carrinho"
-        /></a>
+        <a href="/"><img id="bt-carrinho" src="../assets/img/ico-carrinho.svg" alt="botão de carrinho" /></a>
 
         <!-- //! colocar esse botao no rodape do menu via css -->
-        <img
-          v-on:click="closeMenu"
-          id="bt-esconder-menu"
-          alt="botao esconder menu lateral"
-          src="../assets/img/ico-setas-direita.svg"
-        />
+        <img v-on:click="closeMenu" id="bt-esconder-menu" alt="botao esconder menu lateral"
+          src="../assets/img/ico-setas-direita.svg" />
       </div>
     </nav>
   </header>
 </template>
 
-<!-- 
----------------------------
-|                         |
-|         scripts         |
-|                         |
---------------------------- 
--->
-
 <script>
 export default {
-  name: "Header", //padrao
-  //funcao para menu lateral
+  name: "Header",
   data() {
     return {
       menuActive: false,
     };
   },
   methods: {
-    //ativar menu lateral
     openMenu: function () {
       this.menuActive = true;
     },
-    //desativar menu lateral
     closeMenu: function () {
       this.menuActive = false;
     },
