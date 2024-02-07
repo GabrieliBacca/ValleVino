@@ -39,7 +39,8 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { ProductService } from "../components/ProductService.vue";
+// import { ProductService } from "../components/ProductService.vue"; ERRO AQUI
+import ProductService from "../components/ProductService.vue";
 
 onMounted(() => {
   ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 5)));

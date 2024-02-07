@@ -11,9 +11,7 @@
 
 <script>
 import { ref, onMounted } from "vue";
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import axios from "axios";
 
 export default {
     setup() {
@@ -21,12 +19,8 @@ export default {
 
         onMounted(async () => {
             try {
-                const winesFromDB = await prisma.product.findMany({
-                    where: {
-                        category: 'wine'
-                    }
-                });
-                wines.value = winesFromDB;
+                const response = await axios.get("http://localhost:3000/api/wines"); // Substitua "http://localhost:3000" pela URL do seu backend
+                wines.value = response.data;
             } catch (error) {
                 console.error('Error fetching wines:', error);
             }
