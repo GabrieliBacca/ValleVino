@@ -9,21 +9,22 @@ import './styles/tailwind.css'                                         // Arquiv
 import Loja from './pages/Loja.vue'
 import Quiz from './pages/WineQuiz.vue'
 
-const routes = [
-    { path: '/', component: App },
-    { path: '/loja', component: Loja },
-    { path: '/quiz', component: Quiz },
-]
+// const routes = [
+//     { path: '/', component: Home },
+//     { path: '/loja', component: Loja },
+//     { path: '/quiz', component: Quiz },
+// ]
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes,
-})
+
+// const router = createRouter({
+//     history: createWebHistory(),
+//     routes,
+// })
 
 
 const app = createApp(App)
 app.use(PrimeVue, {
     unstyled: true
-}, router)
+})
 app.mount('#app')
 

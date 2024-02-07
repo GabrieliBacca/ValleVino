@@ -16,9 +16,11 @@
 
         <ul>
           <li><a href="./">Home</a></li>
-          <li><router-link to="/loja">Loja</router-link></li>
-          <li><router-link to="/quiz">Quiz</router-link></li>
-          <li><a href="./">Sobre</a></li>
+          <li><a href="./">Loja</a></li>
+          <li><a href="./">Quiz</a></li>
+          <li>
+            <a href="./">Home</a>
+          </li>
         </ul>
         <!-- //? icones menu -->
 
