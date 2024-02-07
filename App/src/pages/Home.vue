@@ -1,7 +1,6 @@
 <template>
   <main>
     <!-- //? conteudo da home -->
-
     <section class="container" id="mainContent">
       <div class="content-container">
         <h1 id="mainTitle">
@@ -15,16 +14,14 @@
           sinta experimentando uma obra de arte engarrafada.
         </p>
         <div class="call-to-action-container">
-          <button><a href="#">Visite a nossa loja</a></button>
+          <button><a href="./Loja.vue ">Visite a nossa loja</a></button>
         </div>
       </div>
 
-      <div>
-        <div class="video-container">
-          <video autoplay muted loop id="video-bg">
-            <source src="../assets/video/home.mp4" type="video/mp4" />
-          </video>
-        </div>
+      <div class="video-container">
+        <video autoplay muted loop id="video-bg">
+          <source src="../assets/video/home.mp4" type="video/mp4" />
+        </video>
       </div>
     </section>
   </main>
