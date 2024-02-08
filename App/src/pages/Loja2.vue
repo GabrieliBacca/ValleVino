@@ -13,8 +13,7 @@
                         <div class="flex flex-col xl:flex-row xl:items-start p-4 gap-4"
                             :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                             <img class="w-9/12 sm:w-[16rem] xl:w-[10rem] shadow-md block xl:block mx-auto rounded"
-                                :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`"
-                                :alt="item.name" />
+                                :src="item.img" height="200px" alt="wine image">
                             <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-4">
                                 <div class="flex flex-col items-center sm:items-start gap-3">
                                     <div class="text-2xl font-bold text-surface-900 dark:text-surface-0">{{ item.name }}
@@ -29,7 +28,7 @@
                                     </div>
                                 </div>
                                 <div class="flex sm:flex-col items-center sm:items-end gap-3 sm:gap-2">
-                                    <span class="text-2xl font-semibold">${{ item.price }}</span>
+                                    <span class="text-2xl font-semibold">R${{ item.price }},00</span>
                                     <Button icon="pi pi-shopping-cart" rounded
                                         :disabled="item.inventoryStatus === 'OUTOFSTOCK'"></Button>
                                 </div>
@@ -52,14 +51,12 @@
                                 <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
                             </div>
                             <div class="flex flex-col items-center gap-3 py-5">
-                                <img class="w-9/12 shadow-md rounded"
-                                    :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`"
-                                    :alt="item.name" />
+                                <img class="w-9/12 shadow-md rounded" :src="item.img" height="200px" alt="wine image" />
                                 <div class="text-2xl font-bold">{{ item.name }}</div>
                                 <Rating :modelValue="item.rating" readonly :cancel="false"></Rating>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-2xl font-semibold">${{ item.price }}</span>
+                                <span class="text-2xl font-semibold">R${{ item.price }},00</span>
                                 <Button icon="pi pi-shopping-cart" rounded
                                     :disabled="item.inventoryStatus === 'OUTOFSTOCK'"></Button>
                             </div>
@@ -75,9 +72,6 @@
 import { ref, onMounted } from "vue";
 import { ProductService } from '../components/ProductService';
 
-// onMounted(() => {
-//     ProductService.getProducts().then((data) => (products.value = data.slice(0, 12)));
-// });
 
 onMounted(() => {
     ProductService.getProducts().then((data) => (products.value = data.slice(0, 12)));
