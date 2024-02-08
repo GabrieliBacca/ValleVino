@@ -98,4 +98,46 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+
+@media (max-width: 768px) {
+  .call-to-action-container button {
+    padding: 10px 10vw;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .content-container h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  .content-container p {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+  }
+
+  .call-to-action-container {
+    bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .content-container p {
+    font-size: 0.7rem;
+    line-height: 1rem;
+  }
+
+  .call-to-action-container {
+    bottom: 20px;
+  }
+}
 </style>
