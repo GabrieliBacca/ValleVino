@@ -1,3 +1,72 @@
+<template>
+  <v-container grid-list-md text-xs-center>
+    <v-layout row wrap>
+      <v-flex v-for="wine in wines" :key="wine.id" xs12 sm6 md4 lg3>
+        <v-card class="mx-auto" max-width="400px" height="300px" white>
+          <v-img :src="wine.img" height="100px"></v-img>
+          <v-card-title>{{ wine.label }}</v-card-title>
+          <v-card-text>Uva: {{ wine.grape }}</v-card-text>
+          <v-card-text>R${{ wine.price }},00</v-card-text>
+          <icon class="pi pi-shopping-cart" @click="showDetails(wine)"></icon>
+          <icon class="pi pi-heart" space-around></icon>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      wines: [],
+    };
+  },
+  mounted() {
+    // Quando o componente é montado, buscar a lista de vinhos
+    this.getWines();
+  },
+  methods: {
+    async getWines() {
+      try {
+        const response = await fetch('http://localhost:8000/api/wines');
+        const data = await response.json();
+        this.wines = data;
+      } catch (error) {
+        console.error('Error fetching wines:', error);
+      }
+    },
+    showDetails(wine) {
+      // Lógica para exibir detalhes do vinho, pode navegar para outra rota ou exibir um modal, etc.
+      console.log('Detalhes do vinho:', wine);
+    },
+  },
+};
+</script>
+
+<style>
+.v-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.v-card__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.v-card__text {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.v-card__img {
+  max-height: 150px;
+  object-fit: cover;
+}
+</style>
+
 <!-- <template>
   <div class="card">
     <DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
@@ -86,7 +155,7 @@ const getSeverity = (product) => {
 </script>
  -->
 
-
+<!-- 
 
 <template>
   <div class="card xl:flex xl:justify-center">
@@ -125,4 +194,4 @@ onMounted(() => {
 </script> 
 
 
-<style scoped></style> 
+<style scoped></style>  -->

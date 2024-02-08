@@ -111,6 +111,7 @@ export default {
     padding: 20px;
     border-radius: 8px;
     margin: 20px;
+    color: #f5f5f5;
 }
 
 .result-card {

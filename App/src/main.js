@@ -10,6 +10,15 @@ import './styles/tailwind.css'; // Arquivo CSS gerado pelo Tailwind
 import DataView from 'primevue/dataview';
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
 
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+
+const vuetify = createVuetify({
+    components,
+    directives,
+})
 
 
 
@@ -48,6 +57,7 @@ app.component('Header', Header); // Registre o componente Header globalmente
 app.component('DataView', DataView);
 app.component('DataViewLayoutOptions', DataViewLayoutOptions);
 app.use(router); // Use o roteador criado
+app.use(vuetify);
 
 
 // Monte o aplicativo Vue no elemento com o id "app"
