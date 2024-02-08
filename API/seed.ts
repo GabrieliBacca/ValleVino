@@ -1229,7 +1229,7 @@ async function addWines() {
 
 
 }
-addWines()
+// addWines()
 
 // // //função para mostrar todos os vinhos cadastrados
 // async function getAllWines() {
