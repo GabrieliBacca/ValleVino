@@ -39,7 +39,8 @@ export default {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    gap: 10px;
     align-items: center;
 }
 
@@ -50,6 +51,7 @@ export default {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 300px;
+    justify-content: space-around;
 }
 
 .popup-text {
