@@ -116,7 +116,7 @@ let user4: UserDTO = {
 }
 
 //rodar a funcao pra criar os 4 usuarios
-// AddNewUser(user1)
+AddNewUser(user1)
 // AddNewUser(user2)
 // AddNewUser(user3)
 // AddNewUser(user4)
