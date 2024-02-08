@@ -181,5 +181,6 @@ export const deleteWineById = async (id: number): Promise<Wine | null> => {
 //                                 "typeId": 2,
 //                                     "countryId": 3,
 //                                         "grapeId": 10,
-//                                             "harmonyId": 1
+//                                             "harmonyId": 1,
+//                                              "img: "",
 // }
