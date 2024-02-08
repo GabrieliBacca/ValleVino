@@ -8,7 +8,7 @@
             </template>
 
             <template #list="slotProps">
-                <div class="flex flex-wrap">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     <div v-for="(item, index) in slotProps.items" :key="index" class="w-full p-3">
                         <div class="flex flex-col xl:flex-row xl:items-start p-4 gap-4"
                             :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
@@ -39,7 +39,7 @@
             </template>
 
             <template #grid="slotProps">
-                <div class="flex flex-wrap">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     <div v-for="(item, index) in slotProps.items" :key="index" class="w-full p-3 sm:w-6/12 xl:w-4/12">
                         <div
                             class="p-4 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-800 rounded">
