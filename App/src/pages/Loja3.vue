@@ -3,15 +3,18 @@
         <v-carousel-item v-for="(wine, i) in wines" :key="i">
             <v-sheet :color="colors[i]" height="100%">
                 <div class="d-flex fill-height justify-center align-center">
-                    <div class="text-h2">
+                    <div class="text-h2 d-flex justify-space-between align-center">
                         <div>
-                            <img :src="wine.img" height="200px" alt="wine image">
+                            <img :src="wine.img" height="300px" alt="wine image">
                         </div>
-                        {{ wine.label }}<br>
-                        Preço: {{ wine.price }}<br>
-                        {{ wine.type }}<br>
-                        Safra: {{ wine.year }} <br>
-
+                        <div>
+                            <div>
+                                {{ wine.label }}<br>
+                                Preço: {{ wine.price }},00<br>
+                                {{ wine.type }}<br>
+                                Safra: {{ wine.year }} <br>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </v-sheet>
