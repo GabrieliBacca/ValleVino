@@ -1,7 +1,12 @@
-
 <template>
     <div class="card">
-        <DataView :value="products">
+        <DataView :value="products" :layout="layout">
+            <template #header>
+                <div class="flex justify-end">
+                    <DataViewLayoutOptions v-model="layout" />
+                </div>
+            </template>
+
             <template #list="slotProps">
                 <div class="flex flex-wrap">
                     <div v-for="(item, index) in slotProps.items" :key="index" class="w-full p-3">
@@ -33,6 +38,35 @@
                     </div>
                 </div>
             </template>
+
+            <template #grid="slotProps">
+                <div class="flex flex-wrap">
+                    <div v-for="(item, index) in slotProps.items" :key="index" class="w-full p-3 sm:w-6/12 xl:w-4/12">
+                        <div
+                            class="p-4 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-800 rounded">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <div class="flex items-center gap-2">
+                                    <i class="pi pi-tag"></i>
+                                    <span class="font-semibold">{{ item.category }}</span>
+                                </div>
+                                <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 py-5">
+                                <img class="w-9/12 shadow-md rounded"
+                                    :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`"
+                                    :alt="item.name" />
+                                <div class="text-2xl font-bold">{{ item.name }}</div>
+                                <Rating :modelValue="item.rating" readonly :cancel="false"></Rating>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-semibold">${{ item.price }}</span>
+                                <Button icon="pi pi-shopping-cart" rounded
+                                    :disabled="item.inventoryStatus === 'OUTOFSTOCK'"></Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
         </DataView>
     </div>
 </template>
@@ -42,10 +76,12 @@ import { ref, onMounted } from "vue";
 import { ProductService } from '../components/ProductService';
 
 onMounted(() => {
-    ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 5)));
+    ProductService.getProducts().then((data) => (products.value = data.slice(0, 12)));
 });
 
 const products = ref();
+const layout = ref('grid');
+
 const getSeverity = (product) => {
     switch (product.inventoryStatus) {
         case 'INSTOCK':
@@ -60,5 +96,6 @@ const getSeverity = (product) => {
         default:
             return null;
     }
-};
+}
+
 </script>
