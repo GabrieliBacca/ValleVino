@@ -4,11 +4,14 @@
             <v-sheet :color="colors[i]" height="100%">
                 <div class="d-flex fill-height justify-center align-center">
                     <div class="text-h2">
+                        <div>
+                            <img :src="wine.img" height="200px" alt="wine image">
+                        </div>
                         {{ wine.label }}<br>
                         Preço: {{ wine.price }}<br>
                         {{ wine.type }}<br>
-                        Safra: {{ wine.year }}
-                        <img :src="wine.img" height="200px" alt="wine image">
+                        Safra: {{ wine.year }} <br>
+
                     </div>
                 </div>
             </v-sheet>
@@ -24,7 +27,7 @@ export default {
     data() {
         return {
             colors: [
-                'indigo',
+                'blue darken-2',
                 'warning',
                 'pink darken-2',
                 'red lighten-1',
