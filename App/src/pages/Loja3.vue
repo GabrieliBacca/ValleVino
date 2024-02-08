@@ -12,7 +12,7 @@
                                 {{ wine.label }}<br>
                                 Preço: {{ wine.price }},00<br>
                                 {{ wine.type }}<br>
-                                Safra: {{ wine.year }} <br>
+                                Uva: {{ wine.grape }} <br>
                             </div>
                         </div>
                     </div>
