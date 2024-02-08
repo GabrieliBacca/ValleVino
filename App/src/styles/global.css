@@ -1,0 +1,62 @@
+ /* //? todos os estilos que serão aplcados de forma global (todos os componentes recebem) */
+ /* //! estilos especificos seram aplicados direto no componente (paginas)  */
+
+
+ @charset "UTF-8";
+
+ @font-face {
+     font-family: lavonia;
+     src: url(../assets/fontes/EDLavonia-Regular.ttf);
+ }
+
+ @font-face {
+     font-family: montserrat;
+     src: url(../assets/fontes/Montserrat-Regular.otf);
+ }
+
+ @font-face {
+     font-family: lora;
+     src: url(../assets/fontes/Lora-Regular.ttf);
+ }
+
+ @font-face {
+     font-family: baskerville;
+     src: url(../assets/fontes/Baskerville-Regular.ttf);
+ }
+
+
+ * {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: 'baskerville', sans-serif;
+ }
+
+ :root {
+     --color-background: #F5EBDA;
+     --color-background-light: #D1B991;
+     --color-background-dark: #9E845C;
+     --color-icon-light: #D1B991;
+     --color-icon-dark: #BB6500;
+     --color-text-title: #AF6900;
+     --color-text-light: #9E845C;
+     --color-text-dark: #482817;
+ }
+
+ html,
+ body {
+     background-color: var(--color-background);
+ }
+
+ a {
+     text-decoration: none;
+     transition: 0.2s opacity;
+ }
+
+ a:hover {
+     opacity: 0.8;
+ }
+
+ .container {
+     width: 90%;
+ }
