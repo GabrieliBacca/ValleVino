@@ -1,6 +1,6 @@
 <template>
   <main>
-    <!-- //? conteudo da home -->
+    <!-- Conteúdo da home -->
     <section class="container" id="mainContent">
       <div class="content-container">
         <h1 id="mainTitle">
@@ -17,7 +17,6 @@
           <button><a href="./loja " noeffect>Visite a nossa loja</a></button>
         </div>
       </div>
-
       <div class="video-container">
         <video autoplay muted loop id="video-bg">
           <source src="../assets/video/home.mp4" type="video/mp4" />
@@ -27,94 +26,76 @@
   </main>
 </template>
 
-<!-- 
----------------------------
-|                         |
-|         scripts         |
-|                         |
---------------------------- 
--->
 <script>
 export default {
   name: "Home",
 };
 </script>
 
-<!-- 
----------------------------
-|                         |
-|           CSS           |
-|                         |
---------------------------- 
--->
-
 <style scoped>
-main {
-  background-color: var(--color-background);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  overflow: hidden;
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-section {
-  margin: 0;
-  padding: 0;
-
+* {
+  Font-family: montserrat;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 20px;
-}
-
-.video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-video {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-#mainContent {
-  z-index: 1;
-  position: relative;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1rem;
+  min-height: calc(100vh - 100px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
   color: white;
 }
 
 .content-container {
-  z-index: 2;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-h1 {
+
+.content-container h1 {
   font-size: 3rem;
+  font-weight: 400;
+  line-height: 3.5rem;
   margin-bottom: 1rem;
 }
 
-.maintext {
-  font-size: 1.5rem;
-  max-width: 400px;
+#video-bg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  filter: brightness(0.3);
+  object-fit: cover;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.call-to-action-container button:hover {
+  background-color: #fff;
+  color: #000;
 }
 
-a:visited {
-  color: white;
+.call-to-action-container button {
+  padding: 10px 150px;
+  background: transparent;
+  border-radius: 50px;
+  color: #fff;
+  text-transform: uppercase;
+  border: 4px solid #fff;
+  transition: all .5s;
+}
+
+.call-to-action-container {
+  text-align: center;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

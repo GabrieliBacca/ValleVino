@@ -43,11 +43,6 @@
      --color-text-dark: #482817;
  }
 
- html,
- body {
-     background-color: var(--color-background);
- }
-
  a {
      text-decoration: none;
      transition: 0.2s opacity;

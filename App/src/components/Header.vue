@@ -17,6 +17,7 @@
           <li><a href="/home">Home</a></li>
           <li><a href="/loja">Loja</a></li>
           <li><a href="/loja2">Loja2</a></li>
+          <li><a href="/loja3">Loja3</a></li>
           <li><a href="/wineQuiz">Quiz</a></li>
           <li><a href="/WineForm">ADM</a></li>
           <li><a href="/PopUp">18+</a></li>

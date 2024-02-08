@@ -29,6 +29,8 @@ import PopUp from './components/PopUp.vue';
 import Home from './pages/Home.vue';
 import Loja from './pages/Loja.vue';
 import Loja2 from './pages/Loja2.vue';
+import Loja3 from './pages/Loja3.vue';
+
 
 import WineQuiz from './pages/WineQuiz.vue';
 import WineForm from './pages/WineForm.vue';
@@ -40,6 +42,8 @@ const routes = [
     { path: '/home', component: Home },
     { path: '/loja', component: Loja },
     { path: '/loja2', component: Loja2 },
+    { path: '/loja3', component: Loja3 },
+
 
     { path: '/wineCard', component: WineCard },
     { path: '/wineQuiz', component: WineQuiz },

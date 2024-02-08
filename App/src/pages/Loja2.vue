@@ -75,6 +75,10 @@
 import { ref, onMounted } from "vue";
 import { ProductService } from '../components/ProductService';
 
+// onMounted(() => {
+//     ProductService.getProducts().then((data) => (products.value = data.slice(0, 12)));
+// });
+
 onMounted(() => {
     ProductService.getProducts().then((data) => (products.value = data.slice(0, 12)));
 });
