@@ -6,22 +6,22 @@
 
  @font-face {
      font-family: lavonia;
-     src: url(../assets/fontes/EDLavonia-Regular.ttf);
+     src: url(../assets/font/EDLavonia-Regular.ttf);
  }
 
  @font-face {
      font-family: montserrat;
-     src: url(../assets/fontes/Montserrat-Regular.otf);
+     src: url(../assets/font/Montserrat-Regular.otf);
  }
 
  @font-face {
      font-family: lora;
-     src: url(../assets/fontes/Lora-Regular.ttf);
+     src: url(../assets/font/Lora-Regular.ttf);
  }
 
  @font-face {
      font-family: baskerville;
-     src: url(../assets/fontes/Baskerville-Regular.ttf);
+     src: url(../assets/font/Baskerville-Regular.ttf);
  }
 
 
