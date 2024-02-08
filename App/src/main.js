@@ -28,6 +28,8 @@ import WineCard from './components/WineCard.vue';
 import PopUp from './components/PopUp.vue';
 import Home from './pages/Home.vue';
 import Loja from './pages/Loja.vue';
+import Loja2 from './pages/Loja2.vue';
+
 import WineQuiz from './pages/WineQuiz.vue';
 import WineForm from './pages/WineForm.vue';
 import WineList from './pages/WineList.vue';
@@ -37,6 +39,8 @@ const routes = [
     { path: '/', component: Home },
     { path: '/home', component: Home },
     { path: '/loja', component: Loja },
+    { path: '/loja2', component: Loja2 },
+
     { path: '/wineCard', component: WineCard },
     { path: '/wineQuiz', component: WineQuiz },
     { path: '/wineForm', component: WineForm },
