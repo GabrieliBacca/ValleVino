@@ -14,7 +14,7 @@
           sinta experimentando uma obra de arte engarrafada.
         </p>
         <div class="call-to-action-container">
-          <button><a href="./loja ">Visite a nossa loja</a></button>
+          <button><a href="./loja " noeffect>Visite a nossa loja</a></button>
         </div>
       </div>
 
@@ -51,5 +51,63 @@ export default {
 <style scoped>
 main {
   background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#mainContent {
+  z-index: 1;
+  position: relative;
+  color: white;
+}
+
+.content-container {
+  z-index: 2;
+  position: relative;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.maintext {
+  font-size: 1.5rem;
+  max-width: 400px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  color: white;
 }
 </style>
