@@ -38,5 +38,6 @@ export default {
   width: 330px;
   height: 56px;
   border-radius: 8px;
+  text-align: center;
 }
 </style>
