@@ -14,7 +14,7 @@
           sinta experimentando uma obra de arte engarrafada.
         </p>
         <div class="call-to-action-container">
-          <button><a href="./Loja.vue ">Visite a nossa loja</a></button>
+          <button><a href="./loja ">Visite a nossa loja</a></button>
         </div>
       </div>
 
