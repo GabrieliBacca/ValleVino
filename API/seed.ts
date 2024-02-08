@@ -1075,6 +1075,137 @@ let wine4 = {
     img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAFwAXAMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAAABwYEBQMC/8QAOxAAAQMDAgIHAgsJAAAAAAAAAQACAwQFEQYSITEHEyJBUYGh0eEUFSMyYXGCkbGzwRY1YmRzorLD8P/EABoBAQEAAwEBAAAAAAAAAAAAAAAEAgMFBgH/xAAgEQACAgICAgMAAAAAAAAAAAAAAQIDBBEFISIyEzEz/9oADAMBAAIRAxEAPwC4oiIAiIgCmtxmkq9azs+ETuDJBGyMyO2MwBybnHPjyVKUvu9PHb9bSyxtj66SZrjIW8TvxjOPDcpcttQKMZbkyjW9xdADjHAHH1gFdS5aAPERMmN3eByC6luq9Fs0y9giIthiEREAREQBERAFL9TvEusHHPBs0Q5Z5EexVBSaonjmvk1S8k75i9vZPAbveFDn2KEFssw4OUm0VKk+Yc+P6BfdcNsqBOzdjGWg/wDei7lTTJSrTRNNNSaYREW0wCIiAIiIAiIgPC1vcXWvTFdURuLZXMEMRbzD3kNBH1Zz5KJG611LM/qKhwyO/DvxVD6Wq8mW22xnLt1UmDyx2GAj6dzz9lS2U7pXn6VzOQaeoswc5Rfi9FV0heKlzbLPPO98cw6iUuccZIIBxyzva0faVEUb06ZX6Ne+lbvqaWSR0TT3yMIlZ/dhV6iqYq2jgq6d26GeNskbvFrhkehV1D3Wj7F7XZ9kRFtMgiIgCIiAIiICM9IVUJ9X3AZ407Yqfy2CT/aVjGYOSe9aHWxxq29nvNUPyo1mI39lcjN7maX9m76O6j5Ktp+5sjJB5gg/gFQ9ASB2lKSJow2lfNStHgIpXxj0aFLOj+TFfVt8Y2n196p/R+3bY5xjA+MKs/fM8q/E/FGcDSoiKgzCIiAIiIAiIgJRqXTsFwvdzqOukjkfUndyI4MaOXkO9Z79ji04Fdkf0fetxdXFlwuJaNx+Enhn+Fq8eplEpZ8k/cx3LcB7fBeby7LPlkk+tnapw6J1qUo96P1pTTDbfVySOq3Sb2Yx1e3HFbnRsLKe1TxxlxaK6pPaPHjK4/qs9Z6h81QR1MjW4+c7HtWk0n+65T/O1P5z1Zxd1k/GTIsuiup+CPaREXYIgiIgCIiAIiICWagv9todQ3WirKlsMsc4cRIMDDo2EYJ4civO+PbPKWubdKbA4jbUAffhy3WrtCWPVLjUXCKWKrazaKmnfteW9wOQQfMHCilz6PbTSVToo6itLQcdp7M/4rn3cdXbJy21svq5CdcVHS6KRaNQ2qSZzYq+nlcwZcI5A7HkCVr9ESCWwCUA7ZKuqc3IxkdfJgrB9HXRxZYGS1RmrpC8AOjdK0NI+y0H1VVpqeKlgZBTxtjijG1jGjAAWzFwoY3q9mi/Ilc+0fVERWE4REQH/9k="
 }
 
+let wine5 = {
+    label: "Argentina Tinto Angelica Zapata Cabernet Franc",
+    price: 145.00,
+    quantity: 1,
+    year: 2019,
+    vinicula: "Angelica Zapata",
+    alchoolic: 14.00,
+    description: "Este vinho argentino é produzido pela vinícola Angelica Zapata e é feito a partir da uva Cabernet Franc. É um vinho tinto intenso e encorpado, com aromas e sabores marcantes de frutas vermelhas maduras, especiarias e notas de carvalho. É uma excelente opção para acompanhar carnes vermelhas grelhadas e queijos maturados.",
+    type: 3,
+    country: 3,
+    grape: 4,
+    harmony: 5,
+    review: 1, // Se você não tem essa informação, pode deixar como null
+    img: "https://vinomundi.com.br/wp-content/uploads/2023/04/angelica-zapata-cabernet-franc-alta.jpg"
+}
+
+let wine6 = {
+    label: "Argentina Tinto Arrogante Syrah",
+    price: 95.00,
+    quantity: 2,
+    year: 2019,
+    vinicula: "Colosso wines",
+    alchoolic: 13.80,
+    description: "Este vinho apresenta uma cor vermelho-rubi intensa e brilhante. No nariz, é um vinho complexo e sedutor, com notas intensas de frutas vermelhas, como cerejas e ameixas, e um toque sutil de especiarias e pimenta preta. Na boca, é um vinho encorpado e elegante, com taninos macios e uma acidez equilibrada que proporciona uma sensação agradável de frescor. O sabor é marcado por frutas maduras e notas de carvalho, com um final longo e persistente. O Vinho Tinto Arrogante Vicentin Los Chacayes Syrah é um vinho que expressa toda a elegância e complexidade da uva Syrah.É um vinho que pode ser apreciado agora ou guardado por alguns anos para envelhecer e desenvolver ainda mais complexidade e elegância.",
+    type: 3,
+    country: 3,
+    grape: 12,
+    harmony: 6,
+    review: 2,
+    img: "https://www.espaciovino.com.ar/media/default/0001/62/thumb_61147_default_big.jpeg"
+}
+
+let wine7 = {
+    label: "Argentina Tinto Calcáreo Malbec",
+    price: 130.00,
+    quantity: 1,
+    year: 2019,
+    vinicula: "SuperUco",
+    alchoolic: 14.00,
+    description: "Apresenta cor intensa e profunda, notas de frutas pretas como amoras, cassis, alcaçuz, especiarias e discretas notas de carvalho. Com uma acidez acima do esperado para a Malbec, é um vinho super gastronômico.Taninos intensos e sedosos, e um final longo garantem a este vinho mais alguns anos por vir.",
+    type: 3,
+    country: 3,
+    grape: 13,
+    harmony: 6,
+    review: 2,
+    img: "https://images.vivino.com/thumbs/mTxeTBLMQNy26_6w6tx2Lw_pb_x600.png"
+}
+
+let wine8 = {
+    label: "Argentina Tinto DV Catena Cabetnet Malbec",
+    price: 89.00,
+    quantity: 6,
+    year: 2022,
+    vinicula: "DV Catena",
+    alchoolic: 13.50,
+    description: "O excelente DV Catena Cabernet Malbec é elaborado com o emblemático corte argentino, combinando a exuberância de fruta da Malbec com a estrutura e elegância da Cabernet Sauvignon. Produzido para o mercado interno argentino, este vinho de pequena produção é exportado somente para o Brasil.",
+    type: 3,
+    country: 3,
+    grape: 5,
+    harmony: 7,
+    review: 2,
+    img: "https://images.vivino.com/thumbs/X_CiAHA_QJiFwM6unkJGhA_pb_x600.png"
+}
+
+let wine9 = {
+    label: "Argentina Tinto Enzo Bianchi Gran Corte",
+    price: 350.00,
+    quantity: 1,
+    year: 2018,
+    vinicula: "Bodegas Bianchi",
+    alchoolic: 14.40,
+    description: "Este vinho icônico, Enzo Bianchi, é uma homenagem a Don Enzo Bianchi que foi enólogo mentor da Bodegas Bianchi por muitos anos. Elaborado com as uvas Cabernet Sauvignon(43%), Malbec (37 %), Merlot(15 %) e Cabernet Franc(5 %), formam um blend tradicional Gran Corte das melhores uvas de San Rafael. É um vinho de cor profunda com tons violáceos intensos, elegante e sedutor.No nariz encontramos notas intensas de frutos vermelhos e florais, combinados com notas de especiarias, ervas frescas e frutos pretos maduros, fundidos com notas de chocolate e baunilha.Em boca é um vinho claramente complexo, com boa estrutura, untuoso, com taninos sedosos, com boa acidez, trazendo a sensação de refrescância. Envelhecido por 12 meses em barricas de carvalho francês.Seu potencial de guarda é de 20 anos.",
+    type: 3,
+    country: 3,
+    grape: 14,
+    harmony: 8,
+    review: 2,
+    img: "https://images.vivino.com/thumbs/8g4RYRzWS3m9rUWCo8zz6g_pb_x600.png"
+}
+
+let wine10 = {
+    label: "Luigi Bosca Chardonnay",
+    price: 90.00,
+    quantity: 2,
+    year: 2021,
+    vinicula: "Luigi Bianchi",
+    alchoolic: 13.60,
+    description: "O vinho Luigi Bosca Chardonnay possui aromas equilibrados, com notas de frutas brancas, leveduras e leves toques tostados herdados da barrica. Em boca é untuoso e fresco, com bom volume e textura. Final persistente e cremoso, com um toque floral. Agradáveis notas de mel e pão torrado, e aromas frutados de abacaxi e melão, muito típicos da variedade. Pelas características climáticas do ano, esta colheita envolve notas minerais. Além disso, apresenta um sutil toque de baunilha proveniente de sua fermentação parcial em barricas de carvalho francês. Sua entrada em boca é amável, redonda, com volume de fruta, certa untuosidade e bom corpo. Excelente final, com uma grande permanência no paladar que se estende por um período prolongado.",
+    type: 4,
+    country: 3,
+    grape: 15,
+    harmony: 12,
+    review: 2,
+    img: "https://images.tcdn.com.br/img/img_prod/802298/vinho_luigi_bosca_chardonnay_1115_1_b520d6b8f97e8f9ea5a6182eb3b62cc0.jpg"
+}
+
+
+let wine11 = {
+    label: "Lito Chardonnay",
+    price: 75.00,
+    quantity: 1,
+    year: 2021,
+    vinicula: "Luigi Bianchi",
+    alchoolic: 13.50,
+    description: "Lito é um branco surpreendente. As uvas Chardonnay e Garganega trazem um frescor e aroma para o vinho.",
+    type: 4,
+    country: 4,
+    grape: 16,
+    harmony: 12,
+    review: 2,
+    img: "https://www.vinoevinho.com.br/produtos/TAVE_Lito-Branco-_21.jpg",
+}
+
+
+let wine12 = {
+    label: "Garzon Reserva Tannat",
+    price: 125.00,
+    quantity: 4,
+    year: 2020,
+    vinicula: "Bodega Garzon",
+    alchoolic: 14.00,
+    description: "Um dos mais famosos rótulos assinados por Garzón, este Tannat Reserva revela notas de amoras maduras, especiarias, além de toques de baunilha e café. Um dos clássicos da vitivinicultura uruguaia que conta com o know how de Alberto Antonini.Localizada próximo a vários pontos turísticos uruguaios, como Punta del Este e La Barra, a Bodega Garzon é a combinação perfeita entre história e futuro. Um projeto com mais de 220 hectares de vinhedos, pertence ao Grupo Agroland, fundada pelo argentino Alejandro Bulgheroni. Os vinhos são elaborados sob a consultoria de Alberto Antonini, uma das maiores referências mundiais em produção de vinhos premium. Um projeto ousado, capaz de posicionar o Uruguai no mapa mundial do vinho.Localizada próximo a vários pontos turísticos uruguaios, como Punta del Este e La Barra, a Bodega Garzon é a combinação perfeita entre história e futuro. Um projeto com mais de 220 hectares de vinhedos, pertence ao Grupo Agroland, fundada pelo argentino Alejandro Bulgheroni. Os vinhos são elaborados sob a consultoria de Alberto Antonini, uma das maiores referências mundiais em produção de vinhos premium. Um projeto ousado, capaz de posicionar o Uruguai no mapa mundial do vinho.",
+    type: 3,
+    country: 6,
+    grape: 10,
+    harmony: 13,
+    review: 2,
+    img: "https://worldwine.vteximg.com.br/arquivos/ids/165811-1000-1500/023878-Garzon-Reserva-Tannat.png?v=638170785683670000",
+}
+
+
 
 //fiz até o Veuve Clicquot, tem que rodar o prisma pra anotar os ID de referência..
 
@@ -1082,10 +1213,21 @@ let wine4 = {
 // Para rodar a função cadastrar dos vinhos. Funcionou, mas precisou ser 1 por vez...
 
 async function addWines() {
-    await addNewWine(wine1, wine1.type, wine1.country, wine1.grape, wine1.harmony, wine1.review);
-    await addNewWine(wine2, wine2.type, wine2.country, wine2.grape, wine2.harmony, wine2.review);
-    await addNewWine(wine3, wine3.type, wine3.country, wine3.grape, wine3.harmony, wine3.review);
-    await addNewWine(wine4, wine4.type, wine4.country, wine4.grape, wine4.harmony, wine4.review);
+    // await addNewWine(wine1, wine1.type, wine3.country, wine1.grape, wine1.harmony, wine1.review);
+    // await addNewWine(wine2, wine3.type, wine3.country, wine2.grape, wine2.harmony, wine2.review);
+    // await addNewWine(wine3, wine3.type, wine3.country, wine3.grape, wine3.harmony, wine3.review);
+    // await addNewWine(wine4, wine3.type, wine3.country, wine4.grape, wine4.harmony, wine4.review);
+    await addNewWine(wine5, wine5.type, wine5.country, wine5.grape, wine5.harmony, wine5.review);
+    await addNewWine(wine6, wine6.type, wine6.country, wine6.grape, wine6.harmony, wine6.review);
+    await addNewWine(wine7, wine7.type, wine7.country, wine7.grape, wine7.harmony, wine7.review);
+    await addNewWine(wine8, wine8.type, wine8.country, wine8.grape, wine8.harmony, wine8.review);
+    await addNewWine(wine9, wine9.type, wine9.country, wine9.grape, wine9.harmony, wine9.review);
+    await addNewWine(wine10, wine10.type, wine10.country, wine10.grape, wine10.harmony, wine10.review);
+    await addNewWine(wine11, wine11.type, wine11.country, wine11.grape, wine11.harmony, wine11.review);
+    await addNewWine(wine12, wine12.type, wine12.country, wine12.grape, wine12.harmony, wine12.review);
+
+
+
 }
 addWines()
 
