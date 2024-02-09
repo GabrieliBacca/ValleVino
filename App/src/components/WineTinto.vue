@@ -17,7 +17,7 @@ export default {
         products() {
             const productsFilter = this.$store.getters["products"];
             return productsFilter.filter((product) => {
-                if (product.type.includes("Tinto")) {
+                if (product.type.includes("3")) {
                     return true;
                 } else {
                     return false;

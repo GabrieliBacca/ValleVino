@@ -34,6 +34,8 @@ import Loja from './pages/Loja.vue';
 import Loja2 from './pages/Loja2.vue';
 import Loja3 from './pages/Loja3.vue';
 import Loja4 from './pages/Loja4.vue';
+import Loja5 from './pages/Loja5.vue';
+
 
 
 
@@ -49,6 +51,8 @@ const routes = [
   { path: '/loja2', component: Loja2 },
   { path: '/loja3', component: Loja3 },
   { path: '/loja4', component: Loja4 },
+  { path: '/loja5', component: Loja5 },
+
 
 
   { path: "/wineCard", component: WineCard },
