@@ -1,27 +1,26 @@
 <template>
   <div>
-    <h1>Criar nova senha</h1>
-    <h3>Sua nova senha deve ser diferente daquelas usadas anteriormente.</h3>
+    <form>
+      <h1>Criar nova senha</h1>
+      <h3>Sua nova senha deve ser diferente daquelas usadas anteriormente.</h3>
 
-    <div class="textBox">
-      <input id="password" type="password" placeholder="Nova senha" />
-      <input
-        id="confirmPassword"
-        type="password"
-        placeholder="Confirmar senha"
-      />
-    </div>
-    <Button />
+      <div class="textBox">
+        <input id="password" type="password" placeholder="Nova senha" />
+        <input
+          id="confirmPassword"
+          type="password"
+          placeholder="Confirmar senha"
+        />
+        <button type="submit" id="bt">Salvar</button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
 export default {
   name: "CriarSenha",
-  components: {
-    Button,
-  },
+  components: {},
 };
 </script>
 
@@ -47,5 +46,17 @@ h1 {
   border-radius: 8px;
   text-align: left;
   font-family: montserrat;
+}
+
+#bt {
+  background-color: var(--color-background-dark);
+  color: var(--color-background);
+  font-size: 24px;
+  font-family: baskerville;
+  padding: 5px;
+  width: 330px;
+  height: 56px;
+  border-radius: 8px;
+  text-align: center;
 }
 </style>

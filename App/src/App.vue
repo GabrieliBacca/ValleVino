@@ -12,7 +12,6 @@
 import "./styles/global.css"; //aplicando as configurações do css global
 
 //componentes
-import Button from "./components/Button.vue";
 import Header from "./components/Header.vue";
 import WineCard from "./components/WineCard.vue";
 import PopUp from "./components/PopUp.vue";
@@ -26,7 +25,6 @@ import WineForm from "./pages/WineForm.vue";
 export default {
   name: "App",
   components: {
-    Button,
     Header,
     Home,
     Loja,

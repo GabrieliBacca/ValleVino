@@ -1,25 +1,24 @@
 <template>
   <div>
-    <h1>Esqueceu a senha?</h1>
-    <h3>
-      Não se preocupe! <br />
-      Acontece. Insira o endereço de e-mail vinculado à sua conta.
-    </h3>
+    <form>
+      <h1>Esqueceu a senha?</h1>
+      <h3>
+        Não se preocupe! <br />
+        Acontece. Insira o endereço de e-mail vinculado à sua conta.
+      </h3>
 
-    <div class="textBox">
-      <input id="email" type="text" placeholder="Seu email" />
-    </div>
-    <Button />
+      <div class="textBox">
+        <input id="email" type="text" placeholder="Seu email" />
+      </div>
+      <button type="submit" id="bt">Receber Codigo</button>
+    </form>
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
 export default {
   name: "EsqueceuSenha",
-  components: {
-    Button,
-  },
+  components: {},
 };
 </script>
 

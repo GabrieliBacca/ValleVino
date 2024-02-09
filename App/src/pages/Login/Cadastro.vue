@@ -1,31 +1,29 @@
 <template>
   <div>
-    <h1>
-      Olá! <br />
-      Registre-se para começar...
-    </h1>
-    <div class="textBox">
-      <input id="user" type="text" placeholder="Nome de usuário" />
-      <input id="email" type="text" placeholder="Seu email" />
-      <input id="password" type="password" placeholder="Senha" />
-      <input
-        id="confirmPassword"
-        type="password"
-        placeholder="Confirme sua senha"
-      />
-    </div>
-    <Button />
+    <form>
+      <h1>
+        Olá! <br />
+        Registre-se para começar...
+      </h1>
+      <div class="textBox">
+        <input id="user" type="text" placeholder="Nome de usuário" />
+        <input id="email" type="text" placeholder="Seu email" />
+        <input id="password" type="password" placeholder="Senha" />
+        <input
+          id="confirmPassword"
+          type="password"
+          placeholder="Confirme sua senha"
+        />
+      </div>
+      <button type="submit" id="bt">Cadastrar</button>
+    </form>
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
-
 export default {
   name: "Cadastro",
-  components: {
-    Button,
-  },
+  components: {},
 };
 </script>
 
@@ -53,5 +51,16 @@ h1 {
   border-radius: 8px;
   text-align: left;
   font-family: montserrat;
+}
+#bt {
+  background-color: var(--color-background-dark);
+  color: var(--color-background);
+  font-size: 24px;
+  font-family: baskerville;
+  padding: 5px;
+  width: 330px;
+  height: 56px;
+  border-radius: 8px;
+  text-align: center;
 }
 </style>

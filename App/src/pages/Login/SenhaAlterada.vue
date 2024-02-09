@@ -5,18 +5,14 @@
     <h1>Maravilha!</h1>
     <br />
     <h3>Sua senha foi alterada com sucesso.</h3>
+    <button type="submit" id="bt-login">Logar</button>
   </div>
-
-  <Button />
 </template>
 
 <script>
-import Button from "@/components/Button.vue";
 export default {
   name: "SenhaAlterada",
-  components: {
-    Button,
-  },
+  components: {},
 };
 </script>
 

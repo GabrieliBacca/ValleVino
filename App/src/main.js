@@ -39,6 +39,14 @@ import WineQuiz from "./pages/WineQuiz.vue";
 import WineForm from "./pages/WineForm.vue";
 import WineList from "./pages/WineList.vue";
 
+//imports das views (pages) de login
+import Login from "./pages/Login/Login.vue";
+import Cadastro from "./pages/Login/Cadastro.vue";
+import EsqueceuSenha from "./pages/Login/EsqueceuSenha.vue";
+import ValidarCodigo from "./pages/Login/ValidarCodigo.vue";
+import CriarSenha from "./pages/Login/CriarSenha.vue";
+import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
+
 // Defina as rotas
 const routes = [
   { path: "/", component: Home },
@@ -54,6 +62,14 @@ const routes = [
   { path: "/wineForm", component: WineForm },
   { path: "/popUp", component: PopUp },
   { path: "/wineList", component: WineList },
+
+  //rotas do login
+  { path: "/login", component: Login },
+  { path: "/cadastro", component: Cadastro },
+  { path: "/esqueceusenha", component: EsqueceuSenha },
+  { path: "/validarcodigo", component: ValidarCodigo },
+  { path: "/criarsenha", component: CriarSenha },
+  { path: "/senhaalterada", component: SenhaAlterada },
 ];
 
 // Crie o roteador
