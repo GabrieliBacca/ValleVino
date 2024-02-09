@@ -10,6 +10,11 @@ import "./styles/tailwind.css"; // Arquivo CSS gerado pelo Tailwind
 import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 
+// import router from "../router";
+import store from "./store/index.js";
+import Wrapper from "./components/Wrapper.vue";
+
+
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
@@ -28,6 +33,8 @@ import Home from './pages/Home.vue';
 import Loja from './pages/Loja.vue';
 import Loja2 from './pages/Loja2.vue';
 import Loja3 from './pages/Loja3.vue';
+import Loja4 from './pages/Loja4.vue';
+
 
 
 import WineQuiz from "./pages/WineQuiz.vue";
@@ -41,6 +48,7 @@ const routes = [
   { path: '/loja', component: Loja },
   { path: '/loja2', component: Loja2 },
   { path: '/loja3', component: Loja3 },
+  { path: '/loja4', component: Loja4 },
 
 
   { path: "/wineCard", component: WineCard },
@@ -62,8 +70,10 @@ app.use(PrimeVue, { unstyled: true }); // Use o plugin PrimeVue
 app.component("Header", Header); // Registre o componente Header globalmente
 app.component("DataView", DataView);
 app.component("DataViewLayoutOptions", DataViewLayoutOptions);
-app.use(router); // Use o roteador criado
+app.use(router);
 app.use(vuetify);
+app.use(store);
+app.component("Wrapper", Wrapper);
 
 // Monte o aplicativo Vue no elemento com o id "app"
 app.mount("#app");
