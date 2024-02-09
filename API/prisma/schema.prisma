@@ -87,7 +87,7 @@ model Wine {
   quantity    Int
   vinicula    String
   year        Int
-  alchoolic   Int
+  alchoolic   Float
   description String
   img         String
 
