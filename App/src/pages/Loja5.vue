@@ -12,7 +12,7 @@
                 <div v-for="item in produtos" @click="abrirModal(item.id)" :key="item.id" class="produto">
                     <img :src="item.img" width="150px" height="150px" :alt="item.label" class="produto_img" />
                     <div class="produto_info">
-                        <span class="produto_preco">{{ item.price | formataPreco }},00</span>
+                        <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
                         <h2 class="produto_titulo">{{ item.label }}</h2>
                     </div>
                 </div>
@@ -81,6 +81,24 @@
 import axios from 'axios';
 
 export default {
+    head: {
+        link: [
+            {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap'
+            },
+            {
+                rel: 'shortcut icon',
+                type: 'image/x-icon',
+                href: './assets/img/carrinho.svg'
+            }
+        ],
+        script: [
+            {
+                src: './vue.min.js'
+            }
+        ]
+    },
     data() {
         return {
             produtos: [],
@@ -89,10 +107,14 @@ export default {
             produto: null,
             carrinhoTotal: 0,
             activeAlert: false,
-            msgAlert: '',
+            msgAlert: ''
         }
     },
     mounted() {
+        const script = document.createElement('script');
+        script.src = './src/app.js';
+        document.body.appendChild(script);
+
         axios.get('http://localhost:8000/api/wines')
             .then(response => {
                 this.produtos = response.data;

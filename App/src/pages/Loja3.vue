@@ -10,7 +10,7 @@
                         <div>
                             <div>
                                 {{ wine.label }}<br>
-                                Preço: {{ wine.price }},00<br>
+                                Preço: R$ {{ wine.price }},00<br>
                                 {{ wine.type }}<br>
                                 Uva: {{ wine.grape }} <br>
                             </div>
