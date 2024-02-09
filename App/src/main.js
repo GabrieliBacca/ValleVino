@@ -71,6 +71,14 @@ const routes = [
   { path: "/wineForm", component: WineForm },
   { path: "/popUp", component: PopUp },
   { path: "/wineList", component: WineList },
+
+  //rotas do login
+  { path: "/login", component: Login },
+  { path: "/cadastro", component: Cadastro },
+  { path: "/esqueceusenha", component: EsqueceuSenha },
+  { path: "/validarcodigo", component: ValidarCodigo },
+  { path: "/criarsenha", component: CriarSenha },
+  { path: "/senhaalterada", component: SenhaAlterada },
 ];
 
 // Crie o roteador
