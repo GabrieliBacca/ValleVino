@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-for="(usuario, i) in usuarios" :key="i">
+      <p>{{ usuario.name }}</p>
+    </div>
     <form>
       <h1>
         Bem-vindo de volta!<br />
@@ -20,10 +23,21 @@
 
 <script>
 //importações
+import api from "@/services/api";
+import { onMounted } from "vue";
 //exportações
 export default {
   name: "Login",
-  components: {},
+  setup() {
+    const usuarios = ref([]);
+
+    const fetchUsuarios = () =>
+      api.get("/usuario").then((res) => (usuarios.value = res.data.results));
+
+    onMounted(fetchUsuarios);
+
+    return { usuarios };
+  },
 };
 </script>
 

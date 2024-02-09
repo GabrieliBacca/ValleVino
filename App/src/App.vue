@@ -22,6 +22,14 @@ import Loja from "./pages/Loja.vue";
 import WineQuiz from "./pages/WineQuiz.vue";
 import WineForm from "./pages/WineForm.vue";
 
+//imports das views (pages) de login
+import Login from "./pages/Login/Login.vue";
+import Cadastro from "./pages/Login/Cadastro.vue";
+import EsqueceuSenha from "./pages/Login/EsqueceuSenha.vue";
+import ValidarCodigo from "./pages/Login/ValidarCodigo.vue";
+import CriarSenha from "./pages/Login/CriarSenha.vue";
+import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
+
 export default {
   name: "App",
   components: {
@@ -32,6 +40,12 @@ export default {
     WineCard,
     WineForm,
     PopUp,
+    Login,
+    Cadastro,
+    EsqueceuSenha,
+    ValidarCodigo,
+    CriarSenha,
+    SenhaAlterada,
   },
   data() {
     return {
