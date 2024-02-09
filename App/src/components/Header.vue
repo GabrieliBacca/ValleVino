@@ -20,6 +20,7 @@
           <li><a href="/loja3">Loja3</a></li>
           <li><a href="/loja4">Loja4</a></li>
           <li><a href="/loja5">Loja5</a></li>
+          <li><a href="/loja6">Loja6</a></li>
           <li><a href="/wineQuiz">Quiz</a></li>
           <li><a href="/WineForm">ADM</a></li>
           <li><a href="/PopUp">18+</a></li>

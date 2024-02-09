@@ -1,6 +1,10 @@
 
 // Em mutations.js
 export default {
+    setWines(state, wines) {
+        state.wines = wines;
+    },
+
     setProducts(state, products) {
         state.products = products;
     },

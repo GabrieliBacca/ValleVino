@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "./ProductCard.vue";
 
 export default {
     components: {
@@ -17,7 +17,7 @@ export default {
         products() {
             const productsFilter = this.$store.getters["products"];
             return productsFilter.filter((product) => {
-                if (product.type.includes("Branco")) {
+                if (product.type.includes("4")) {
                     return true;
                 } else {
                     return false;
