@@ -1013,7 +1013,7 @@ async function addNewWine(wine: WineDTO, typeId: number, countryId: number, grap
 
 // Criar os vinhos usando os IDs recém-criados
 let wine1 = {
-    label: "Freixenet Cava Cordon Rosado Brut Rosee",
+    label: "Freixenet Cava Cordon Rosado Brut Rose",
     price: 75.00,
     quantity: 9,
     year: 0,
@@ -1177,9 +1177,9 @@ let wine11 = {
     price: 75.00,
     quantity: 1,
     year: 2021,
-    vinicula: "Luigi Bianchi",
+    vinicula: "Dieci Terre",
     alchoolic: 13.50,
-    description: "Lito é um branco surpreendente. As uvas Chardonnay e Garganega trazem um frescor e aroma para o vinho.",
+    description: "Lito é um branco surpreendente. As uvas Chardonnay e Garganega trazem um frescor e aroma para o vinho.  é um vinho italiano de cor amarelo palha com reflexos esverdeados. Tem aromas que lembram flores brancas de acácia, bouquet cítrico como abacaxi, toranja, laranja, maçã, pêra e manga e uma leve nota de bananas. É um vinho agradavelmente fresco, macio, saboroso e bem equilibrado. ",
     type: 4,
     country: 4,
     grape: 16,

@@ -4,7 +4,8 @@
         <div>
             <header id="header">
                 <img src="@/assets/img/logoValleVinoBlack.png" height="50px" alt="Valle Vino" class="logo">
-                <div id="carrinho_menu" @click="carrinhoAtivo = true">{{ carrinhoTotal | formataPreco }} | {{ carrinho &&
+                <div id="carrinho_menu" @click="carrinhoAtivo = true">R$ {{ carrinhoTotal() | formataPreco }},00 | {{
+                    carrinho &&
                     carrinho.length }}</div>
             </header>
 
@@ -13,7 +14,8 @@
                     <img :src="item.img" width="150px" height="150px" :alt="item.label" class="produto_img" />
                     <div class="produto_info">
                         <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
-                        <h2 class="produto_titulo">{{ item.label }}</h2>
+                        <h2 class="produto_titulo">{{ item.label }}</h2><br>
+
                     </div>
                 </div>
             </section>
@@ -21,23 +23,26 @@
             <section id="modal" v-if="produto" @click="fecharModal">
                 <div class="modal_container">
                     <div class="modal_img">
-                        <img :src="produto.img" :alt="produto.nome">
+                        <img :src="produto.img" :alt="produto.label">
                     </div>
                     <div class="modal_dados">
                         <button @click="produto = false" class="btn_modal_fechar">X</button>
-                        <span class="modal_preco">{{ produto.preco | formataPreco }}</span>
-                        <h2 class="modal_titulo">{{ produto.nome }}</h2>
-                        <p class="modal_descricao">{{ produto.descricao }}</p>
-                        <button v-if="produto.estoque > 0" class="btn_modal_add" @click="adicionarItem">Adicionar
+                        <span class="modal_preco">R$ {{ produto.price | formataPreco }},00</span>
+                        <h2 class="modal_titulo">{{ produto.label }}</h2>
+                        <p class="modal_descricao">{{ produto.description }}</p>
+                        <span class="modal_dados">Teor Alcolico: {{ produto.alchoolic }}%</span> <br>
+                        <span class="modal_descricao">Harmonização: {{ produto.harmony }}</span>
+
+                        <button v-if="produto.quantity > 0" class="btn_modal_add" @click="adicionarItem">Adicionar
                             Item</button>
                         <button v-else class="btn_modal_add esgotado" disabled>Produto esgotado</button>
                     </div>
                     <div class="reviews">
                         <h2 class="reviews_title">Avaliações</h2>
                         <ul>
-                            <li v-for="review in produto.reviews" class="review">
-                                <p class="review_descricao">{{ review.descricao }}</p>
-                                <p class="review_nome">{{ review.nome }} | <span class="review_estrelas">{{ review.estrelas
+                            <li v-for="review in produto.review" class="review">
+                                <p class="review_descricao">{{ review.review }}</p>
+                                <p class="review_nome">{{ review.user }} | <span class="review_estrelas">{{ review.estrelas
                                 }} estrelas</span></p>
                             </li>
                         </ul>
@@ -49,17 +54,17 @@
             <section id="modal_carrinho" :class="{ active: carrinhoAtivo }" @click="fecharCarrinho">
                 <div class="carrinho_container">
                     <button class="btn_carrinho_fechar" @click="carrinhoAtivo = false">X</button>
-                    <h2 class="carrinho_title">Carrinho</h2>
+                    <h2 class="carrinho_title">Compras</h2>
                     <div v-if="carrinho.length > 0">
                         <ul class="carrinho_lista">
                             <li v-for="(item, index) in carrinho" class="carrinho_item">
-                                <p>{{ item.nome }}</p>
-                                <p class="carrinho_preco">{{ item.preco | formataPreco }}</p>
+                                <p>{{ item.label }}</p>
+                                <p class="carrinho_preco">R$ {{ item.price | formataPreco }},00</p>
                                 <button class="carrinho_remover" @click="removerItem(index)">X</button>
                             </li>
                         </ul>
                         <p class="carrinho_total">Subtotal <b class="carrinho_subtotal">({{ carrinho.length }} {{
-                            carrinho.length > 1 ? "items" : "item" }})</b> {{ carrinhoTotal | formataPreco }}</p>
+                            carrinho.length > 1 ? "items" : "item" }})</b>R$ {{ carrinhoTotal() | formataPreco }},00</p>
                         <div class="carrinho_buttons">
                             <button @click="carrinhoAtivo = false" class="btn_carrinho_continuar">Continuar
                                 Comprando</button>
@@ -105,7 +110,6 @@ export default {
             carrinho: [],
             carrinhoAtivo: false,
             produto: null,
-            carrinhoTotal: 0,
             activeAlert: false,
             msgAlert: ''
         }
@@ -160,10 +164,10 @@ export default {
             if (target == currentTarget) this.carrinhoAtivo = false
         },
         adicionarItem() {
-            this.produto.estoque--
-            const { id, nome, preco } = this.produto
-            this.carrinho.push({ id, nome, preco })
-            this.alert(`${nome} adicionado ao carrinho!`)
+            this.produto.quantity--
+            const { id, label, price } = this.produto
+            this.carrinho.push({ id, label, price })
+            this.alert(`${label} adicionado ao carrinho!`)
         },
         removerItem(index) {
             this.carrinho.splice(index, 1)
@@ -175,24 +179,35 @@ export default {
         },
         checkEstoque() {
             const items = this.carrinho.filter(({ id }) => id === this.produto.id)
-            this.produto.estoque -= items.length
+            this.produto.quantity -= items.length
         },
         alert(mensagem) {
             this.msgAlert = mensagem
             this.activeAlert = true
             setTimeout(() => {
                 this.activeAlert = false
-            }, 3000)
+            }, 500)
         },
+        carrinhoTotal() {
+            const total = this.carrinho.reduce((acc, produto) => {
+                const price = parseFloat(produto.price);
+                return acc + price;
+            }, 0);
+            const totalFormatado = total.toFixed(2);
+            return totalFormatado;
+        },
+
         router() {
             const hash = document.location.hash
             if (hash) {
                 this.getProduto(hash.replace("#", ""))
             }
         }
-    }
+
+    },
 
 }
+
 
 </script>
 
@@ -248,7 +263,7 @@ body {
 #carrinho_menu::after {
     content: "";
     display: inline-block;
-    background: url("./assets/carrinho.svg") no-repeat center center;
+    background: url("../assets/img/carrinho.svg") no-repeat center center;
     width: 25px;
     height: 25px;
     margin-left: 10px;
@@ -506,6 +521,7 @@ body {
     outline: none;
     cursor: pointer;
     background: transparent;
+    color: red;
 }
 
 .carrinho_buttons {
