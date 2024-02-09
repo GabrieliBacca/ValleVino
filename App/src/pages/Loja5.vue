@@ -35,9 +35,10 @@
                         <h2 class="modal_titulo">{{ produto.label }}</h2>
                         <p class="modal_descricao">{{ produto.description }}</p>
                         <span class="modal_dados">Teor Alcólico: {{ produto.alchoolic }}%</span> <br>
-                        <span class="modal_descricao">Uva: {{ produto.grape.grape }} </span> <br>
-                        <span class="modal_descricao">Origem: {{ produto.country.country }}</span> <br>
-                        <span class="modal_descricao">Harmonização: {{ produto.harmony.harmony }}</span> <br>
+                        <span>Teor Alcólico: {{ produto.alcohol_content }}</span><br>
+                        <span>Uva: {{ grapeFormatted }}</span><br>
+                        <span>Origem: {{ countryFormatted }}</span><br>
+                        <span>Harmonização: {{ harmonyFormatted }}</span><br>
                         <span class="modal_preco">R$ {{ produto.price | formataPreco }},00</span><br>
                         <button v-if="produto.quantity > 0" class="btn_modal_add" @click="adicionarItem">Adicionar
                             Item</button>
@@ -119,6 +120,21 @@ export default {
             activeAlert: false,
             msgAlert: ''
         }
+    },
+    computed: {
+
+        grapeFormatted() {
+            const grape = this.produto.grape;
+            return grape ? grape.grape : "Grape não encontrado";
+        },
+        countryFormatted() {
+            const country = this.produto.country;
+            return country ? country.country : "País não encontrado";
+        },
+        harmonyFormatted() {
+            const harmony = this.produto.harmony;
+            return harmony ? harmony.harmony : "Harmonização não encontrada";
+        },
     },
     mounted() {
         const script = document.createElement('script');
@@ -210,11 +226,8 @@ export default {
                 this.getProduto(hash.replace("#", ""))
             }
         }
-
-    },
-
+    }
 }
-
 
 </script>
 
