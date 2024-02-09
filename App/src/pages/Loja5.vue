@@ -4,7 +4,8 @@
         <div>
             <header id="header">
                 <img src="@/assets/img/logoValleVinoBlack.png" height="50px" alt="Valle Vino" class="logo">
-                <div id="carrinho_menu" @click="carrinhoAtivo = true">{{ carrinhoTotal | formataPreco }} | {{ carrinho &&
+                <div id="carrinho_menu" @click="carrinhoAtivo = true">R$ {{ carrinhoTotal() | formataPreco }},00 | {{
+                    carrinho &&
                     carrinho.length }}</div>
             </header>
 
@@ -59,7 +60,7 @@
                             </li>
                         </ul>
                         <p class="carrinho_total">Subtotal <b class="carrinho_subtotal">({{ carrinho.length }} {{
-                            carrinho.length > 1 ? "items" : "item" }})</b> {{ carrinhoTotal | formataPreco }}</p>
+                            carrinho.length > 1 ? "items" : "item" }})</b>R$ {{ carrinhoTotal() | formataPreco }},00</p>
                         <div class="carrinho_buttons">
                             <button @click="carrinhoAtivo = false" class="btn_carrinho_continuar">Continuar
                                 Comprando</button>
@@ -105,7 +106,6 @@ export default {
             carrinho: [],
             carrinhoAtivo: false,
             produto: null,
-            carrinhoTotal: [],
             activeAlert: false,
             msgAlert: ''
         }
@@ -185,7 +185,14 @@ export default {
             }, 500)
         },
         carrinhoTotal() {
-            return this.carrinho.reduce((total, produto) => total + Number(produto.price), 0);
+            const total = this.carrinho.reduce((acc, produto) => {
+                const price = parseFloat(produto.price);
+                console.log('Preço do produto:', price);
+                return acc + price;
+            }, 0);
+            const totalFormatado = total.toFixed(2);
+            console.log('Total do carrinho:', totalFormatado);
+            return totalFormatado;
         },
 
         router() {
@@ -195,9 +202,10 @@ export default {
             }
         }
 
-    }
+    },
 
 }
+
 
 </script>
 
