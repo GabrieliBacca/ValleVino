@@ -11,17 +11,16 @@
 <script>
 import "./styles/global.css"; //aplicando as configurações do css global
 
-//componentes 
+//componentes
 import Header from "./components/Header.vue";
 import WineCard from "./components/WineCard.vue";
-import PopUp from './components/PopUp.vue';
-
+import PopUp from "./components/PopUp.vue";
 
 // pages
 import Home from "./pages/Home.vue";
 import Loja from "./pages/Loja.vue";
 import WineQuiz from "./pages/WineQuiz.vue";
-import WineForm from './pages/WineForm.vue';
+import WineForm from "./pages/WineForm.vue";
 
 export default {
   name: "App",
@@ -33,9 +32,10 @@ export default {
     WineCard,
     WineForm,
     PopUp,
-  }, data() {
+  },
+  data() {
     return {
-      showPopup: !localStorage.getItem('popupShown'), // Exibir o popup apenas se não estiver armazenado no localStorage
+      showPopup: !localStorage.getItem("popupShown"), // Exibir o popup apenas se não estiver armazenado no localStorage
     };
   },
   methods: {
@@ -43,7 +43,7 @@ export default {
       // Lógica para prosseguir se o usuário tiver mais de 18 anos
       // Por exemplo, redirecionar para a página principal
       this.showPopup = false;
-      localStorage.setItem('popupShown', true); // Armazenar no localStorage que o popup já foi exibido
+      localStorage.setItem("popupShown", true); // Armazenar no localStorage que o popup já foi exibido
     },
     reloadPage() {
       // Recarrega a página se o usuário não tiver mais de 18 anos
@@ -51,7 +51,6 @@ export default {
     },
   },
 };
-
 </script>
 
 <style scoped></style>
