@@ -122,8 +122,78 @@ export default {
             .catch(error => {
                 console.error('Error fetching wines:', error);
             });
+    },
+    methods: {
+        abrirModal(productId) {
+            this.produto = this.produtos.find(product => product.id === productId);
+        },
+        formataPreco(preco) {
+            return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(preco);
+        },
+
+        getProdutos() {
+            fetch("http://localhost:8000/api/wines")
+                .then(res => res.json())
+                .then(res => {
+                    this.produtos = res
+                })
+        },
+        getProduto(id) {
+            fetch(`http://localhost:8000/api/wines/${id}`)
+                .then(res => res.json())
+                .then(res => {
+                    this.produto = res
+                })
+        },
+        abrirModal(id) {
+            this.getProduto(id)
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+        },
+        fecharModal({ target, currentTarget }) {
+            if (target == currentTarget) this.produto = false
+            history.pushState(null, null, '/')
+        },
+        fecharCarrinho({ target, currentTarget }) {
+            if (target == currentTarget) this.carrinhoAtivo = false
+        },
+        adicionarItem() {
+            this.produto.estoque--
+            const { id, nome, preco } = this.produto
+            this.carrinho.push({ id, nome, preco })
+            this.alert(`${nome} adicionado ao carrinho!`)
+        },
+        removerItem(index) {
+            this.carrinho.splice(index, 1)
+        },
+        checkLocalStorage() {
+            if (window.localStorage.carrinho) {
+                this.carrinho = JSON.parse(window.localStorage.carrinho)
+            }
+        },
+        checkEstoque() {
+            const items = this.carrinho.filter(({ id }) => id === this.produto.id)
+            this.produto.estoque -= items.length
+        },
+        alert(mensagem) {
+            this.msgAlert = mensagem
+            this.activeAlert = true
+            setTimeout(() => {
+                this.activeAlert = false
+            }, 3000)
+        },
+        router() {
+            const hash = document.location.hash
+            if (hash) {
+                this.getProduto(hash.replace("#", ""))
+            }
+        }
     }
+
 }
+
 </script>
 
 <style scoped>
