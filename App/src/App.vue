@@ -5,6 +5,7 @@
       <Header />
       <router-view></router-view>
     </div>
+    <Newsletter/>
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import Home from "./pages/Home.vue";
 import Loja from "./pages/Loja.vue";
 import WineQuiz from "./pages/WineQuiz.vue";
 import WineForm from './pages/WineForm.vue';
+import Newsletter from "./pages/Newsletter.vue";
 
 export default {
   name: "App",
@@ -33,7 +35,8 @@ export default {
     WineCard,
     WineForm,
     PopUp,
-  }, data() {
+    Newsletter
+}, data() {
     return {
       showPopup: !localStorage.getItem('popupShown'), // Exibir o popup apenas se não estiver armazenado no localStorage
     };
