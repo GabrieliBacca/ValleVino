@@ -15,8 +15,8 @@ const vm = new Vue({
   },
   watch: {
     produto() {
-      document.title = this.produto.nome || "NewsTech"
-      const hash = this.produto.id || hash.replace("#", "")      
+      document.title = this.produto.label || "Valle Vino"
+      const hash = this.produto.id || hash.replace("#", "")
       history.pushState(null, null, `#${hash}`)
     },
     carrinho() {
@@ -25,7 +25,7 @@ const vm = new Vue({
   },
   filters: {
     formataPreco(valor) {
-      return valor.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})
+      return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
     }
   },
   computed: {
@@ -41,14 +41,14 @@ const vm = new Vue({
   },
   methods: {
     getProdutos() {
-      fetch("./api/produtos.json")
+      fetch("http://localhost:8000/api/wines")
         .then(res => res.json())
         .then(res => {
           this.produtos = res
         })
     },
     getProduto(id) {
-      fetch(`./api/produtos/${id}/dados.json`)
+      fetch(`http://localhost:8000/api/wines/${id}`)
         .then(res => res.json())
         .then(res => {
           this.produto = res
@@ -62,8 +62,8 @@ const vm = new Vue({
       })
     },
     fecharModal({ target, currentTarget }) {
-      if (target == currentTarget ) this.produto = false 
-      history.pushState(null, null, '/') 
+      if (target == currentTarget) this.produto = false
+      history.pushState(null, null, '/')
     },
     fecharCarrinho({ target, currentTarget }) {
       if (target == currentTarget) this.carrinhoAtivo = false
@@ -83,12 +83,12 @@ const vm = new Vue({
       }
     },
     checkEstoque() {
-      const items = this.carrinho.filter(({ id }) => id === this.produto.id) 
+      const items = this.carrinho.filter(({ id }) => id === this.produto.id)
       this.produto.estoque -= items.length
     },
-    alert(mensagem) { 
+    alert(mensagem) {
       this.msgAlert = mensagem
-      this.activeAlert = true 
+      this.activeAlert = true
       setTimeout(() => {
         this.activeAlert = false
       }, 3000)
