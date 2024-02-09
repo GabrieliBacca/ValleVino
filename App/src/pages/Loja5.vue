@@ -14,7 +14,8 @@
                     <img :src="item.img" width="150px" height="150px" :alt="item.label" class="produto_img" />
                     <div class="produto_info">
                         <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
-                        <h2 class="produto_titulo">{{ item.label }}</h2>
+                        <h2 class="produto_titulo">{{ item.label }}</h2><br>
+
                     </div>
                 </div>
             </section>
@@ -29,6 +30,9 @@
                         <span class="modal_preco">R$ {{ produto.price | formataPreco }},00</span>
                         <h2 class="modal_titulo">{{ produto.label }}</h2>
                         <p class="modal_descricao">{{ produto.description }}</p>
+                        <span class="modal_dados">Teor Alcolico: {{ produto.alchoolic }}%</span> <br>
+                        <span class="modal_descricao">Harmonização: {{ produto.harmony }}</span>
+
                         <button v-if="produto.quantity > 0" class="btn_modal_add" @click="adicionarItem">Adicionar
                             Item</button>
                         <button v-else class="btn_modal_add esgotado" disabled>Produto esgotado</button>
@@ -37,8 +41,8 @@
                         <h2 class="reviews_title">Avaliações</h2>
                         <ul>
                             <li v-for="review in produto.review" class="review">
-                                <p class="review_descricao">{{ review.descricao }}</p>
-                                <p class="review_nome">{{ review.nome }} | <span class="review_estrelas">{{ review.estrelas
+                                <p class="review_descricao">{{ review.review }}</p>
+                                <p class="review_nome">{{ review.user }} | <span class="review_estrelas">{{ review.estrelas
                                 }} estrelas</span></p>
                             </li>
                         </ul>
@@ -187,11 +191,9 @@ export default {
         carrinhoTotal() {
             const total = this.carrinho.reduce((acc, produto) => {
                 const price = parseFloat(produto.price);
-                console.log('Preço do produto:', price);
                 return acc + price;
             }, 0);
             const totalFormatado = total.toFixed(2);
-            console.log('Total do carrinho:', totalFormatado);
             return totalFormatado;
         },
 
@@ -261,7 +263,7 @@ body {
 #carrinho_menu::after {
     content: "";
     display: inline-block;
-    background: url("./assets/carrinho.svg") no-repeat center center;
+    background: url("../assets/img/carrinho.svg") no-repeat center center;
     width: 25px;
     height: 25px;
     margin-left: 10px;
