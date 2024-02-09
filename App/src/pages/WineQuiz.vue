@@ -1,5 +1,5 @@
-<!-- É a estrutura do quiz -->
 <template>
+    <Loja5 @wineTypeSelected="filterByType" />
     <div>
         <div v-if="!showResult">
             <div v-if="currentQuestionIndex < questions.length">
@@ -72,14 +72,11 @@ export default {
         },
         // Lógica para calcular resultados  
         submitAnswers() {
-
-
-
             const totalA = this.answers.filter((answer) => answer === "a").length;
             const totalB = this.answers.filter((answer) => answer === "b").length;
 
             if (totalA > totalB) {
-                this.result = "Você combina com vinhos brancos ou rosés! Seu paladar leve e sua preferência por pratos frescos tornam esses vinhos ideais para você. Experimente um Chardonnay ou um Pinot Grigio para complementar suas refeições.";
+                this.result = "Você combina com vinhos brancos ou rosés! Seu paladar leve e sua preferência por pratos frescos tornam esses vinhos ideais para você. Experimente um Chardonnay para complementar suas refeições.";
             } else if (totalB > totalA) {
                 this.result = "Você é um fã de vinhos tintos! Sua preferência por pratos mais intensos e ricos em sabores combina bem com vinhos encorpados. Experimente um Malbec ou um Cabernet Sauvignon para realçar sua experiência gastronômica.";
             } else {
@@ -87,9 +84,26 @@ export default {
             }
 
             this.showResult = true;
+        },
+        buyProducts() {
+            const totalA = this.answers.filter((answer) => answer === "a").length;
+            const totalB = this.answers.filter((answer) => answer === "b").length;
+
+            let wineType = '';
+            if (totalA > totalB) {
+                wineType = 'Branco';
+            } else if (totalB > totalA) {
+                wineType = 'Tinto';
+            } else {
+                wineType = 'resetFilter';
+            }
+
+
+            this.$router.push({ path: '/loja5', query: { type: wineType } }).then(() => {
+                this.FilterbyType(wineType);
+            });
 
         },
-
         // Função para redefinir o quiz  
         restartQuiz() {
             this.currentQuestionIndex = 0;
@@ -97,10 +111,34 @@ export default {
             this.showResult = false;
             this.result = "";
         },
-        buyProducts() {
-            // Lógica para redirecionar para a página de compra ou outra ação
-            console.log("Redirecionar para a página de compra...");
+
+        filterByType(type) {
+            fetch('http://localhost:8000/api/wines')
+                .then(response => response.json())
+                .then(data => {
+                    // Filter for the specified type
+                    const filteredData = data.filter(item => item.type === type);
+
+                    // Assign the filtered data to this.produtosFiltrados
+                    this.produtos = filteredData;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados do servidor:', error);
+                });
+
         },
+        resetFilter() {
+            fetch('http://localhost:8000/api/wines')
+                .then(response => response.json())
+                .then(data => {
+                    // Assign the filtered data to this.produtosFiltrados
+                    this.produtos = data;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados do servidor:', error);
+                });
+        },
+
     },
 };
 </script>

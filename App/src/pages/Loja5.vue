@@ -161,7 +161,17 @@ export default {
             .then(response => {
                 this.produtos = response.data;
                 this.produtosFiltrados = response.data; // Inicialmente, os produtos filtrados são iguais a todos os produtos
-            })
+            });
+
+        if (!this.$route.query.type) {
+            // Se não houver um tipo de vinho específico na query, mostrar todos os vinhos
+            this.showAllWines();
+        } else {
+            // Caso contrário, aplicar a lógica de filtragem com base no tipo de vinho
+            this.filterByType(this.$route.query.type);
+        }
+
+
     },
     methods: {
         abrirModal(productId) {
@@ -265,6 +275,28 @@ export default {
                 .catch(error => {
                     console.error('Erro ao buscar dados do servidor:', error);
                 });
+        },
+        methods: {
+            filterByType(wineType) {
+                // Chame a função filterByType aqui com o tipo de vinho recebido
+            }
+        },
+
+        showAllWines() {
+            fetch('http://localhost:8000/api/wines')
+                .then(response => response.json())
+                .then(data => {
+                    // Assign the filtered data to this.produtosFiltrados
+                    this.produtos = data;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados do servidor:', error);
+                });
+        },
+        methods: {
+            filterByType(wineType) {
+                // Chame a função filterByType aqui com o tipo de vinho recebido
+            }
         }
 
     }
