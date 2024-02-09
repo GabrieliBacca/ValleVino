@@ -15,6 +15,11 @@
                     <div class="produto_info">
                         <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
                         <h2 class="produto_titulo">{{ item.label }}</h2><br>
+                        <span>Uva: {{ item.grape }}</span> <br>
+                        <span>Origem: {{ item.country }}</span> <br>
+                        <span>Teor Alcólico: {{ item.alchoolic }}%</span> <br>
+                        <span class="produto_harmonizacao">Harmonização: {{ item.harmony.harmony }}</span>
+                        <br>
 
                     </div>
                 </div>
@@ -27,12 +32,13 @@
                     </div>
                     <div class="modal_dados">
                         <button @click="produto = false" class="btn_modal_fechar">X</button>
-                        <span class="modal_preco">R$ {{ produto.price | formataPreco }},00</span>
                         <h2 class="modal_titulo">{{ produto.label }}</h2>
                         <p class="modal_descricao">{{ produto.description }}</p>
-                        <span class="modal_dados">Teor Alcolico: {{ produto.alchoolic }}%</span> <br>
-                        <span class="modal_descricao">Harmonização: {{ produto.harmony }}</span>
-
+                        <span class="modal_dados">Teor Alcólico: {{ produto.alchoolic }}%</span> <br>
+                        <span class="modal_descricao">Uva: {{ produto.grape.grape }} </span> <br>
+                        <span class="modal_descricao">Origem: {{ produto.country.country }}</span> <br>
+                        <span class="modal_descricao">Harmonização: {{ produto.harmony.harmony }}</span> <br>
+                        <span class="modal_preco">R$ {{ produto.price | formataPreco }},00</span><br>
                         <button v-if="produto.quantity > 0" class="btn_modal_add" @click="adicionarItem">Adicionar
                             Item</button>
                         <button v-else class="btn_modal_add esgotado" disabled>Produto esgotado</button>
@@ -109,7 +115,7 @@ export default {
             produtos: [],
             carrinho: [],
             carrinhoAtivo: false,
-            produto: null,
+            produto: [],
             activeAlert: false,
             msgAlert: ''
         }
@@ -146,6 +152,7 @@ export default {
             fetch(`http://localhost:8000/api/wines/${id}`)
                 .then(res => res.json())
                 .then(res => {
+                    console.log(res); // Add this line to log the response object
                     this.produto = res
                 })
         },

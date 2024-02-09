@@ -68,13 +68,15 @@ export const getWineById = async (id: number): Promise<any | null> => {
             vinicula: true,
             alchoolic: true,
             description: true,
+            type: { select: { type: true } },
+            country: true,
+            grape: true,
+            harmony: true,
+            review: true,
             img: true,
-
-
-
         }
     });
-    return wine
+    return wine;
 }
 
 // servico para criar um novo vinho
