@@ -4,7 +4,7 @@ import AllProducts from "./components/AllProducts.vue";
 
 const routes = [
     {
-        path: "/",
+        path: "/produtos",
         name: "AllProducts",
         component: AllProducts,
     },
