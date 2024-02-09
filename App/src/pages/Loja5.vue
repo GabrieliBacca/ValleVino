@@ -1,6 +1,13 @@
 <template>
     <div>
-
+        <div>
+            <br>
+            <button @click="filterByType('Tinto')">Tinto</button>
+            <button @click="filterByType('Branco')">Branco</button>
+            <button @click="filterByType('Champagne')">Champagne</button>
+            <button @click="filterByType('Espumante')">Espumante</button>
+            <button @click="resetFilter">Mostrar Todos</button>
+        </div>
         <div>
             <header id="header">
                 <img src="@/assets/img/logoValleVinoBlack.png" height="50px" alt="Valle Vino" class="logo">
@@ -114,6 +121,7 @@ export default {
     data() {
         return {
             produtos: [],
+            produtosFiltrados: [], // Adicione esta propriedade para armazenar os produtos filtrados
             carrinho: [],
             carrinhoAtivo: false,
             produto: [],
@@ -148,6 +156,12 @@ export default {
             .catch(error => {
                 console.error('Error fetching wines:', error);
             });
+
+        axios.get('http://localhost:8000/api/wines')
+            .then(response => {
+                this.produtos = response.data;
+                this.produtosFiltrados = response.data; // Inicialmente, os produtos filtrados são iguais a todos os produtos
+            })
     },
     methods: {
         abrirModal(productId) {
@@ -225,8 +239,36 @@ export default {
             if (hash) {
                 this.getProduto(hash.replace("#", ""))
             }
+        },
+        filterByType(type) {
+            fetch('http://localhost:8000/api/wines')
+                .then(response => response.json())
+                .then(data => {
+                    // Filter for the specified type
+                    const filteredData = data.filter(item => item.type === type);
+
+                    // Assign the filtered data to this.produtosFiltrados
+                    this.produtos = filteredData;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados do servidor:', error);
+                });
+
+        },
+        resetFilter() {
+            fetch('http://localhost:8000/api/wines')
+                .then(response => response.json())
+                .then(data => {
+                    // Assign the filtered data to this.produtosFiltrados
+                    this.produtos = data;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados do servidor:', error);
+                });
         }
+
     }
+
 }
 
 </script>
