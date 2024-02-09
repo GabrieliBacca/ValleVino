@@ -10,29 +10,28 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-<<<<<<< HEAD
-=======
     "@types/cors": "^2.8.17",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",
->>>>>>> 18ffedc28aea5299a124b95034da72df066cd80a
     "@types/node": "^20.11.16",
+    "esbuild-register": "^3.5.0",
+    "nodemon": "^3.0.3",
     "prisma": "^5.9.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@prisma/client": "^5.9.1"
-  },
-  "description": ""
-=======
     "@prisma/client": "^5.9.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
-    "express-validator": "^7.0.1",
-    "nodemon": "^3.0.3"
-  }
->>>>>>> 18ffedc28aea5299a124b95034da72df066cd80a
+    "express-validator": "^7.0.1"
+  },
+  "description": "",
+  "@prisma/client": "^5.9.1",
+  "cors": "^2.8.5",
+  "dotenv": "^16.4.1",
+  "express": "^4.18.2",
+  "express-validator": "^7.0.1",
+  "nodemon": "^3.0.3"
 }

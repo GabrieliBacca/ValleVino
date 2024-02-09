@@ -13,8 +13,7 @@
                 <p>Uva: {{ wine.grape }}</p>
                 <p>Preço: R$ {{ wine.price }},00</p>
                 <div class="wine-img">
-                    <img src="https://freixenet.vteximg.com.br/arquivos/ids/159466-500-500/192021988-1.png?v=638288270465800000"
-                        alt="">
+                    <img :src="wine.img" alt="">
                 </div>
                 <!-- Adicione mais detalhes conforme necessário -->
                 <div @click="showDetails(wine)">
@@ -40,7 +39,7 @@ export default {
     methods: {
         async getWines() {
             try {
-                const response = await fetch('http://localhost:3000/api/wines');
+                const response = await fetch('http://localhost:8000/api/wines');
                 const data = await response.json();
                 this.wines = data;
             } catch (error) {

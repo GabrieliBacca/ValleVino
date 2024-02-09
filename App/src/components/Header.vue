@@ -1,19 +1,9 @@
 <template>
   <header>
     <nav class="container">
-      <a href="/"
-        ><img
-          id="logo"
-          alt="Logo Valle Vino"
-          src="../assets/img/logoValleVinoBlack.png"
-      /></a>
+      <a href="/"><img id="logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoBlack.png" /></a>
       <!-- //? bt menu -->
-      <img
-        v-on:click="openMenu"
-        id="bt-menu"
-        src="../assets/img/ico-menu-hb.svg"
-        alt="botão de menu lateral"
-      />
+      <img v-on:click="openMenu" id="bt-menu" src="../assets/img/ico-menu-hb.svg" alt="botão de menu lateral" />
       <!-- //? overlay menu lateral -->
       <div v-on:click="closeMenu" id="menu-overlay" v-if="menuActive"></div>
 
@@ -28,10 +18,17 @@
         />
         <!-- //? links menu -->
         <ul>
-          <li><a href="./">Home</a></li>
+          <li><a href="/home">Home</a></li>
           <li><a href="/loja">Loja</a></li>
-          <li><a href="/quiz">Quiz</a></li>
-          <li><a href="./">Sobre</a></li>
+          <li><a href="/loja2">Loja2</a></li>
+          <li><a href="/loja3">Loja3</a></li>
+          <li><a href="/loja4">Loja4</a></li>
+          <li><a href="/loja5">Loja5</a></li>
+          <li><a href="/wineQuiz">Quiz</a></li>
+          <li><a href="/WineForm">ADM</a></li>
+          <li><a href="/PopUp">18+</a></li>
+          <li><a href="/WineCard">WineCard</a></li>
+          <li><a href="/WineList">WineList</a></li>
         </ul>
         <!-- //? icones menu -->
 
@@ -181,6 +178,7 @@ ul li a {
 /* deixando responsivo para web */
 
 @media (min-width: 700px) {
+
   #menu-logo,
   #menu-overlay,
   #bt-esconder-menu,
