@@ -19,7 +19,7 @@
             <select v-model="wine.grapeId" required class="form-select">
                 <option v-for=" option  in  grapeOptions " :value="option.id">{{ option.grape }}</option>
             </select>
-            <br>br
+            <br><br>
 
             <label for="price">Valor R$:</label>
             <input v-model="wine.price" type="number" class="form" required />
@@ -34,10 +34,17 @@
             <input v-model="wine.year" type="number" class="form" required />
             <br><br>
             <label for="alcoholic">Teor Alcoólico:</label>
-            <input v-model="wine.alcoholic" type="number" step="0.01" class="form" required />
+            <input v-model="wine.alchoolic" type="number" step="0.01" class="form" required />
 
             <label for="description">Descrição:</label>
             <input v-model="wine.description" type="text" class="form" required />
+            <br>
+            <br>
+
+            <label for="harmony">Harmonização:</label>
+            <select v-model="wine.harmonyId" required class="form-select">
+                <option v-for=" option  in  harmonyOptions " :value="option.id">{{ option.harmony }}</option>
+            </select>
 
             <label for="img">Imagem URL:</label>
             <input v-model="wine.img" type="text" class="form" required />
@@ -61,9 +68,10 @@ export default {
                 quantity: 0,
                 vinicula: '',
                 year: 0,
-                alcoholic: 0,
+                alchoolic: 0,
                 description: '',
                 img: '',
+                harmony: '',
             },
             countries: [
                 { id: 1, country: 'Espanha' },
@@ -99,6 +107,22 @@ export default {
                 { "id": 15, "grape": "Chardonnay" },
                 { "id": 16, "grape": "Chardonnay e Garganega" }
             ],
+
+            harmonies: [
+                { "id": 1, "harmony": "Carpaccio de salmão defumado, escalopinho de migno…erinjela gratinada com ricota defumada, Grenachi." },
+                { "id": 2, "harmony": "Canapés variados, risoto de presunto cru, carpacci…de batatas, bolinho de bacalhau, comida japonesa." },
+                { "id": 3, "harmony": "Canapés à base de peixe, frutos do mar, ceviche de…lgadinhos de festa, sanduíches e tortas salgadas." },
+                { "id": 4, "harmony": "Talharim com frutos do mar, camarão empanado, sash…s, risoto de pera com nozes, queijos e embutidos." },
+                { "id": 5, "harmony": "Carnes Vermelhas, Carne Suína, Queijos." },
+                { "id": 6, "harmony": "Carne vermelha e cordeiro." },
+                { "id": 7, "harmony": "Carne vermelha, cordeiro, carne de caça (cervo, veado), aves." },
+                { "id": 8, "harmony": "Carne vermelha, cordeiro, massa, aves." },
+                { "id": 9, "harmony": "Carne vermelha, cordeiro, porco, aves, cogumelos, quejo azul." },
+                { "id": 10, "harmony": "Porco, peixe gordo (salmão, atum, etc), vegetariano, aves." },
+                { "id": 11, "harmony": "Carne vermelha, cordeiro,porco." },
+                { "id": 12, "harmony": "Peixes, frutos do mar e crustáceos em preparações …yosa com carne de porco. Queijos de massa cozida." },
+                { "id": 13, "harmony": "Carne vermelha, queijo e massa." }
+            ]
         };
     },
     methods: {
@@ -150,11 +174,22 @@ export default {
                 console.error('Error fetching grapes:', error);
             }
         },
+
+        async fetchHarmonies() {
+            try {
+                const response = await fetch('http://localhost:8000/api/harmony');
+                this.harmonies = await response.json();
+                console.log(this.harmonies)
+            } catch (error) {
+                console.error('Error fetching harmonies:', error);
+            }
+        },
     },
     created() {
         this.fetchCountries();// Call fetchCountries when the component is created
         this.fetchTypes();
         this.fetchGrapes();
+        this.fetchHarmonies();
     },
     computed: {
         countryOptions() {
@@ -165,6 +200,9 @@ export default {
         },
         grapeOptions() {
             return this.grapes;
+        },
+        harmonyOptions() {
+            return this.harmonies;
         }
     }
 
