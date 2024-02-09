@@ -4,7 +4,7 @@
     <section class="container" id="mainContent">
       <div class="content-container">
         <h1 id="mainTitle">
-          Sejam muito bem-vindos a Valle Vino!<br />
+          Bem-vindos a Valle Vino!<br />
           <span class="texto-1">Vinhos de todo o MUNDO</span><br />
           <span class="texto-2"></span>
         </h1>
@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 * {
-  Font-family: montserrat;
+  font-family: montserrat;
 }
 
 .container {
@@ -53,7 +53,6 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
-
 
 .content-container h1 {
   font-size: 3rem;
@@ -85,7 +84,7 @@ export default {
   color: #fff;
   text-transform: uppercase;
   border: 4px solid #fff;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .call-to-action-container {

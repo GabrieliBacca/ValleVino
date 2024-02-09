@@ -16,23 +16,16 @@ import store from "./store/index.js";
 
 import AllProducts from "./components/AllProducts.vue";
 
-
-
 import Wrapper from "./components/Wrapper.vue";
-
 
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
-
-import Home2 from './views/Home.vue';
-import Cart from './views/Cart.vue'
-import DefaultLayout from './layouts/DefaultLayout.vue'
-
-
-
+import Home2 from "./views/Home.vue";
+import Cart from "./views/Cart.vue";
+import DefaultLayout from "./layouts/DefaultLayout.vue";
 
 const vuetify = createVuetify({
   components,
@@ -40,55 +33,38 @@ const vuetify = createVuetify({
 });
 
 // Importe os componentes e páginas necessários
-import Header from './components/Header.vue';
-import WineCard from './components/WineCard.vue';
-import PopUp from './components/PopUp.vue';
-import Home from './pages/Home.vue';
-import Loja from './pages/Loja.vue';
-import Loja2 from './pages/Loja2.vue';
-import Loja3 from './pages/Loja3.vue';
-import Loja4 from './pages/Loja4.vue';
-import Loja5 from './pages/Loja5.vue';
-import Loja6 from './pages/Loja6.vue';
-
-
-
-
-
-
+import Header from "./components/Header.vue";
+import WineCard from "./components/WineCard.vue";
+import PopUp from "./components/PopUp.vue";
+import Home from "./pages/Home.vue";
+import Loja from "./pages/Loja.vue";
+import Loja2 from "./pages/Loja2.vue";
+import Loja3 from "./pages/Loja3.vue";
+import Loja4 from "./pages/Loja4.vue";
+import Loja5 from "./pages/Loja5.vue";
+import Loja6 from "./pages/Loja6.vue";
 
 import WineQuiz from "./pages/WineQuiz.vue";
 import WineForm from "./pages/WineForm.vue";
 import WineList from "./pages/WineList.vue";
 
+//imports das views (pages) de login
+import Login from "./pages/Login/Login.vue";
+import Cadastro from "./pages/Login/Cadastro.vue";
+import EsqueceuSenha from "./pages/Login/EsqueceuSenha.vue";
+import ValidarCodigo from "./pages/Login/ValidarCodigo.vue";
+import CriarSenha from "./pages/Login/CriarSenha.vue";
+import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
+
 // Defina as rotas
 const routes = [
-  { path: '/', component: Home },
-  { path: '/home', component: Home },
-  { path: '/loja', component: Loja },
-  { path: '/loja2', component: Loja2 },
-  { path: '/loja3', component: Loja3 },
-  { path: '/loja4', component: Loja4 },
-  { path: '/loja5', component: Loja5 },
-  { path: '/loja6', component: Loja6 },
-
-
-  {
-    path: "/produtos",
-    name: "AllProducts",
-    component: AllProducts,
-  },
-  {
-    path: "/vinhoTinto",
-    name: "WineTinto",
-    component: () => import("./components/WineTinto.vue"),
-  },
-  {
-    path: "/vinhoBranco",
-    name: "vinhoBranco",
-    component: () => import("./components/VinhoBranco.vue"),
-  },
-
+  { path: "/", component: Home },
+  { path: "/home", component: Home },
+  { path: "/loja", component: Loja },
+  { path: "/loja2", component: Loja2 },
+  { path: "/loja3", component: Loja3 },
+  { path: "/loja4", component: Loja4 },
+  { path: "/loja5", component: Loja5 },
 
   { path: "/wineCard", component: WineCard },
   { path: "/wineQuiz", component: WineQuiz },
@@ -96,7 +72,13 @@ const routes = [
   { path: "/popUp", component: PopUp },
   { path: "/wineList", component: WineList },
 
-
+  //rotas do login
+  { path: "/login", component: Login },
+  { path: "/cadastro", component: Cadastro },
+  { path: "/esqueceusenha", component: EsqueceuSenha },
+  { path: "/validarcodigo", component: ValidarCodigo },
+  { path: "/criarsenha", component: CriarSenha },
+  { path: "/senhaalterada", component: SenhaAlterada },
 ];
 
 // Crie o roteador
