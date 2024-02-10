@@ -1,17 +1,11 @@
 
 <template>
-    <TheHeader />
-    <router-view />
+    <h1>Fazer Checkout tela aqui</h1>
 </template>
 
 <script>
-import TheHeader from "../components/TheHeader.vue";
 
-export default {
-    components: {
-        TheHeader,
-    },
-};
+
 </script>
 
 <style>

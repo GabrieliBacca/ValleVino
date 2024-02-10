@@ -357,7 +357,7 @@ body {
 #carrinho_menu::after {
     content: "";
     display: inline-block;
-    background: url("../assets/img/carrinho.svg") no-repeat center center;
+    background: url("../assets/img/ico-carrinho.svg") no-repeat center center;
     width: 25px;
     height: 25px;
     margin-left: 10px;
@@ -743,6 +743,35 @@ body {
 
     .produto_titulo {
         margin-top: 10px;
+    }
+
+    #app {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    button {
+        font: inherit;
+        cursor: pointer;
+        background-color: rgba(66, 185, 131, 1);
+        color: white;
+        border: 1px solid rgba(66, 185, 131, 1);
+        padding: 0.5rem 1.5rem;
+        border-radius: 30px;
+        margin-bottom: 20px;
+    }
+
+    button:hover,
+    button:active {
+        background-color: #82dcb1;
+        border-color: #82dcb1;
     }
 }
 </style>
