@@ -14,9 +14,9 @@ import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import store from "./store/index.js";
 // import lojaa from "./store/index2.js";
 
-import AllProducts from "./components/AllProducts.vue";
+// import AllProducts from "./components/AllProducts.vue";
 
-import Wrapper from "./components/Wrapper.vue";
+// import Wrapper from "./components/Wrapper.vue";
 
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
@@ -24,7 +24,7 @@ import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
 import Home2 from "./views/Home.vue";
-import Cart from "./views/Cart.vue";
+// import Cart from "./views/Cart.vue";
 import DefaultLayout from "./layouts/DefaultLayout.vue";
 
 const vuetify = createVuetify({
@@ -97,7 +97,7 @@ app.use(router);
 app.use(vuetify);
 app.use(store);
 // app.use(lojaa);
-app.component("Wrapper", Wrapper);
+// app.component("Wrapper", Wrapper);
 
 // Monte o aplicativo Vue no elemento com o id "app"
 app.mount("#app");
