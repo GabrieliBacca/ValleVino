@@ -17,6 +17,15 @@
           <button><a href="./loja " noeffect>Visite a nossa loja</a></button>
         </div>
       </div>
+
+      <!--  //! /////////////////////////////// -->
+      <!--  //! /////////////////////////////// -->
+
+      <div><h1>olá</h1></div>
+
+      <!--  //! /////////////////////////////// -->
+      <!--  //! /////////////////////////////// -->
+
       <div class="video-container">
         <video autoplay muted loop id="video-bg">
           <source src="../assets/video/home.mp4" type="video/mp4" />

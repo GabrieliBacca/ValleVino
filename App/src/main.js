@@ -10,10 +10,7 @@ import "./styles/tailwind.css"; // Arquivo CSS gerado pelo Tailwind
 import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 
-
-
-
-// import router from "../router";
+// import router from "../router"; //desativada essa importação pois a linha 5 ja é suficiente
 import store from "./store/index.js";
 // import lojaa from "./store/index2.js";
 
@@ -52,12 +49,12 @@ import WineForm from "./pages/WineForm.vue";
 import WineList from "./pages/WineList.vue";
 
 //imports das views (pages) de login
-import Login from "./pages/Login/Login.vue";
-import Cadastro from "./pages/Login/Cadastro.vue";
-import EsqueceuSenha from "./pages/Login/EsqueceuSenha.vue";
-import ValidarCodigo from "./pages/Login/ValidarCodigo.vue";
-import CriarSenha from "./pages/Login/CriarSenha.vue";
-import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
+// import Login from "./pages/Login/Login.vue";
+// import Cadastro from "./pages/Login/Cadastro.vue";
+// import EsqueceuSenha from "./pages/Login/EsqueceuSenha.vue";
+// import ValidarCodigo from "./pages/Login/ValidarCodigo.vue";
+// import CriarSenha from "./pages/Login/CriarSenha.vue";
+// import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
 
 // Defina as rotas
 const routes = [
@@ -75,13 +72,14 @@ const routes = [
   { path: "/popUp", component: PopUp },
   { path: "/wineList", component: WineList },
 
-  //rotas do login
-  { path: "/login", component: Login },
-  { path: "/cadastro", component: Cadastro },
-  { path: "/esqueceusenha", component: EsqueceuSenha },
-  { path: "/validarcodigo", component: ValidarCodigo },
-  { path: "/criarsenha", component: CriarSenha },
-  { path: "/senhaalterada", component: SenhaAlterada },
+  //rotas do login desativadas pois
+  // estou testando via arquivo routes (index na pasta de rota)
+  // { path: "/login", component: Login },
+  // { path: "/cadastro", component: Cadastro },
+  // { path: "/esqueceusenha", component: EsqueceuSenha },
+  // { path: "/validarcodigo", component: ValidarCodigo },
+  // { path: "/criarsenha", component: CriarSenha },
+  // { path: "/senhaalterada", component: SenhaAlterada },
 ];
 
 // Crie o roteador

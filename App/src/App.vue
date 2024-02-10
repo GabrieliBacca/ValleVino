@@ -3,7 +3,7 @@
     <PopUp v-if="showPopup" @confirm="proceed" @reject="reloadPage" />
     <div v-else>
       <Header />
-      <router-view></router-view>
+      <router-view />
     </div>
   </div>
 </template>

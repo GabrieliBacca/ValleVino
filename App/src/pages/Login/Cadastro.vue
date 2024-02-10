@@ -6,14 +6,14 @@
         Registre-se para começar...
       </h1>
       <div class="textBox">
-        <input id="user" type="text" placeholder="Nome de usuário" />
-        <input id="email" type="text" placeholder="Seu email" />
-        <input id="password" type="password" placeholder="Senha" />
+        <input id="user" type="text" placeholder="Nome de usuário" />,
+        <input id="email" type="text" placeholder="Seu email" />,
+        <input id="password" type="password" placeholder="Senha" />,
         <input
           id="confirmPassword"
           type="password"
           placeholder="Confirme sua senha"
-        />
+        />,
       </div>
       <button type="submit" id="bt">Cadastrar</button>
     </form>
