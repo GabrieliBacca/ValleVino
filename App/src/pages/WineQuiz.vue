@@ -99,7 +99,7 @@ export default {
             }
 
 
-            this.$router.push({ path: '/loja5', query: { type: wineType } }).then(() => {
+            this.$router.push({ path: '/loja', query: { type: wineType } }).then(() => {
                 this.FilterbyType(wineType);
             });
 
@@ -145,19 +145,19 @@ export default {
 
 <style scoped>
 .card {
-    background-color: black;
+    background-color: --color-background-card;
     padding: 20px;
     border-radius: 8px;
     margin: 20px;
-    color: #f5f5f5;
+    color: --color-background-dark;
 }
 
 .result-card {
-    background-color: #f5f5f5;
+    background-color: --color-background-card;
     padding: 20px;
     border-radius: 8px;
     margin: 20px;
-    color: black;
+    color: --color-background-dark;
 }
 </style>
 

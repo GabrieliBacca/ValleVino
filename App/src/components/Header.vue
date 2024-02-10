@@ -15,11 +15,11 @@
         <!-- //? links menu -->
         <ul>
           <li><a href="/home">Home</a></li>
-          <li><a href="/loja5">Loja</a></li>
+          <li><a href="/loja">Loja</a></li>
           <li><a href="/loja3">Slider</a></li>
           <li><a href="/loja2">Loja2</a></li>
           <li><a href="/loja4">Checkout</a></li>
-          <li><a href="/loja">Vinhos</a></li>
+          <li><a href="/loja5">Vinhos</a></li>
           <li><a href="/loja6">Usar</a></li>
           <li><a href="/wineQuiz">Quiz</a></li>
           <li><a href="/WineForm">ADM</a></li>

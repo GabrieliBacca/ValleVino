@@ -72,9 +72,9 @@
  button {
      font: inherit;
      cursor: pointer;
-     background-color: rgba(66, 185, 131, 1);
+     background-color: rgb(209, 185, 145);
      color: white;
-     border: 1px solid rgba(66, 185, 131, 1);
+     border: 1px solid rgb(209, 185, 145);
      padding: 0.5rem 1.5rem;
      border-radius: 30px;
      margin-bottom: 20px;
@@ -82,8 +82,8 @@
 
  button:hover,
  button:active {
-     background-color: #82dcb1;
-     border-color: #82dcb1;
+     background-color: #d1b991;
+     border-color: #d1b991;
  }
 
 

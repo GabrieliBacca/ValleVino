@@ -40,11 +40,11 @@ import Header from "./components/Header.vue";
 import WineCard from "./components/WineCard.vue";
 import PopUp from "./components/PopUp.vue";
 import Home from "./pages/Home.vue";
-import Loja from "./pages/Loja.vue";
+import Loja from "./pages/Loja5.vue";
 import Loja2 from "./pages/Loja2.vue";
 import Loja3 from "./pages/Loja3.vue";
 import Loja4 from "./pages/Loja4.vue";
-import Loja5 from "./pages/Loja5.vue";
+import Loja5 from "./pages/Loja.vue";
 import Loja6 from "./pages/Loja6.vue";
 
 import WineQuiz from "./pages/WineQuiz.vue";
