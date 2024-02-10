@@ -10,6 +10,9 @@ import "./styles/tailwind.css"; // Arquivo CSS gerado pelo Tailwind
 import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 
+
+
+
 // import router from "../router";
 import store from "./store/index.js";
 // import lojaa from "./store/index2.js";

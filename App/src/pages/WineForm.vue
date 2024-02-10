@@ -2,7 +2,7 @@
     <div id="app">
         <form @submit.prevent="submitForm">
             <label for="type">Tipo:</label>
-            <select v-model="wine.typeId" placeholder="Selecione" required class="form-select">
+            <select v-model="wine.typeId" required class="form-select">
                 <option v-for=" option  in  typeOptions " :value="option.id">{{ option.type }}</option>
             </select>
 
@@ -13,7 +13,7 @@
             </select>
             <br>
             <label for="label">Rótulo:</label>
-            <input v-model="wine.label" type="text" class="form" required /><br>
+            <input v-model="wine.label" type="text" class="formbig" required placeholder="Nome do produto" /><br>
             <br>
             <label for="grape">Uva:</label>
             <select v-model="wine.grapeId" required class="form-select">
@@ -22,22 +22,35 @@
             <br><br>
 
             <label for="price">Valor R$:</label>
-            <input v-model="wine.price" type="number" class="form" required />
+            <input v-model="wine.price" type="number" class="form" required style="margin-right: 20px;"
+                placeholder="Valor do vinho" />
 
             <label for="quantity">Quantidade disponível:</label>
-            <input v-model="wine.quantity" type="number" class="form" required />
+            <input v-model="wine.quantity" type="number" class="form" required placeholder="Quantidade" />
+            <br>
+            <br>
 
             <label for="vinicula">Vinícola:</label>
-            <input v-model="wine.vinicula" type="text" class="form" required />
-
+            <input v-model="wine.vinicula" type="text" class="form" style="width: 25em;" placeholder="Vinícola" required />
+            <br>
+            <br>
+            <!-- 
+            <div class="card flex justify-center position-relative">
+                <label for="year">Ano:</label>
+                <Calendar v-model="date" :modelValue="wine.year" @update:modelValue="newValue => wine.year = newValue"
+                    view="year" dateFormat="yy" showButtonBar showIcon />
+            </div> -->
             <label for="year">Ano:</label>
             <input v-model="wine.year" type="number" class="form" required />
+
+
+
             <br><br>
             <label for="alcoholic">Teor Alcoólico:</label>
-            <input v-model="wine.alchoolic" type="number" step="0.01" class="form" required />
-
+            <input v-model="wine.alchoolic" type="number" step="0.01" class="form" required placeholder="Teor Alcoólico" />
+            <br><br>
             <label for="description">Descrição:</label>
-            <input v-model="wine.description" type="text" class="form" required />
+            <input v-model="wine.description" type="text" class="formbig" placeholder="Descrição do produto" required />
             <br>
             <br>
 
@@ -47,7 +60,7 @@
             </select>
 
             <label for="img">Imagem URL:</label>
-            <input v-model="wine.img" type="text" class="form" required />
+            <input v-model="wine.img" type="text" class="formbig" required placeholder="URL" />
             <br>
             <br>
             <button type="submit">Cadastrar Vinho</button>
@@ -56,7 +69,21 @@
 </template>
 
 <script>
+import { ref } from "vue";
+
+import Calendar from 'primevue/calendar';
+
 export default {
+    components: {
+        Calendar,
+    },
+    setup() {
+        const date = ref(null);
+        return {
+            date,
+        };
+    },
+
     data() {
         return {
             wine: {
@@ -64,11 +91,11 @@ export default {
                 countryId: null,
                 label: '',
                 grapeId: null,
-                price: 0,
-                quantity: 0,
+                price: null,
+                quantity: 1,
                 vinicula: '',
-                year: 0,
-                alchoolic: 0,
+                year: 2023,
+                alchoolic: null,
                 description: '',
                 img: '',
                 harmony: '',
@@ -211,11 +238,27 @@ export default {
 </script>
 
 <style>
+label {
+    margin-right: 10px;
+}
+
 .form {
+    width: 10em;
     color: black;
     font-family: montserrat;
     margin: 0;
     padding: 0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    margin-right: 20px
+}
+
+.formbig {
+    width: 100%;
+    color: black;
+    font-family: montserrat;
+    margin: 0;
+    padding: 0;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    margin-right: 20px
 }
 </style>
