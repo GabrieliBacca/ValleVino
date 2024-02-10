@@ -11,8 +11,6 @@ import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 
 
-
-
 // import router from "../router";
 import store from "./store/index.js";
 // import lojaa from "./store/index2.js";
@@ -68,6 +66,7 @@ const routes = [
   { path: "/loja3", component: Loja3 },
   { path: "/loja4", component: Loja4 },
   { path: "/loja5", component: Loja5 },
+  { path: "/loja6", component: Loja6 },
 
   { path: "/wineCard", component: WineCard },
   { path: "/wineQuiz", component: WineQuiz },
@@ -89,6 +88,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
 
 // Crie o aplicativo Vue e configure os plugins e o roteador
 const app = createApp(App);

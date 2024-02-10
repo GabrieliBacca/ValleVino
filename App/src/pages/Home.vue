@@ -52,6 +52,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 70px;
 }
 
 .content-container h1 {
@@ -96,6 +97,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 0px;
 }
 
 @media (max-width: 768px) {
@@ -137,6 +139,7 @@ export default {
 
   .call-to-action-container {
     bottom: 20px;
+
   }
 }
 </style>

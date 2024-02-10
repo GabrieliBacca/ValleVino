@@ -1,72 +1,76 @@
 <template>
-    <div>
-        <div v-for="wine in wines" :key="wine.id">
-            <p>{{ wine.label }}</p>
-            <p>{{ wine.price }}</p>
-            <img :src="wine.img" width="150px" height="150px">
-        </div>
-    </div>
+    <v-app>
+        <main>
+            <!-- Conteúdo da home -->
+            <section class="container" id="mainContent">
+                <div class="content-container">
+                    <h1 id="mainTitle">
+                        Bem-vindos a Valle Vino!<br />
+                        <span class="texto-1">Vinhos de todo o MUNDO</span><br />
+                        <span class="texto-2"></span>
+                    </h1>
+                    <p class="maintext">
+                        Somos uma empresa de Blumenau, apaixonados por proporcionar momentos
+                        incríveis aos nossos clientes. Nosso objetivo é fazer com que você se
+                        sinta experimentando uma obra de arte engarrafada.
+                    </p>
+                    <div class="call-to-action-container">
+                        <button><a href="./loja " noeffect>Visite a nossa loja</a></button>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <video autoplay muted loop id="video-bg">
+                        <source src="../assets/video/home.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </section>
+        </main>
+        <v-main class="pt-0" ref="mainContent" @scroll="onScroll"> <!-- Adicione o evento de rolagem -->
+            <home />
+            <Loja3 />
+            <Loja5 />
+        </v-main>
+        <!-- <foote />  ADICIONAR DEPOIS....-->
+    </v-app>
 </template>
 
 <script>
-// const mutations = {
-//     setWines(state, wines) {
-//         state.wines = wines;
-//     }
-// }
 
-import { reactive, computed, onMounted } from 'vue'
-import { useStore } from 'vuex'
-import { useHead } from '@vueuse/head'
+import Loja3 from "./Loja3.vue";
+import Loja5 from "./Loja5.vue";
+// import foote from "./components/Footer";
 
 export default {
-    setup() {
-        const store = useStore()
+    name: "App",
 
-        // Inicializar o estado da loja
-        onMounted(async () => {
-            await store.dispatch('initialiseStore')
-        })
+    components: {
 
-        // Obter os vinhos da loja
-        const wines = computed(() => store.state.wines)
+        Loja3,
+        Loja5,
+    },
 
-        // Carregar os vinhos ao montar o componente
-        onMounted(async () => {
-            try {
-                const response = await fetch('http://localhost:8000/api/wines')
-                const data = await response.json()
-                store.commit('setWines', data) // commit para atualizar o estado com os vinhos
-            } catch (error) {
-                store.commit('setError', error) // commit para lidar com erros
-            }
-        })
+    data: () => ({
+        color: "",
+        flat: null,
+    }),
 
-        // Configurar o título e a descrição da página
-        const siteData = reactive({
-            title: `My website`,
-            description: `My beautiful website`,
-        })
-        useHead({
-            // Pode ser estático ou computado
-            title: computed(() => siteData.title),
-            meta: [
-                {
-                    name: `description`,
-                    content: computed(() => siteData.description),
-                },
-            ],
-        })
+    methods: {
+        methods: {
+            onScroll() {
+                const mainContent = this.$refs.mainContent;
+                const scrollPosition = mainContent.scrollTop + mainContent.clientHeight;
+                const scrollHeight = mainContent.scrollHeight;
+                if (scrollPosition >= scrollHeight) {
+                    this.$router.replace('/loja3'); // Replace '/loja3' with the path of the page you want to navigate to
+                }
+            },
+        },                // Navegar dinamicamente para as páginas loja3.vue e loja5.vue
+        // Exemplo: this.$router.push('/loja3') 
+        // ou use o método programático de navegação do Vue Router
 
-        return {
-            wines
-        }
-    }
+    },
 }
 </script>
 
-<style scoped>
-.min-h-content {
-    min-height: calc(100vh - 82px - 148px);
-}
-</style>
+
+<style scoped></style>
