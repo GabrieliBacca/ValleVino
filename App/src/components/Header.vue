@@ -29,8 +29,7 @@
         </ul>
         <!-- //? icones menu -->
 
-        <a href="../pages/Login.vue"><img id="bt-usuario" src="../assets/img/ico-usuario.svg"
-            alt="botão de login usuario" /></a>
+        <a href="/Login"><img id="bt-usuario" src="../assets/img/ico-usuario.svg" alt="botão de login usuario" /></a>
 
         <a href="/"><img id="bt-carrinho" src="../assets/img/ico-carrinho.svg" alt="botão de carrinho" /></a>
 

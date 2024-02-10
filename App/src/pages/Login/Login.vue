@@ -25,6 +25,7 @@
 //importações
 import api from "@/services/api";
 import { onMounted } from "vue";
+import { ref } from "vue"
 //exportações
 export default {
   name: "Login",
@@ -32,7 +33,7 @@ export default {
     const usuarios = ref([]);
 
     const fetchUsuarios = () =>
-      api.get("/usuario").then((res) => (usuarios.value = res.data.results));
+      api.get("http://localhost:8000/api/user").then((res) => (usuarios.value = res.data.results));
 
     onMounted(fetchUsuarios);
 
@@ -45,6 +46,7 @@ export default {
 body {
   background-color: #f2f2f2;
 }
+
 h1 {
   color: var(--color-background-dark);
 }
