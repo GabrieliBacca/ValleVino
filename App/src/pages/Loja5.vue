@@ -124,7 +124,7 @@ export default {
             produtosFiltrados: [], // Adicione esta propriedade para armazenar os produtos filtrados
             carrinho: [],
             carrinhoAtivo: false,
-            produto: [],
+            produto: null,
             activeAlert: false,
             msgAlert: ''
         }
