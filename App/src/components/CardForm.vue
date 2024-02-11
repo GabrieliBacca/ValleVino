@@ -6,7 +6,7 @@
     </div>
     <div class="card-form__inner">
       <div class="card-input">
-        <label for="cardNumber" class="card-input__label">{{ $t('cardForm.cardNumber') }}</label>
+        <label for="cardNumber" class="card-input__label">{{ $t('Número do cartão') }}</label>
         <input type="tel" :id="fields.cardNumber" @input="changeNumber" @focus="focusCardNumber" @blur="blurCardNumber"
           class="card-input__input" :value="formData.cardNumber" :maxlength="cardNumberMaxLength" data-card-field
           autocomplete="off" />
@@ -14,23 +14,23 @@
           tabindex="-1" :disabled="formData.cardNumber === ''" @click="toggleMask"></button>
       </div>
       <div class="card-input">
-        <label for="cardName" class="card-input__label">{{ $t('cardForm.cardName') }}</label>
+        <label for="cardName" class="card-input__label">{{ $t('Nome do titular') }}</label>
         <input type="text" :id="fields.cardName" v-letter-only @input="changeName" class="card-input__input"
           :value="formData.cardName" data-card-field autocomplete="off" />
       </div>
       <div class="card-form__row">
         <div class="card-form__col">
           <div class="card-form__group">
-            <label for="cardMonth" class="card-input__label">{{ $t('cardForm.expirationDate') }}</label>
+            <label for="cardMonth" class="card-input__label">{{ $t('Data de validade') }}</label>
             <select class="card-input__input -select" :id="fields.cardMonth" v-model="formData.cardMonth"
               @change="changeMonth" data-card-field>
-              <option value disabled selected>{{ $t('cardForm.month') }}</option>
+              <option value disabled selected>{{ $t('Mês') }}</option>
               <option v-bind:value="n < 10 ? '0' + n : n" v-for="n in 12" v-bind:disabled="n < minCardMonth"
                 v-bind:key="n">{{ generateMonthValue(n) }}</option>
             </select>
             <select class="card-input__input -select" :id="fields.cardYear" v-model="formData.cardYear"
               @change="changeYear" data-card-field>
-              <option value disabled selected>{{ $t('cardForm.year') }}</option>
+              <option value disabled selected>{{ $t('Ano') }}</option>
               <option v-bind:value="$index + minCardYear" v-for="(n, $index) in 12" v-bind:key="n">{{ $index +
                 minCardYear }}</option>
             </select>
@@ -38,14 +38,14 @@
         </div>
         <div class="card-form__col -cvv">
           <div class="card-input">
-            <label for="cardCvv" class="card-input__label">{{ $t('cardForm.CVV') }}</label>
+            <label for="cardCvv" class="card-input__label">{{ $t('CVV') }}</label>
             <input type="tel" class="card-input__input" v-number-only :id="fields.cardCvv" maxlength="4"
               :value="formData.cardCvv" @input="changeCvv" data-card-field autocomplete="off" />
           </div>
         </div>
       </div>
 
-      <button class="card-form__button" v-on:click="invaildCard">{{ $t('cardForm.submit') }}</button>
+      <button class="card-form__button" v-on:click="invaildCard">{{ $t('Validar') }}</button>
     </div>
   </div>
 </template>

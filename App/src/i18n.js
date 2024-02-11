@@ -35,12 +35,12 @@ const initApp = async () => {
     messages: messages
   });
 
-  const app = createApp(App);
-  app.use(i18n);
-  app.mount('#app');
+  // const app = createApp(App);
+  // app.use(i18n);
+  // app.mount('#app');
+  // app.unmount('#app');
 };
-
-//tirei o initapp() daqui
+initApp(); // Chame initapp() daqui
 
 const i18n = createI18n({
   locale: 'pt',
