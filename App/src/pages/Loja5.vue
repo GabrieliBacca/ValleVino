@@ -82,7 +82,7 @@
                         <div class="carrinho_buttons">
                             <button @click="carrinhoAtivo = false" class="btn_carrinho_continuar">Continuar
                                 Comprando</button>
-                            <button class="btn_carrinho_finalizar">Finalizar Compra</button>
+                            <button class="btn_carrinho_finalizar" @click="redirectToLoja4">Finalizar Compra</button>
                         </div>
                     </div>
                     <p v-else>O carrinho está vazio!</p>
@@ -174,6 +174,10 @@ export default {
 
     },
     methods: {
+
+        redirectToLoja4() {
+            this.$router.push('/loja4');
+        },
         abrirModal(productId) {
             this.produto = this.produtos.find(product => product.id === productId);
         },
