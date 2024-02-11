@@ -109,8 +109,8 @@ const initApp = async () => {
   // Monte o aplicativo Vue no elemento com o id "app"
   app.mount("#app");
   // Unmount any previous app instance before mounting the new app
-  app.unmount('#app')
-};
+  // app.unmount('#app');
+}
 
 initApp();
 
