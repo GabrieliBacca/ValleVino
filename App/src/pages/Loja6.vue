@@ -78,21 +78,52 @@ export default {
 
 
 <style scoped>
+header.vue {
+    margin: 0;
+    padding: 0;
+}
+
+#maincontent.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Ensure the container takes up the full viewport height */
+}
+
+#video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Make the video occupy the entire width and height of the container */
+    object-fit: cover;
+    /* Cover the entire container while maintaining aspect ratio */
+}
+
 .container {
+    width: 100%;
+    height: 100%;
     max-width: var(--max-width);
-    margin: auto;
-    padding: 1rem;
+    margin: 0;
+    padding: 0;
     min-height: calc(100vh - 100px);
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5rem;
-    color: white;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    color: transparent;
 }
 
 .content-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 70px;
+    margin-bottom: 0px;
+    margin-top: 0;
+    padding-top: 0;
+    position: relative;
+    align-items: center;
 }
 
 .content-container h1 {
@@ -144,7 +175,18 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* Adjust the height as needed */
+    top: 0;
+    left: 0;
+    object-fit: cover;
+
+    /* Adjust the height as needed 
+      position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; /* Make the video container occupy the entire width and height of the content container */
+
+
+
 }
 
 .video-container video {
