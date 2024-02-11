@@ -1,8 +1,7 @@
-// main.js
 import { createApp } from "vue";
+import { createWebHistory, createRouter } from "vue-router";
 import App from "./App.vue";
 import PrimeVue from "primevue/config";
-import { createWebHistory, createRouter } from "vue-router";
 import "primevue/resources/themes/saga-blue/theme.css"; // Tema do PrimeVue
 import "primevue/resources/primevue.min.css"; // Estilos do PrimeVue
 import "primeicons/primeicons.css"; // Ícones do PrimeVue
@@ -10,6 +9,8 @@ import "./styles/tailwind.css"; // Arquivo CSS gerado pelo Tailwind
 import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 
+import { initI18n } from './i18n.js';
+// import routes from '/router/index.js';
 
 // import router from "../router";
 import store from "./store/index.js";
@@ -89,18 +90,27 @@ const router = createRouter({
   routes,
 });
 
+const initApp = async () => {
+  const i18n = await initI18n();
 
-// Crie o aplicativo Vue e configure os plugins e o roteador
-const app = createApp(App);
-app.use(PrimeVue, { unstyled: true }); // Use o plugin PrimeVue
-app.component("Header", Header); // Registre o componente Header globalmente
-app.component("DataView", DataView);
-app.component("DataViewLayoutOptions", DataViewLayoutOptions);
-app.use(router);
-app.use(vuetify);
-app.use(store);
-// app.use(lojaa);
-// app.component("Wrapper", Wrapper);
 
-// Monte o aplicativo Vue no elemento com o id "app"
-app.mount("#app");
+  // Crie o aplicativo Vue e configure os plugins e o roteador
+  const app = createApp(App);
+  app.use(PrimeVue, { unstyled: true }); // Use o plugin PrimeVue
+  app.component("Header", Header); // Registre o componente Header globalmente
+  app.component("DataView", DataView);
+  app.component("DataViewLayoutOptions", DataViewLayoutOptions);
+  app.use(router);
+  app.use(vuetify);
+  app.use(store);
+  app.use(i18n);
+  // app.use(lojaa);
+  // app.component("Wrapper", Wrapper);
+  // Monte o aplicativo Vue no elemento com o id "app"
+  app.mount("#app");
+  // Unmount any previous app instance before mounting the new app
+  app.unmount('#app')
+};
+
+initApp();
+
