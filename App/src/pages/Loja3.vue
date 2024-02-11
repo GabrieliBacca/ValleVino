@@ -1,7 +1,7 @@
 <template>
     <v-carousel cycle height="400" hide-delimiter-background show-arrows="hover" v-if="wines.length">
         <v-carousel-item v-for="(wine, i) in wines" :key="i">
-            <v-sheet :color="colors[i]" height="100%">
+            <v-sheet :color="colors[i]" height="100%" class="carousel-item">
                 <div class="d-flex fill-height justify-center align-center">
                     <div class="text-h2 d-flex justify-space-between align-center">
                         <div>
@@ -30,7 +30,6 @@ export default {
         return {
             colors: [
                 'blue darken-2',
-
             ],
             wines: [],
         }
@@ -51,4 +50,21 @@ export default {
     },
 };
 </script>
-<style scoped></style>
+
+<style scoped>
+.carousel-item {
+    border: 3px solid black;
+    /* Define a borda em negrito */
+    border-radius: 10px;
+    /* Adiciona bordas arredondadas */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Adiciona uma sombra sutil */
+    transition: transform 0.3s ease;
+    /* Adiciona uma transição suave */
+}
+
+.carousel-item:hover {
+    transform: scale(1.05);
+    /* Aumenta ligeiramente o tamanho no hover */
+}
+</style>

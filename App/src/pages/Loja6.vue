@@ -78,41 +78,12 @@ export default {
 
 
 <style scoped>
-header.vue {
-    margin: 0;
-    padding: 0;
-}
-
-#maincontent.container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    /* Ensure the container takes up the full viewport height */
-}
-
-#video-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Make the video occupy the entire width and height of the container */
-    object-fit: cover;
-    /* Cover the entire container while maintaining aspect ratio */
-}
-
 .container {
+    position: relative;
     width: 100%;
-    height: 100%;
     max-width: var(--max-width);
     margin: 0;
     padding: 0;
-    min-height: calc(100vh - 100px);
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    color: transparent;
 }
 
 .content-container {
@@ -126,83 +97,51 @@ header.vue {
     align-items: center;
 }
 
-.content-container h1 {
-    font-size: 3rem;
-    font-weight: 400;
-    line-height: 3.5rem;
-    margin-bottom: 1rem;
+#video-bg {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    filter: brightness(0.3);
 }
 
-#video-bg {
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    filter: brightness(0.3);
-    object-fit: cover;
+.video-container {
+    position: relative;
+    width: 100%;
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: white;
+}
+
+.centered-text h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+.centered-text p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.call-to-action-container button {
+    padding: 10px 20px;
+    background: transparent;
+    border-radius: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+    transition: all 0.5s;
 }
 
 .call-to-action-container button:hover {
     background-color: #fff;
     color: #000;
-}
-
-.call-to-action-container button {
-    padding: 10px 10px;
-    background: transparent;
-    border-radius: 50px;
-    color: #fff;
-    text-transform: uppercase;
-    border: 4px solid #fff;
-    transition: all 0.5s;
-}
-
-.call-to-action-container {
-    text-align: center;
-    position: absolute;
-    bottom: -3em;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-
-.video-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-
-    /* Adjust the height as needed 
-      position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%; /* Make the video container occupy the entire width and height of the content container */
-
-
-
-}
-
-.video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Cover the entire container while maintaining aspect ratio */
-}
-
-.centered-text {
-    position: absolute;
-    top: 30%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    /* Add text color as needed */
 }
 </style>
