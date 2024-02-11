@@ -99,7 +99,7 @@ export default {
 
 #video-bg {
     width: 100%;
-    height: 50vh;
+    height: 80vh;
     object-fit: cover;
     filter: brightness(0.3);
 }
@@ -122,6 +122,7 @@ export default {
     font-size: 4rem;
     font-weight: bold;
     margin-bottom: 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .centered-text p {
