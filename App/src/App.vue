@@ -5,7 +5,7 @@
       <Header />
       <router-view></router-view>
     </div>
-    <Footer />
+    <Footer/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import "./styles/global.css"; //aplicando as configurações do css global
 import Header from "./components/Header.vue";
 import WineCard from "./components/WineCard.vue";
 import PopUp from "./components/PopUp.vue";
-
+import Footer from "./components/AppFooter.vue";
 
 // pages
 import Home from "./pages/Home.vue";
@@ -31,7 +31,7 @@ import EsqueceuSenha from "./pages/Login/EsqueceuSenha.vue";
 import ValidarCodigo from "./pages/Login/ValidarCodigo.vue";
 import CriarSenha from "./pages/Login/CriarSenha.vue";
 import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
-import Footer from "../components/AppFooter.vue";
+
 
 
 export default {
