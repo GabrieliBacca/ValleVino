@@ -55,16 +55,7 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-    icons: [
-      "fab fa-apple",
-      "fab fa-google-plus-g",
-      "fab fa-twitter",
-      "fab fa-facebook-f",
-    ],
-  }),
-};
+
 </script>
 
 <style></style>
