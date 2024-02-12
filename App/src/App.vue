@@ -5,6 +5,7 @@
       <Header />
       <router-view></router-view>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -30,6 +31,8 @@ import EsqueceuSenha from "./pages/Login/EsqueceuSenha.vue";
 import ValidarCodigo from "./pages/Login/ValidarCodigo.vue";
 import CriarSenha from "./pages/Login/CriarSenha.vue";
 import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
+import Footer from "../components/AppFooter.vue";
+
 
 export default {
   name: "App",
@@ -47,6 +50,7 @@ export default {
     ValidarCodigo,
     CriarSenha,
     SenhaAlterada,
+    Footer,
   },
   data() {
     return {
