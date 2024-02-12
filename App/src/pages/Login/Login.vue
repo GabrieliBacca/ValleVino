@@ -12,7 +12,7 @@
       <div class="textBox">
         <input v-model="email" type="text" placeholder="Digite seu email" />
         <input v-model="password" type="password" placeholder="Digite sua senha" />
-        <p><a href="#">Esqueceu a senha?</a></p>
+        <p><a href="/esqueceusenha">Esqueceu a senha?</a></p>
       </div>
       <!-- //! colocar o icone de olho no text para revelar  a senha -->
 

@@ -20,12 +20,10 @@
                 <div v-for="item in produtos" @click="abrirModal(item.id)" :key="item.id" class="produto">
                     <img :src="item.img" width="150px" height="150px" :alt="item.label" class="produto_img" />
                     <div class="produto_info">
-                        <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
                         <h2 class="produto_titulo">{{ item.label }}</h2><br>
                         <span>Uva: {{ item.grape }}</span> <br>
                         <span>Origem: {{ item.country }}</span> <br>
-                        <span>Teor Alcólico: {{ item.alchoolic }}%</span> <br>
-                        <span class="produto_harmonizacao">Harmonização: {{ item.harmony.harmony }}</span>
+                        <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
                         <br>
 
                     </div>
