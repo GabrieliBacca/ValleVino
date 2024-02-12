@@ -16,6 +16,7 @@ import Header from "./components/Header.vue";
 import WineCard from "./components/WineCard.vue";
 import PopUp from "./components/PopUp.vue";
 
+
 // pages
 import Home from "./pages/Home.vue";
 import Loja from "./pages/Loja.vue";

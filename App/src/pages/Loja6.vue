@@ -34,6 +34,7 @@
             <Loja3 />
             <Loja5 />
         </v-main>
+        <Footer />
         <!-- <foote />  ADICIONAR DEPOIS....-->
     </v-app>
 </template>
@@ -42,7 +43,9 @@
 
 import Loja3 from "./Loja3.vue";
 import Loja5 from "./Loja5.vue";
-// import foote from "./components/Footer";
+import Footer from "../components/AppFooter.vue";
+
+// import Footer from "./components/Footer.vue";
 
 export default {
     name: "App",
@@ -51,6 +54,7 @@ export default {
 
         Loja3,
         Loja5,
+        Footer,
     },
 
     data: () => ({
