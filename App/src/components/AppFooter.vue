@@ -1,70 +1,41 @@
 <template>
-  <div class="footer">
-    <v-row>
-      <v-col cols="12" xs="12" sm="6" md="4" class="pa-16">
-        <v-toolbar color="transparent" flat>
-          <v-badge color="#D5F0DB" dot>
-            <v-img src="1.png" contain width="30"></v-img>
-          </v-badge>
+  <div class="container">
+ <footer class="footer">
+      <v-row>
 
-          <v-toolbar-title class="ml-4">
-            <span class="green--text"></span><strong>Valle Vino</strong>
-          </v-toolbar-title>
-        </v-toolbar>
-        <v-card-text class="pt-0">
-          <v-btn v-for="icon in icons" :key="icon" class="mx-1 white--text" icon fab outlined small>
-            <v-icon size="20px">
-              {{ icon }}
-            </v-icon>
-          </v-btn>
-        </v-card-text>
-      </v-col>
-      <v-col cols="12" xs="12" sm="6" md="2">
-        <v-card-text class="white--text pt-0">
-          <h3>About</h3>
-        </v-card-text>
-        <v-card-text class="grey--text"> Lorem ipsum dolor sit amet.</v-card-text>
-        <v-card-text class="grey--text mt-n4"> Lorem ipsum dolor sit amet. </v-card-text>
-        <v-card-text class="grey--text mt-n4"> Lorem ipsum dolor sit amet. </v-card-text>
-        <v-card-text class="grey--text mt-n4"> Lorem ipsum dolor sit amet. </v-card-text>
-      </v-col>
-      <v-col cols="12" xs="12" sm="6" md="2">
-        <v-card-text class="white--text pt-0">
-          <h3>Delivery</h3>
-        </v-card-text>
-        <v-card-text class="grey--text"> Lorem ipsum dolor sit amet. </v-card-text>
-        <v-card-text class="grey--text mt-n4"> Lorem ipsum dolor sit amet. </v-card-text>
-        <v-card-text class="grey--text mt-n4"> Lorem ipsum dolor sit amet. </v-card-text>
-        <v-card-text class="grey--text mt-n4"> Lorem ipsum dolor sit amet. </v-card-text>
-      </v-col>
-      <v-col cols="12" xs="12" sm="6" md="4">
-        <v-card-text class="white--text pt-0">
-          <h3>Contact</h3>
-        </v-card-text>
-        <v-card-text class="grey--text"> Lorem ipsum dolor sit amet. </v-card-text>
-        <v-card-text class="grey--text mt-n4">
-          Lorem ipsum dolor sit amet.
-        </v-card-text>
-        <v-card-text class="grey--text mt-n4"> Lorem ipsum dolor sit amet. </v-card-text>
-        <v-card-text class="grey--text mt-n4"> Lorem ipsum dolor sit amet. </v-card-text>
-      </v-col>
-    </v-row>
-    <div class="coluna-esquerda">
-      <img class="tamanho-da-imagem" :src="'../src/assets/img/logoValleVinoBlack.png'" alt="logo">    
-    </div>
-
-    <div class="coluna-central">
-      
-    </div>
-    <div class="coluna-direita">
-      <h2>NEWSLETTER</h2>
-      <p>Receba as novidades em primeira mão</p>
-      <form action="#">
-        <input type="email" placeholder="Digite seu email">
-        <button type="submit">INSCREVA-SE</button>
-      </form>
-    </div>
+        <v-col cols="12" xs="12" sm="6" md="4" class="pa-16">
+          <img class="tamanho-da-imagem" :src="'../src/assets/img/logoValleVinoBlack.png'" alt="logo"> 
+          <h2>NEWSLETTER</h2>
+          <p>Receba as novidades em primeira mão</p>
+  
+          <form action="#">
+            <input type="email" placeholder="Digite seu email">
+            <button type="submit">INSCREVA-SE</button>
+          </form>
+        </v-col>
+  
+        <v-col cols="12" xs="12" sm="6" md="2">
+            <h3>Contato</h3>
+            <p>Blumenau | SC</p>
+            <p>falecom@vallevino.com.br</p>
+            <p>+55 (47) 99123-4567</p>
+        </v-col>
+  
+        <v-col cols="12" xs="12" sm="6" md="4">
+        
+            <h3>Sobre nós</h3>
+            <p>História sobre nós</p>
+            <p>Adquira nossos produtos</p>
+            <p>Mantenha contato</p>
+        
+        </v-col>
+  
+      </v-row>
+  
+    </footer>
+   
   </div>
+   
 </template>
 
 <script>
@@ -78,16 +49,26 @@ export default {
 .tamanho-da-imagem {
   width: 100px; 
   height: auto; /* Isso manterá a proporção original da imagem */
-}
-.footer {
-  background-color: #222222;
-  color: #ffffff;
-  padding: 20px 40px;
+  width: 130px;
+
 }
 
-.footer form {
-  margin-top: 10px;
+
+.container {
+  display: grid;
 }
+
+footer {
+  
+  right: 0;
+  bottom: 0;
+ 
+
+  background-color: var(--color-background-light);
+}
+
+
+
 
 .footer input {
   width: 200px;
