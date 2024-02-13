@@ -22,7 +22,7 @@
           <li><a href="/loja5">Vinhos</a></li>
           <li><a href="/loja6">Usar</a></li>
           <li><a href="/wineQuiz">Quiz</a></li>
-          <li><a href="/WineForm">ADM</a></li>
+          <li><a href="/Adm">ADM</a></li>
           <li><a href="/PopUp">18+</a></li>
           <li><a href="/WineCard">WineCard</a></li>
           <li><a href="/WineList">WineList</a></li>

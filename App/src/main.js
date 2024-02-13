@@ -10,15 +10,9 @@ import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 
 import { initI18n } from './i18n.js';
-// import routes from '/router/index.js';
 
-// import router from "../router";
 import store from "./store/index.js";
-// import lojaa from "./store/index2.js";
 
-// import AllProducts from "./components/AllProducts.vue";
-
-// import Wrapper from "./components/Wrapper.vue";
 
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
@@ -26,7 +20,7 @@ import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
 import Home2 from "./views/Home.vue";
-// import Cart from "./views/Cart.vue";
+
 import DefaultLayout from "./layouts/DefaultLayout.vue";
 
 const vuetify = createVuetify({
@@ -46,8 +40,12 @@ import Loja4 from "./pages/Loja4.vue";
 import Loja5 from "./pages/Loja.vue";
 import Loja6 from "./pages/Loja6.vue";
 
-import WineQuiz from "./pages/WineQuiz.vue";
+
+//import das views (pages)
+import Adm from '../src/pages/Adm.vue';
+import AdmEdit from '../src/pages/AdmEdit.vue';
 import WineForm from "./pages/WineForm.vue";
+import WineQuiz from "./pages/WineQuiz.vue";
 import WineList from "./pages/WineList.vue";
 
 //imports das views (pages) de login
@@ -71,9 +69,15 @@ const routes = [
 
   { path: "/wineCard", component: WineCard },
   { path: "/wineQuiz", component: WineQuiz },
-  { path: "/wineForm", component: WineForm },
   { path: "/popUp", component: PopUp },
   { path: "/wineList", component: WineList },
+
+  //rotas do Adm 
+
+  { path: '/adm', component: Adm },
+  { path: "/wineForm", component: WineForm },
+  { path: '/admEdit/:id/', component: AdmEdit },
+
 
   //rotas do login
   { path: "/login", component: Login },

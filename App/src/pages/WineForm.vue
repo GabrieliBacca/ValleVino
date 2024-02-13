@@ -13,7 +13,7 @@
             </select>
             <br>
             <label for="label">Rótulo:</label>
-            <input v-model="wine.label" type="text" class="formbig" required placeholder="Nome do produto" /><br>
+            <input v-model="wine.label" type="text" class="form-control" required placeholder="Nome do produto" /><br>
             <br>
             <label for="grape">Uva:</label>
             <select v-model="wine.grapeId" required class="form-select">
@@ -22,16 +22,16 @@
             <br><br>
 
             <label for="price">Valor R$:</label>
-            <input v-model="wine.price" type="number" class="form" required style="margin-right: 20px;"
+            <input v-model="wine.price" type="number" class="form-control" required style="margin-right: 20px;"
                 placeholder="Valor do vinho" />
 
             <label for="quantity">Quantidade disponível:</label>
-            <input v-model="wine.quantity" type="number" class="form" required placeholder="Quantidade" />
+            <input v-model="wine.quantity" type="number" class="form-control" required placeholder="Quantidade" />
             <br>
             <br>
 
             <label for="vinicula">Vinícola:</label>
-            <input v-model="wine.vinicula" type="text" class="form" style="width: 25em;" placeholder="Vinícola" required />
+            <input v-model="wine.vinicula" type="text" class="form-control" placeholder="Vinícola" required />
             <br>
             <br>
             <!-- 
@@ -41,16 +41,20 @@
                     view="year" dateFormat="yy" showButtonBar showIcon />
             </div> -->
             <label for="year">Ano:</label>
-            <input v-model="wine.year" type="number" class="form" required />
+            <date-picker v-model="wine.year" type="year" placeholder="Selecione o ano" />
+
+            <input v-model="wine.year" type="number" class="form-control" required />
 
 
 
             <br><br>
             <label for="alcoholic">Teor Alcoólico:</label>
-            <input v-model="wine.alchoolic" type="number" step="0.01" class="form" required placeholder="Teor Alcoólico" />
+            <input v-model="wine.alchoolic" type="number" step="0.01" class="form-control" required
+                placeholder="Teor Alcoólico" />
             <br><br>
             <label for="description">Descrição:</label>
-            <input v-model="wine.description" type="text" class="formbig" placeholder="Descrição do produto" required />
+            <input v-model="wine.description" type="text" class="form-control" placeholder="Descrição do produto"
+                required />
             <br>
             <br>
 
@@ -60,22 +64,30 @@
             </select>
 
             <label for="img">Imagem URL:</label>
-            <input v-model="wine.img" type="text" class="formbig" required placeholder="URL" />
+            <input v-model="wine.img" type="text" class="form-control" required placeholder="URL" />
             <br>
             <br>
             <button type="submit">Cadastrar Vinho</button>
+            <button type="cancel">Cancelar</button>
+            <button class="return" @click="$router.push('/Adm')">
+                Retornar ADM
+            </button>
+
+
         </form>
     </div>
 </template>
 
 <script>
 import { ref } from "vue";
-
 import Calendar from 'primevue/calendar';
+import { RouterLink } from "vue-router";
+
 
 export default {
     components: {
         Calendar,
+
     },
     setup() {
         const date = ref(null);
@@ -153,6 +165,8 @@ export default {
         };
     },
     methods: {
+
+
         async submitForm() {
             try {
                 const response = await fetch('http://localhost:8000/api/wines', {
