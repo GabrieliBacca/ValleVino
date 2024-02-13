@@ -10,18 +10,18 @@
 
                 <div class="mb-3">
                     <label for="">Tipo</label>
-                    <select class="form-control" v-model="model.wine.typeId">
+                    <select class="form-control" v-model="model.wine.type">
                         <option>
-                            {{ this.model.wine.typeId }}
+                            {{ this.model.wine.type }}
                         </option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label for="">Origem</label>
-                    <select class="form-control" v-model="model.wine.countryId">
+                    <select class="form-control" v-model="model.wine.country">
                         <option>
-                            {{ this.model.wine.countryId }}
+                            {{ this.model.wine.country }}
                         </option>
                     </select>
                 </div>
@@ -103,9 +103,9 @@ export default {
             model: {
                 wine: {
                     typeId: null,
-                    countryId: null,
+                    country: null,
                     label: '',
-                    grapeId: null,
+                    grape: null,
                     price: null,
                     quantity: null,
                     vinicula: '',
