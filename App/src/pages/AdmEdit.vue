@@ -10,6 +10,7 @@
 
                 <div class="mb-3">
                     <label for="">Tipo</label>
+                    <!-- <input type="text" v-model="model.wine.type" class="form-control"> -->
                     <select class="form-control" v-model="model.wine.type">
                         <option>
                             {{ this.model.wine.type }}
@@ -86,8 +87,14 @@
 
 
                 <div class="mb-3">
-                    <button type="button" @click="updateWine()" class="btn btn-primary">Atualizar</button>
+                    <button type="button" @click="updateWine()" class="">Atualizar</button>
+                    <button type=" cancel">Cancelar</button>
+                    <button class=" return" @click="$router.push('/Adm')">
+                        Retornar ADM
+                    </button>
+
                 </div>
+
 
             </div>
         </div>
@@ -120,12 +127,15 @@ export default {
 
                 },
                 country: {
-                    country: ""
+                    id: "",
+                    country: "",
                 },
                 grape: {
+                    id: "",
                     grape: ""
                 },
                 harmony: {
+                    id: "",
                     harmony: ""
                 }
             }
@@ -135,9 +145,21 @@ export default {
         console.log(this.$route.params.id)
         this.getWine()
     },
+    created() {
+        // const id = this.$route.params.id;
+        // this.updateWine(id);
+
+    },
     methods: {
         updateWine() {
-            axios.put()
+            let id = this.$route.params.id
+            axios.put('http://localhost:8000/api/wines/' + id)
+                .then(res => {
+                    console.log(res);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         },
         getWine() {
             let id = this.$route.params.id

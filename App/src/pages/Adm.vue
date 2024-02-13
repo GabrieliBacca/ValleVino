@@ -36,7 +36,7 @@
                                     Editar
                                 </RouterLink>
 
-                                <button type=" button" class="btn btn-danger float-end" @click="deleteBook(wine.id)">
+                                <button type=" button" class="btn btn-danger float-end" @click="deleteWine(wine.id)">
                                     Excluir
                                 </button>
                             </td>
@@ -76,7 +76,7 @@ export default {
             })
 
         },
-        deleteBook(id) {
+        deleteWine(id) {
             axios.delete(`http://localhost:8000/api/wines/${id}`).then(res => {
                 console.log(res)
             })
