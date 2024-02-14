@@ -32,10 +32,11 @@
         <v-main class="pt-0" ref="mainContent" @scroll="onScroll"> <!-- Adicione o evento de rolagem -->
             <home />
             <Loja3 />
+            <WineQuiz />
             <Loja5 />
         </v-main>
-        <Footer />
-        <!-- <foote />  ADICIONAR DEPOIS....-->
+        <!-- <Footer /> -->
+
     </v-app>
 </template>
 
@@ -43,7 +44,8 @@
 
 import Loja3 from "./Loja3.vue";
 import Loja5 from "./Loja5.vue";
-import Footer from "../components/AppFooter.vue";
+// import Footer from "../components/AppFooter.vue";
+import WineQuiz from "./WineQuiz.vue";
 
 // import Footer from "./components/Footer.vue";
 
@@ -51,10 +53,9 @@ export default {
     name: "App",
 
     components: {
-
         Loja3,
         Loja5,
-        Footer,
+        WineQuiz
     },
 
     data: () => ({

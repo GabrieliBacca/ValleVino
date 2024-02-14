@@ -10,14 +10,15 @@
                 </div>
             </div>
             <div v-else>
-                <button @click="submitAnswers">Ver Resultado</button>
+                <button @click="submitAnswers" class="result-text" style="margin-top: 20px">Ver Resultado</button>
             </div>
         </div>
 
         <div v-if="showResult">
             <div class="result-card">
                 <h3>Resultados do Quiz:</h3>
-                <p>{{ result }}</p>
+                <Span class="result-text">{{ result }}</Span>
+                <br>
                 <button @click="restartQuiz">Refazer o Teste</button>
                 <button @click="buyProducts">Comprar Produtos</button>
             </div>
@@ -63,6 +64,9 @@ export default {
             result: "",
         };
     },
+    // mounted() {
+    //     this.submitAnswers();
+    // },
 
     methods: {
         // Aqui é a função de resposta para guardar a opção selecionada
@@ -150,6 +154,14 @@ export default {
     border-radius: 8px;
     margin: 20px;
     color: --color-background-dark;
+}
+
+.result-text {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20 px;
 }
 
 .result-card {

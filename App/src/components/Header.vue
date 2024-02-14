@@ -20,7 +20,7 @@
           <li><a href="/loja2">Loja2</a></li>
           <li><a href="/loja4">Checkout</a></li>
           <li><a href="/loja5">Vinhos</a></li>
-          <li><a href="/loja6">Usar</a></li>
+          <li><a href="/loja6">HOMESCROLL</a></li>
           <li><a href="/wineQuiz">Quiz</a></li>
           <li><a href="/Adm">ADM</a></li>
           <li><a href="/PopUp">18+</a></li>
