@@ -153,7 +153,7 @@ export default {
     methods: {
         updateWine() {
             let id = this.$route.params.id
-            axios.put('http://localhost:8000/api/wines/' + id)
+            axios.put('http://localhost:8000/api/wines/' + id, this.model.wine)
                 .then(res => {
                     console.log(res);
                 })
