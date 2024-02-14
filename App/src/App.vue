@@ -1,11 +1,17 @@
 <template>
   <div id="app">
+    <div id="tela-inicial" v-if="!telaInicialEscondida">
+      <div class="logo-container">
+        <img class="logo" src="../src/assets/img/logoValleVinoWhite.png" alt="">
+      </div>
+    </div>
     <PopUp v-if="showPopup" @confirm="proceed" @reject="reloadPage" />
-    <div v-else>
+    <div id="content" v-else>
       <Header />
       <router-view></router-view>
+      <Footer />
     </div>
-    <Footer/>
+
   </div>
 </template>
 
@@ -55,6 +61,7 @@ export default {
   data() {
     return {
       showPopup: !localStorage.getItem("popupShown"), // Exibir o popup apenas se não estiver armazenado no localStorage
+      telaInicialEscondida: false,
     };
   },
   methods: {
@@ -64,6 +71,11 @@ export default {
       this.showPopup = false;
       localStorage.setItem("popupShown", true); // Armazenar no localStorage que o popup já foi exibido
     },
+    mounted() {
+      setTimeout(() => {
+        this.telaInicialEscondida = true;
+      }, 4000);
+    },
     reloadPage() {
       // Recarrega a página se o usuário não tiver mais de 18 anos
       window.location.reload();
@@ -72,4 +84,40 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#tela-inicial {
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: slide-up 4s ease-out forwards;
+}
+
+.logo {
+  max-width: 20%;
+  align-items: center;
+}
+
+@keyframes slide-up {
+  10% {
+    transform: translateY(0);
+
+  }
+
+  50% {
+    opacity: 1;
+
+  }
+
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+</style>
