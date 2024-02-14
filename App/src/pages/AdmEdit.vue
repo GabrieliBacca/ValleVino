@@ -277,10 +277,12 @@ export default {
             let id = this.$route.params.id
             axios.put('http://localhost:8000/api/wines/' + id, this.model.wine)
                 .then(res => {
-                    console.log(res);
+                    console.log(res)
+                    alert('Produto atualizado com sucesso!');
                 })
                 .catch(error => {
                     console.error(error);
+                    alert('Erro ao atualizar o produto!');
                 });
         },
         getWine() {
