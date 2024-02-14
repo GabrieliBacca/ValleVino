@@ -43,7 +43,7 @@
 <script>
 
 import Loja3 from "./Loja3.vue";
-import Loja5 from "./Loja5.vue";
+import Aboutus from "./AboutUs.vue";
 // import Footer from "../components/AppFooter.vue";
 import WineQuiz from "./WineQuiz.vue";
 
@@ -54,7 +54,7 @@ export default {
 
     components: {
         Loja3,
-        Loja5,
+        Aboutus,
         WineQuiz
     },
 

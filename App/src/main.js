@@ -39,6 +39,7 @@ import Loja3 from "./pages/Loja3.vue";
 import Loja4 from "./pages/Loja4.vue";
 import Loja5 from "./pages/Loja.vue";
 import Loja6 from "./pages/Loja6.vue";
+import AboutUs from "./pages/AboutUs.vue";
 
 
 //import das views (pages)
@@ -66,6 +67,7 @@ const routes = [
   { path: "/loja4", component: Loja4 },
   { path: "/loja5", component: Loja5 },
   { path: "/loja6", component: Loja6 },
+  { path: "/aboutus", component: AboutUs },
 
   { path: "/wineCard", component: WineCard },
   { path: "/wineQuiz", component: WineQuiz },
