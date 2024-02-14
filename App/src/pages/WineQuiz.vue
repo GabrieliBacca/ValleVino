@@ -154,6 +154,12 @@ export default {
     border-radius: 8px;
     margin: 20px;
     color: --color-background-dark;
+    color: #482817;
+    font-family: "Libre Baskerville";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
 }
 
 .result-text {
