@@ -1,9 +1,13 @@
 <template>
     <Loja5 @wineTypeSelected="filterByType" />
     <div>
+
         <div v-if="!showResult">
             <div v-if="currentQuestionIndex < questions.length">
                 <div class="card">
+                    <span class="question-text">Tem dúvida sobre qual bebida combina com você?</span>
+                    <span>Faça o nosso Quiz!</span>
+                    <br>
                     <h3>{{ questions[currentQuestionIndex].question }}</h3>
                     <button @click="selectAnswer('a')">A) {{ questions[currentQuestionIndex].options.a }}</button>
                     <button @click="selectAnswer('b')">B) {{ questions[currentQuestionIndex].options.b }}</button>
@@ -160,6 +164,10 @@ export default {
     font-style: normal;
     font-weight: 400;
     line-height: 40px;
+}
+
+.question-text {
+    font-size: 36px;
 }
 
 .result-text {
