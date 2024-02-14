@@ -2,8 +2,10 @@
   <div class="footer-container">
     <footer class="footer">
       <v-row>
+
+        <img class="tamanho-da-imagem" :src="'../src/assets/img/logoValleVinoBlack.png'" alt="logo">
         <v-col cols="12" xs="12" sm="6" md="4" class="pa-16">
-          <img class="tamanho-da-imagem" :src="'../src/assets/img/logoValleVinoBlack.png'" alt="logo">
+
           <h2>NEWSLETTER</h2>
           <p>Receba as novidades em primeira mão</p>
           <form action="#">
@@ -12,15 +14,15 @@
           </form>
         </v-col>
 
-        <v-col cols="12" xs="12" sm="6" md="4">
-          <h3>Contato</h3>
+        <v-col cols="12" sm="6" md="4" class="pa-16">
+          <h2>Contato</h2>
           <p>Blumenau | SC</p>
           <p>falecom@vallevino.com.br</p>
           <p>+55 (47) 99123-4567</p>
         </v-col>
 
-        <v-col cols="12" xs="12" sm="6" md="4">
-          <h3>Sobre nós</h3>
+        <v-col cols="12" sm="6" md="4" class="pa-16">
+          <h2>Sobre nós</h2>
           <p>História sobre nós</p>
           <p>Adquira nossos produtos</p>
           <p>Mantenha contato</p>
@@ -38,15 +40,19 @@ export default {
 
 <style>
 .tamanho-da-imagem {
-  width: 300px;
+
   height: auto;
-  /* Isso manterá a proporção original da imagem */
+  margin: 0;
+  padding: 0;
+  /* Remover margens para alinhar no canto superior esquerdo */
 }
 
 .footer-container {
   width: 100%;
   background-color: var(--color-background-light);
+
 }
+
 
 .footer {
   width: 100%;
