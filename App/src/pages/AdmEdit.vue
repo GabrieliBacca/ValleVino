@@ -10,9 +10,8 @@
 
                 <div class="mb-3">
                     <label for="">Tipo</label>
-                    <!-- <input type="text" v-model="model.wine.type" class="form-control"> -->
-                    <select class="form-control" v-model="model.wine.type.id">
-                        <option :value="this.model.type.id">
+                    <select class="form-control" v-model="model.wine.type">
+                        <option :value="this.model.wine.type">
                             {{ this.model.wine.type.type }}
                         </option>
                     </select>
@@ -109,7 +108,7 @@ export default {
             model: {
                 wine: {
                     typeId: {
-                        id: "",
+                        // id: "",
                         type: ""
                     },
                     country: {
@@ -133,7 +132,8 @@ export default {
                         harmony: ""
                     },
                 },
-                type: {
+                typeId: {
+                    id: "",
                     type: "",
 
                 },
@@ -164,7 +164,7 @@ export default {
     methods: {
         updateWine() {
             let id = this.$route.params.id
-            axios.put('http://localhost:8000/api/wines/' + id)
+            axios.put('http://localhost:8000/api/wines/' + id, this.model.wine)
                 .then(res => {
                     console.log(res);
                 })
