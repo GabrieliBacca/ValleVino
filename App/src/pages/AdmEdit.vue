@@ -10,12 +10,19 @@
 
                 <div class="mb-3">
                     <label for="">Tipo</label>
-                    <select class="form-control" v-model="this.model.wine.typeId">
+                    <select class="form-control" v-model="model.wine.typeId" ref="tipoSelect">
+                        <option v-for="option in typeOptions" :value="option.id"
+                            :selected="option.id === model.wine.typeId">
+                            {{ option.type }}
+                        </option>
+                    </select>
+
+                    <!-- <select class="form-control" v-model="this.model.wine.typeId">
                         <option v-for="option in typeOptions" :value="option.id"
                             :selected="option.id === this.model.wine.typeId">
                             {{ option.type }}
                         </option>
-                    </select>
+                    </select> -->
 
                     <!-- versao correta para tentar
                     <select class="form-control" v-model="this.model.wine.typeId.id">
@@ -29,12 +36,11 @@
 
                 <div class="mb-3">
                     <label for="">Origem</label>
-                    <select class="form-control" v-model="model.wine.countryId">
-                        <option v-for=" option  in  countryOptions " :value="option.id">{{ option.country }}</option>
-
-                        <!-- <option :value="this.model.wine.countryId.id">
-                            {{ this.model.wine.countryId.country }}  </option>-->
-
+                    <select class="form-control" v-model="model.wine.countryId" ref="countrySelect">
+                        <option v-for=" option in countryOptions " :value="option.id"
+                            :selected="option.id === this.model.wine.countryId">
+                            {{ option.country }}
+                        </option>
                     </select>
                 </div>
 
@@ -47,9 +53,6 @@
                     <label for="">Uva</label>
                     <select class="form-control" v-model="model.wine.grapeId">
                         <option v-for=" option  in  grapeOptions " :value="option.id">{{ option.grape }}</option>
-                        <!-- <option :value="this.model.grapeId.id">
-                            {{ this.model.wine.grapeId.grape }}
-                        </option> -->
                     </select>
                 </div>
 
@@ -92,9 +95,6 @@
                     <label for="">Harmonização</label>
                     <select class="form-control" v-model="model.wine.harmonyId">
                         <option v-for=" option  in  harmonyOptions " :value="option.id">{{ option.harmony }}</option>
-                        <!-- <option :value="this.model.wine.harmonyId.id">
-                            {{ this.model.wine.harmonyId.harmony }}
-                        </option> -->
                     </select>
                 </div>
 
@@ -117,31 +117,21 @@
 import axios from 'axios';
 
 export default {
+    watch: {
+        'model.wine.countryId': {
+            handler(val) {
+                // Atualizar a seleção da opção após a carga dos dados
+                if (this.$refs.countrySelect) {
+                    this.$refs.countrySelect.value === val; // Use === para comparação estrita
+                }
+            }
+        }
+    },
     data() {
         return {
             model: {
                 wine: {
-                    // typeId: null,
-                    // countryId: null,
-                    // grapeId: null,
-                    // harmony: '',
 
-                    // typeId: {
-                    //     id: "",
-                    //     type: ""
-                    // },
-                    // countryId: {
-                    //     id: "",
-                    //     country: ""
-                    // },
-                    // grapeId: {
-                    //     id: "",
-                    //     grape: ""
-                    // },
-                    // harmonyId: {
-                    //     id: "",
-                    //     harmony: ""
-                    // },
                     label: '',
                     price: null,
                     quantity: null,
@@ -150,81 +140,56 @@ export default {
                     alchoolic: null,
                     description: '',
                     img: '',
+                    typeId: null,
+                    countryId: 2,
+                    grapeId: null,
+                    harmony: null,
                 },
-                typeId: {
-                    id: 1,
-                    type: "",
 
-                },
-                countryId: {
-                    id: "",
-                    country: "",
-                },
-                grapeId: {
-                    id: "",
-                    grape: ""
-                },
-                harmony: {
-                    id: "",
-                    harmony: ""
-                },
+                // typeId: {
+                //     id: "",
+                //     type: "",
+
+                // },
+                // countryId: {
+                //     id: "",
+                //     country: "",
+                // },
+                // grapeId: {
+                //     id: "",
+                //     grape: ""
+                // },
+                // harmony: {
+                //     id: "",
+                //     harmony: ""
+                // },
 
             },
             countries: [
-                // { id: 1, country: 'Espanha' },
-                // { id: 2, country: 'França' },
-                // { id: 3, country: 'Argentina' },
-                // { id: 4, country: 'Italia' },
-                // { id: 5, country: 'Portugal' },
-                // { id: 6, country: 'Uruguai' },
+
             ],
 
             types: [
-                // { id: 1, type: 'Espumante' },
-                // { id: 2, type: 'Champagne' },
-                // { id: 3, type: 'Vinho Tinto' },
-                // { id: 4, type: 'Vinho Branco' },
+
             ],
 
             grapes: [
-                // { "id": 1, "grape": "Trepat e Grenache" },
-                // { "id": 2, "grape": "Macabeo" },
-                // { "id": 3, "grape": "Pinot Noir" },
-                // { "id": 4, "grape": "Cabernet Franc" },
-                // { "id": 5, "grape": "Cabernet Malbec" },
-                // { "id": 6, "grape": "Sangiovese" },
-                // { "id": 7, "grape": "Corvina, Rondinella, Croatina, Corvinone" },
-                // { "id": 8, "grape": "Alicante Bouschet, Touriga Nacional, Aragonez, Syrah, Trincadeira, Cabernet Sauvignon e Touriga" },
-                // { "id": 9, "grape": "Alicante Bouschet (65%), Aragonez (20%) e Touriga Nacional (15%)" },
-                // { "id": 10, "grape": "Tannat" },
-                // { "id": 11, "grape": "Marselan" },
-                // { "id": 12, "grape": "Syrah, Shiraz" },
-                // { "id": 13, "grape": "Malbec" },
-                // { "id": 14, "grape": "Cabernet Sauvignon, Malbec, Merlot, Petit Verdot" },
-                // { "id": 15, "grape": "Chardonnay" },
-                // { "id": 16, "grape": "Chardonnay e Garganega" }
+
             ],
 
             harmonies: [
-                // { "id": 1, "harmony": "Carpaccio de salmão defumado, escalopinho de migno…erinjela gratinada com ricota defumada, Grenachi." },
-                // { "id": 2, "harmony": "Canapés variados, risoto de presunto cru, carpacci…de batatas, bolinho de bacalhau, comida japonesa." },
-                // { "id": 3, "harmony": "Canapés à base de peixe, frutos do mar, ceviche de…lgadinhos de festa, sanduíches e tortas salgadas." },
-                // { "id": 4, "harmony": "Talharim com frutos do mar, camarão empanado, sash…s, risoto de pera com nozes, queijos e embutidos." },
-                // { "id": 5, "harmony": "Carnes Vermelhas, Carne Suína, Queijos." },
-                // { "id": 6, "harmony": "Carne vermelha e cordeiro." },
-                // { "id": 7, "harmony": "Carne vermelha, cordeiro, carne de caça (cervo, veado), aves." },
-                // { "id": 8, "harmony": "Carne vermelha, cordeiro, massa, aves." },
-                // { "id": 9, "harmony": "Carne vermelha, cordeiro, porco, aves, cogumelos, quejo azul." },
-                // { "id": 10, "harmony": "Porco, peixe gordo (salmão, atum, etc), vegetariano, aves." },
-                // { "id": 11, "harmony": "Carne vermelha, cordeiro,porco." },
-                // { "id": 12, "harmony": "Peixes, frutos do mar e crustáceos em preparações …yosa com carne de porco. Queijos de massa cozida." },
-                // { "id": 13, "harmony": "Carne vermelha, queijo e massa." }
+
             ]
         }
     },
     mounted() {
         console.log(this.$route.params.id)
         this.getWine()
+
+        // this.model.wine.countryId = this.model.wine.countryId.id
+        // this.model.wine.grapeId = this.model.wine.grapeId.id
+        // this.model.wine.harmonyId = this.model.wine.harmonyId.id
+
     },
     created() {
         this.fetchCountries();
@@ -232,6 +197,11 @@ export default {
         this.fetchGrapes();
         this.fetchHarmonies();
 
+
+    },
+    beforeMount() {
+        // this.model.wine.typeId = 1
+        this.model.wine.countryId = 2
     },
     methods: {
         async fetchCountries() {
@@ -289,11 +259,19 @@ export default {
             let id = this.$route.params.id
             axios.get('http://localhost:8000/api/wines/' + id).then(res => {
                 this.model.wine = res.data
-                this.model.type = res.data.type
+                // this.model.type = res.data.type
                 this.model.wine.typeId = res.data.typeId
-                this.model.country = res.data.country
-                this.model.grape = res.data.grape
-                this.model.harmony = res.data.harmony
+                // this.model.country = res.data.country
+                // this.model.grape = res.data.grape
+                // this.model.harmony = res.data.harmony
+                //testes
+                this.model.wine.type.id = res.data.type.id
+                this.model.country.id = res.data.country.id
+                this.model.wine.type = res.data.type;
+                this.model.wine.country = res.data.country;
+
+
+
             })
         }
     },
