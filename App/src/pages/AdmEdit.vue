@@ -11,18 +11,18 @@
                 <div class="mb-3">
                     <label for="">Tipo</label>
                     <!-- <input type="text" v-model="model.wine.type" class="form-control"> -->
-                    <select class="form-control" v-model="model.wine.type">
-                        <option>
-                            {{ this.model.wine.type }}
+                    <select class="form-control" v-model="model.wine.type.id">
+                        <option :value="this.model.type.id">
+                            {{ this.model.wine.type.type }}
                         </option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label for="">Origem</label>
-                    <select class="form-control" v-model="model.wine.country">
-                        <option>
-                            {{ this.model.wine.country }}
+                    <select class="form-control" v-model="model.wine.country.id">
+                        <option :value="this.model.wine.country.id">
+                            {{ this.model.wine.country.country }}
                         </option>
                     </select>
                 </div>
@@ -78,13 +78,12 @@
 
                 <div class="mb-3">
                     <label for="">Harmonização</label>
-                    <select class="form-control" v-model="model.wine.harmony">
-                        <option>
-                            {{ this.model.wine.harmony }}
+                    <select class="form-control" v-model="model.wine.harmony.id">
+                        <option :value="this.model.harmony.id">
+                            {{ this.model.wine.harmony.harmony }}
                         </option>
                     </select>
                 </div>
-
 
                 <div class="mb-3">
                     <button type="button" @click="updateWine()" class="">Atualizar</button>
@@ -109,8 +108,14 @@ export default {
         return {
             model: {
                 wine: {
-                    typeId: null,
-                    country: null,
+                    typeId: {
+                        id: "",
+                        type: ""
+                    },
+                    country: {
+                        id: "",
+                        country: ""
+                    },
                     label: '',
                     grape: {
                         id: "",
@@ -123,7 +128,10 @@ export default {
                     alchoolic: null,
                     description: '',
                     img: '',
-                    harmony: '',
+                    harmony: {
+                        id: "",
+                        harmony: ""
+                    },
                 },
                 type: {
                     type: "",
