@@ -34,9 +34,9 @@
 
                 <div class="mb-3">
                     <label for="">Uva</label>
-                    <select class="form-control" v-model="model.wine.grape">
-                        <option>
-                            {{ this.model.wine.grape }}
+                    <select class="form-control" v-model="model.wine.grape.id">
+                        <option :value="this.model.grape.id">
+                            {{ this.model.wine.grape.grape }}
                         </option>
                     </select>
                 </div>
@@ -112,7 +112,10 @@ export default {
                     typeId: null,
                     country: null,
                     label: '',
-                    grape: null,
+                    grape: {
+                        id: "",
+                        grape: ""
+                    },
                     price: null,
                     quantity: null,
                     vinicula: '',
@@ -153,7 +156,7 @@ export default {
     methods: {
         updateWine() {
             let id = this.$route.params.id
-            axios.put('http://localhost:8000/api/wines/' + id, this.model.wine)
+            axios.put('http://localhost:8000/api/wines/' + id)
                 .then(res => {
                     console.log(res);
                 })

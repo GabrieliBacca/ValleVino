@@ -42,7 +42,7 @@ export const getWines = async (): Promise<any[]> => {
     });
 
     // Usar o Map nos wines para retornar somente os dados necessários
-    const formattedWines = wines.map(wine => ({
+    const formattedWines = wines.map((wine: { type: { type: any; }; country: { country: any; }; grape: { grape: any; }; }) => ({
         ...wine,
         type: wine.type.type,
         country: wine.country.country,
