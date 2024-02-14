@@ -101,13 +101,20 @@ export default {
   width: 200px;
   padding: 5px;
   background-color: white;
-  color: #D1B991;
+  color: #000000;
   border: 1px solid #D1B991;
   padding: 5px 10px;
 }
 
 .footer input::placeholder {
   color: #D1B991;
+}
+
+.footer input,
+.footer button {
+  position: relative;
+  z-index: 1;
+  /* Defina um z-index maior */
 }
 
 .footer button {
