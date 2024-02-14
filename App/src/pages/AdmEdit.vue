@@ -10,12 +10,21 @@
 
                 <div class="mb-3">
                     <label for="">Tipo</label>
-                    <select class="form-control" v-model="model.wine.typeId">
-                        <option v-for=" option  in  typeOptions " :value="option.id">{{ option.type }}</option>
-                        <!-- <option :value="this.model.wine.typeId.id">
-                            {{ this.model.wine.typeId.type }}
-                        </option> -->
+                    <select class="form-control" v-model="this.model.wine.typeId">
+                        <option v-for="option in typeOptions" :value="option.id"
+                            :selected="option.id === this.model.wine.typeId">
+                            {{ option.type }}
+                        </option>
                     </select>
+
+                    <!-- versao correta para tentar
+                    <select class="form-control" v-model="this.model.wine.typeId.id">
+                            <option v-for="option in typeOptions" :value="option.id"
+                                :selected="option.id === this.model.wine.typeId.id">
+                                {{ option.type }}
+                            </option>
+                        </select> -->
+
                 </div>
 
                 <div class="mb-3">
@@ -143,7 +152,7 @@ export default {
                     img: '',
                 },
                 typeId: {
-                    id: "",
+                    id: 1,
                     type: "",
 
                 },
@@ -279,9 +288,10 @@ export default {
             axios.get('http://localhost:8000/api/wines/' + id).then(res => {
                 this.model.wine = res.data
                 this.model.type = res.data.type
+                this.model.wine.typeId = res.data.typeId
                 this.model.country = res.data.country
                 this.model.grape = res.data.grape
-                this.model.type = res.data.harmony
+                this.model.harmony = res.data.harmony
             })
         }
     },
