@@ -10,19 +10,22 @@
 
                 <div class="mb-3">
                     <label for="">Tipo</label>
-                    <select class="form-control" v-model="model.wine.type">
-                        <option :value="this.model.wine.type">
-                            {{ this.model.wine.type.type }}
-                        </option>
+                    <select class="form-control" v-model="model.wine.typeId">
+                        <option v-for=" option  in  typeOptions " :value="option.id">{{ option.type }}</option>
+                        <!-- <option :value="this.model.wine.typeId.id">
+                            {{ this.model.wine.typeId.type }}
+                        </option> -->
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label for="">Origem</label>
-                    <select class="form-control" v-model="model.wine.country.id">
-                        <option :value="this.model.wine.country.id">
-                            {{ this.model.wine.country.country }}
-                        </option>
+                    <select class="form-control" v-model="model.wine.countryId">
+                        <option v-for=" option  in  countryOptions " :value="option.id">{{ option.country }}</option>
+
+                        <!-- <option :value="this.model.wine.countryId.id">
+                            {{ this.model.wine.countryId.country }}  </option>-->
+
                     </select>
                 </div>
 
@@ -33,10 +36,11 @@
 
                 <div class="mb-3">
                     <label for="">Uva</label>
-                    <select class="form-control" v-model="model.wine.grape.id">
-                        <option :value="this.model.grape.id">
-                            {{ this.model.wine.grape.grape }}
-                        </option>
+                    <select class="form-control" v-model="model.wine.grapeId">
+                        <option v-for=" option  in  grapeOptions " :value="option.id">{{ option.grape }}</option>
+                        <!-- <option :value="this.model.grapeId.id">
+                            {{ this.model.wine.grapeId.grape }}
+                        </option> -->
                     </select>
                 </div>
 
@@ -77,10 +81,11 @@
 
                 <div class="mb-3">
                     <label for="">Harmonização</label>
-                    <select class="form-control" v-model="model.wine.harmony.id">
-                        <option :value="this.model.harmony.id">
-                            {{ this.model.wine.harmony.harmony }}
-                        </option>
+                    <select class="form-control" v-model="model.wine.harmonyId">
+                        <option v-for=" option  in  harmonyOptions " :value="option.id">{{ option.harmony }}</option>
+                        <!-- <option :value="this.model.wine.harmonyId.id">
+                            {{ this.model.wine.harmonyId.harmony }}
+                        </option> -->
                     </select>
                 </div>
 
@@ -107,19 +112,28 @@ export default {
         return {
             model: {
                 wine: {
-                    typeId: {
-                        // id: "",
-                        type: ""
-                    },
-                    country: {
-                        id: "",
-                        country: ""
-                    },
+                    // typeId: null,
+                    // countryId: null,
+                    // grapeId: null,
+                    // harmony: '',
+
+                    // typeId: {
+                    //     id: "",
+                    //     type: ""
+                    // },
+                    // countryId: {
+                    //     id: "",
+                    //     country: ""
+                    // },
+                    // grapeId: {
+                    //     id: "",
+                    //     grape: ""
+                    // },
+                    // harmonyId: {
+                    //     id: "",
+                    //     harmony: ""
+                    // },
                     label: '',
-                    grape: {
-                        id: "",
-                        grape: ""
-                    },
                     price: null,
                     quantity: null,
                     vinicula: '',
@@ -127,29 +141,76 @@ export default {
                     alchoolic: null,
                     description: '',
                     img: '',
-                    harmony: {
-                        id: "",
-                        harmony: ""
-                    },
                 },
                 typeId: {
                     id: "",
                     type: "",
 
                 },
-                country: {
+                countryId: {
                     id: "",
                     country: "",
                 },
-                grape: {
+                grapeId: {
                     id: "",
                     grape: ""
                 },
                 harmony: {
                     id: "",
                     harmony: ""
-                }
-            }
+                },
+
+            },
+            countries: [
+                // { id: 1, country: 'Espanha' },
+                // { id: 2, country: 'França' },
+                // { id: 3, country: 'Argentina' },
+                // { id: 4, country: 'Italia' },
+                // { id: 5, country: 'Portugal' },
+                // { id: 6, country: 'Uruguai' },
+            ],
+
+            types: [
+                // { id: 1, type: 'Espumante' },
+                // { id: 2, type: 'Champagne' },
+                // { id: 3, type: 'Vinho Tinto' },
+                // { id: 4, type: 'Vinho Branco' },
+            ],
+
+            grapes: [
+                // { "id": 1, "grape": "Trepat e Grenache" },
+                // { "id": 2, "grape": "Macabeo" },
+                // { "id": 3, "grape": "Pinot Noir" },
+                // { "id": 4, "grape": "Cabernet Franc" },
+                // { "id": 5, "grape": "Cabernet Malbec" },
+                // { "id": 6, "grape": "Sangiovese" },
+                // { "id": 7, "grape": "Corvina, Rondinella, Croatina, Corvinone" },
+                // { "id": 8, "grape": "Alicante Bouschet, Touriga Nacional, Aragonez, Syrah, Trincadeira, Cabernet Sauvignon e Touriga" },
+                // { "id": 9, "grape": "Alicante Bouschet (65%), Aragonez (20%) e Touriga Nacional (15%)" },
+                // { "id": 10, "grape": "Tannat" },
+                // { "id": 11, "grape": "Marselan" },
+                // { "id": 12, "grape": "Syrah, Shiraz" },
+                // { "id": 13, "grape": "Malbec" },
+                // { "id": 14, "grape": "Cabernet Sauvignon, Malbec, Merlot, Petit Verdot" },
+                // { "id": 15, "grape": "Chardonnay" },
+                // { "id": 16, "grape": "Chardonnay e Garganega" }
+            ],
+
+            harmonies: [
+                // { "id": 1, "harmony": "Carpaccio de salmão defumado, escalopinho de migno…erinjela gratinada com ricota defumada, Grenachi." },
+                // { "id": 2, "harmony": "Canapés variados, risoto de presunto cru, carpacci…de batatas, bolinho de bacalhau, comida japonesa." },
+                // { "id": 3, "harmony": "Canapés à base de peixe, frutos do mar, ceviche de…lgadinhos de festa, sanduíches e tortas salgadas." },
+                // { "id": 4, "harmony": "Talharim com frutos do mar, camarão empanado, sash…s, risoto de pera com nozes, queijos e embutidos." },
+                // { "id": 5, "harmony": "Carnes Vermelhas, Carne Suína, Queijos." },
+                // { "id": 6, "harmony": "Carne vermelha e cordeiro." },
+                // { "id": 7, "harmony": "Carne vermelha, cordeiro, carne de caça (cervo, veado), aves." },
+                // { "id": 8, "harmony": "Carne vermelha, cordeiro, massa, aves." },
+                // { "id": 9, "harmony": "Carne vermelha, cordeiro, porco, aves, cogumelos, quejo azul." },
+                // { "id": 10, "harmony": "Porco, peixe gordo (salmão, atum, etc), vegetariano, aves." },
+                // { "id": 11, "harmony": "Carne vermelha, cordeiro,porco." },
+                // { "id": 12, "harmony": "Peixes, frutos do mar e crustáceos em preparações …yosa com carne de porco. Queijos de massa cozida." },
+                // { "id": 13, "harmony": "Carne vermelha, queijo e massa." }
+            ]
         }
     },
     mounted() {
@@ -157,11 +218,52 @@ export default {
         this.getWine()
     },
     created() {
-        // const id = this.$route.params.id;
-        // this.updateWine(id);
+        this.fetchCountries();
+        this.fetchTypes();
+        this.fetchGrapes();
+        this.fetchHarmonies();
 
     },
     methods: {
+        async fetchCountries() {
+            try {
+                const response = await fetch('http://localhost:8000/api/country');
+                this.countries = await response.json();
+                console.log(this.countries)
+            } catch (error) {
+                console.error('Error fetching countries:', error);
+            }
+        },
+
+        async fetchTypes() {
+            try {
+                const response = await fetch('http://localhost:8000/api/type');
+                this.types = await response.json();
+                console.log(this.types)
+            } catch (error) {
+                console.error('Error fetching types:', error);
+            }
+        },
+
+        async fetchGrapes() {
+            try {
+                const response = await fetch('http://localhost:8000/api/grape');
+                this.grapes = await response.json();
+                console.log(this.grapes)
+            } catch (error) {
+                console.error('Error fetching grapes:', error);
+            }
+        },
+
+        async fetchHarmonies() {
+            try {
+                const response = await fetch('http://localhost:8000/api/harmony');
+                this.harmonies = await response.json();
+                console.log(this.harmonies)
+            } catch (error) {
+                console.error('Error fetching harmonies:', error);
+            }
+        },
         updateWine() {
             let id = this.$route.params.id
             axios.put('http://localhost:8000/api/wines/' + id, this.model.wine)
@@ -183,6 +285,21 @@ export default {
             })
         }
     },
+
+    computed: {
+        countryOptions() {
+            return this.countries;
+        },
+        typeOptions() {
+            return this.types;
+        },
+        grapeOptions() {
+            return this.grapes;
+        },
+        harmonyOptions() {
+            return this.harmonies;
+        }
+    }
 }
 </script>
 
