@@ -33,7 +33,7 @@
             <home />
             <Loja3 />
             <WineQuiz />
-            <Loja5 />
+            <AboutUs />
         </v-main>
         <!-- <Footer /> -->
 
@@ -46,6 +46,7 @@ import Loja3 from "./Loja3.vue";
 import Aboutus from "./AboutUs.vue";
 // import Footer from "../components/AppFooter.vue";
 import WineQuiz from "./WineQuiz.vue";
+import AboutUs from "./AboutUs.vue";
 
 // import Footer from "./components/Footer.vue";
 
@@ -55,7 +56,8 @@ export default {
     components: {
         Loja3,
         Aboutus,
-        WineQuiz
+        WineQuiz,
+        AboutUs
     },
 
     data: () => ({
