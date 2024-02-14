@@ -1,7 +1,8 @@
 <template>
   <div class="footer-container">
-    <footer class="footer">
+    <img id="fundo" alt="Logo Valle Vino" src="../assets/img/inscreva-se-bg.svg" />
 
+    <footer class="footer">
       <v-row justify="start">
 
         <v-col class="pa-1">
@@ -32,6 +33,7 @@
         </v-col>
 
 
+
       </v-row>
     </footer>
   </div>
@@ -44,52 +46,55 @@ export default {
 };
 </script>
 <style>
+.footer-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #F5EBDA;
+  text-align: center;
+  overflow: hidden;
+}
+
+#fundo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  /* Garante que o preenchimento seja contabilizado dentro da largura total do contêiner */
+}
+
 .tamanho-da-imagem {
   width: 300px;
   height: auto;
-  margin-top: 20px;
-  margin-left: 0;
-  margin-right: 20px;
-  /* Ajuste o valor conforme necessário */
+  margin-top: 0px;
 }
 
 .footer h2 {
   color: #482817;
-
   line-height: 1.5;
   /* Altura da linha do parágrafo */
   margin-bottom: 10px;
-  /* Espaçamento abaixo do parágrafo */
 }
 
 
 .footer p {
   color: #9E845C;
-
   font-size: 18px;
-  /* Tamanho da fonte do parágrafo */
   line-height: 1.5;
   /* Altura da linha do parágrafo */
   margin-bottom: 10px;
   /* Espaçamento abaixo do parágrafo */
-}
-
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  /* Distribui os elementos ao longo do espaço disponível */
-  align-items: center;
-  /* Alinha os itens verticalmente no centro */
-  margin-top: 20px;
-  width: 100%;
-  height: 300px;
-  background-color: #F5EBDA;
-  text-align: center;
-}
-
-.footer {
-  width: 100%;
 }
 
 .footer input {
