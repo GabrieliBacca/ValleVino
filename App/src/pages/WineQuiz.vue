@@ -1,9 +1,15 @@
 <template>
     <Loja5 @wineTypeSelected="filterByType" />
-    <div>
+    <div class="container">
+        <img class="image"
+            src="https://www.lartduvin.com.br/cdn/shop/products/kit-tre-18-tacas-prestige-cristal-bohemia-titanio-tinto-e-branco-champanhe_669x669.jpg?v=1654719145"
+            alt="" width="200" height="200">
         <div v-if="!showResult">
             <div v-if="currentQuestionIndex < questions.length">
                 <div class="card">
+                    <span class="question-text">Tem dúvida sobre qual bebida combina com você?</span>
+                    <span>Faça o nosso Quiz!</span>
+                    <br>
                     <h3>{{ questions[currentQuestionIndex].question }}</h3>
                     <button @click="selectAnswer('a')">A) {{ questions[currentQuestionIndex].options.a }}</button>
                     <button @click="selectAnswer('b')">B) {{ questions[currentQuestionIndex].options.b }}</button>
@@ -154,6 +160,16 @@ export default {
     border-radius: 8px;
     margin: 20px;
     color: --color-background-dark;
+    color: #482817;
+    font-family: "Libre Baskerville";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+}
+
+.question-text {
+    font-size: 36px;
 }
 
 .result-text {
@@ -170,6 +186,17 @@ export default {
     border-radius: 8px;
     margin: 20px;
     color: --color-background-dark;
+}
+
+.container {
+    display: flex;
+    /* or grid */
+    align-items: center;
+}
+
+.image {
+    margin-right: 20px;
+    /* Adjust margin as needed */
 }
 </style>
 
