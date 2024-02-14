@@ -80,7 +80,7 @@ export default {
             axios.delete(`http://localhost:8000/api/wines/${id}`).then(res => {
                 console.log(res)
 
-            }).then(res => this.getWines)
+            }).then(res => this.getWines())
         }
     }
 }
