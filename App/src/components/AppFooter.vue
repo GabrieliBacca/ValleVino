@@ -2,11 +2,9 @@
   <div class="footer-container">
     <footer class="footer">
       <v-row justify="start">
-
         <v-col class="pa-1">
           <img class="tamanho-da-imagem" :src="'../src/assets/img/logoValleVinoBlack.png'" alt="logo" />
         </v-col>
-
         <v-col cols="12" sm="1" md="4" class="pa-1">
           <h2>NEWSLETTER</h2>
           <p>Receba as novidades em primeira mão</p>
@@ -15,41 +13,35 @@
             <button type="submit">INSCREVA-SE</button>
           </form>
         </v-col>
-
         <v-col cols="12" sm="6" md="4" class="pa-1">
           <h2>Contato</h2>
           <p> Blumenau | SC</p>
           <p>falecom@vallevino.com.br</p>
           <p> +55 (47) 99123-4567</p>
         </v-col>
-
         <v-col cols="12" sm="6" md="4" class="pa-1">
           <h2>Sobre nós</h2>
-          <p><a href="#sobre-nos">História sobre nós</a></p>
-
-          <P>
-            <RouterLink to="/Loja">
-              Adquira nossos produtos
-            </RouterLink>
-          </P>
-
+          <p><a :href="getAboutUsLink()">História sobre nós</a></p>
+          <p>
+            <router-link to="/Loja">Adquira nossos produtos</router-link>
+          </p>
         </v-col>
-
-
-
       </v-row>
     </footer>
   </div>
 </template>
 
-
 <script>
-
-
 export default {
+  name: 'Footer',
   methods: {
-    name: 'Footer',
-
+    getAboutUsLink() {
+      if (this.$route.path !== '/home') {
+        return '/home#sobre-nos';
+      } else {
+        return '#sobre-nos';
+      }
+    },
   },
 };
 </script>
