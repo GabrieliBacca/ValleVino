@@ -33,7 +33,10 @@
             <home />
             <Loja3 />
             <WineQuiz />
-            <AboutUs />
+            <div id="sobre-nos">
+                <AboutUs />
+
+            </div>
         </v-main>
         <!-- <Footer /> -->
 
