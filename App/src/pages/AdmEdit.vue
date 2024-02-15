@@ -92,6 +92,11 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="">Imagem URL Loja</label>
+                    <input type="text" class="form-control" v-model="model.wine.imgstore">
+                </div>
+
+                <div class="mb-3">
                     <label for="">Harmonização</label>
                     <select class="form-control" v-model="model.wine.harmonyId">
                         <option v-for=" option  in  harmonyOptions " :value="option.id">{{ option.harmony }}</option>
@@ -140,6 +145,7 @@ export default {
                     alchoolic: null,
                     description: '',
                     img: '',
+                    imgstore: '',
                     typeId: null,
                     countryId: 2,
                     grapeId: null,

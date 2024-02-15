@@ -64,7 +64,11 @@
             </select>
 
             <label for="img">Imagem URL:</label>
-            <input v-model="wine.img" type="text" class="form-control" required placeholder="URL" />
+            <input v-model="wine.img" type="text" class="form-control" required placeholder="URL Slider" />
+            <br>
+            <br>
+            <label for="img">Imagem URL Loja:</label>
+            <input v-model="wine.imgstore" type="text" class="form-control" required placeholder="URL Loja" />
             <br>
             <br>
             <button type="submit">Cadastrar Vinho</button>
@@ -110,6 +114,7 @@ export default {
                 alchoolic: null,
                 description: '',
                 img: '',
+                imgstore: '',
                 harmony: '',
             },
             countries: [
