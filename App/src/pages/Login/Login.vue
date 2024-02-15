@@ -8,12 +8,13 @@
     <div v-for="(usuario, i) in usuarios" :key="i">
       <p>{{ usuario.nome }}</p>
     </div>
-    <form @submit.prevent="login">
-      <h1>
-        Bem-vindo de volta!<br />
-        Legal te ver por aqui!
-      </h1>
 
+    <h1>
+      Bem-vindo de volta!<br />
+      Legal te ver por aqui!
+    </h1>
+
+    <form @submit.prevent="login">
       <div class="textBox">
         <input
           v-model="email"
@@ -27,33 +28,38 @@
           type="password"
           placeholder="Digite sua senha"
         />
-        <p class="txtInfo"><RouterLink to="/esqueceusenha">Esqueceu a senha?</RouterLink></p>
+        <!-- //! colocar o icone de olho no text para revelar  a senha -->
+        <p class="txtInfo-senha">
+          <RouterLink to="/esqueceusenha">Esqueceu a senha?</RouterLink>
+        </p>
       </div>
-      <!-- //! colocar o icone de olho no text para revelar  a senha -->
 
       <button type="submit" id="bt-login">Login</button>
     </form>
+
     <div class="textWhitSocialMedia">
       <p class="txtInfo">Ou faça login com</p>
-      <!-- //? bt social media -->
+
       <img
         id="loginSocialMedia"
         src="../../assets/img/bt-Facebook.svg"
         alt="botão login com Facebook"
       />
-
       <img
         id="loginSocialMedia"
         src="../../assets/img/bt-Google.svg"
         alt="botão login com Google"
       />
-
       <img
         id="loginSocialMedia"
         src="../../assets/img/bt-Apple.svg"
         alt="botão login com Apple"
       />
-      <p class="txtInfo">Não tem uma conta?<RouterLink to="/cadastro"> Registre-se!</RouterLink></p>
+
+      <p class="txtInfo">
+        Não tem uma conta?
+        <RouterLink to="/cadastro">Registre-se!</RouterLink>
+      </p>
     </div>
   </div>
 </template>
@@ -108,7 +114,10 @@ body {
 
 h1 {
   color: #482817;
+  padding-bottom: 20px;
 }
+
+/* Estilo geral do container */
 .container {
   position: relative;
   width: 100%;
@@ -119,28 +128,49 @@ h1 {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background-color: #f5ebda;
   opacity: 0.9;
-
 }
+
+/* Estilo da caixa de texto */
 .textBox {
   width: 388px;
   height: 265px;
+  margin: 0 auto;
+  padding: 10px;
+
+  /* Cálculo da altura usando a Sequência Fibonacci */
+  height: calc(89px + 55px + 89px);
+
   background-color: var(--color-background-light);
+  color: #482817;
   opacity: 0.65;
   border: #e8ecf4 solid 1px;
   border-radius: 8px;
-  z-index: -1;
+  z-index: -12;
   align-items: center;
 }
-.txtInfo{
+
+/* Estilo do texto informativo */
+.txtInfo {
+  color: #482817;
   font-size: 24px;
   text-decoration: none;
-
+  margin: 10px 0px 10px 0px;
+}
+.txtInfo-senha {
+  /* text-decoration: none; */
+  text-align: right;
+  padding: 0px 20px 0px 0px;
+}
+.txtInfo-senha a {
+  color: #482817;
+  font-size: 20px;
 }
 
+/* Estilo dos campos de email e senha */
 #email,
 #password {
   background-color: #f7f8f9;
-  color: #8391a1;
+  color: #482817;
   font-size: 15px;
   border: #e8ecf4 solid 1px;
   margin: 15px;
@@ -152,6 +182,7 @@ h1 {
   font-family: montserrat;
 }
 
+/* Estilo do botão de login */
 #bt-login {
   background-color: var(--color-background-light);
   color: var(--color-background);
@@ -162,6 +193,7 @@ h1 {
   height: 56px;
   border-radius: 8px;
   justify-content: center;
+  margin-top: 45px;
 }
 
 .img-bg {
@@ -171,7 +203,7 @@ h1 {
   object-fit: cover;
   opacity: 0.5;
   right: 0;
-  bottom: 0;  
+  bottom: 0;
   filter: brightness(0.3);
   z-index: -1;
 }
