@@ -1,9 +1,9 @@
 <template>
     <Loja5 @wineTypeSelected="filterByType" />
     <div class="container">
-        <img class="image"
-            src="https://www.lartduvin.com.br/cdn/shop/products/kit-tre-18-tacas-prestige-cristal-bohemia-titanio-tinto-e-branco-champanhe_669x669.jpg?v=1654719145"
-            alt="" width="200" height="200">
+        <!-- <img class="image"
+            src="https://th.bing.com/th/id/R.b2bef94b329ab5d3a68b0993093fe2b5?rik=RU2XLHA%2f4Iyphg&pid=ImgRaw&r=0" alt=""
+            width="420" height="340"> -->
         <div v-if="!showResult">
             <div v-if="currentQuestionIndex < questions.length">
                 <div class="card">
@@ -170,6 +170,10 @@ export default {
 
 .question-text {
     font-size: 36px;
+    color: darkred;
+    font-family: lora;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .result-text {
