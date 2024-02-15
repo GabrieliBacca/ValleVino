@@ -19,12 +19,47 @@
           placeholder="Nome de usuário"
         />
         <input v-model="email" id="email" type="text" placeholder="Seu email" />
-        <input id="password" type="password" placeholder="Senha" />
         <input
+          v-model="password"
+          id="password"
+          type="password"
+          placeholder="Senha"
+        />
+        <input
+          v-model="confirmPassword"
           id="confirmPassword"
           type="password"
           placeholder="Confirme sua senha"
         />
+
+        <input
+          v-model="address"
+          type="text"
+          id="address"
+          placeholder="Endereço"
+        />
+        <input v-model="birthday" type="date" id="birthday" />
+        <div class="group-gender">
+          <label for="masculino">Masculino</label>
+          <input
+            v-model="gender"
+            type="radio"
+            id="masculino"
+            name="gender"
+            value="masculino"
+          />
+
+          <label for="feminino">Feminino</label>
+          <input
+            v-model="gender"
+            type="radio"
+            id="feminino"
+            name="gender"
+            value="feminino"
+          />
+        </div>
+
+        <input v-model="phone" id="phone" type="text" placeholder="Telefone com ddd"/>
       </div>
       <button type="submit" id="bt-sigin">Registrar</button>
     </form>
@@ -58,7 +93,8 @@
 <script>
 export default {
   name: "Cadastro",
-  components: {},
+  
+   
 };
 </script>
 
@@ -87,13 +123,13 @@ h1 {
 
 /* Estilo da caixa de texto */
 .textBox {
-  width: 388px;
-  height: 265px;
+  /* width: 388px;
+  height: 265px; */
   margin: 0 auto;
   padding: 10px;
 
   /* Cálculo da altura usando a Sequência Fibonacci */
-  height: calc(89px + 55px + 89px);
+  /* height: calc(89px + 55px + 89px); */
 
   background-color: var(--color-background-light);
   color: #482817;
@@ -112,15 +148,18 @@ h1 {
   margin: 10px 0px 10px 0px;
 }
 
-
 #user,
 #email,
 #password,
-#confirmPassword {
+#confirmPassword,
+#address,
+#birthday,
+#gender,
+#phone {
   display: flex;
   background-color: #f7f8f9;
   color: #482817;
-    font-size: 15px;
+  font-size: 15px;
   border: #e8ecf4 solid 1px;
   margin: 15px;
   padding: 5px;
@@ -129,7 +168,7 @@ h1 {
   border-radius: 8px;
   text-align: left;
   font-family: montserrat;
-}/* Estilo do botão de registro */
+} /* Estilo do botão de registro */
 #bt-sigin {
   background-color: var(--color-background-light);
   color: var(--color-background);
@@ -153,5 +192,24 @@ h1 {
   bottom: 0;
   filter: brightness(0.3);
   z-index: -1;
+}
+.group-gender {
+  display: flex;
+  align-items: center;
+}
+
+.group-gender label {
+  margin-right: 10px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+}
+
+select {
+  width: 150px;
+  height: 30px;
 }
 </style>

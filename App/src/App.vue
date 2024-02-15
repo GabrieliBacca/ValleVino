@@ -11,7 +11,7 @@
       <router-view></router-view>
       <Footer />
     </div>
-
+    <phone-mask></phone-mask>
   </div>
 </template>
 

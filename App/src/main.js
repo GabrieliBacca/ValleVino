@@ -57,6 +57,7 @@ import ValidarCodigo from "./pages/Login/ValidarCodigo.vue";
 import CriarSenha from "./pages/Login/CriarSenha.vue";
 import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
 
+
 // Defina as rotas
 const routes = [
   { path: "/", component: Home },
