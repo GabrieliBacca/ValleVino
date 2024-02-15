@@ -54,6 +54,29 @@ export default {
 };
 </script>
 <style>
+@media only screen and (max-width: 600px) {
+  .footer-container {
+    height: auto;
+  }
+
+  .tamanho-da-imagem {
+    width: 200px;
+  }
+
+  .footer-container .pa-1 {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .footer input,
+  .footer button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 .footer-container {
   position: relative;
   width: 100%;
