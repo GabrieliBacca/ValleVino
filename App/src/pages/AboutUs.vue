@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-        <img id="fundo" alt="Logo Valle Vino" src="../assets/img/footer-bg.svg" />
+        <img id="fundo" alt="Logo Valle Vino" src="../assets/img/inscreva-se-bg.svg" />
         <br>
         <div class="subcontainer">
-            <div class="header flex justify-start">
-                <h1 class="text-left ml-7 justify-center">Sobre nós</h1>
+            <div class="header text-left justify-center">
+                 <h1 class="header-h1">Sobre nós</h1> 
             </div>
             <br><br><br>
             <div class="text">
@@ -49,17 +49,17 @@ export default {
 * {
     margin: 0;
     padding: 0;
-    font-family: montserrat;
+    
 }
 
 
 
 #fundo {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    // top: 0;
+    // left: 0;
+    width: 100vw;
+    height: 47%;
     object-fit: cover;
     opacity: 0.5;
 }
@@ -88,10 +88,10 @@ export default {
     box-shadow: 20px 1px 25px rgba(0, 0, 0, 0.5);
 }
 
-.header {
+.header-h1 {
     color: #482817;
     font-family: lora;
-    font-size: 100px;
+    font-size: 70px;
     font-style: italic;
     font-weight: 400;
     line-height: normal;
@@ -100,7 +100,7 @@ export default {
 .text {
     width: 786px;
     color: #482817;
-    font-family: "lora";
+    font-family: baskerville;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;

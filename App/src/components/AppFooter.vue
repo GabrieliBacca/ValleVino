@@ -1,6 +1,6 @@
 <template>
   <div class="footer-container">
-    <img id="fundo" alt="Logo Valle Vino" src="../assets/img/inscreva-se-bg.svg" />
+    <img id="fundo" alt="Logo Valle Vino" src="../assets/img/footer-bg.svg" />
 
     <footer class="footer">
       <v-row justify="start">
