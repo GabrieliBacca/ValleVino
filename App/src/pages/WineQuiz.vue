@@ -184,7 +184,7 @@ export default {
     border-radius: 8px;
     margin: 20px 0px 0px 40px;
     color: --color-background-dark;
-    color: #482817;
+    color: #a01616;
     font-family: "Libre Baskerville";
     font-size: 24px;
     font-style: normal;
