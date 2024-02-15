@@ -2,7 +2,7 @@
   <div class="container">
     <img
       class="img-bg"
-      src="../../assets/img/login-bg.svg"
+      src="../../assets/img/inscreva-se-bg.svg"
       alt="background Image"
     />
 

@@ -110,7 +110,7 @@ export default {
 header {
   background-color: var(--color-background-light);
   width: 100%;
-  height: 60px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,8 +118,8 @@ header {
 .header-fixed {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 10;
+  width: 97.5vw;
   z-index: 10; /* Make sure it's on top of other elements */
 }
 
