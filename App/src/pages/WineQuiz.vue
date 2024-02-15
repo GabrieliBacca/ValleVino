@@ -11,10 +11,11 @@
                     <h3>{{ questions[currentQuestionIndex].question }}</h3>
                     <button @click="selectAnswer('a')">A) {{ questions[currentQuestionIndex].options.a }}</button>
                     <button @click="selectAnswer('b')">B) {{ questions[currentQuestionIndex].options.b }}</button>
+
                 </div>
             </div>
             <div v-else>
-                <button @click="submitAnswers" class="result-text" style="margin-top: 20px">Ver Resultado</button>
+                {{ submitAnswers() }}
             </div>
         </div>
 
@@ -92,6 +93,7 @@ export default {
             }
 
             this.showResult = true;
+
         },
         buyProducts() {
             const totalA = this.answers.filter((answer) => answer === "a").length;
@@ -211,11 +213,21 @@ export default {
 }
 
 .result-card {
+    position: relative;
     background-color: --color-background-card;
+    border-color: transparent;
     padding: 20px;
     border-radius: 8px;
-    margin: 20px;
+    margin: 20px 0px 0px 40px;
     color: --color-background-dark;
+    color: #a01616;
+    font-family: "Libre Baskerville";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 40px;
+    background-color: transparent;
+    align-items: center;
 }
 
 .container {
