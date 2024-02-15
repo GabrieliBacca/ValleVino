@@ -163,6 +163,9 @@ export default {
 }
 
 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 100%;
     max-width: var(--max-width);
@@ -176,6 +179,7 @@ export default {
 
 .card {
     background-color: --color-background-card;
+    border-color: transparent;
     padding: 20px;
     border-radius: 8px;
     margin: 20px 0px 0px 40px;
@@ -184,7 +188,7 @@ export default {
     font-family: "Libre Baskerville";
     font-size: 24px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 40px;
     background-color: transparent;
     align-items: center;
