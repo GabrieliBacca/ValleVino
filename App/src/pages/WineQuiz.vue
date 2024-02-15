@@ -1,9 +1,7 @@
 <template>
     <Loja5 @wineTypeSelected="filterByType" />
     <div class="container">
-        <!-- <img class="image"
-            src="https://th.bing.com/th/id/R.b2bef94b329ab5d3a68b0993093fe2b5?rik=RU2XLHA%2f4Iyphg&pid=ImgRaw&r=0" alt=""
-            width="420" height="340"> -->
+        <img class="fundo" src="../assets/img/fotoquizfundo.jfif" alt="" width="420" height="340">
         <div v-if="!showResult">
             <div v-if="currentQuestionIndex < questions.length">
                 <div class="card">
@@ -154,6 +152,27 @@ export default {
 </script>
 
 <style scoped>
+#fundo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 47%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0;
+    padding: 0;
+    background: rgba(250, 247, 242, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #f5ebda;
+}
+
 .card {
     background-color: --color-background-card;
     padding: 20px;
