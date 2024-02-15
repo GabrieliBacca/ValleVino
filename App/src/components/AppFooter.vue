@@ -1,14 +1,6 @@
 <template>
   <div class="footer-container">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <!-- <img id="fundo" alt="Logo Valle Vino" src="../assets/img/inscreva-se-bg.svg" /> -->
-=======
-    <img id="fundo" alt="Logo Valle Vino" src="../assets/img/footer-bg.svg" />
->>>>>>> 4de0de663718bd0bfc2eda7c53236e5b80e8ed4f
-=======
-    <img id="fundo" alt="Logo Valle Vino" src="../assets/img/footer-bg.svg" />
->>>>>>> 5361b54b116ede09602ccef6a87448910b76252d
+
 
     <footer class="footer">
       <v-row justify="start">
