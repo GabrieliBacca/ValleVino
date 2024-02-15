@@ -30,6 +30,7 @@ const vuetify = createVuetify({
 
 // Importe os componentes e páginas necessários
 import Header from "./components/Header.vue";
+import MenuNovo from "./components/MenuNovo.vue";
 import WineCard from "./components/WineCard.vue";
 import PopUp from "./components/PopUp.vue";
 import Home from "./pages/Home.vue";
@@ -49,6 +50,7 @@ import AdmEdit from '../src/pages/AdmEdit.vue';
 import WineForm from "./pages/WineForm.vue";
 import WineQuiz from "./pages/WineQuiz.vue";
 import WineList from "./pages/WineList.vue";
+
 
 //imports das views (pages) de login
 import Login from "./pages/Login/Login.vue";
@@ -70,6 +72,7 @@ const routes = [
   { path: "/loja5", component: Loja5 },
   // { path: "/loja6", component: Loja6 },
   { path: "/aboutus", component: AboutUs },
+  { path: "/menunovo", component: MenuNovo },
 
   { path: "/wineCard", component: WineCard },
   { path: "/wineQuiz", component: WineQuiz },

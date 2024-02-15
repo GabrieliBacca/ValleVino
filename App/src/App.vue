@@ -7,7 +7,7 @@
     </div>
     <PopUp v-if="showPopup" @confirm="proceed" @reject="reloadPage" />
     <div id="content" v-else>
-      <Header />
+      <MenuNovo />
       <router-view></router-view>
       <Footer />
     </div>
@@ -20,6 +20,7 @@ import "./styles/global.css"; //aplicando as configurações do css global
 
 //componentes
 import Header from "./components/Header.vue";
+import MenuNovo from "./components/MenuNovo.vue";
 import WineCard from "./components/WineCard.vue";
 import PopUp from "./components/PopUp.vue";
 import Footer from "./components/AppFooter.vue";
@@ -44,6 +45,7 @@ export default {
   name: "App",
   components: {
     Header,
+    MenuNovo,
     Home,
     Loja,
     WineQuiz,
