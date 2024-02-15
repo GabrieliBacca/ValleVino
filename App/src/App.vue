@@ -62,7 +62,7 @@ export default {
     return {
       showPopup: !localStorage.getItem("popupShown"), // Exibir o popup apenas se não estiver armazenado no localStorage
       telaInicialEscondida: false,
-      animationExecuted: false, //adicionei da animacao para rodar uma vez apenas
+      // animationExecuted: false, //adicionei da animacao para rodar uma vez apenas
     };
   },
   methods: {
@@ -73,10 +73,16 @@ export default {
       localStorage.setItem("popupShown", true); // Armazenar no localStorage que o popup já foi exibido
     },
     mounted() {
-      if (!this.animationExecuted) { // Verifica se a animação ainda não foi executada
+      const animationExecuted = localStorage.getItem("animationExecuted");
+      // if (!this.animationExecuted) {
+      //   setTimeout(() => {
+      //     this.telaInicialEscondida = true;
+      //     this.animationExecuted = true;
+
+      if (!animationExecuted) {
         setTimeout(() => {
           this.telaInicialEscondida = true;
-          this.animationExecuted = true; // Marca a animação como executada
+          localStorage.setItem("animationExecuted", true);
         }, 4000);
       }
     },
@@ -87,22 +93,22 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     // Verifica se a animação já foi executada antes de entrar na rota
-    if (!this.animationExecuted) {
-      setTimeout(() => {
-        this.telaInicialEscondida = true;
-        this.animationExecuted = true; // Marca a animação como executada
-      }, 4000);
-    }
-    next();
+    // if (!this.animationExecuted) {
+    //   setTimeout(() => {
+    //     this.telaInicialEscondida = true;
+    //     this.animationExecuted = true; // Marca a animação como executada
+    //   }, 4000);
+    // }
+    // next();
   },
   created() {
-    const animationExecuted = localStorage.getItem("animationExecuted");
-    if (!animationExecuted) { // Verifica se a animação ainda não foi executada
-      setTimeout(() => {
-        this.telaInicialEscondida = true;
-        localStorage.setItem("animationExecuted", true); // Marca a animação como executada no localStorage
-      }, 4000);
-    }
+    // const animationExecuted = localStorage.getItem("animationExecuted");
+    // if (!animationExecuted) { // Verifica se a animação ainda não foi executada
+    //   setTimeout(() => {
+    //     this.telaInicialEscondida = true;
+    //     localStorage.setItem("animationExecuted", true); // Marca a animação como executada no localStorage
+    //   }, 4000);
+    // }
 
   },
 
