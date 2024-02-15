@@ -65,8 +65,8 @@
 
             <label for="img">Imagem URL:</label>
             <input v-model="wine.img" type="text" class="form-control" required placeholder="URL Slider" />
-            <br>
-            <br>
+
+
             <label for="img">Imagem URL Loja:</label>
             <input v-model="wine.imgstore" type="text" class="form-control" required placeholder="URL Loja" />
             <br>

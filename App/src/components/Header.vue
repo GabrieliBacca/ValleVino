@@ -1,19 +1,9 @@
 <template>
   <header :class="{ 'header-fixed': isFixedHeader }">
     <nav class="container">
-      <a href="/"
-        ><img
-          id="logo"
-          alt="Logo Valle Vino"
-          src="../assets/img/logoValleVinoBlack.png"
-      /></a>
+      <a href="/"><img id="logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoBlack.png" /></a>
       <!-- //? bt menu -->
-      <img
-        v-on:click="openMenu"
-        id="bt-menu"
-        src="../assets/img/ico-menu-hb.svg"
-        alt="botão de menu lateral"
-      />
+      <img v-on:click="openMenu" id="bt-menu" src="../assets/img/ico-menu-hb.svg" alt="botão de menu lateral" />
       <!-- //? overlay menu lateral -->
       <div v-on:click="closeMenu" id="menu-overlay" v-if="menuActive"></div>
 
@@ -21,49 +11,31 @@
       <div id="menu-itens" :class="{ active: menuActive }">
         <!-- //? logo menu -->
 
-        <img
-          id="menu-logo"
-          alt="Logo Valle Vino"
-          src="../assets/img/logoValleVinoWhite.png"
-        />
+        <img id="menu-logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoWhite.png" />
         <!-- //? links menu -->
         <ul>
           <li><a href="/home">Home</a></li>
           <li><a href="/loja">Loja</a></li>
-          <li><a href="/loja3">Slider</a></li>
-          <li><a href="/loja2">Loja2</a></li>
-          <li><a href="/loja4">Checkout</a></li>
-          <li><a href="/loja5">Vinhos</a></li>
-          <li><a href="/loja6">HOMESCROLL</a></li>
-          <li><a href="/wineQuiz">Quiz</a></li>
+          <!-- <li><a href="/slider">Slider</a></li> -->
+          <!-- <li><a href="/loja2">Loja2</a></li> -->
+          <!-- <li><a href="/loja4">Checkout</a></li> -->
+          <!-- <li><a href="/loja5">Vinhos</a></li> -->
+          <!-- <li><a href="/loja6">HOME A</a></li> -->
+          <!-- <li><a href="/wineQuiz">Quiz</a></li> -->
           <li><a href="/Adm">ADM</a></li>
-          <li><a href="/PopUp">18+</a></li>
+          <!-- <li><a href="/PopUp">18+</a></li> -->
           <li><a href="/WineCard">WineCard</a></li>
-          <li><a href="/WineList">WineList</a></li>
+          <!-- <li><a href="/WineList">WineList</a></li> -->
         </ul>
         <!-- //? icones menu -->
 
-        <a href="/Login"
-          ><img
-            id="bt-usuario"
-            src="../assets/img/ico-usuario.svg"
-            alt="botão de login usuario"
-        /></a>
+        <a href="/Login"><img id="bt-usuario" src="../assets/img/ico-usuario.svg" alt="botão de login usuario" /></a>
 
-        <a href="/"
-          ><img
-            id="bt-carrinho"
-            src="../assets/img/ico-carrinho.svg"
-            alt="botão de carrinho"
-        /></a>
+        <a href="/"><img id="bt-carrinho" src="../assets/img/ico-carrinho.svg" alt="botão de carrinho" /></a>
 
         <!-- //! colocar esse botao no rodape do menu via css -->
-        <img
-          v-on:click="closeMenu"
-          id="bt-esconder-menu"
-          alt="botao esconder menu lateral"
-          src="../assets/img/ico-setas-direita.svg"
-        />
+        <img v-on:click="closeMenu" id="bt-esconder-menu" alt="botao esconder menu lateral"
+          src="../assets/img/ico-setas-direita.svg" />
       </div>
     </nav>
   </header>
@@ -115,12 +87,14 @@ header {
   align-items: center;
   justify-content: center;
 }
+
 .header-fixed {
   position: fixed;
   top: 0;
   left: 10;
   width: 97.5vw;
-  z-index: 10; /* Make sure it's on top of other elements */
+  z-index: 10;
+  /* Make sure it's on top of other elements */
 }
 
 nav {
@@ -209,6 +183,7 @@ ul li a {
 /* deixando responsivo para web */
 
 @media (min-width: 700px) {
+
   #menu-logo,
   #menu-overlay,
   #bt-esconder-menu,

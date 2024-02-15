@@ -19,9 +19,9 @@ import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
-import Home2 from "./views/Home.vue";
+// import Home2 from "./views/Home.vue";
 
-import DefaultLayout from "./layouts/DefaultLayout.vue";
+// import DefaultLayout from "./layouts/DefaultLayout.vue";
 
 const vuetify = createVuetify({
   components,
@@ -33,12 +33,13 @@ import Header from "./components/Header.vue";
 import WineCard from "./components/WineCard.vue";
 import PopUp from "./components/PopUp.vue";
 import Home from "./pages/Home.vue";
-import Loja from "./pages/Loja5.vue";
+import HomeNova from "./pages/HomeNova.vue";
+import Loja from "./pages/Loja.vue";
+import Loja5 from "./pages/Loja5.vue";
 import Loja2 from "./pages/Loja2.vue";
-import Loja3 from "./pages/Loja3.vue";
+import Slider from "./pages/Slider.vue";
 import Loja4 from "./pages/Loja4.vue";
-import Loja5 from "./pages/Loja.vue";
-import Loja6 from "./pages/Loja6.vue";
+// import Loja6 from "./pages/Loja6.vue";
 import AboutUs from "./pages/AboutUs.vue";
 
 
@@ -60,14 +61,14 @@ import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
 
 // Defina as rotas
 const routes = [
-  { path: "/", component: Home },
-  { path: "/home", component: Home },
+  { path: "/", component: HomeNova },
+  { path: "/home", component: HomeNova },
   { path: "/loja", component: Loja },
   { path: "/loja2", component: Loja2 },
-  { path: "/loja3", component: Loja3 },
+  { path: "/slider", component: Slider },
   { path: "/loja4", component: Loja4 },
   { path: "/loja5", component: Loja5 },
-  { path: "/loja6", component: Loja6 },
+  // { path: "/loja6", component: Loja6 },
   { path: "/aboutus", component: AboutUs },
 
   { path: "/wineCard", component: WineCard },

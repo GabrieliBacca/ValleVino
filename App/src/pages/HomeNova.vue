@@ -30,8 +30,8 @@
             </section>
         </main>
         <v-main class="pt-0" ref="mainContent" @scroll="onScroll"> <!-- Adicione o evento de rolagem -->
-            <home />
-            <Loja3 />
+            <Home />
+            <Slider />
             <WineQuiz />
             <div id="sobre-nos">
                 <AboutUs />
@@ -44,8 +44,7 @@
 </template>
 
 <script>
-
-import Loja3 from "./Loja3.vue";
+import Slider from "./Slider.vue";
 import Aboutus from "./AboutUs.vue";
 // import Footer from "../components/AppFooter.vue";
 import WineQuiz from "./WineQuiz.vue";
@@ -57,7 +56,7 @@ export default {
     name: "App",
 
     components: {
-        Loja3,
+        Slider,
         Aboutus,
         WineQuiz,
         AboutUs
@@ -69,16 +68,15 @@ export default {
     }),
 
     methods: {
-        methods: {
-            onScroll() {
-                const mainContent = this.$refs.mainContent;
-                const scrollPosition = mainContent.scrollTop + mainContent.clientHeight;
-                const scrollHeight = mainContent.scrollHeight;
-                if (scrollPosition >= scrollHeight) {
-                    this.$router.replace('/loja3'); // Replace '/loja3' with the path of the page you want to navigate to
-                }
-            },
-        },                // Navegar dinamicamente para as páginas loja3.vue e loja5.vue
+        onScroll() {
+            const mainContent = this.$refs.mainContent;
+            const scrollPosition = mainContent.scrollTop + mainContent.clientHeight;
+            const scrollHeight = mainContent.scrollHeight;
+            if (scrollPosition >= scrollHeight) {
+                this.$router.replace('/slider'); // Replace '/loja3' with the path of the page you want to navigate to
+            }
+        },
+        // Navegar dinamicamente para as páginas loja3.vue e loja5.vue
         // Exemplo: this.$router.push('/loja3') 
         // ou use o método programático de navegação do Vue Router
 
