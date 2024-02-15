@@ -81,7 +81,7 @@ model Harmony {
 
 // modelo Wine para os vinhos
 model Wine {
-  id          Int    @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   label       String
   price       Float
   quantity    Int
@@ -90,6 +90,7 @@ model Wine {
   alchoolic   Float
   description String
   img         String
+  imgstore    String?
 
   type   Type @relation(fields: [typeId], references: [id]) //se nao for depois atualizo pelo ID...
   typeId Int
