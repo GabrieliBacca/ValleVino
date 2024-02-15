@@ -1,10 +1,5 @@
 <template>
-  <div class="container">
-    <img
-      class="img-bg"
-      src="../../assets/img/login-bg.svg"
-      alt="background Image"
-    />
+  <div>
     <div v-for="(usuario, i) in usuarios" :key="i">
       <p>{{ usuario.nome }}</p>
     </div>
@@ -15,19 +10,13 @@
       </h1>
 
       <div class="textBox">
+        <input v-model="email" id="email" type="text" placeholder="Digite seu email" />
         <input
-          v-model="email"
-          id="email"
-          type="text"
-          placeholder="Digite seu email"
-        />
-        <input
-          v-model="password"
-          id="password"
+          v-model="password" id="password"
           type="password"
           placeholder="Digite sua senha"
         />
-        <p class="txtInfo"><RouterLink to="/esqueceusenha">Esqueceu a senha?</RouterLink></p>
+        <p class="txtInfo"><a href="/esqueceusenha">Esqueceu a senha?</a></p>
       </div>
       <!-- //! colocar o icone de olho no text para revelar  a senha -->
 
@@ -41,7 +30,7 @@
         src="../../assets/img/bt-Facebook.svg"
         alt="botão login com Facebook"
       />
-
+      
       <img
         id="loginSocialMedia"
         src="../../assets/img/bt-Google.svg"
@@ -53,8 +42,14 @@
         src="../../assets/img/bt-Apple.svg"
         alt="botão login com Apple"
       />
-      <p class="txtInfo">Não tem uma conta?<RouterLink to="/cadastro"> Registre-se!</RouterLink></p>
+      <p class="txtInfo">Não tem uma conta?<a href="/"> Registre-se!</a></p>
     </div>
+
+    <img class=""
+        id="img-bg"
+        src="../../assets/img/login-bg.svg"
+        alt="background Image"
+      />
   </div>
 </template>
 
@@ -107,29 +102,19 @@ body {
 }
 
 h1 {
-  color: #482817;
+  color: var(--color-background-dark);
 }
-.container {
-  position: relative;
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0px 0px 20px 0px;
-  padding: 50px;
-  background: rgba(250, 247, 242, 0.25);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  background-color: #f5ebda;
-  opacity: 0.9;
 
-}
-.textBox {
+.textBox{
   width: 388px;
   height: 265px;
-  background-color: var(--color-background-light);
-  opacity: 0.65;
+  background-color:var(--color-background-light);
+  opacity: 0.5;
   border: #e8ecf4 solid 1px;
   border-radius: 8px;
   z-index: -1;
-  align-items: center;
+
+ 
 }
 .txtInfo{
   font-size: 24px;
@@ -161,18 +146,19 @@ h1 {
   width: 330px;
   height: 56px;
   border-radius: 8px;
-  justify-content: center;
+  text-align: center;
 }
 
-.img-bg {
-  width: 100vw;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-  opacity: 0.5;
+#img-bg{
+width: 1440px;
+height: 710px;
+position: absolute;
   right: 0;
-  bottom: 0;  
-  filter: brightness(0.3);
+  bottom: 0;
+  min-width: 50%;
+  min-height: 50%;
   z-index: -1;
+  filter: brightness(0.3);
+  object-fit: cover;
 }
 </style>

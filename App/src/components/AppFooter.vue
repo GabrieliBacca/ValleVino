@@ -1,6 +1,6 @@
 <template>
   <div class="footer-container">
-    <img id="fundo" alt="Logo Valle Vino" src="../assets/img/footer-bg.svg" />
+
 
     <footer class="footer">
       <v-row justify="start">
@@ -27,8 +27,13 @@
 
         <v-col cols="12" sm="6" md="4" class="pa-1">
           <h2>Sobre nós</h2>
-          <p>História sobre nós</p>
-          <p>Adquira nossos produtos</p>
+          <p><a href="#sobre-nos">História sobre nós</a></p>
+
+          <P>
+            <RouterLink to="/Loja">
+              Adquira nossos produtos
+            </RouterLink>
+          </P>
           <p>Mantenha contato</p>
         </v-col>
 
@@ -41,8 +46,13 @@
 
 
 <script>
+
+
 export default {
-  name: 'Footer'
+  methods: {
+    name: 'Footer',
+
+  },
 };
 </script>
 <style>
@@ -52,17 +62,20 @@ export default {
   height: 300px;
   background-color: #F5EBDA;
   text-align: center;
-  overflow: hidden;
+
 }
 
-#fundo {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+.footer-container {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.5;
+  height: 300px;
+  background-color: #F5EBDA;
+  text-align: center;
+  overflow: hidden;
+  background-image: url('../assets/img/inscreva-se-bg.svg');
+  background-size: 140% 200%;
+  background-repeat: no-repeat;
 }
 
 .footer {
@@ -88,7 +101,8 @@ export default {
 }
 
 
-.footer p {
+.footer p,
+a {
   color: #9E845C;
   font-size: 18px;
   line-height: 1.5;
