@@ -191,7 +191,7 @@ export default {
                 })
         },
         getProduto(id) {
-            fetch(http://localhost:8000/api/wines/${id})
+            fetch(`http://localhost:8000/api/wines/${id}`)
                 .then(res => res.json())
                 .then(res => {
                     console.log(res); // Add this line to log the response object
@@ -216,7 +216,7 @@ export default {
             this.produto.quantity--
             const { id, label, price } = this.produto
             this.carrinho.push({ id, label, price })
-            this.alert(${ label } adicionado ao carrinho!)
+            this.alert(`${label} adicionado ao carrinho!`)
         },
         removerItem(index) {
             this.carrinho.splice(index, 1)
@@ -337,7 +337,8 @@ body {
     margin: 0 auto;
 }
 
-/HEADER/ #header {
+/*HEADER*/
+#header {
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
@@ -367,64 +368,35 @@ body {
 /* Lista Produtos */
 .produtos {
     max-width: 90%;
-    /* Largura máxima de 90% */
     margin: 100px auto 0 auto;
-    /* Margens superior e inferior de 100px e laterais automáticas para centralizar */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    /* Distribui os produtos uniformemente ao longo da linha */
 }
 
 .produto {
-    width: calc(50% - 20px);
-    /* Calcula a largura para caber 2 produtos por linha com espaço entre eles */
-    margin-bottom: 20px;
-    /* Espaçamento inferior entre os produtos */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.produto:hover {
-    transform: translateY(-5px);
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    background: #fff;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .produto_img {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ccc;
-}
-
-.produto_info {
-    line-height: 0.5;
-    max-height: 150px;
+    max-width: 300px;
+    margin-right: 40px;
 }
 
 .produto_titulo {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.produto_info span {
-    display: block;
-    margin-bottom: 5px;
+    font-size: 3rem;
+    line-height: 1;
 }
 
 .produto_preco {
-    font-weight: bold;
-    color: #009688;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
 }
 
-@media (min-width: 768px) {
-    .produto {
-        width: calc(33.33% - 20px);
-        /* Calcula a largura para caber 3 produtos por linha com espaço entre eles em telas maiores */
-    }
-}
-
-/MODAL/ #modal::before {
+/*MODAL*/
+#modal::before {
     content: '';
     position: fixed;
     top: 0;
@@ -591,7 +563,8 @@ body {
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/CARRINHO/ #modal_carrinho::before {
+/*CARRINHO*/
+#modal_carrinho::before {
     content: "";
     position: fixed;
     top: 0;
@@ -682,7 +655,9 @@ body {
     background: rgba(0, 0, 0, 0.8);
 }
 
-/MEDIA/ @media screen and (max-width: 940px) {
+/*MEDIA*/
+
+@media screen and (max-width: 940px) {
     #app {
         padding: 0 10px;
     }
