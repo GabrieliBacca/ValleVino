@@ -61,21 +61,31 @@ header {
     height: 70px;
 }
 
+.header-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 0px 0;
+
+}
+
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     /* Centraliza verticalmente */
 }
 
 .logo {
-    margin-left: 10px;
+    margin-left: 5px;
+
     /* Ajuste o espaço à esquerda do logo conforme necessário */
 }
 
 #logo {
     width: 130px;
     margin: 10px;
+
 }
 
 ul {
