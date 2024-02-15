@@ -51,13 +51,13 @@ export default {
     padding: 0;
 
 }
- 
+
 
 
 #fundo {
     position: absolute;
-    // top: 0;
-    // left: 0;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 47%;
     object-fit: cover;
