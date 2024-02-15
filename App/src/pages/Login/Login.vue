@@ -27,7 +27,7 @@
           type="password"
           placeholder="Digite sua senha"
         />
-        <p class="txtInfo"><a href="/esqueceusenha">Esqueceu a senha?</a></p>
+        <p class="txtInfo"><RouterLink to="/esqueceusenha">Esqueceu a senha?</RouterLink></p>
       </div>
       <!-- //! colocar o icone de olho no text para revelar  a senha -->
 
@@ -53,7 +53,7 @@
         src="../../assets/img/bt-Apple.svg"
         alt="botão login com Apple"
       />
-      <p class="txtInfo">Não tem uma conta?<a href="/"> Registre-se!</a></p>
+      <p class="txtInfo">Não tem uma conta?<RouterLink to="/cadastro"> Registre-se!</RouterLink></p>
     </div>
   </div>
 </template>
@@ -107,14 +107,14 @@ body {
 }
 
 h1 {
-  color: var(--color-background-dark);
+  color: #482817;
 }
 .container {
   position: relative;
   width: 100%;
   max-width: var(--max-width);
-  margin: 10;
-  padding: 10;
+  margin: 0px 0px 20px 0px;
+  padding: 50px;
   background: rgba(250, 247, 242, 0.25);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background-color: #f5ebda;
@@ -125,7 +125,7 @@ h1 {
   width: 388px;
   height: 265px;
   background-color: var(--color-background-light);
-  opacity: 0.5;
+  opacity: 0.65;
   border: #e8ecf4 solid 1px;
   border-radius: 8px;
   z-index: -1;
