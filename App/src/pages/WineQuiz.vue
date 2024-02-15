@@ -159,7 +159,7 @@ export default {
     width: 100vw;
     height: 47%;
     object-fit: cover;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 .container {
