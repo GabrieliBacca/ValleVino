@@ -9,8 +9,9 @@
           <h2>NEWSLETTER</h2>
           <p>Receba as novidades em primeira mão</p>
           <form action="#">
-            <input type="email" placeholder="Digite seu email">
-            <button type="submit">INSCREVA-SE</button>
+            <input type="email" id="emailInput" placeholder="Digite seu email">
+            <button type="submit" @click="displaySuccessMessage">INSCREVA-SE</button>
+
           </form>
         </v-col>
         <v-col cols="12" sm="6" md="4" class="pa-1">
@@ -42,8 +43,12 @@ export default {
         return '#sobre-nos';
       }
     },
+    displaySuccessMessage() {
+      alert('Cadastro realizado com sucesso!');
+    }
   },
-};
+}
+
 </script>
 <style>
 @media only screen and (max-width: 600px) {
