@@ -16,16 +16,20 @@
         <ul>
           <li><a href="/home">Home</a></li>
           <li><a href="/loja">Loja</a></li>
+          <li><a href="/loja3">Slider</a></li>
           <li><a href="/loja2">Loja2</a></li>
+          <li><a href="/loja4">Checkout</a></li>
+          <li><a href="/loja5">Vinhos</a></li>
+          <li><a href="/loja6">HOMESCROLL</a></li>
           <li><a href="/wineQuiz">Quiz</a></li>
-          <li><a href="/WineForm">ADM</a></li>
+          <li><a href="/Adm">ADM</a></li>
           <li><a href="/PopUp">18+</a></li>
           <li><a href="/WineCard">WineCard</a></li>
           <li><a href="/WineList">WineList</a></li>
         </ul>
         <!-- //? icones menu -->
 
-        <a href="/"><img id="bt-usuario" src="../assets/img/ico-usuario.svg" alt="botão de logim usuario" /></a>
+        <a href="/Login"><img id="bt-usuario" src="../assets/img/ico-usuario.svg" alt="botão de login usuario" /></a>
 
         <a href="/"><img id="bt-carrinho" src="../assets/img/ico-carrinho.svg" alt="botão de carrinho" /></a>
 
@@ -81,6 +85,9 @@ nav {
 
 #logo {
   width: 130px;
+  align-content: center;
+  justify-content: center;
+  margin: 10px;
 }
 
 #bt-usuario {

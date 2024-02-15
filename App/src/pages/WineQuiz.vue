@@ -1,23 +1,30 @@
-<!-- É a estrutura do quiz -->
 <template>
-    <div>
+    <Loja5 @wineTypeSelected="filterByType" />
+    <div class="container">
+        <img class="image"
+            src="https://www.lartduvin.com.br/cdn/shop/products/kit-tre-18-tacas-prestige-cristal-bohemia-titanio-tinto-e-branco-champanhe_669x669.jpg?v=1654719145"
+            alt="" width="200" height="200">
         <div v-if="!showResult">
             <div v-if="currentQuestionIndex < questions.length">
                 <div class="card">
+                    <span class="question-text">Tem dúvida sobre qual bebida combina com você?</span>
+                    <span>Faça o nosso Quiz!</span>
+                    <br>
                     <h3>{{ questions[currentQuestionIndex].question }}</h3>
                     <button @click="selectAnswer('a')">A) {{ questions[currentQuestionIndex].options.a }}</button>
                     <button @click="selectAnswer('b')">B) {{ questions[currentQuestionIndex].options.b }}</button>
                 </div>
             </div>
             <div v-else>
-                <button @click="submitAnswers">Ver Resultado</button>
+                <button @click="submitAnswers" class="result-text" style="margin-top: 20px">Ver Resultado</button>
             </div>
         </div>
 
         <div v-if="showResult">
             <div class="result-card">
                 <h3>Resultados do Quiz:</h3>
-                <p>{{ result }}</p>
+                <Span class="result-text">{{ result }}</Span>
+                <br>
                 <button @click="restartQuiz">Refazer o Teste</button>
                 <button @click="buyProducts">Comprar Produtos</button>
             </div>
@@ -63,6 +70,9 @@ export default {
             result: "",
         };
     },
+    // mounted() {
+    //     this.submitAnswers();
+    // },
 
     methods: {
         // Aqui é a função de resposta para guardar a opção selecionada
@@ -72,14 +82,11 @@ export default {
         },
         // Lógica para calcular resultados  
         submitAnswers() {
-
-
-
             const totalA = this.answers.filter((answer) => answer === "a").length;
             const totalB = this.answers.filter((answer) => answer === "b").length;
 
             if (totalA > totalB) {
-                this.result = "Você combina com vinhos brancos ou rosés! Seu paladar leve e sua preferência por pratos frescos tornam esses vinhos ideais para você. Experimente um Chardonnay ou um Pinot Grigio para complementar suas refeições.";
+                this.result = "Você combina com vinhos brancos ou rosés! Seu paladar leve e sua preferência por pratos frescos tornam esses vinhos ideais para você. Experimente um Chardonnay para complementar suas refeições.";
             } else if (totalB > totalA) {
                 this.result = "Você é um fã de vinhos tintos! Sua preferência por pratos mais intensos e ricos em sabores combina bem com vinhos encorpados. Experimente um Malbec ou um Cabernet Sauvignon para realçar sua experiência gastronômica.";
             } else {
@@ -87,9 +94,26 @@ export default {
             }
 
             this.showResult = true;
+        },
+        buyProducts() {
+            const totalA = this.answers.filter((answer) => answer === "a").length;
+            const totalB = this.answers.filter((answer) => answer === "b").length;
+
+            let wineType = '';
+            if (totalA > totalB) {
+                wineType = 'Branco';
+            } else if (totalB > totalA) {
+                wineType = 'Tinto';
+            } else {
+                wineType = 'resetFilter';
+            }
+
+
+            this.$router.push({ path: '/loja', query: { type: wineType } }).then(() => {
+                this.FilterbyType(wineType);
+            });
 
         },
-
         // Função para redefinir o quiz  
         restartQuiz() {
             this.currentQuestionIndex = 0;
@@ -97,29 +121,82 @@ export default {
             this.showResult = false;
             this.result = "";
         },
-        buyProducts() {
-            // Lógica para redirecionar para a página de compra ou outra ação
-            console.log("Redirecionar para a página de compra...");
+
+        filterByType(type) {
+            fetch('http://localhost:8000/api/wines')
+                .then(response => response.json())
+                .then(data => {
+                    // Filter for the specified type
+                    const filteredData = data.filter(item => item.type === type);
+
+                    // Assign the filtered data to this.produtosFiltrados
+                    this.produtos = filteredData;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados do servidor:', error);
+                });
+
         },
+        resetFilter() {
+            fetch('http://localhost:8000/api/wines')
+                .then(response => response.json())
+                .then(data => {
+                    // Assign the filtered data to this.produtosFiltrados
+                    this.produtos = data;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados do servidor:', error);
+                });
+        },
+
     },
 };
 </script>
 
 <style scoped>
 .card {
-    background-color: black;
+    background-color: --color-background-card;
     padding: 20px;
     border-radius: 8px;
     margin: 20px;
-    color: #f5f5f5;
+    color: --color-background-dark;
+    color: #482817;
+    font-family: "Libre Baskerville";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+}
+
+.question-text {
+    font-size: 36px;
+}
+
+.result-text {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20 px;
 }
 
 .result-card {
-    background-color: #f5f5f5;
+    background-color: --color-background-card;
     padding: 20px;
     border-radius: 8px;
     margin: 20px;
-    color: black;
+    color: --color-background-dark;
+}
+
+.container {
+    display: flex;
+    /* or grid */
+    align-items: center;
+}
+
+.image {
+    margin-right: 20px;
+    /* Adjust margin as needed */
 }
 </style>
 
