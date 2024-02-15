@@ -367,7 +367,7 @@ body {
 
 /* Lista Produtos */
 .produtos {
-    max-width: 90%;
+    max-width: 80%;
     /* Largura máxima de 90% */
     margin: 100px auto 0 auto;
     /* Margens superior e inferior de 100px e laterais automáticas para centralizar */
