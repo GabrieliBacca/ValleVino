@@ -1,7 +1,5 @@
 <template>
   <div class="footer-container">
-
-
     <footer class="footer">
       <v-row justify="start">
 
@@ -20,9 +18,9 @@
 
         <v-col cols="12" sm="6" md="4" class="pa-1">
           <h2>Contato</h2>
-          <p>Blumenau | SC</p>
+          <p> Blumenau | SC</p>
           <p>falecom@vallevino.com.br</p>
-          <p>+55 (47) 99123-4567</p>
+          <p> +55 (47) 99123-4567</p>
         </v-col>
 
         <v-col cols="12" sm="6" md="4" class="pa-1">
@@ -34,7 +32,7 @@
               Adquira nossos produtos
             </RouterLink>
           </P>
-          <p>Mantenha contato</p>
+
         </v-col>
 
 
@@ -56,15 +54,28 @@ export default {
 };
 </script>
 <style>
-.footer-container {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  background-color: #F5EBDA;
-  text-align: center;
+@media only screen and (max-width: 600px) {
+  .footer-container {
+    height: auto;
+  }
 
+  .tamanho-da-imagem {
+    width: 200px;
+  }
+
+  .footer-container .pa-1 {
+    margin-left: 0;
+  }
 }
 
+@media (max-width: 600px) {
+
+  .footer input,
+  .footer button {
+    width: 100%;
+    margin-left: 0;
+  }
+}
 
 .footer-container {
   position: relative;
@@ -84,6 +95,8 @@ export default {
   align-items: center;
   height: 100%;
   box-sizing: border-box;
+  flex-wrap: wrap;
+
   /* Garante que o preenchimento seja contabilizado dentro da largura total do contêiner */
 }
 
@@ -104,7 +117,7 @@ export default {
 .footer p,
 a {
   color: #9E845C;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.5;
   /* Altura da linha do parágrafo */
   margin-bottom: 10px;
