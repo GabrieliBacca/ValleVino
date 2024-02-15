@@ -1,7 +1,7 @@
 <template>
     <Loja5 @wineTypeSelected="filterByType" />
     <div class="container">
-        <img class="fundo" src="../assets/img/fotoquizfundo.jfif" alt="" width="420" height="340">
+        <img class="fundo" id="fundo" src="../assets/img/fotoquizfundo.jfif" alt="" width="420" height="340">
         <div v-if="!showResult">
             <div v-if="currentQuestionIndex < questions.length">
                 <div class="card">
@@ -157,7 +157,7 @@ export default {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 47%;
+    height: 40vh;
     object-fit: cover;
     opacity: 0.8;
 }
@@ -170,14 +170,15 @@ export default {
     padding: 0;
     background: rgba(250, 247, 242, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    background-color: #f5ebda;
+    /* background-color: #f5ebda; */
+
 }
 
 .card {
     background-color: --color-background-card;
     padding: 20px;
     border-radius: 8px;
-    margin: 20px;
+    margin: 20px 0px 0px 40px;
     color: --color-background-dark;
     color: #482817;
     font-family: "Libre Baskerville";
@@ -185,6 +186,8 @@ export default {
     font-style: normal;
     font-weight: 400;
     line-height: 40px;
+    background-color: transparent;
+    align-items: center;
 }
 
 .question-text {
