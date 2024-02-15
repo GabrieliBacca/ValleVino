@@ -62,6 +62,7 @@ export default {
     return {
       showPopup: !localStorage.getItem("popupShown"), // Exibir o popup apenas se não estiver armazenado no localStorage
       telaInicialEscondida: false,
+      animationExecuted: false, //adicionei da animacao para rodar uma vez apenas
     };
   },
   methods: {
@@ -72,16 +73,41 @@ export default {
       localStorage.setItem("popupShown", true); // Armazenar no localStorage que o popup já foi exibido
     },
     mounted() {
-      setTimeout(() => {
-        this.telaInicialEscondida = true;
-      }, 4000);
+      if (!this.animationExecuted) { // Verifica se a animação ainda não foi executada
+        setTimeout(() => {
+          this.telaInicialEscondida = true;
+          this.animationExecuted = true; // Marca a animação como executada
+        }, 4000);
+      }
     },
     reloadPage() {
       // Recarrega a página se o usuário não tiver mais de 18 anos
       window.location.reload();
     },
   },
+  beforeRouteEnter(to, from, next) {
+    // Verifica se a animação já foi executada antes de entrar na rota
+    if (!this.animationExecuted) {
+      setTimeout(() => {
+        this.telaInicialEscondida = true;
+        this.animationExecuted = true; // Marca a animação como executada
+      }, 4000);
+    }
+    next();
+  },
+  created() {
+    const animationExecuted = localStorage.getItem("animationExecuted");
+    if (!animationExecuted) { // Verifica se a animação ainda não foi executada
+      setTimeout(() => {
+        this.telaInicialEscondida = true;
+        localStorage.setItem("animationExecuted", true); // Marca a animação como executada no localStorage
+      }, 4000);
+    }
+
+  },
+
 };
+
 </script>
 
 <style scoped>
@@ -96,7 +122,7 @@ export default {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  animation: slide-up 4s ease-out forwards;
+  animation: slide-up 2s ease-out forwards;
 }
 
 .logo {
