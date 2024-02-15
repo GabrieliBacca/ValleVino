@@ -73,7 +73,7 @@ export default {
 
 .header {
     color: #482817;
-    font-family: Lora;
+    font-family: lora;
     font-size: 100px;
     font-style: italic;
     font-weight: 400;
@@ -83,7 +83,7 @@ export default {
 .text {
     width: 786px;
     color: #482817;
-    font-family: "Libre Baskerville";
+    font-family: montserrat;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -94,7 +94,7 @@ export default {
 .brinde {
     color: #482817;
     text-align: center;
-    font-family: "Libre Baskerville";
+    font-family: baskerville;
     font-size: 36px;
     font-style: normal;
     font-weight: 400;
