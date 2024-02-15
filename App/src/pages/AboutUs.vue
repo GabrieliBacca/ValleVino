@@ -4,7 +4,7 @@
         <br>
         <div class="subcontainer">
             <div class="header text-left justify-center">
-                 <h1 class="header-h1">Sobre nós</h1> 
+                <h1 class="header-h1">Sobre nós</h1>
             </div>
             <br><br><br>
             <div class="text">
@@ -49,7 +49,7 @@ export default {
 * {
     margin: 0;
     padding: 0;
-    
+
 }
  
 
