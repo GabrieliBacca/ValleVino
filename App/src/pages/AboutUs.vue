@@ -1,25 +1,30 @@
 <template>
     <div class="container">
+        <img id="fundo" alt="Logo Valle Vino" src="../assets/img/footer-bg.svg" />
         <br>
         <div class="subcontainer">
             <div class="header flex justify-start">
-                <h1 class="text-left">Sobre nós</h1>
+                <h1 class="text-left ml-7 justify-center">Sobre nós</h1>
             </div>
             <br><br><br>
             <div class="text">
                 <span>
-                    Acreditamos que o vinho é muito mais que uma bebida. Ele é uma experiência. Uma jornada que nos leva a
-                    novos horizontes sensoriais e culturais, na ValleVino, não apenas oferecemos rótulos selecionados, mas
+                    Acreditamos que o vinho é muito mais que uma bebida. Ele é uma experiência. Uma jornada que nos leva
+                    a
+                    novos horizontes sensoriais e culturais, na ValleVino, não apenas oferecemos rótulos selecionados,
+                    mas
                     também conhecimento, harmonização e sentimentos por trás de cada garrafa.
                 </span>
             </div>
             <br><br><br>
             <div class="text">
-                <span class="text-left">Torcemos para que cada cliente que viva essa experiência consiga aprender e ensinar
+                <span class="text-left">Torcemos para que cada cliente que viva essa experiência consiga
+                    aprender e
+                    ensinar
                     e, acima de tudo, criar laços e memórias.</span>
             </div>
             <br><br>
-            <div class="brinde d-flex justify-end align-center">
+            <div class="brinde d-flex justify-end align-center mr-2">
                 <span>Vamos brindar?</span>
             </div>
             <br>
@@ -45,6 +50,18 @@ export default {
     margin: 0;
     padding: 0;
     font-family: montserrat;
+}
+
+
+
+#fundo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
 }
 
 .container {
@@ -83,7 +100,7 @@ export default {
 .text {
     width: 786px;
     color: #482817;
-    font-family: montserrat;
+    font-family: "lora";
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
