@@ -131,6 +131,11 @@ h1 {
   z-index: -1;
   align-items: center;
 }
+.txtInfo{
+  font-size: 24px;
+  text-decoration: none;
+
+}
 
 #email,
 #password {
