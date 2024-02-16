@@ -316,6 +316,8 @@ li,
 p {
     padding: 0;
     margin: 0;
+    font-family: Arial, sans-serif;
+    /* Escolha uma fonte sans-serif limpa */
 }
 
 ul {
@@ -327,9 +329,39 @@ ul {
 }
 
 body {
-    background: linear-gradient(to right, #1a1a1a 30%, #fff 30%);
-    font-family: 'Spinnaker', 'Noto Serif', sans-serif;
+    background-color: #f0f0f0;
+    /* Use uma cor de fundo neutra */
+    font-size: 16px;
+    /* Tamanho da fonte base */
+    line-height: 1.6;
+    /* Altura da linha para melhor legibilidade */
+    color: #333;
+    /* Cor do texto principal */
 }
+
+h1,
+h2 {
+    font-weight: bold;
+    /* Texto em negrito para títulos */
+    margin-bottom: 20px;
+    /* Espaçamento inferior para títulos */
+}
+
+h1 {
+    font-size: 24px;
+    /* Tamanho do título de nível 1 */
+}
+
+h2 {
+    font-size: 20px;
+    /* Tamanho do título de nível 2 */
+}
+
+p {
+    margin-bottom: 15px;
+    /* Espaçamento inferior para parágrafos */
+}
+
 
 #app {
     padding: 0 80px;
@@ -393,8 +425,12 @@ body {
 }
 
 .produto_img {
-    width: 100%;
-    height: auto;
+    width: 300px;
+    /* Defina uma largura fixa */
+    height: 450px;
+    /* Defina uma altura fixa */
+    object-fit: cover;
+    /* Garante que a imagem cubra todo o espaço designado */
     border-bottom: 1px solid #ccc;
 }
 
