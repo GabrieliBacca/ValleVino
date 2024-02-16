@@ -59,7 +59,12 @@
           />
         </div>
 
-        <input v-model="phone" id="phone" type="text" placeholder="Telefone com ddd"/>
+        <input
+          v-model="phone"
+          id="phone"
+          type="text"
+          placeholder="Telefone com ddd"
+        />
       </div>
       <button type="submit" id="bt-sigin">Registrar</button>
     </form>
@@ -93,8 +98,6 @@
 <script>
 export default {
   name: "Cadastro",
-  
-   
 };
 </script>
 
