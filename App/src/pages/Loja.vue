@@ -328,17 +328,6 @@ ul {
     box-sizing: border-box;
 }
 
-body {
-    background-color: #f0f0f0;
-    /* Use uma cor de fundo neutra */
-    font-size: 16px;
-    /* Tamanho da fonte base */
-    line-height: 1.6;
-    /* Altura da linha para melhor legibilidade */
-    color: #333;
-    /* Cor do texto principal */
-}
-
 h1,
 h2 {
     font-weight: bold;
