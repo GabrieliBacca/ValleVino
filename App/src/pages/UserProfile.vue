@@ -2,7 +2,7 @@
     <div>
         <h2>Perfil do Usuário</h2>
         <div>
-            <img :src="userData.img" alt="User Profile Picture" />
+            <img :src="userData.img" alt="Foto do Usuário" />
             <p>Nome: {{ userData.name }}</p>
             <p>Email: {{ userData.email }}</p>
             <p>Endereço: {{ userData.address }}</p>
