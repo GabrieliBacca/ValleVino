@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div>
             <br>
             <button @click="filterByType('Tinto')">Tinto</button>
@@ -17,11 +17,14 @@
             </header>
 
             <section class="produtos">
-                <div v-for="item in produtos" @click="abrirModal(item.id)" :key="item.id" class="produto">
+                <div v-for="item in  produtos " @click="abrirModal(item.id)" :key="item.id" class="produto">
+
+                    <div class="produto_flag">
+                        <img :src="getCountryFlag(item.country)" height="30" width="40" :alt="item.country" />
+                    </div><!-- Adicione a bandeira aqui -->
                     <img :src="item.img" width="150px" height="150px" :alt="item.label" class="produto_img" />
                     <div class="produto_info">
                         <h2 class="produto_titulo">{{ item.label }}</h2>
-                        <div class="flag"></div>
                         <span>Uva: {{ item.grape }}</span> <br>
                         <span>Origem: {{ item.country }}</span> <br>
                         <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
@@ -52,7 +55,7 @@
                     <div class="reviews">
                         <h2 class="reviews_title">Avaliações</h2>
                         <ul>
-                            <li v-for="review in produto.review" class="review">
+                            <li v-for=" review  in  produto.review " class="review">
                                 <p class="review_descricao">{{ review.review }}</p>
                                 <p class="review_nome">{{ review.user }} | <span class="review_estrelas">{{ review.estrelas
                                 }} estrelas</span></p>
@@ -69,7 +72,7 @@
                     <h2 class="carrinho_title">Compras</h2>
                     <div v-if="carrinho.length > 0">
                         <ul class="carrinho_lista">
-                            <li v-for="(item, index) in carrinho" class="carrinho_item">
+                            <li v-for="( item, index ) in  carrinho " class="carrinho_item">
                                 <p>{{ item.label }}</p>
                                 <p class="carrinho_preco">R$ {{ item.price | formataPreco }},00</p>
                                 <button class="carrinho_remover" @click="removerItem(index)">X</button>
@@ -96,6 +99,12 @@
 
 <script>
 import axios from 'axios';
+import paisArgentina from '@/assets/img/pais/Argentina.jpg';
+import paisEspanha from '@/assets/img/pais/Espanha.jpg';
+import paisFranca from '@/assets/img/pais/Franca.jpg';
+import paisPortugal from '@/assets/img/pais/Portugal.jpg';
+import paisUruguai from '@/assets/img/pais/Uruguai.jpg';
+import paisItalia from '@/assets/img/pais/Italia.jpg';
 
 export default {
     head: {
@@ -124,11 +133,44 @@ export default {
             carrinhoAtivo: false,
             produto: null,
             activeAlert: false,
-            msgAlert: ''
+            msgAlert: '',
+            images: {
+                Argentina: paisArgentina,
+                Espanha: paisEspanha,
+                França: paisFranca,
+                Portugal: paisPortugal,
+                Uruguai: paisUruguai,
+                Italia: paisItalia
+
+
+            }
+
+
+
+
+
+
+
+
         }
     },
+
     computed: {
 
+        countryFlag() {
+            if (this.item && this.item.country) {
+                const countryFlagMap = {
+                    Argentina: paisArgentina,
+                    Espanha: paisEspanha,
+                    Franca: paisFranca,
+                    Portugal: paisPortugal,
+                    Uruguai: paisUruguai,
+                    Italia: paisItalia
+                };
+                return countryFlagMap[this.item.country.country];
+            }
+            return null; // ou um valor padrão, se aplicável
+        },
         grapeFormatted() {
             const grape = this.produto.grape;
             return grape ? grape.grape : "Grape não encontrado";
@@ -172,6 +214,10 @@ export default {
 
     },
     methods: {
+        getCountryFlag(country) {
+            return this.images[country];
+        },
+
 
         redirectToLoja4() {
             this.$router.push('/loja4');
@@ -278,11 +324,6 @@ export default {
                     console.error('Erro ao buscar dados do servidor:', error);
                 });
         },
-        methods: {
-            filterByType(wineType) {
-                // Chame a função filterByType aqui com o tipo de vinho recebido
-            }
-        },
 
         showAllWines() {
             fetch('http://localhost:8000/api/wines')
@@ -295,11 +336,7 @@ export default {
                     console.error('Erro ao buscar dados do servidor:', error);
                 });
         },
-        methods: {
-            filterByType(wineType) {
-                // Chame a função filterByType aqui com o tipo de vinho recebido
-            }
-        }
+
 
     }
 
@@ -623,13 +660,14 @@ p {
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.flag {
-    position: absolute;
+.produto_flag {
+    position: relative;
     top: 10px;
     right: 10px;
-    width: 30px;
-    height: 20px;
-    background-color: green;
+    width: 33em;
+    height: 50px;
+
+    /* background-color: green; */
     /* Altere a cor da bandeira conforme necessário */
 }
 
