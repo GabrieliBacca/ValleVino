@@ -49,4 +49,29 @@ h1 {
   text-align: left;
   font-family: montserrat;
 }
+/* Estilo do botão */
+#bt {
+  background-color: var(--color-background-light);
+  color: var(--color-background);
+  font-size: 24px;
+  font-family: baskerville;
+  padding: 5px;
+  width: 330px;
+  height: 56px;
+  border-radius: 8px;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+.img-bg {
+  width: 100vw;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  opacity: 0.5;
+  right: 0;
+  bottom: 0;
+  filter: brightness(0.3);
+  z-index: -1;
+}
 </style>
