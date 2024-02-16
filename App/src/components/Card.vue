@@ -19,14 +19,13 @@
           </div>
         </div>
         <label :for="fields.cardNumber" class="card-item__number" :ref="fields.cardNumber">
+          <div>{{ labels.cardNumber }}</div>
           <template>
-            <span v-for="(n, $index) in currentPlaceholder" :key="$index">
+            <span v-for="(n, $index) in labels.cardNumber" :key="$index">
               <transition name="slide-fade-up">
                 <div class="card-item__numberItem" v-if="getIsNumberMasked($index, n)">*</div>
                 <div class="card-item__numberItem" :class="{ '-active': n.trim() === '' }" :key="currentPlaceholder"
-                  v-else-if="labels.cardNumber.length > $index">{{ labels.cardNumber[$index] }}</div>
-                <div class="card-item__numberItem" :class="{ '-active': n.trim() === '' }" v-else
-                  :key="currentPlaceholder + 1">{{ n }}</div>
+                  v-else>{{ n }}</div>
               </transition>
             </span>
           </template>
@@ -213,3 +212,9 @@ export default {
   }
 }
 </script>
+
+<style  lang="scss" scoped>
+.card-item__dateItem {
+  width: 15px;
+}
+</style>
