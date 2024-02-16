@@ -21,7 +21,7 @@
                     <img :src="item.img" width="150px" height="150px" :alt="item.label" class="produto_img" />
                     <div class="produto_info">
                         <h2 class="produto_titulo">{{ item.label }}</h2>
-                        <div class="flag"></div> <!-- Adicione a bandeira aqui -->
+                        <div class="flag"></div>
                         <span>Uva: {{ item.grape }}</span> <br>
                         <span>Origem: {{ item.country }}</span> <br>
                         <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
