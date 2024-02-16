@@ -20,12 +20,12 @@
                 <div v-for="item in produtos" @click="abrirModal(item.id)" :key="item.id" class="produto">
                     <img :src="item.img" width="150px" height="150px" :alt="item.label" class="produto_img" />
                     <div class="produto_info">
-                        <h2 class="produto_titulo">{{ item.label }}</h2><br>
+                        <h2 class="produto_titulo">{{ item.label }}</h2>
+                        <div class="flag"></div> <!-- Adicione a bandeira aqui -->
                         <span>Uva: {{ item.grape }}</span> <br>
                         <span>Origem: {{ item.country }}</span> <br>
                         <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
                         <br>
-
                     </div>
                 </div>
             </section>
@@ -623,6 +623,16 @@ p {
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.flag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 20px;
+    background-color: green;
+    /* Altere a cor da bandeira conforme necessário */
+}
+
 /*CARRINHO*/
 #modal_carrinho::before {
     content: "";
@@ -835,5 +845,4 @@ p {
         background-color: #82dcb1;
         border-color: #82dcb1;
     }
-}
-</style>
+}</style>
