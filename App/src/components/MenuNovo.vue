@@ -6,7 +6,7 @@
                 <a href="/"><img id="logo" alt="Logo Valle Vino" src="../assets/img/logoValleVinoBlack.png" /></a>
             </div>
             <!-- Links do menu -->
-            <div class="header-item menu">
+            <div class="header-item">
                 <ul>
                     <li><a href="/home">Home</a></li>
                     <li><a href="/loja">Loja</a></li>
