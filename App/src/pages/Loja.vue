@@ -418,6 +418,7 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .produto:hover {
@@ -432,6 +433,10 @@ p {
     object-fit: cover;
     /* Garante que a imagem cubra todo o espaço designado */
     border-bottom: 1px solid #ccc;
+}
+
+.produto:hover {
+    transform: scale(1.05);
 }
 
 .produto_info {
