@@ -158,11 +158,16 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 40vh;
+    width: 100%;
+    max-width: auto;
+    height: auto;
+    max-height: 40vh;
     object-fit: cover;
     opacity: 0.8;
+    margin: 0 auto;
+    border-radius: 5px;
 }
+
 
 .container {
     display: flex;
