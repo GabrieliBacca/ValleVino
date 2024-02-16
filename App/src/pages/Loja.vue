@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div>
             <br>
             <button @click="filterByType('Tinto')">Tinto</button>
@@ -18,12 +18,13 @@
 
             <section class="produtos">
                 <div v-for="item in  produtos " @click="abrirModal(item.id)" :key="item.id" class="produto">
+
+                    <div class="produto_flag">
+                        <img :src="getCountryFlag(item.country)" height="30" width="40" :alt="item.country" />
+                    </div><!-- Adicione a bandeira aqui -->
                     <img :src="item.img" width="150px" height="150px" :alt="item.label" class="produto_img" />
                     <div class="produto_info">
                         <h2 class="produto_titulo">{{ item.label }}</h2>
-                        <div class="flag">
-                            <img :src="getCountryFlag(item.country)" height="30" width="40" :alt="item.country" />
-                        </div><!-- Adicione a bandeira aqui -->
                         <span>Uva: {{ item.grape }}</span> <br>
                         <span>Origem: {{ item.country }}</span> <br>
                         <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
@@ -659,12 +660,13 @@ p {
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.flag {
-    position: absolute;
+.produto_flag {
+    position: relative;
     top: 10px;
     right: 10px;
-    width: 50px;
+    width: 33em;
     height: 50px;
+
     /* background-color: green; */
     /* Altere a cor da bandeira conforme necessário */
 }
