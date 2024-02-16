@@ -30,9 +30,13 @@ export default {
         return {
             colors: [
                 'blue darken-2',
-                'beige darken-2',
                 'red opacity-5',
-                'white darken-1',
+                'blue darken-1',
+                'red solid',
+
+
+
+
             ],
             wines: [],
         }
