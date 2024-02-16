@@ -395,6 +395,13 @@ p {
     margin: 0 auto;
 }
 
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+
+}
+
 /*HEADER*/
 #header {
     display: flex;
