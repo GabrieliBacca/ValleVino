@@ -432,6 +432,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-color: white;
     /* Distribui os produtos uniformemente ao longo da linha */
 }
 
