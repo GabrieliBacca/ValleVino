@@ -21,7 +21,10 @@
                     <img :src="item.img" width="150px" height="150px" :alt="item.label" class="produto_img" />
                     <div class="produto_info">
                         <h2 class="produto_titulo">{{ item.label }}</h2>
-                        <div class="flag"></div> <!-- Adicione a bandeira aqui -->
+                        <div class="flag">
+                            <img :src="`../assets/img/pais/${item.country.country}.jpg`" :title="(item.country.country)"
+                                :alt="item.country" />
+                        </div> <!-- Adicione a bandeira aqui -->
                         <span>Uva: {{ item.grape }}</span> <br>
                         <span>Origem: {{ item.country }}</span> <br>
                         <span class="produto_preco">R$ {{ item.price | formataPreco }},00</span>
@@ -97,6 +100,7 @@
 <script>
 import axios from 'axios';
 
+
 export default {
     head: {
         link: [
@@ -127,6 +131,7 @@ export default {
             msgAlert: ''
         }
     },
+
     computed: {
 
         grapeFormatted() {
