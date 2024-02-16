@@ -278,11 +278,6 @@ export default {
                     console.error('Erro ao buscar dados do servidor:', error);
                 });
         },
-        methods: {
-            filterByType(wineType) {
-                // Chame a função filterByType aqui com o tipo de vinho recebido
-            }
-        },
 
         showAllWines() {
             fetch('http://localhost:8000/api/wines')
@@ -295,11 +290,7 @@ export default {
                     console.error('Erro ao buscar dados do servidor:', error);
                 });
         },
-        methods: {
-            filterByType(wineType) {
-                // Chame a função filterByType aqui com o tipo de vinho recebido
-            }
-        }
+
 
     }
 
@@ -845,4 +836,5 @@ p {
         background-color: #82dcb1;
         border-color: #82dcb1;
     }
-}</style>
+}
+</style>
