@@ -188,6 +188,8 @@ export default {
       }
       if (sum % 10 !== 0) {
         alert(this.$t('cardForm.invalidCardNumber'))
+      } else {
+        alert(`Compra efetuada com sucesso!`)
       }
     },
     blurCardNumber() {
