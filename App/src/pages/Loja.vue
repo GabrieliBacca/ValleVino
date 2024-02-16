@@ -665,7 +665,7 @@ p {
     position: relative;
     top: 10px;
     right: 10px;
-    width: 33em;
+    width: 39em;
     height: 50px;
 
     /* background-color: green; */
