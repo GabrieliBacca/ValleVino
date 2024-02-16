@@ -30,8 +30,8 @@ export default {
         return {
             colors: [
                 'blue darken-2',
-                'red opacity-5',
-                'blue darken-1',
+                'cornflowerblue soft',
+                'aqua darken-1',
                 'red solid',
 
 
@@ -61,6 +61,7 @@ export default {
 <style scoped>
 .carousel-item {
     border: 3px solid black;
+
     /* Define a borda em negrito */
     border-radius: 10px;
     /* Adiciona bordas arredondadas */
