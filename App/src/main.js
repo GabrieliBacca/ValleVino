@@ -59,6 +59,7 @@ import EsqueceuSenha from "./pages/Login/EsqueceuSenha.vue";
 import ValidarCodigo from "./pages/Login/ValidarCodigo.vue";
 import CriarSenha from "./pages/Login/CriarSenha.vue";
 import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
+import UserProfileVue from "./pages/UserProfile.vue";
 
 
 // Defina as rotas
@@ -93,6 +94,7 @@ const routes = [
   { path: "/validarcodigo", component: ValidarCodigo },
   { path: "/criarsenha", component: CriarSenha },
   { path: "/senhaalterada", component: SenhaAlterada },
+  { path: '/userProfile/:id', component: UserProfileVue },
 ];
 
 // Crie o roteador

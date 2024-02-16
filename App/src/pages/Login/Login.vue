@@ -1,10 +1,6 @@
 <template>
   <div class="container">
-    <img
-      class="img-bg"
-      src="../../assets/img/login-bg.svg"
-      alt="background Image"
-    />
+    <img class="img-bg" src="../../assets/img/login-bg.svg" alt="background Image" />
     <div v-for="(usuario, i) in usuarios" :key="i">
       <p>{{ usuario.nome }}</p>
     </div>
@@ -16,18 +12,8 @@
 
     <form @submit.prevent="login">
       <div class="textBox">
-        <input
-          v-model="email"
-          id="email"
-          type="text"
-          placeholder="Digite seu email"
-        />
-        <input
-          v-model="password"
-          id="password"
-          type="password"
-          placeholder="Digite sua senha"
-        />
+        <input v-model="email" id="email" type="text" placeholder="Digite seu email" />
+        <input v-model="password" id="password" type="password" placeholder="Digite sua senha" />
         <!-- //! colocar o icone de olho no text para revelar  a senha -->
         <p class="txtInfo-senha">
           <RouterLink to="/esqueceusenha">Esqueceu a senha?</RouterLink>
@@ -40,21 +26,9 @@
     <div class="textWhitSocialMedia">
       <p class="txtInfo">Ou faça login com</p>
 
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Facebook.svg"
-        alt="botão login com Facebook"
-      />
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Google.svg"
-        alt="botão login com Google"
-      />
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Apple.svg"
-        alt="botão login com Apple"
-      />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Facebook.svg" alt="botão login com Facebook" />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Google.svg" alt="botão login com Google" />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Apple.svg" alt="botão login com Apple" />
 
       <p class="txtInfo">
         Não tem uma conta?
@@ -68,6 +42,8 @@
 import api from "@/services/api";
 import { onMounted } from "vue";
 import { ref } from "vue";
+import { useRouter } from 'vue-router';
+
 
 export default {
   name: "Login",
@@ -75,6 +51,7 @@ export default {
     const usuarios = ref([]);
     const email = ref("");
     const password = ref("");
+    const router = useRouter();
 
     const fetchUsuarios = () =>
       api
@@ -91,8 +68,9 @@ export default {
       console.log("password.value:", password.value);
       if (user) {
         // Credenciais corretas, lógica de login bem-sucedida
-        alert("Login bem-sucedido!");
+        // alert("Login bem-sucedido!");
         console.log("Login bem-sucedido:", user);
+        router.push({ path: `/userProfile/${user.id}` });
       } else {
         // Credenciais incorretas, lidar com erro de autenticação
         alert("Credenciais inválidas. Por favor, tente novamente.");
@@ -156,11 +134,13 @@ h1 {
   text-decoration: none;
   margin: 10px 0px 10px 0px;
 }
+
 .txtInfo-senha {
   /* text-decoration: none; */
   text-align: right;
   padding: 0px 20px 0px 0px;
 }
+
 .txtInfo-senha a {
   color: #482817;
   font-size: 20px;
