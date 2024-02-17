@@ -19,7 +19,7 @@
           <p> Blumenau | SC</p>
           <a class="bi bi-envelope" href="mailto:falecom@vallevino.com.br"> falecom@vallevino.com.br</a> <br>
           <a class="bi bi-whatsapp"
-            href="https://wa.me/5547988035265?text=Boa%20tarde%2C%20estava%20visitando%20o%20site%20e%20tenho%20uma%20pergunta."
+            href="https://wa.me/5547988035265?text=Oi!%20Estava%20visitando%20o%20site%20e%20tenho%20uma%20pergunta."
             target="_blank">
             +55 (47) 99123-4567
           </a>
