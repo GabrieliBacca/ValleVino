@@ -22,7 +22,12 @@
             href="https://wa.me/5547988035265?text=Oi!%20Estava%20visitando%20o%20site%20e%20tenho%20uma%20pergunta."
             target="_blank">
             +55 (47) 99123-4567
-          </a>
+          </a> <br>
+
+          <a href="https://www.instagram.com/vallevinoblumenau/" target="_blank" class="bi bi-instagram" alt="Instagram">
+            Nosso Instagram</a>
+
+
         </v-col>
         <v-col cols="12" sm="6" md="4" class="pa-1">
           <h2>Sobre nós</h2>
