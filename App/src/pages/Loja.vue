@@ -43,7 +43,7 @@
                         <h2 class="modal_titulo">{{ produto.label }}</h2>
                         <p class="modal_descricao">{{ produto.description }}</p>
                         <span class="modal_dados">Teor Alcólico: {{ produto.alchoolic }}%</span> <br>
-                        <span>Teor Alcólico: {{ produto.alcohol_content }}</span><br>
+
                         <span>Uva: {{ grapeFormatted }}</span><br>
                         <span>Origem: {{ countryFormatted }}</span><br>
                         <span>Harmonização: {{ harmonyFormatted }}</span><br>
@@ -84,6 +84,8 @@
                             <button @click="carrinhoAtivo = false" class="btn_carrinho_continuar">Continuar
                                 Comprando</button>
                             <button class="btn_carrinho_finalizar" @click="redirectToLoja4">Finalizar Compra</button>
+                            <button class="btn_carrinho_finalizar" @click="enviarPedidoWhatsapp">Comprar via
+                                WhatsApp</button>
                         </div>
                     </div>
                     <p v-else>O carrinho está vazio!</p>
@@ -214,6 +216,22 @@ export default {
 
     },
     methods: {
+
+        enviarPedidoWhatsapp: function () {
+            // Compose the message with cart items and total value
+            let mensagem = "Olá, estou interessado nos seguintes itens:\n";
+            this.carrinho.forEach(item => {
+                mensagem += `${item.label} - R$${item.price},00\n`;
+            });
+            mensagem += `\nTotal: R$${this.carrinhoTotal()}`;
+
+            // Encode the message for the WhatsApp link
+            let encodedMessage = encodeURIComponent(mensagem);
+
+            // Open WhatsApp with the composed message
+            window.open(`https://wa.me/5547988035265?text=${encodedMessage}`, '_blank');
+
+        },
         getCountryFlag(country) {
             return this.images[country];
         },
