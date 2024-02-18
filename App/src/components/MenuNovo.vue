@@ -11,14 +11,14 @@
                     <li><a href="/home">Home</a></li>
                     <li><a href="/loja">Loja</a></li>
                     <li><a href="/Adm">ADM</a></li>
-                    <li><a href="/WineCard">WineCard</a></li>
+                    <!-- <li><a href="/WineCard">WineCard</a></li> -->
                 </ul>
             </div>
             <!-- Botão de login -->
             <div class="header-item">
                 <a href="/Login"><img id="bt-usuario" src="../assets/img/ico-usuario.svg"
                         alt="botão de login usuario" /></a>
-                <a href="/"><img id="bt-carrinho" src="../assets/img/ico-carrinho.svg" alt="botão de carrinho" /></a>
+                <!-- <a href="/"><img id="bt-carrinho" src="../assets/img/ico-carrinho.svg" alt="botão de carrinho" /></a> -->
             </div>
         </nav>
     </header>

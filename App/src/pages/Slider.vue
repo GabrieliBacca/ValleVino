@@ -8,7 +8,7 @@
                             <img :src="wine.img" height="300px" alt="wine image">
                         </div>
                         <div>
-                            <div>
+                            <div class="text-card">
                                 {{ wine.label }}<br>
                                 <!-- Preço: R$ {{ wine.price }},00<br> -->
                                 {{ wine.type }}<br>
@@ -29,10 +29,10 @@ export default {
     data() {
         return {
             colors: [
-                'blue darken-2',
-                'cornflowerblue soft',
-                'aqua darken-1',
-                'red solid',
+                // 'blue darken-2',
+                // 'cornflowerblue soft',
+                // 'aqua darken-1',
+                // 'red solid',
 
 
 
@@ -59,10 +59,19 @@ export default {
 </script>
 
 <style scoped>
+.text-card {
+    font-family: montserrat;
+    color: black;
+}
+
 .carousel-item {
     border: 3px solid black;
 
-    /* Define a borda em negrito */
+    /* Define a cor da borda */
+
+
+
+
     border-radius: 10px;
     /* Adiciona bordas arredondadas */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
