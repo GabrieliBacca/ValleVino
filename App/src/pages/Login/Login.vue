@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <img class="img-bg" src="../../assets/img/login-bg.svg" alt="background Image" />
+    <img
+      class="img-bg"
+      src="../../assets/img/login-bg.svg"
+      alt="background Image"
+    />
     <div v-for="(usuario, i) in usuarios" :key="i">
       <p>{{ usuario.nome }}</p>
     </div>
@@ -12,8 +16,18 @@
 
     <form @submit.prevent="login">
       <div class="textBox">
-        <input v-model="email" id="email" type="text" placeholder="Digite seu email" />
-        <input v-model="password" id="password" type="password" placeholder="Digite sua senha" />
+        <input
+          v-model="email"
+          id="email"
+          type="text"
+          placeholder="Digite seu email"
+        />
+        <input
+          v-model="password"
+          id="password"
+          type="password"
+          placeholder="Digite sua senha"
+        />
         <!-- //! colocar o icone de olho no text para revelar  a senha -->
         <p class="txtInfo-senha">
           <RouterLink to="/esqueceusenha">Esqueceu a senha?</RouterLink>
@@ -26,9 +40,21 @@
     <div class="textWhitSocialMedia">
       <p class="txtInfo">Ou faça login com</p>
 
-      <img id="loginSocialMedia" src="../../assets/img/bt-Facebook.svg" alt="botão login com Facebook" />
-      <img id="loginSocialMedia" src="../../assets/img/bt-Google.svg" alt="botão login com Google" />
-      <img id="loginSocialMedia" src="../../assets/img/bt-Apple.svg" alt="botão login com Apple" />
+      <img
+        id="loginSocialMedia"
+        src="../../assets/img/bt-Facebook.svg"
+        alt="botão login com Facebook"
+      />
+      <img
+        id="loginSocialMedia"
+        src="../../assets/img/bt-Google.svg"
+        alt="botão login com Google"
+      />
+      <img
+        id="loginSocialMedia"
+        src="../../assets/img/bt-Apple.svg"
+        alt="botão login com Apple"
+      />
 
       <p class="txtInfo">
         Não tem uma conta?
@@ -42,8 +68,7 @@
 import api from "@/services/api";
 import { onMounted } from "vue";
 import { ref } from "vue";
-import { useRouter } from 'vue-router';
-
+import { useRouter } from "vue-router";
 
 export default {
   name: "Login",
@@ -58,9 +83,6 @@ export default {
         .get("http://localhost:8000/api/user")
         .then((res) => (usuarios.value = res.data));
 
-
-
-
     const login = () => {
       // Enviar uma solicitação para o endpoint api/user para verificar as credenciais
       const user = usuarios.value.find(
@@ -73,8 +95,8 @@ export default {
         // Credenciais corretas, lógica de login bem-sucedida
         // alert("Login bem-sucedido!");
         console.log("Login bem-sucedido:", user);
-        const token = 'your_generated_token_here';
-        localStorage.setItem('jwt_token', token);
+        const token = "your_generated_token_here";
+        localStorage.setItem("jwt_token", token);
 
         router.push({ path: `/userProfile/${user.id}` });
       } else {
@@ -129,9 +151,6 @@ export default {
     //     console.error("Credenciais incorretas. Login falhou.", error);
     //   }
     // };
-
-
-
 
     // versao antiga do login
     // const login = () => {
