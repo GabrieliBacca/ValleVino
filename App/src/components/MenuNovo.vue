@@ -56,7 +56,7 @@ export default {
 <style scoped>
 /* Estilos para o header e seus itens */
 header {
-    background-color: var(--color-background-light);
+    background-color: #F5EBDA;
     width: 100%;
     height: 70px;
 }

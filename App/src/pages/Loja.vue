@@ -405,7 +405,8 @@ p {
     margin-bottom: 15px;
     /* Espaçamento inferior para parágrafos */
 }
-    /* .container {
+
+/* .container {
     position: relative;
     width: 100%;
     max-width: var(--max-width);
@@ -421,6 +422,7 @@ p {
     padding: 0 80px;
     width: 96%;
     margin: 0 auto;
+    background-color: white;
 }
 
 /*HEADER*/
@@ -440,6 +442,7 @@ p {
     display: flex;
     align-items: center;
     cursor: pointer;
+    background-color: white;
 }
 
 #carrinho_menu::after {
@@ -449,6 +452,7 @@ p {
     width: 25px;
     height: 25px;
     margin-left: 10px;
+    background-color: white;
 }
 
 /* Lista Produtos */
@@ -474,10 +478,12 @@ p {
     overflow: hidden;
     transition: transform 0.3s ease;
     cursor: pointer;
+    background-color: white;
 }
 
 .produto:hover {
     transform: translateY(-5px);
+    background-color: white;
 }
 
 .produto_img {
@@ -488,35 +494,42 @@ p {
     object-fit: cover;
     /* Garante que a imagem cubra todo o espaço designado */
     border-bottom: 1px solid #ccc;
+    background-color: white;
 }
 
 .produto:hover {
     transform: scale(1.05);
+    background-color: white;
 }
 
 .produto_info {
     line-height: 0.5;
     max-height: 150px;
+    background-color: white;
 }
 
 .produto_titulo {
     font-size: 18px;
     margin-bottom: 10px;
+    background-color: white;
 }
 
 .produto_info span {
     display: block;
     margin-bottom: 5px;
+    background-color: white;
 }
 
 .produto_preco {
     font-weight: bold;
     color: #009688;
+    background-color: white;
 }
 
 @media (min-width: 768px) {
     .produto {
         width: calc(33.33% - 20px);
+        background-color: white;
         /* Calcula a largura para caber 3 produtos por linha com espaço entre eles em telas maiores */
     }
 }
@@ -541,17 +554,19 @@ p {
     left: 0;
     width: 100%;
     padding: 80px;
+    background-color: white;
 }
 
 .modal_container {
     position: relative;
     z-index: 1;
-    background: linear-gradient(to right, transparent 250px, #f5ebda 250px);
+    /* background: linear-gradient(to right, transparent 250px, #f5ebda 250px); */
     display: grid;
     align-items: end;
     grid-gap: 50px;
     padding: 30px 50px 50px 0;
     animation: fadeIn .3s forwards;
+    background-color: white;
 }
 
 @keyframes fadeIn {
@@ -580,6 +595,7 @@ p {
     outline: none;
     background: #000;
     color: #fff;
+
 }
 
 .btn_modal_fechar:active,
