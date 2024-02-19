@@ -405,17 +405,7 @@ p {
     margin-bottom: 15px;
     /* Espaçamento inferior para parágrafos */
 }
-    /* .container {
-    position: relative;
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0px 0px 20px 0px;
-    padding: 50px;
-    background: rgba(250, 247, 242, 0.25);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    background-color: #f5ebda; 
-    opacity: 0.9;
-    } */
+  
 
 #app {
     padding: 0 80px;
