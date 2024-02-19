@@ -107,7 +107,7 @@ export default {
 
 #video-bg {
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     object-fit: cover;
     filter: brightness(0.3);
 }
