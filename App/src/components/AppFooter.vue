@@ -130,6 +130,9 @@ a {
   /* Altura da linha do parágrafo */
   margin-bottom: 10px;
   /* Espaçamento abaixo do parágrafo */
+  font-family: 'lora';
+  font-size: 16px;
+
 }
 
 .footer input {

@@ -101,6 +101,8 @@ ul li {
 
 ul li a {
     color: var(--color-text-dark);
+    font-family: 'lora';
+
 }
 
 /* Estilos para o botão de login */

@@ -506,18 +506,27 @@ p {
     line-height: 0.5;
     max-height: 150px;
     background-color: white;
+    font-size: 10px;
+    margin: 8px;
 }
 
 .produto_titulo {
     font-size: 18px;
     margin-bottom: 10px;
     background-color: white;
+    font-family: "barksville";
+    font-size: 18px;
+    margin: 10px 0px 20px 0px;
+
 }
 
 .produto_info span {
     display: block;
-    margin-bottom: 5px;
     background-color: white;
+    font-family: 'lora';
+    font-size: 12px;
+    margin: 8px 0px 0px 0px;
+
 }
 
 .produto_preco {
