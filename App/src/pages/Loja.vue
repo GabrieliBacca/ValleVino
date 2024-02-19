@@ -10,7 +10,7 @@
         </div>
         <div>
             <header id="header">
-                <img src="@/assets/img/logoValleVinoBlack.png" height="50px" alt="Valle Vino" class="logo">
+                <!-- <img src="@/assets/img/logoValleVinoBlack.png" height="50px" alt="Valle Vino" class="logo"> -->
                 <div id="carrinho_menu" @click="carrinhoAtivo = true">R$ {{ carrinhoTotal() | formataPreco }},00 | {{
                     carrinho &&
                     carrinho.length }}</div>
@@ -405,7 +405,17 @@ p {
     margin-bottom: 15px;
     /* Espaçamento inferior para parágrafos */
 }
-
+    /* .container {
+    position: relative;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0px 0px 20px 0px;
+    padding: 50px;
+    background: rgba(250, 247, 242, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #f5ebda; 
+    opacity: 0.9;
+    } */
 
 #app {
     padding: 0 80px;
@@ -416,15 +426,15 @@ p {
 /*HEADER*/
 #header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 20px 0;
-    margin: 0 auto;
+    margin: 10 auto;
     width: 90%;
 }
 
-.logo {
+/* .logo {
     width: 120px;
-}
+} */
 
 #carrinho_menu {
     display: flex;
@@ -536,7 +546,7 @@ p {
 .modal_container {
     position: relative;
     z-index: 1;
-    background: linear-gradient(to right, transparent 250px, white 250px);
+    background: linear-gradient(to right, transparent 250px, #f5ebda 250px);
     display: grid;
     align-items: end;
     grid-gap: 50px;

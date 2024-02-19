@@ -85,7 +85,7 @@
 
 
  :root {
-     --body-bg: rgb(var(--surface-50));
+     --body-bg: rgb(var(--surface-0));
      --body-text-color: rgb(var(--surface-900));
      --card-border: 1px solid var(--border-color);
      --card-bg: rgb(var(--surface-0));
@@ -109,7 +109,7 @@
      min-height: 100%;
      overflow-x: hidden;
      overflow-y: auto;
-     background-color: var(--body-bg);
+     /* background-color: var(--body-bg); */
      font-weight: normal;
      color: var(--body-text-color);
      -webkit-font-smoothing: antialiased;
