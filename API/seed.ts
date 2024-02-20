@@ -302,6 +302,39 @@ type WineDTO = {
 //     }
 // }
 
+// // // Função de Atualizar o Review
+
+// async function updateReview(id: number, reviewDTO: ReviewDTO) {
+//     const review = await prisma.review.update({
+//         where: {
+//             id: id
+//         },
+//         data: reviewDTO
+//     })
+//     if (review == null) {
+//         console.log('Review não encontrado')
+//     } else {
+//         console.log('Review atualizado com sucesso: ' + (review))
+//     }
+// }
+
+// // // Função de Atualizar o Review
+
+// async function updateReview(id: number, reviewDTO: ReviewDTO) {
+//     const review = await prisma.review.update({
+//         where: {
+//             id: id
+//         },
+//         data: reviewDTO
+//     })
+//     if (review == null) {
+//         console.log('Review não encontrado')
+//     } else {
+//         console.log('Review atualizado com sucesso: ' + (review))
+//     }
+// }
+
+
 // // // Rodar a função para update o Review do id 1, VERIFICAR ****
 
 // // updateReview(1, {
@@ -329,6 +362,7 @@ type WineDTO = {
 
 
 // // // Funções para Shopping / compras historico
+
 
 async function addNewShopping($shopping: ShoppingDTO, $userID: number) {
     const shopping = await prisma.shopping.create({
