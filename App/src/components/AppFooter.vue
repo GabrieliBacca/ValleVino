@@ -9,8 +9,9 @@
           <h2>NEWSLETTER</h2>
           <p>Receba as novidades em primeira mão</p>
           <form action="#">
-            <input type="email" id="emailInput" placeholder="Digite seu email">
-            <button type="submit" @click="displaySuccessMessage">INSCREVA-SE</button>
+            <input type="email" id="emailInput" v-model="newEmail" placeholder="Digite seu email">
+            <button type="submit" @click.prevent="displaySuccessMessage">INSCREVA-SE</button>
+            <button @click="realizarSorteio">Sortear Email</button>
 
           </form>
         </v-col>
@@ -46,6 +47,19 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default {
   name: 'Footer',
+  data() {
+    return {
+      emails: [],
+      newEmail: ''
+    }
+  },
+  mounted() {
+    // Recupera os emails armazenados no armazenamento local ao iniciar o componente
+    const storedEmails = localStorage.getItem('storedEmails');
+    if (storedEmails) {
+      this.emails = JSON.parse(storedEmails);
+    }
+  },
   methods: {
     getAboutUsLink() {
       if (this.$route.path !== '/home') {
@@ -55,9 +69,47 @@ export default {
       }
     },
     displaySuccessMessage() {
+      // Obtém o email digitado
+      const emailInput = document.getElementById('emailInput');
+      const newEmail = emailInput.value;
+
+      // Verifica se o email já está na lista
+      if (this.emails.includes(newEmail)) {
+        alert('Este email já está cadastrado.');
+        console.log(this.emails)
+        return;
+      }
+
+      // Adiciona o novo email à lista
+      this.emails.push(newEmail);
+      console.log(this.emails)
+
+      // Armazena os emails no armazenamento local para persistência
+      localStorage.setItem('storedEmails', JSON.stringify(this.emails));
+
+      // Limpa o campo de entrada de email após o cadastro
+      emailInput.value = '';
+
       alert('Cadastro realizado com sucesso!');
+    },
+
+    realizarSorteio() {
+      // Verifica se há emails cadastrados
+      if (this.emails.length === 0) {
+        alert('Não há emails cadastrados para realizar o sorteio.');
+        return;
+      }
+
+      // Gera um índice aleatório entre 0 e o comprimento da lista de emails
+      const indiceSorteado = Math.floor(Math.random() * this.emails.length);
+
+      // Obtém o email sorteado com base no índice gerado
+      const emailSorteado = this.emails[indiceSorteado];
+
+      // Exibe o email sorteado
+      alert(`O email sorteado é: ${emailSorteado}`);
     }
-  },
+  }
 }
 
 </script>
