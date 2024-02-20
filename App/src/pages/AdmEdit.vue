@@ -24,6 +24,14 @@
                         </option>
                     </select> -->
 
+                    <!-- <select class="form-control" v-model="this.model.wine.typeId">
+                        <option v-for="option in typeOptions" :value="option.id"
+                            :selected="option.id === this.model.wine.typeId">
+                            {{ option.type }}
+                        </option>
+                    </select> -->
+
+
                     <!-- versao correta para tentar
                     <select class="form-control" v-model="this.model.wine.typeId.id">
                             <option v-for="option in typeOptions" :value="option.id"
