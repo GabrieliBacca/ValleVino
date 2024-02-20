@@ -1,3 +1,5 @@
+//Correçao monetaria
+
 import App from './App.vue'; // Replace with the correct path to your App component
 import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
