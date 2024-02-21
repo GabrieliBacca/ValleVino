@@ -127,7 +127,7 @@ export default {
         cookie: true,
         xfbml: true,
         version: 'v19.0',
-        secure: true,
+        // secure: true,
       });
 
       FB.getLoginStatus((response) => {
