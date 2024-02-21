@@ -11,7 +11,7 @@
       Insira o endereço de e-mail vinculado à sua conta.
     </h3>
 
-    <form @submit.prevent=" onSubmit">
+    <form @submit.prevent="onSubmit">
       
       <div class="textBox">
         <input
@@ -21,7 +21,7 @@
           placeholder="Digite seu email"
         />
       </div>
-      <button type="submit" id="bt"><RouterLink to="/ValidarCodigo">Receber Codigo</RouterLink></button>
+      <button type="submit" id="bt"><RouterLink to="/ReceberCodigo">Receber Codigo</RouterLink></button>
     </form>
     <p class="txtInfo">
       Lembrou-se da senha?
@@ -38,7 +38,7 @@ export default {
       // Validar o formulário
       // ...
 
-      this.$router.push("./ValidarCodigo.vue");
+      this.$router.push("./ReceberCodigo.vue");
     },
   },
 };

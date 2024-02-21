@@ -35,6 +35,7 @@ import WineForm from "./pages/WineForm.vue";
 import Login from "./pages/Login/Login.vue";
 import Cadastro from "./pages/Login/Cadastro.vue";
 import EsqueceuSenha from "./pages/Login/EsqueceuSenha.vue";
+import ReceberCodigo from "./pages/Login/ReceberCodigo.vue";
 import ValidarCodigo from "./pages/Login/ValidarCodigo.vue";
 import CriarSenha from "./pages/Login/CriarSenha.vue";
 import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
@@ -55,6 +56,7 @@ export default {
     Login,
     Cadastro,
     EsqueceuSenha,
+    ReceberCodigo,
     ValidarCodigo,
     CriarSenha,
     SenhaAlterada,
