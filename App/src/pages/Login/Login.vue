@@ -26,7 +26,8 @@
     <div class="textWhitSocialMedia">
       <p class="txtInfo">Ou faça login com</p>
 
-      <img id="loginSocialMedia" src="../../assets/img/bt-Facebook.svg" alt="botão login com Facebook" />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Facebook.svg" alt="botão login com Facebook"
+        @click="loginWithFacebook" />
       <img id="loginSocialMedia" src="../../assets/img/bt-Google.svg" alt="botão login com Google" />
       <img id="loginSocialMedia" src="../../assets/img/bt-Apple.svg" alt="botão login com Apple" />
 
@@ -122,16 +123,24 @@ export default {
   beforeMount() {
     window.fbAsyncInit = () => {
       FB.init({
-        appId: '{your-app-id}',
+        appId: '{771097171115982}',
         cookie: true,
         xfbml: true,
-        version: '{api-version}',
+        version: 'v19.0',
+        secure: true,
       });
 
       FB.getLoginStatus((response) => {
         if (response.status === 'connected') {
           // User is already logged in, handle accordingly
+          var uid = response.authResponse.userID;
+          var accessToken = response.authResponse.accessToken;
           console.log('Already logged in');
+        } else if (response.status === 'not_authorized') {
+          // the user is logged in to Facebook, 
+          // but has not authenticated your app
+        } else {
+          // the user isn't logged in to Facebook.
         }
       });
     };
