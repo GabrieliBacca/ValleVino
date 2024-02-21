@@ -71,6 +71,7 @@ export default {
         console.log("Login bem-sucedido:", user);
         const token = "generateJwtToken(user)";
         localStorage.setItem("jwt_token", token);
+        console.log(token)
 
         router.push({ path: `/userProfile/${user.id}` });
       } else {
