@@ -4,10 +4,10 @@
             <!-- Conteúdo da home -->
             <section class="container" id="mainContent">
                 <div class="content-container">
-
+                    <!-- Conteúdo -->
                 </div>
                 <div class="video-container">
-                    <video autoplay muted loop id="video-bg">
+                    <video autoplay muted loop id="video-bg" class="responsive-video">
                         <source src="../assets/video/home.mp4" type="video/mp4" />
                     </video>
                     <div class="centered-text">
@@ -35,37 +35,32 @@
             <WineQuiz />
             <div id="sobre-nos">
                 <AboutUs />
-
             </div>
         </v-main>
         <!-- <Footer /> -->
-
     </v-app>
 </template>
 
 <script>
 import Slider from "./Slider.vue";
-import Aboutus from "./AboutUs.vue";
-// import Footer from "../components/AppFooter.vue";
 import WineQuiz from "./WineQuiz.vue";
 import AboutUs from "./AboutUs.vue";
-
-// import Footer from "./components/Footer.vue";
 
 export default {
     name: "App",
 
     components: {
         Slider,
-        Aboutus,
         WineQuiz,
         AboutUs
     },
 
-    data: () => ({
-        color: "",
-        flat: null,
-    }),
+    data() {
+        return {
+            color: "",
+            flat: null,
+        };
+    },
 
     methods: {
         onScroll() {
@@ -73,48 +68,33 @@ export default {
             const scrollPosition = mainContent.scrollTop + mainContent.clientHeight;
             const scrollHeight = mainContent.scrollHeight;
             if (scrollPosition >= scrollHeight) {
-                this.$router.replace('/slider'); // Replace '/loja3' with the path of the page you want to navigate to
+                this.$router.replace('/slider'); // Substitua '/loja3' pelo caminho da página para navegar
             }
         },
-        // Navegar dinamicamente para as páginas loja3.vue e loja5.vue
-        // Exemplo: this.$router.push('/loja3') 
-        // ou use o método programático de navegação do Vue Router
-
     },
 }
 </script>
-
 
 <style scoped>
 .container {
     position: relative;
     width: 100%;
-    max-width: var(--max-width);
+    max-width: 100%;
     margin: 0;
     padding: 0;
-}
-
-.content-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 0px;
-    margin-top: 0;
-    padding-top: 0;
-    position: relative;
-    align-items: center;
-}
-
-#video-bg {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    filter: brightness(0.3);
 }
 
 .video-container {
     position: relative;
     width: 100%;
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: brightness(0.3);
 }
 
 .centered-text {
@@ -127,30 +107,46 @@ export default {
 }
 
 .centered-text h1 {
-    font-size: 4rem;
+    font-size: 4vw;
     font-weight: bold;
-    margin-bottom: 100px;
+    margin-bottom: 5vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .centered-text p {
-    font-size: 1.5rem;
+    font-size: 1.5vw;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 1vw;
 }
 
 .call-to-action-container button {
-    padding: 10px 20px;
+    padding: 0vw 1vw;
     background: transparent;
-    border-radius: 30px;
+    border-radius: 3vw;
     color: #fff;
     text-transform: uppercase;
-    border: 2px solid #fff;
+    border: 0.2vw solid #fff;
     transition: all 0.5s;
+    width: auto;
+    text-align: center;
+}
+
+.call-to-action-container button a {
+    display: block;
+    padding: 0.5vw 1vw;
+    /* Ajuste o padding para telas menores */
+    font-size: 1.5vw;
+    /* Ajuste o tamanho da fonte para telas menores */
 }
 
 .call-to-action-container button:hover {
     background-color: #fff;
     color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .centered-text p {
+        font-size: 2vw;
+    }
 }
 </style>
