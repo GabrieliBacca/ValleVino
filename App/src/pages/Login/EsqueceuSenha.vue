@@ -1,28 +1,46 @@
 <template>
-<div class="container">
-  <img class="img-bg" src="../../assets/img/esqueceu-senha-bg.svg" alt="background Image" />
-  <h1>Esqueceu a senha?</h1>
-  <h3>
-    Não se preocupe, acontece! <br />
-     Insira o endereço de e-mail vinculado à sua conta.
-  </h3>
-  
-  <form @submit.prevent="forgotPassword">
+  <div class="container">
+    <img
+      class="img-bg"
+      src="../../assets/img/esqueceu-senha-bg.svg"
+      alt="background Image"
+    />
+    <h1>Esqueceu a senha?</h1>
+    <h3>
+      Não se preocupe, acontece! <br />
+      Insira o endereço de e-mail vinculado à sua conta.
+    </h3>
+
+    <form @submit.prevent=" onSubmit">
+      
       <div class="textBox">
-        <input v-model="email" id="email" type="text" placeholder="Digite seu email" />
+        <input
+          v-model="email"
+          id="email"
+          type="text"
+          placeholder="Digite seu email"
+        />
       </div>
-      <button type="submit" id="bt">Receber Codigo</button>
+      <button type="submit" id="bt"><RouterLink to="/ValidarCodigo">Receber Codigo</RouterLink></button>
     </form>
     <p class="txtInfo">
-        Lembrou-se da senha?
-        <RouterLink to="/login">Logar Agora!</RouterLink></p>
+      Lembrou-se da senha?
+      <RouterLink to="/login">Logar Agora!</RouterLink>
+    </p>
   </div>
 </template>
 
 <script>
 export default {
   name: "EsqueceuSenha",
-  components: {},
+  methods: {
+    onSubmit() {
+      // Validar o formulário
+      // ...
+
+      this.$router.push("./ValidarCodigo.vue");
+    },
+  },
 };
 </script>
 
@@ -104,5 +122,4 @@ h1 {
   filter: brightness(0.3);
   z-index: -1;
 }
-
 </style>

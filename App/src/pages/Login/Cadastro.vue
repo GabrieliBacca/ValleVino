@@ -98,6 +98,7 @@
 <script>
 export default {
   name: "Cadastro",
+  
 };
 </script>
 
