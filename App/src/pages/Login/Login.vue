@@ -81,78 +81,67 @@ export default {
       }
     };
 
-    // const login = () => {
-    //   // Enviar uma solicitação para o endpoint api/user para verificar as credenciais
-    //   const user = usuarios.value.find(
-    //     (user) => user.email === email.value && user.password === password.value
-    //   );
-    //   const token = response.data.token;
-
-    //   //     // Store the token in local storage
-    //   localStorage.setItem('jwt_token', token);
-
-    //   console.log("usuarios.value:", usuarios.value);
-    //   console.log("email.value:", email.value);
-    //   console.log("password.value:", password.value);
-    //   if (user) {
-    //     // Credenciais corretas, lógica de login bem-sucedida
-    //     // alert("Login bem-sucedido!");
-    //     console.log("Login bem-sucedido:", user);
-    //     router.push({ path: `/userProfile/${user.id}` });
-    //   } else {
-    //     // Credenciais incorretas, lidar com erro de autenticação
-    //     alert("Credenciais inválidas. Por favor, tente novamente.");
-    //     console.error("Credenciais incorretas. Login falhou.");
-    //   }
-    // };
-
-    //     const login = async () => {
-    //   try {
-    //     // Enviar uma solicitação para o endpoint api/user para verificar as credenciais
-    //     const response = await api.post("http://localhost:8000/api/user", {
-    //       email: email.value,
-    //       password: password.value
-    //     });
-    //     const token = response.data.token;
-
-    //     // Store the token in local storage
-    //     localStorage.setItem('jwt_token', token);
-
-    //     // Redirect to the desired page
-    //     router.push({ path: `/userProfile/${response.data.user.id}` });
-    //   } catch (error) {
-    //     // Handle login error
-    //     alert("Credenciais inválidas. Por favor, tente novamente.");
-    //     console.error("Credenciais incorretas. Login falhou.", error);
-    //   }
-    // };
-
-    // versao antiga do login
-    // const login = () => {
-    //   // Enviar uma solicitação para o endpoint api/user para verificar as credenciais
-    //   const user = usuarios.value.find(
-    //     (user) => user.email === email.value && user.password === password.value
-    //   );
-    //   console.log("usuarios.value:", usuarios.value);
-    //   console.log("email.value:", email.value);
-    //   console.log("password.value:", password.value);
-    //   if (user) {
-    //     // Credenciais corretas, lógica de login bem-sucedida
-    //     // alert("Login bem-sucedido!");
-    //     console.log("Login bem-sucedido:", user);
-    //     router.push({ path: `/userProfile/${user.id}` });
-    //   } else {
-    //     // Credenciais incorretas, lidar com erro de autenticação
-    //     alert("Credenciais inválidas. Por favor, tente novamente.");
-    //     console.error("Credenciais incorretas. Login falhou.");
-    //   }
-    // };
-
     onMounted(fetchUsuarios);
 
     return { usuarios, email, password, login };
   },
-};
+  methods: {
+    loginWithFacebook() {
+      FB.getLoginStatus((response) => {
+        this.statusChangeCallback(response);
+      });
+    },
+
+    statusChangeCallback(response) {
+      if (response.status === 'connected') {
+        this.testAPI();
+      } else {
+        this.$bvToast.error('Please log into Facebook to proceed.');
+      }
+    },
+
+    testAPI() {
+      FB.api('/me', (response) => {
+        console.log('Successful login for:', response.name);
+        // Store user information from the response as needed
+        const user = {
+          id: response.id,
+          name: response.name,
+          // ... other relevant fields
+        };
+
+        // Handle login or register the user here (use axios or other request methods)
+        // Handle potential errors appropriately
+
+        // Assuming successful authentication, navigate to user profile:
+        this.$router.push('/userProfile');
+      });
+    },
+  },
+
+  beforeMount() {
+    window.fbAsyncInit = () => {
+      FB.init({
+        appId: '{your-app-id}',
+        cookie: true,
+        xfbml: true,
+        version: '{api-version}',
+      });
+
+      FB.getLoginStatus((response) => {
+        if (response.status === 'connected') {
+          // User is already logged in, handle accordingly
+          console.log('Already logged in');
+        }
+      });
+    };
+
+    const script = document.createElement('script');
+    script.src = 'https://connect.facebook.net/en_US/sdk.js';
+    document.body.appendChild(script);
+  },
+}
+
 </script>
 
 <style scoped>
