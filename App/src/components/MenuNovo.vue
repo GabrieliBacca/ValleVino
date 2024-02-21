@@ -61,6 +61,17 @@ header {
     height: 70px;
 }
 
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 10;
+    width: 97.5vw;
+    z-index: 10;
+    /* Make sure it's on top of other elements */
+}
+
+
 .header-item {
     display: flex;
     align-items: center;
