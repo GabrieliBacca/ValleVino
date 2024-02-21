@@ -126,8 +126,8 @@ h1 {
 
 /* Estilo da caixa de texto */
 .textBox {
-  /* width: 388px;
-  height: 265px; */
+  width: 380px;
+  height: auto;
   margin: 0 auto;
   padding: 10px;
 
@@ -199,11 +199,13 @@ h1 {
 .group-gender {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+  margin: 5px;
 }
 
-.group-gender label {
+/* .group-gender label {
   margin-right: 10px;
-}
+} */
 
 input[type="checkbox"],
 input[type="radio"] {
