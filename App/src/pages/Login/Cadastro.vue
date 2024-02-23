@@ -1,10 +1,6 @@
 <template>
   <div class="container">
-    <img
-      class="img-bg"
-      src="../../assets/img/inscreva-se-bg.svg"
-      alt="background Image"
-    />
+    <img class="img-bg" src="../../assets/img/inscreva-se-bg.svg" alt="background Image" />
 
     <form @submit.prevent="submit">
       <h1>
@@ -12,59 +8,23 @@
         Registre-se para começar...
       </h1>
       <div class="textBox">
-        <input
-          v-model="name"
-          id="user"
-          type="text"
-          placeholder="Nome de usuário"
-        />
+        <input v-model="name" id="user" type="text" placeholder="Nome de usuário" />
         <input v-model="email" id="email" type="text" placeholder="Seu email" />
-        <input
-          v-model="password"
-          id="password"
-          type="password"
-          placeholder="Senha"
-        />
-        <input
-          v-model="confirmPassword"
-          id="confirmPassword"
-          type="password"
-          placeholder="Confirme sua senha"
-        />
+        <input v-model="password" id="password" type="password" placeholder="Senha" />
+        <input v-model="confirmPassword" id="confirmPassword" type="password" placeholder="Confirme sua senha" />
 
-        <input
-          v-model="address"
-          type="text"
-          id="address"
-          placeholder="Endereço"
-        />
+        <input v-model="address" type="text" id="address" placeholder="Endereço" />
         <input v-model="birthday" type="date" id="birthday" />
         <div class="group-gender">
           <label for="masculino">Masculino</label>
-          <input
-            v-model="gender"
-            type="radio"
-            id="masculino"
-            name="gender"
-            value="masculino"
-          />
+          <input v-model="gender" type="radio" id="masculino" name="gender" value="masculino" />
 
           <label for="feminino">Feminino</label>
-          <input
-            v-model="gender"
-            type="radio"
-            id="feminino"
-            name="gender"
-            value="feminino"
-          />
+          <input v-model="gender" type="radio" id="feminino" name="gender" value="feminino" />
         </div>
 
-        <input
-          v-model="phone"
-          id="phone"
-          type="text"
-          placeholder="Telefone com ddd"
-        />
+        <input v-model="phone" id="phone" type="text" placeholder="Telefone com ddd" />
+        <input type="text" id="img" v-model="img" placeholder="Url da Imagem">
       </div>
       <button type="submit" id="bt-sigin">Registrar</button>
     </form>
@@ -72,21 +32,9 @@
     <div class="textWhitSocialMedia">
       <p class="txtInfo">Ou faça login com</p>
 
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Facebook.svg"
-        alt="botão login com Facebook"
-      />
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Google.svg"
-        alt="botão login com Google"
-      />
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Apple.svg"
-        alt="botão login com Apple"
-      />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Facebook.svg" alt="botão login com Facebook" />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Google.svg" alt="botão login com Google" />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Apple.svg" alt="botão login com Apple" />
 
       <p class="txtInfo">
         Ja possui uma conta?<RouterLink to="/login"> Logar Agora!</RouterLink>
@@ -96,9 +44,48 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "Cadastro",
-  
+  data() {
+    return {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      address: "",
+      birthday: "",
+      gender: "",
+      phone: "",
+      img: "",
+      isAdm: false,
+    };
+  },
+  methods: {
+    async submit() {
+      try {
+        const response = await axios.post('http://localhost:8000/api/user', {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          // confirmPassword: this.confirmPassword,
+          address: this.address,
+          birthday: this.birthday,
+          gender: this.gender,
+          telephone: this.phone,
+          img: this.img,
+          isAdm: false,
+        });
+        console.log(response.data);
+        // Faça algo com a resposta, se necessário
+      } catch (error) {
+        console.error(error);
+        // Trate o erro, se necessário
+      }
+    }
+  }
+
 };
 </script>
 
@@ -159,6 +146,7 @@ h1 {
 #address,
 #birthday,
 #gender,
+#img,
 #phone {
   display: flex;
   background-color: #f7f8f9;
@@ -172,7 +160,9 @@ h1 {
   border-radius: 8px;
   text-align: left;
   font-family: montserrat;
-} /* Estilo do botão de registro */
+}
+
+/* Estilo do botão de registro */
 #bt-sigin {
   background-color: var(--color-background-light);
   color: var(--color-background);
@@ -197,6 +187,7 @@ h1 {
   filter: brightness(0.3);
   z-index: -1;
 }
+
 .group-gender {
   display: flex;
   align-items: center;
