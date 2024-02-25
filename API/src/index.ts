@@ -21,18 +21,37 @@ const prisma = new PrismaClient();
 
 
 const transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: "smtp.terra.com.br",
+    port: 587,
+    // secure: true,
     auth: {
-        user: 'rulirbr@gmail.com',
-        pass: 'vakbrepbbgagnff_',
+        user: "ulirbraz@terra.com.br",
+        pass: "t4ng4"
     },
+    requireTLS: true
+
 });
+
+//     host: "sandbox.smtp.mailtrap.io",
+//     port: 2525,
+//     auth: {
+//         user: "rulir@hotmail.com",
+//         pass: ""
+//     }
+// });
+
+//     service: 'Gmail',
+//     auth: {
+//         user: 'rulirbr@gmail.com',
+//         pass: 'vakbrepbbgagnff_',
+//     },
+// });
 
 const enviarEmail = async (destinatario: string, assunto: string, corpo: string) => {
     try {
         // Enviar o email
         await transporter.sendMail({
-            from: 'rulirbr@gmail.com',
+            from: 'ulirbraz@terra.com.br',
             to: destinatario,
             subject: assunto,
             text: corpo,
@@ -62,32 +81,39 @@ app.use(express.json())
 // Pegar o ID do usuário pelo email
 app.get('/buscar-id-usuario-por-email', async (req, res) => {
     const { email } = req.query;
-    // Logic to search for the user ID in the database based on the email
-    const user = await prisma.user.findUnique({
-        where: {
-            email: email
+    // Ensure that the email is not undefined
+    if (email) {
+        // Logic to search for the user ID in the database based on the email
+        const user = await prisma.user.findUnique({
+            where: {
+                email: email
+            }
+        });
+        if (user) {
+            res.json({ userId: user.id });
+        } else {
+            res.json({ userId: null });
         }
-    });
-    if (user) {
-        res.json({ userId: user.id });
     } else {
-        res.json({ userId: null });
+        res.status(400).json({ error: "Email parameter is missing or invalid" });
     }
 });
-
 
 // Rota para verificar se o email está cadastrado
 app.get('/api/user', async (req, res) => {
     const email = req.query.email;
+    if (!email) {
+        return res.status(400).send('O parâmetro email é obrigatório');
+    }
     const user = await prisma.user.findUnique({
         where: {
             email: email,
         },
     });
     if (user) {
-        res.status(200).json(user); // Retorna o usuário encontrado
+        res.status(200).json(user);
     } else {
-        res.status(404).send('Email não cadastrado'); // Retorna erro se o email não estiver cadastrado
+        res.status(404).send('Email não cadastrado');
     }
 });
 
