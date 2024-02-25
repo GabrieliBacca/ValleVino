@@ -97,6 +97,11 @@ const routes = [
   { path: "/senhaalterada", component: SenhaAlterada },
   { path: '/userProfile/:id', component: UserProfileVue },
   { path: '/recebercodigo', component: ReceberCodigo },
+  // {
+  //   path: '/receber-codigo/:email',
+  //   name: 'ReceberCodigo',
+  //   component: ReceberCodigoComponent,
+  // },
 ];
 
 // Crie o roteador

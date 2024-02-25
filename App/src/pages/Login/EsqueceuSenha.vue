@@ -1,29 +1,24 @@
 <template>
   <div class="container">
-    <img
-      class="img-bg"
-      src="../../assets/img/esqueceu-senha-bg.svg"
-      alt="background Image"
-    />
+    <img class="img-bg" src="../../assets/img/esqueceu-senha-bg.svg" alt="background Image" />
     <h1>Esqueceu a senha?</h1>
     <h3>
       Não se preocupe, acontece! <br />
       Insira o endereço de e-mail vinculado à sua conta.
     </h3>
 
-    <form @submit.prevent="onSubmit">
-      
+    <form @submit.prevent="onSubmit" v-if="!loading">
       <div class="textBox">
-        <input
-          v-model="email"
-          id="email"
-          type="text"
-          placeholder="Digite seu email"
-        />
+        <input v-model="email" id="email" type="text" placeholder="Digite seu email" />
       </div>
-      <button type="submit" id="bt"><RouterLink to="/ReceberCodigo">Receber Codigo</RouterLink></button>
+      <button type="submit" id="bt">Receber Código</button>
     </form>
-    <p class="txtInfo">
+
+    <p v-else>
+      Processando solicitação...
+    </p>
+
+    <p class="txtInfo" v-if="!loading">
       Lembrou-se da senha?
       <RouterLink to="/login">Logar Agora!</RouterLink>
     </p>
@@ -31,14 +26,78 @@
 </template>
 
 <script>
+import axios from "axios";
+
+const buscarIdDoUsuarioPorEmail = async (email) => {
+  try {
+    const response = await axios.get(`http://localhost:8000/buscar-id-usuario-por-email?email=${email}`);
+    return response.data.userId;
+  } catch (error) {
+    console.error('Error fetching user ID:', error);
+    alert('Erro ao buscar o ID do usuário. Por favor, tente novamente mais tarde.');
+    return null;
+  }
+}
+
 export default {
   name: "EsqueceuSenha",
+  data() {
+    return {
+      email: '',
+      loading: false,
+    };
+  },
   methods: {
-    onSubmit() {
-      // Validar o formulário
-      // ...
+    async onSubmit() {
+      const emailDigitado = this.email; // Supondo que o email digitado está armazenado em this.email
+      const userId = await buscarIdDoUsuarioPorEmail(emailDigitado);
+      this.$router.push({ path: '/recebercodigo', query: { id: userId } });
+      // this.$router.push({ name: 'ReceberCodigo', params: { id: userId } });
+      // this.$router.push({ name: 'ReceberCodigo' });
 
-      this.$router.push("./ReceberCodigo.vue");
+      try {
+        this.loading = true;
+        // Validação do email
+        if (!this.validateEmail(this.email)) {
+          alert('Por favor, insira um email válido.');
+          this.loading = false;
+          return;
+        }
+
+        // Verificar se o email existe no banco de dados
+        const response = await axios.get('http://localhost:8000/api/user', {
+          params: {
+            email: this.email,
+          },
+        });
+
+        if (response.status === 200) {
+          // Email encontrado no banco de dados
+          // Enviar email com código aleatório
+          const codigoAleatorio = Math.floor(1000 + Math.random() * 9000); // 4 dígitos aleatórios
+          await axios.post('http://localhost:8000/enviar-email', {
+            destinatario: this.email,
+            assunto: 'Código de recuperação de senha',
+            corpo: `Seu código de recuperação de senha é: ${codigoAleatorio}`,
+          });
+
+          // Redirecionar para a página de recebimento de código
+          // this.$router.push({ name: 'ReceberCodigo', params: { id: userId } });
+          this.$router.push({ name: 'ReceberCodigo' });
+        } else {
+          // Email não encontrado no banco de dados
+          alert('Email não encontrado!');
+        }
+      } catch (error) {
+        console.error('Erro ao processar a solicitação:', error);
+        alert('Erro ao processar a solicitação');
+      } finally {
+        this.loading = false;
+      }
+    },
+    validateEmail(email) {
+      const emailRegex = /\S+@\S+\.\S+/;
+      return emailRegex.test(email);
     },
   },
 };
@@ -66,6 +125,7 @@ h1 {
   background-color: #f5ebda;
   opacity: 0.9;
 }
+
 .textBox {
   width: 390px;
   height: 110px;
@@ -97,6 +157,7 @@ h1 {
   text-align: left;
   font-family: montserrat;
 }
+
 /* Estilo do botão de login */
 #bt {
   background-color: var(--color-background-light);
