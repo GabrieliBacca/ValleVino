@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <img id="img-ico" src="../../assets/img/ico-sucesso.svg" alt="Selo sucesso" />
+    <img
+      id="img-ico"
+      src="../../assets/img/ico-sucesso.svg"
+      alt="Selo sucesso"
+    />
     <img
       class="img-bg"
       src="../../assets/img/senha-alterada-bg.svg"
@@ -61,5 +65,42 @@ h1 {
   border-radius: 8px;
   justify-content: center;
   margin-top: 45px;
+}
+
+/* responsividade */
+
+@media (max-width: 575px) {
+  /* Ajustes para smartphones */
+  .container {
+    padding: 10px;
+  }
+  #bt-login {
+    width: 70%;
+    height: auto;
+  }
+
+  #img-ico {
+    width: 50px;
+    height: auto;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Ajustes para tablets */
+
+  .container {
+    width: 95vw;
+  }
+
+  #bt-login {
+    max-width: 330px;
+    height: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Ajustes para desktops */
+  .container {
+    width: 100%;
+  }
 }
 </style>

@@ -120,4 +120,55 @@ h1 {
   filter: brightness(0.3);
   z-index: -1;
 }
+
+@media (max-width: 575px) {
+  /* Ajustes para smartphones */
+  .container {
+    padding: 10px;
+  }
+
+  #password,
+  #confirmPassword {
+    width: 90%;
+    margin: 15px;
+  }
+
+  .textBox {
+    width: 80vw;
+  }
+
+  #bt {
+    width: 70%;
+    height: auto;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Ajustes para tablets */
+
+  .container {
+    width: 95vw;
+  }
+
+  #password,
+  #confirmPassword {
+    max-width: 330px;
+    margin: 15px;
+  }
+  .textBox {
+    max-width: 388px;
+    height: auto;
+  }
+  #bt {
+    max-width: 330px;
+    height: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Ajustes para desktops */
+  .container {
+    width: 100%;
+  }
+}
 </style>
