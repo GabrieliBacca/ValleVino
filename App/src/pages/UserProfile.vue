@@ -5,6 +5,7 @@
             <img :src="userData.img" alt="Foto do Usuário" />
             <p>Nome: {{ userData.name }}</p>
             <p>Email: {{ userData.email }}</p>
+            <p>Senha: {{ userData.password }}</p>
             <p>Endereço: {{ userData.address }}</p>
             <p>Aniversário: {{ formatBirthday(userData.birthday) }}</p>
             <p>Sexo: {{ userData.gender }}</p>
@@ -24,6 +25,7 @@ export default {
                 id: "",
                 name: "",
                 email: "",
+                password: "",
                 address: "",
                 birthday: "",
                 gender: "",
