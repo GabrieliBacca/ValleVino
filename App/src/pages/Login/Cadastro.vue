@@ -78,6 +78,7 @@ export default {
           isAdm: false,
         });
         console.log(response.data);
+        alert('Usuário criado com sucesso!!!')
         // Faça algo com a resposta, se necessário
       } catch (error) {
         console.error(error);
