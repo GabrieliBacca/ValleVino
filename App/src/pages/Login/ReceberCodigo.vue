@@ -1,30 +1,29 @@
 <template>
   <div class="container">
-    <h1>Receber senha?</h1>
-
-    <input
-      v-model="email"
-      type="email"
-      id="email"
-      placeholder="Digite seu e-mail"
+    <img
+      class="img-bg"
+      src="../../assets/img/validar-codigo-bg.svg"
+      alt="background Image"
     />
-    <button @click="sendEmail">Enviar código</button>
 
-    <div v-if="showVerificationCode">
+    <h1>Receber código de validação</h1>
+    <div class="textBox">
       <input
-        v-model="verificationCode"
-        type="text"
+        v-model="email"
+        type="email"
         id="email"
-        placeholder="Digite o código de verificação"
+        placeholder="Digite seu e-mail"
       />
-      <button @click="validateCode" id="bt">Validar código</button>
     </div>
+    <button id="bt" @click="sendEmail">
+      <router-link to="ValidarCodigo">Enviar código</router-link>
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-    name: "ReceberCodigo",
+  name: "ReceberCodigo",
   setup() {
     // const email = ref("");
     // const verificationCode = ref("");
@@ -47,11 +46,11 @@ export default {
     // };
 
     return {
-    //   email,
-    //   verificationCode,
-    //   showVerificationCode,
-    //   sendEmail,
-    //   validateCode,
+      //   email,
+      //   verificationCode,
+      //   showVerificationCode,
+      //   sendEmail,
+      //   validateCode,
     };
   },
 };
@@ -68,6 +67,17 @@ export default {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background-color: #f5ebda;
   opacity: 0.9;
+}
+.img-bg {
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  object-fit: cover;
+  opacity: 0.5;
+  right: 0;
+  bottom: 0;
+  filter: brightness(0.3);
+  z-index: -1;
 }
 
 #email {
@@ -95,5 +105,45 @@ export default {
   border-radius: 8px;
   justify-content: center;
   margin-top: 45px;
+}
+
+/* responsividade */
+@media (max-width: 575px) {
+  /* Ajustes para smartphones */
+  .container {
+    padding: 10px;
+  }
+
+  #email {
+    width: 50%;
+    margin: 15px;
+  }
+
+  #bt {
+    width: 50%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Ajustes para tablets */
+  .container {
+    width: 95vw;
+  }
+
+  #email {
+    width: 50%;
+    margin: 15px;
+  }
+
+  #bt {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Ajustes para desktops */
+  .container {
+    width: 100%;
+  }
 }
 </style>

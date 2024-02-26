@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <img class="img-bg" src="../../assets/img/login-bg.svg" alt="background Image" />
+    <img
+      class="img-bg"
+      src="../../assets/img/login-bg.svg"
+      alt="background Image"
+    />
     <div v-for="(usuario, i) in usuarios" :key="i">
       <p>{{ usuario.nome }}</p>
     </div>
@@ -12,8 +16,18 @@
 
     <form @submit.prevent="login">
       <div class="textBox">
-        <input v-model="email" id="email" type="text" placeholder="Digite seu email" />
-        <input v-model="password" id="password" type="password" placeholder="Digite sua senha" />
+        <input
+          v-model="email"
+          id="email"
+          type="text"
+          placeholder="Digite seu email"
+        />
+        <input
+          v-model="password"
+          id="password"
+          type="password"
+          placeholder="Digite sua senha"
+        />
         <!-- //! colocar o icone de olho no text para revelar  a senha -->
         <p class="txtInfo-senha">
           <RouterLink to="/esqueceusenha">Esqueceu a senha?</RouterLink>
@@ -26,10 +40,22 @@
     <div class="textWhitSocialMedia">
       <p class="txtInfo">Ou faça login com</p>
 
-      <img id="loginSocialMedia" src="../../assets/img/bt-Facebook.svg" alt="botão login com Facebook"
-        @click="loginWithFacebook" />
-      <img id="loginSocialMedia" src="../../assets/img/bt-Google.svg" alt="botão login com Google" />
-      <img id="loginSocialMedia" src="../../assets/img/bt-Apple.svg" alt="botão login com Apple" />
+      <img
+        id="loginSocialMedia"
+        src="../../assets/img/bt-Facebook.svg"
+        alt="botão login com Facebook"
+        @click="loginWithFacebook"
+      />
+      <img
+        id="loginSocialMedia"
+        src="../../assets/img/bt-Google.svg"
+        alt="botão login com Google"
+      />
+      <img
+        id="loginSocialMedia"
+        src="../../assets/img/bt-Apple.svg"
+        alt="botão login com Apple"
+      />
 
       <p class="txtInfo">
         Não tem uma conta?
@@ -72,7 +98,7 @@ export default {
         console.log("Login bem-sucedido:", user);
         const token = "generateJwtToken(user)";
         localStorage.setItem("jwt_token", token);
-        console.log(token)
+        console.log(token);
 
         router.push({ path: `/userProfile/${user.id}` });
       } else {
@@ -94,16 +120,16 @@ export default {
     },
 
     statusChangeCallback(response) {
-      if (response.status === 'connected') {
+      if (response.status === "connected") {
         this.testAPI();
       } else {
-        this.$bvToast.error('Please log into Facebook to proceed.');
+        this.$bvToast.error("Please log into Facebook to proceed.");
       }
     },
 
     testAPI() {
-      FB.api('/me', (response) => {
-        console.log('Successful login for:', response.name);
+      FB.api("/me", (response) => {
+        console.log("Successful login for:", response.name);
         // Store user information from the response as needed
         const user = {
           id: response.id,
@@ -115,7 +141,7 @@ export default {
         // Handle potential errors appropriately
 
         // Assuming successful authentication, navigate to user profile:
-        this.$router.push('/userProfile');
+        this.$router.push("/userProfile");
       });
     },
   },
@@ -123,21 +149,21 @@ export default {
   beforeMount() {
     window.fbAsyncInit = () => {
       FB.init({
-        appId: '{771097171115982}',
+        appId: "{771097171115982}",
         cookie: true,
         xfbml: true,
-        version: 'v19.0',
+        version: "v19.0",
         // secure: true,
       });
 
       FB.getLoginStatus((response) => {
-        if (response.status === 'connected') {
+        if (response.status === "connected") {
           // User is already logged in, handle accordingly
           var uid = response.authResponse.userID;
           var accessToken = response.authResponse.accessToken;
-          console.log('Already logged in');
-        } else if (response.status === 'not_authorized') {
-          // the user is logged in to Facebook, 
+          console.log("Already logged in");
+        } else if (response.status === "not_authorized") {
+          // the user is logged in to Facebook,
           // but has not authenticated your app
         } else {
           // the user isn't logged in to Facebook.
@@ -145,12 +171,11 @@ export default {
       });
     };
 
-    const script = document.createElement('script');
-    script.src = 'https://connect.facebook.net/en_US/sdk.js';
+    const script = document.createElement("script");
+    script.src = "https://connect.facebook.net/en_US/sdk.js";
     document.body.appendChild(script);
   },
-}
-
+};
 </script>
 
 <style scoped>
@@ -254,5 +279,60 @@ h1 {
   bottom: 0;
   filter: brightness(0.3);
   z-index: -1;
+}
+
+/* responsividade */
+
+@media (max-width: 575px) {
+  /* Ajustes para smartphones */
+  .container {
+    padding: 10px;
+  }
+
+  #user,
+  #email,
+  #password,
+  #confirmPassword,
+  #address,
+  #birthday,
+  #gender,
+  #phone {
+    width: 90%;
+    margin: 15px;
+  }
+
+  #bt-sigin {
+    width: 70%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Ajustes para tablets */
+  .container {
+    width: 95vw;
+  }
+
+  #user,
+  #email,
+  #password,
+  #confirmPassword,
+  #address,
+  #birthday,
+  #gender,
+  #phone {
+    width: 90%;
+    margin: 15px;
+  }
+
+  #bt-sigin {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Ajustes para desktops */
+  .container {
+    width: 100%;
+  }
 }
 </style>

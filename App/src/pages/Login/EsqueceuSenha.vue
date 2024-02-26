@@ -12,7 +12,6 @@
     </h3>
 
     <form @submit.prevent="onSubmit">
-      
       <div class="textBox">
         <input
           v-model="email"
@@ -21,7 +20,9 @@
           placeholder="Digite seu email"
         />
       </div>
-      <button type="submit" id="bt"><RouterLink to="/ReceberCodigo">Receber Codigo</RouterLink></button>
+      <button type="submit" id="bt">
+        <RouterLink to="/ReceberCodigo">Receber Codigo</RouterLink>
+      </button>
     </form>
     <p class="txtInfo">
       Lembrou-se da senha?
@@ -71,10 +72,6 @@ h1 {
   height: 110px;
   margin: 0 auto;
   padding: 10px;
-
-  /* Cálculo da altura usando a Sequência Fibonacci */
-  /* height: calc(89px + 55px + 89px); */
-
   background-color: var(--color-background-light);
   color: #482817;
   opacity: 0.65;
@@ -121,5 +118,57 @@ h1 {
   bottom: 0;
   filter: brightness(0.3);
   z-index: -1;
+}
+
+/* responsividade */
+
+@media (max-width: 575px) {
+  /* Ajustes para smartphones */
+  .container {
+    padding: 10px;
+  }
+
+  #email {
+    width: 90%;
+    margin: 15px;
+  }
+  .textBox {
+    width: 80vw;
+  }
+
+  #bt-sigin {
+    width: 70%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Ajustes para tablets */
+
+  .container {
+    width: 95vw;
+  }
+
+  #user,
+  #email,
+  #password,
+  #confirmPassword,
+  #address,
+  #birthday,
+  #gender,
+  #phone {
+    width: 90%;
+    margin: 15px;
+  }
+
+  #bt-sigin {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Ajustes para desktops */
+  .container {
+    width: 100%;
+  }
 }
 </style>

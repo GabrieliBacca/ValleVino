@@ -53,14 +53,10 @@ h1 {
 
 /* Estilo da caixa de texto */
 .textBox {
-  width: 430px;
+  width: 50%;
   height: 110px;
   margin: 0 auto;
   padding: 10px;
-
-  /* Cálculo da altura usando a Sequência Fibonacci */
-  /* height: calc(89px + 55px + 89px); */
-
   background-color: var(--color-background-light);
   color: #482817;
   opacity: 0.65;
@@ -68,7 +64,7 @@ h1 {
   border-radius: 8px;
   z-index: -12;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 #validaCodigo1,
 #validaCodigo2,
@@ -79,7 +75,7 @@ h1 {
   color: #482817;
   font-size: 15px;
   border: #e8ecf4 solid 1px;
-  margin: 15px;
+  margin: 10px;
   padding: 5px;
   width: 70px;
   height: 60px;
@@ -111,5 +107,52 @@ h1 {
   bottom: 0;
   filter: brightness(0.3);
   z-index: -1;
+}
+
+/* responsividade */
+@media (max-width: 575px) {
+  /* Ajustes para smartphones */
+  .container {
+    padding: 10px;
+  }
+
+  #validaCodigo1,
+  #validaCodigo2,
+  #validaCodigo3,
+  #validaCodigo4 {
+    width: 30%;
+    margin: 5px;
+  }
+
+  #bt {
+    width: 50%;
+    font-size: medium;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Ajustes para tablets */
+  .container {
+    width: 95vw;
+  }
+
+  #validaCodigo1,
+  #validaCodigo2,
+  #validaCodigo3,
+  #validaCodigo4 {
+    width: 50%;
+    margin: 5px;
+  }
+
+  #bt {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Ajustes para desktops */
+  .container {
+    width: 100%;
+  }
 }
 </style>

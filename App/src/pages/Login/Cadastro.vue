@@ -98,18 +98,27 @@
 <script>
 export default {
   name: "Cadastro",
-  
 };
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--color-background-light);
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 h1 {
   color: #482817;
   padding-bottom: 20px;
+  font-size: 20px;
 }
 
 /* Estilo geral do container */
@@ -127,14 +136,10 @@ h1 {
 
 /* Estilo da caixa de texto */
 .textBox {
-  width: 380px;
+  width: 350px;
   height: auto;
   margin: 0 auto;
-  padding: 10px;
-
-  /* Cálculo da altura usando a Sequência Fibonacci */
-  /* height: calc(89px + 55px + 89px); */
-
+  /* padding: 30px; */
   background-color: var(--color-background-light);
   color: #482817;
   opacity: 0.65;
@@ -142,6 +147,7 @@ h1 {
   border-radius: 8px;
   z-index: -12;
   align-items: center;
+  justify-content: center;
 }
 
 /* Estilo do texto informativo */
@@ -150,6 +156,7 @@ h1 {
   font-size: 24px;
   text-decoration: none;
   margin: 10px 0px 10px 0px;
+  font-size: 16px;
 }
 
 #user,
@@ -167,12 +174,14 @@ h1 {
   border: #e8ecf4 solid 1px;
   margin: 15px;
   padding: 5px;
-  width: 330px;
+  width: 90%;
   height: 56px;
   border-radius: 8px;
   text-align: left;
   font-family: montserrat;
-} /* Estilo do botão de registro */
+}
+
+/* Estilo do botão de registro */
 #bt-sigin {
   background-color: var(--color-background-light);
   color: var(--color-background);
@@ -188,7 +197,7 @@ h1 {
 
 .img-bg {
   width: 100vw;
-  height: 100%;
+  height: auto;
   position: absolute;
   object-fit: cover;
   opacity: 0.5;
@@ -201,12 +210,14 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: 5px;
+  margin: 15px;
 }
 
-/* .group-gender label {
-  margin-right: 10px;
-} */
+.group-gender label {
+  margin-right: 5px;
+  align-items: flex-end;
+  padding-left: 35px;
+}
 
 input[type="checkbox"],
 input[type="radio"] {
@@ -217,5 +228,60 @@ input[type="radio"] {
 select {
   width: 150px;
   height: 30px;
+}
+
+/* responsividade */
+
+@media (max-width: 575px) {
+  /* Ajustes para smartphones */
+  .container {
+    padding: 10px;
+  }
+
+  #user,
+  #email,
+  #password,
+  #confirmPassword,
+  #address,
+  #birthday,
+  #gender,
+  #phone {
+    width: 90%;
+    margin: 15px;
+  }
+
+  #bt-sigin {
+    width: 70%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Ajustes para tablets */
+  .container {
+    width: 95vw;
+  }
+
+  #user,
+  #email,
+  #password,
+  #confirmPassword,
+  #address,
+  #birthday,
+  #gender,
+  #phone {
+    width: 90%;
+    margin: 15px;
+  }
+
+  #bt-sigin {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Ajustes para desktops */
+  .container {
+    width: 100%;
+  }
 }
 </style>
