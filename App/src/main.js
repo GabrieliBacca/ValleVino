@@ -61,6 +61,8 @@ import CriarSenha from "./pages/Login/CriarSenha.vue";
 import SenhaAlterada from "./pages/Login/SenhaAlterada.vue";
 import UserProfileVue from "./pages/UserProfile.vue";
 import ReceberCodigo from "./pages/Login/ReceberCodigo.vue";
+import UserProfileSenha from "./pages/UserProfileSenha.vue";
+
 
 
 // Defina as rotas
@@ -96,6 +98,7 @@ const routes = [
   { path: "/criarsenha", component: CriarSenha },
   { path: "/senhaalterada", component: SenhaAlterada },
   { path: '/userProfile/:id', component: UserProfileVue },
+  { path: '/userProfileSenha/:id', component: UserProfileSenha },
   { path: '/recebercodigo', component: ReceberCodigo },
   // {
   //   path: '/receber-codigo/:email',

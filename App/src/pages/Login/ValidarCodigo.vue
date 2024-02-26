@@ -61,7 +61,7 @@ export default {
       if (codigoInserido === codigoSalvo) {
         // Código correto, redirecionar para a rota userprofile/:id
         const userId = this.$route.query.id; // Substitua isso pela lógica real para obter o ID do usuário
-        this.$router.push(`/userProfile/${userId}`);
+        this.$router.push(`/userProfileSenha/${userId}`);
       } else {
         // Código incorreto, mostrar mensagem de erro ou tomar outra ação
         alert("Código incorreto. Por favor, tente novamente.");
