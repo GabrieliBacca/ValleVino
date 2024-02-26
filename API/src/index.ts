@@ -56,7 +56,7 @@ const transporter = nodemailer.createTransport({
     // secure: true,
     auth: {
         user: "ulirbraz@terra.com.br",
-        pass: "t4ng4"
+        pass: "4ng4"
     },
     requireTLS: true
 
@@ -66,7 +66,7 @@ const enviarEmail = async (destinatario: string, assunto: string, corpo: string)
     try {
         // Enviar o email
         await transporter.sendMail({
-            from: 'rulirbr@gmail.com',
+            from: 'ulirbraz@terra.com.br',
             to: destinatario,
             subject: assunto,
             text: corpo,
@@ -149,7 +149,7 @@ app.use("/api/country", CountryRouter)
 app.use("/api/grape", GrapeRouter)
 app.use("/api/harmony", HarmonyRouter)
 app.use("/api/type", TypeRouter)
-app.use("/api/user", UserRouter)
+app.use("/api/users", UserRouter)
 app.use("/api/shopping", ShoppingRouter)
 app.use("/api/review", ReviewRouter)
 app.use("/api/wines", WineRouter)

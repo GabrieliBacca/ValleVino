@@ -103,6 +103,13 @@ export default {
           localStorage.setItem('codigoGerado', codigoAleatorio);
           console.log('Codigo aleatório salvo na localStorage:', codigoAleatorio);
 
+          // Enviar email com código aleatório
+          // await axios.post('http://localhost:8000/enviar-email', {
+          //   destinatario: this.email,
+          //   assunto: 'Código de recuperação de senha',
+          //   corpo: `Seu código de recuperação de senha é: ${codigoAleatorio}`,
+          // });
+
           // Salvar os números aleatórios no estado compartilhado usando Vuex
           store.dispatch('salvarCodigoAleatorio', codigoAleatorio);
           this.$store.commit('setCodigoAleatorio', codigoAleatorio);
