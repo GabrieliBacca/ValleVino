@@ -1,3 +1,4 @@
+// store/index.js
 import { createStore } from 'vuex';
 
 export default createStore({
@@ -15,5 +16,8 @@ export default createStore({
         salvarCodigoAleatorio({ commit }, codigo) {
             commit('setCodigoAleatorio', codigo);
         },
+    },
+    getters: {
+        getCodigoAleatorio: state => state.codigoAleatorio,
     },
 });

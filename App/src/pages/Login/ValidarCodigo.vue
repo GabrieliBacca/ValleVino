@@ -18,17 +18,29 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
+import ValidarCodigo from '@/pages/Login/ValidarCodigo.vue';
+
+
 
 export default {
   name: "ValidarCodigo",
   created() {
-    console.log('Código aleatório do Vuex:', this.codigoAleatorio);
+    //   const codigoSalvo = this.$store.state.codigoAleatorio;
+    //   this.numeroCriado = this.$route.params.numeroCriado;
+    //   console.log('Código aleatório do Vuex2:', this.numeroCriado);
+    // },
+    const codigoGerado = localStorage.getItem('codigoGerado');
+    console.log('Codigo aleatório recuperado da localStorage:', codigoGerado);
   },
   computed: {
     ...mapState({
       codigoAleatorio: state => state.codigoAleatorio
-    })
+    }),
+    ...mapGetters(['getCodigoAleatorio']),
+    randomCode() {
+      return this.getCodigoAleatorio;
+    }
   },
   data() {
     return {
@@ -42,14 +54,14 @@ export default {
   methods: {
     login() {
       const codigoInserido = this.cod1 + this.cod2 + this.cod3 + this.cod4;
-      const codigoSalvo = this.$store.state.codigoAleatorio;
+      const codigoSalvo = localStorage.getItem('codigoGerado');
       console.log("Código inserido:", codigoInserido);
       console.log("Código salvo:", codigoSalvo);
 
       if (codigoInserido === codigoSalvo) {
         // Código correto, redirecionar para a rota userprofile/:id
-        const userId = 123; // Substitua isso pela lógica real para obter o ID do usuário
-        this.$router.push({ name: 'userprofile', params: { id: userId } });
+        const userId = this.$route.query.id; // Substitua isso pela lógica real para obter o ID do usuário
+        this.$router.push(`/userProfile/${userId}`);
       } else {
         // Código incorreto, mostrar mensagem de erro ou tomar outra ação
         alert("Código incorreto. Por favor, tente novamente.");

@@ -139,12 +139,30 @@ const actions = {
 
 export default createStore({
   state: {
+    user: null,
+    isAuthenticated: !!getAuthToken(),
+    codigoAleatorio: null,
     wines: [],
     cart: [],
     cartTotal: 0
   },
   mutations,
+  setWines(state, wines) {
+    state.wines = wines;
+  },
+  setUser(state, user) {
+    state.user = user;
+  },
+  setAuthenticated(state, isAuthenticated) {
+    state.isAuthenticated = isAuthenticated;
+  },
+  setCodigoAleatorio(state, codigo) {
+    state.codigoAleatorio = codigo;
+  },
   actions: {
+    salvarCodigoAleatorio({ commit }, codigo) {
+      commit('setCodigoAleatorio', codigo);
+    },
     async initialiseStore({ state }) {
       if (localStorage.getItem('cart')) {
         state.cart = JSON.parse(localStorage.getItem('cart'))
@@ -158,5 +176,9 @@ export default createStore({
   },
   modules: {
     // outras definições de módulos, se houver
-  }
+  },
+  getters: {
+    getCodigoAleatorio: state => state.codigoAleatorio,
+  },
 });
+

@@ -99,12 +99,21 @@ export default {
           const numerosAleatorios = Array.from({ length: 4 }, () => Math.floor(Math.random() * 10));
           const codigoAleatorio = numerosAleatorios.join(''); // Transforma o array em uma string de 4 dígitos
 
-          // Salvar os números em um arquivo local
-          const blob = new Blob([codigoAleatorio], { type: 'text/plain;charset=utf-8' });
-          saveAs(blob, 'codigo.txt');
+          // Salvar o código aleatório na localStorage
+          localStorage.setItem('codigoGerado', codigoAleatorio);
+          console.log('Codigo aleatório salvo na localStorage:', codigoAleatorio);
 
           // Salvar os números aleatórios no estado compartilhado usando Vuex
           store.dispatch('salvarCodigoAleatorio', codigoAleatorio);
+          this.$store.commit('setCodigoAleatorio', codigoAleatorio);
+          console.log('numero aleatório salvo:', numerosAleatorios);
+          console.log('Codigo aleatório salvo:', codigoAleatorio);
+          this.$store.dispatch('setNumeroCriado', this.numeroCriado);
+
+
+          // Salvar os números em um arquivo local
+          const blob = new Blob([codigoAleatorio], { type: 'text/plain;charset=utf-8' });
+          saveAs(blob, 'codigo.txt');
 
 
           // Enviar email com código aleatório
@@ -117,7 +126,7 @@ export default {
 
           // Redirecionar para a página de recebimento de código
           // this.$router.push({ name: 'ReceberCodigo', params: { id: userId } });
-          this.$router.push({ path: '/validarcodigo' });
+          this.$router.push({ path: '/validarcodigo', query: { id: userId } });
         } else {
           // Email não encontrado no banco de dados
           alert('Email não encontrado!');
