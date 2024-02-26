@@ -16,6 +16,7 @@
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.10.3",
     "date-picker": "^0.3.0",
+    "file-saver": "^2.0.5",
     "node": "^21.6.1",
     "nodemailer": "^6.9.10",
     "primeicons": "^6.0.1",

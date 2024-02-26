@@ -27,6 +27,8 @@
 
 <script>
 import axios from "axios";
+import { saveAs } from 'file-saver';
+import store from '../../store';
 
 const buscarIdDoUsuarioPorEmail = async (email) => {
   try {
@@ -44,16 +46,28 @@ export default {
   data() {
     return {
       email: '',
+      showVerificationCode: false,
       loading: false,
     };
   },
   methods: {
     async onSubmit() {
       const emailDigitado = this.email; // Supondo que o email digitado está armazenado em this.email
+      // Validação do email
+      if (!this.validateEmail(this.email)) {
+        alert('Por favor, insira um email válido.');
+        return;
+      }
+      this.loading = true;
+
       const userId = await buscarIdDoUsuarioPorEmail(emailDigitado);
-      this.$router.push({ path: '/recebercodigo', query: { id: userId } });
-      // this.$router.push({ name: 'ReceberCodigo', params: { id: userId } });
-      // this.$router.push({ name: 'ReceberCodigo' });
+      if (userId) {
+        this.$router.push({ path: '/validarcodigo', query: { id: userId } });
+      } else {
+        alert('Email não encontrado!');
+      }
+      this.loading = false;
+
 
       try {
         this.loading = true;
@@ -74,16 +88,36 @@ export default {
         if (response.status === 200) {
           // Email encontrado no banco de dados
           // Enviar email com código aleatório
-          const codigoAleatorio = Math.floor(1000 + Math.random() * 9000); // 4 dígitos aleatórios
+          // const codigoAleatorio = Math.floor(1000 + Math.random() * 9000); // 4 dígitos aleatórios
+          // await axios.post('http://localhost:8000/enviar-email', {
+          //   destinatario: this.email,
+          //   assunto: 'Código de recuperação de senha',
+          //   corpo: `Seu código de recuperação de senha é: ${codigoAleatorio}`,
+          // });
+
+          // Gerar 4 números aleatórios
+          const numerosAleatorios = Array.from({ length: 4 }, () => Math.floor(Math.random() * 10));
+          const codigoAleatorio = numerosAleatorios.join(''); // Transforma o array em uma string de 4 dígitos
+
+          // Salvar os números em um arquivo local
+          const blob = new Blob([codigoAleatorio], { type: 'text/plain;charset=utf-8' });
+          saveAs(blob, 'codigo.txt');
+
+          // Salvar os números aleatórios no estado compartilhado usando Vuex
+          store.dispatch('salvarCodigoAleatorio', codigoAleatorio);
+
+
+          // Enviar email com código aleatório
           await axios.post('http://localhost:8000/enviar-email', {
             destinatario: this.email,
             assunto: 'Código de recuperação de senha',
             corpo: `Seu código de recuperação de senha é: ${codigoAleatorio}`,
           });
 
+
           // Redirecionar para a página de recebimento de código
           // this.$router.push({ name: 'ReceberCodigo', params: { id: userId } });
-          this.$router.push({ name: 'ReceberCodigo' });
+          this.$router.push({ path: '/validarcodigo' });
         } else {
           // Email não encontrado no banco de dados
           alert('Email não encontrado!');
