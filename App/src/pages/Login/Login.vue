@@ -55,7 +55,7 @@ export default {
 
     const fetchUsuarios = () =>
       api
-        .get("http://localhost:8000/api/users")
+        .get("http://localhost:8000/api/user")
         .then((res) => (usuarios.value = res.data));
 
     const login = () => {
