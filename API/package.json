@@ -16,7 +16,7 @@
     "@types/node": "^20.11.16",
     "@types/nodemailer": "^6.4.14",
     "esbuild-register": "^3.5.0",
-    "nodemon": "^3.0.3",
+    "nodemon": "^3.1.0",
     "prisma": "^5.9.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
