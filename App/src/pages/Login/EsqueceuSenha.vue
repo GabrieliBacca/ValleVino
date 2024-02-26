@@ -1,10 +1,6 @@
 <template>
   <div class="container">
-    <img
-      class="img-bg"
-      src="../../assets/img/esqueceu-senha-bg.svg"
-      alt="background Image"
-    />
+    <img class="img-bg" src="../../assets/img/esqueceu-senha-bg.svg" alt="background Image" />
     <h1>Esqueceu a senha?</h1>
     <h3>
       Não se preocupe, acontece! <br />
@@ -13,12 +9,7 @@
 
     <form @submit.prevent="onSubmit" v-if="!loading">
       <div class="textBox">
-        <input
-          v-model="email"
-          id="email"
-          type="text"
-          placeholder="Digite seu email"
-        />
+        <input v-model="email" id="email" type="text" placeholder="Digite seu email" />
       </div>
       <button type="submit" id="bt">
         <RouterLink to="/ReceberCodigo">Receber Codigo</RouterLink>
@@ -249,6 +240,7 @@ h1 {
 /* responsividade */
 
 @media (max-width: 575px) {
+
   /* Ajustes para smartphones */
   .container {
     padding: 10px;
@@ -258,6 +250,7 @@ h1 {
     width: 90%;
     margin: 15px;
   }
+
   .textBox {
     width: 80vw;
   }
@@ -292,6 +285,7 @@ h1 {
 }
 
 @media (min-width: 768px) {
+
   /* Ajustes para desktops */
   .container {
     width: 100%;
