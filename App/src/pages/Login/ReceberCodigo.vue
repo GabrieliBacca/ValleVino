@@ -14,33 +14,44 @@
         id="email"
         placeholder="Digite seu e-mail"
       />
-    <h1>Receber senha?</h1>
+      <h1>Receber senha?</h1>
 
-    <input v-model="email" type="email" id="email" placeholder="Digite seu e-mail" />
-    <button @click="sendEmail">Enviar código</button>
+      <input
+        v-model="email"
+        type="email"
+        id="email"
+        placeholder="Digite seu e-mail"
+      />
+      <button @click="sendEmail">Enviar código</button>
 
-    <div v-if="showVerificationCode">
-      <input v-model="verificationCode" type="text" id="email" placeholder="Digite o código de verificação" />
-      <button @click="validateCode" id="bt">Validar código</button>
+      <div v-if="showVerificationCode">
+        <input
+          v-model="verificationCode"
+          type="text"
+          id="email"
+          placeholder="Digite o código de verificação"
+        />
+        <button @click="validateCode" id="bt">Validar código</button>
+      </div>
+      <button id="bt" @click="sendEmail">
+        <router-link to="ValidarCodigo">Enviar código</router-link>
+      </button>
     </div>
-    <button id="bt" @click="sendEmail">
-      <router-link to="ValidarCodigo">Enviar código</router-link>
-    </button>
   </div>
 </template>
 
 <script>
-import store from '../../store';
-import { mapState, mapActions } from 'vuex';
+import store from "../../store";
+import { mapState, mapActions } from "vuex";
 const codigoAleatorio = store.state.codigoAleatorio;
 
 export default {
   name: "ReceberCodigo",
   computed: {
-    ...mapState(['codigoAleatorio']),
+    ...mapState(["codigoAleatorio"]),
   },
   methods: {
-    ...mapActions(['salvarCodigoAleatorio']),
+    ...mapActions(["salvarCodigoAleatorio"]),
     sendEmail() {
       // Lógica para enviar o e-mail com o código de verificação
       this.showVerificationCode = true;
