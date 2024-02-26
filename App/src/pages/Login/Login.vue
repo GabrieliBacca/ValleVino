@@ -179,6 +179,12 @@ export default {
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--color-background-light);
 }
@@ -207,10 +213,6 @@ h1 {
   height: 265px;
   margin: 0 auto;
   padding: 10px;
-
-  /* Cálculo da altura usando a Sequência Fibonacci */
-  height: calc(89px + 55px + 89px);
-
   background-color: var(--color-background-light);
   color: #482817;
   opacity: 0.65;
@@ -289,43 +291,41 @@ h1 {
     padding: 10px;
   }
 
-  #user,
   #email,
-  #password,
-  #confirmPassword,
-  #address,
-  #birthday,
-  #gender,
-  #phone {
+  #password {
     width: 90%;
     margin: 15px;
   }
 
-  #bt-sigin {
+  .textBox {
+    width: 80vw;
+  }
+
+  #bt-login {
     width: 70%;
+    height: auto;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
   /* Ajustes para tablets */
+
   .container {
     width: 95vw;
   }
 
-  #user,
   #email,
-  #password,
-  #confirmPassword,
-  #address,
-  #birthday,
-  #gender,
-  #phone {
-    width: 90%;
+  #password {
+    max-width: 330px;
     margin: 15px;
   }
-
-  #bt-sigin {
-    width: 80%;
+  .textBox {
+    max-width: 388px;
+    height: auto;
+  }
+  #bt-login {
+    max-width: 330px;
+    height: auto;
   }
 }
 

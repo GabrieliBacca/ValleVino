@@ -6,11 +6,12 @@
       alt="background Image"
     />
 
+    <h1>
+      Olá! <br />
+      Registre-se para começar...
+    </h1>
+
     <form @submit.prevent="submit">
-      <h1>
-        Olá! <br />
-        Registre-se para começar...
-      </h1>
       <div class="textBox">
         <input
           v-model="name"
@@ -180,7 +181,7 @@ h1 {
   width: 350px;
   height: auto;
   margin: 0 auto;
-  /* padding: 30px; */
+  padding: 10px;
   background-color: var(--color-background-light);
   color: #482817;
   opacity: 0.65;
@@ -197,7 +198,6 @@ h1 {
   font-size: 24px;
   text-decoration: none;
   margin: 10px 0px 10px 0px;
-  font-size: 16px;
 }
 
 #user,
@@ -288,18 +288,25 @@ select {
   #address,
   #birthday,
   #gender,
+  #img,
   #phone {
     width: 90%;
     margin: 15px;
   }
 
-  #bt-sigin {
+  .textBox {
+    width: 80vw;
+  }
+
+  #bt-login {
     width: 70%;
+    height: auto;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
   /* Ajustes para tablets */
+
   .container {
     width: 95vw;
   }
@@ -311,13 +318,18 @@ select {
   #address,
   #birthday,
   #gender,
+  #img,
   #phone {
-    width: 90%;
+    max-width: 330px;
     margin: 15px;
   }
-
-  #bt-sigin {
-    width: 80%;
+  .textBox {
+    max-width: 388px;
+    height: auto;
+  }
+  #bt-login {
+    max-width: 330px;
+    height: auto;
   }
 }
 

@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <img class="img-bg" src="../../assets/img/validar-codigo-bg.svg" alt="background Image" />
+    <img
+      class="img-bg"
+      src="../../assets/img/validar-codigo-bg.svg"
+      alt="background Image"
+    />
     <h1>Verificação de código</h1>
     <h3>
       Digite o código de verificação que acabamos de enviar em seu endereço de
@@ -18,10 +22,8 @@
   </div>
 </template>
 <script>
-import { mapState, mapGetters } from 'vuex';
-import ValidarCodigo from '@/pages/Login/ValidarCodigo.vue';
-
-
+import { mapState, mapGetters } from "vuex";
+import ValidarCodigo from "@/pages/Login/ValidarCodigo.vue";
 
 export default {
   name: "ValidarCodigo",
@@ -30,17 +32,17 @@ export default {
     //   this.numeroCriado = this.$route.params.numeroCriado;
     //   console.log('Código aleatório do Vuex2:', this.numeroCriado);
     // },
-    const codigoGerado = localStorage.getItem('codigoGerado');
-    console.log('Codigo aleatório recuperado da localStorage:', codigoGerado);
+    const codigoGerado = localStorage.getItem("codigoGerado");
+    console.log("Codigo aleatório recuperado da localStorage:", codigoGerado);
   },
   computed: {
     ...mapState({
-      codigoAleatorio: state => state.codigoAleatorio
+      codigoAleatorio: (state) => state.codigoAleatorio,
     }),
-    ...mapGetters(['getCodigoAleatorio']),
+    ...mapGetters(["getCodigoAleatorio"]),
     randomCode() {
       return this.getCodigoAleatorio;
-    }
+    },
   },
   data() {
     return {
@@ -54,7 +56,7 @@ export default {
   methods: {
     login() {
       const codigoInserido = this.cod1 + this.cod2 + this.cod3 + this.cod4;
-      const codigoSalvo = localStorage.getItem('codigoGerado');
+      const codigoSalvo = localStorage.getItem("codigoGerado");
       console.log("Código inserido:", codigoInserido);
       console.log("Código salvo:", codigoSalvo);
 
@@ -69,7 +71,6 @@ export default {
     },
   },
 };
-
 </script>
 
 <style scoped>
@@ -97,8 +98,8 @@ h1 {
 
 /* Estilo da caixa de texto */
 .textBox {
-  width: 50%;
-  height: 110px;
+  width: 380px;
+  height: auto;
   margin: 0 auto;
   padding: 10px;
   background-color: var(--color-background-light);
@@ -156,6 +157,7 @@ h1 {
 }
 
 /* responsividade */
+
 @media (max-width: 575px) {
   /* Ajustes para smartphones */
   .container {
@@ -166,32 +168,39 @@ h1 {
   #validaCodigo2,
   #validaCodigo3,
   #validaCodigo4 {
-    width: 30%;
-    margin: 5px;
+    width: 90%;
+  }
+
+  .textBox {
+    width: 80vw;
   }
 
   #bt {
-    width: 50%;
-    font-size: medium;
+    width: 70%;
+    height: auto;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
   /* Ajustes para tablets */
+
   .container {
     width: 95vw;
   }
 
-  #validaCodigo1,
+  /* #validaCodigo1,
   #validaCodigo2,
   #validaCodigo3,
   #validaCodigo4 {
-    width: 50%;
-    margin: 5px;
+    margin: 15px;
+  } */
+  .textBox {
+    max-width: 380px;
+    height: auto;
   }
-
   #bt {
-    width: 50%;
+    max-width: 330px;
+    height: auto;
   }
 }
 
