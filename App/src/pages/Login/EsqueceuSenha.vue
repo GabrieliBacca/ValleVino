@@ -11,7 +11,7 @@
       Insira o endereço de e-mail vinculado à sua conta.
     </h3>
 
-    <form @submit.prevent="onSubmit">
+    <form @submit.prevent="onSubmit" v-if="!loading">
       <div class="textBox">
         <input
           v-model="email"
@@ -24,7 +24,10 @@
         <RouterLink to="/ReceberCodigo">Receber Codigo</RouterLink>
       </button>
     </form>
-    <p class="txtInfo">
+
+    <p v-else>Processando solicitação...</p>
+
+    <p class="txtInfo" v-if="!loading">
       Lembrou-se da senha?
       <RouterLink to="/login">Logar Agora!</RouterLink>
     </p>
@@ -32,14 +35,135 @@
 </template>
 
 <script>
+import axios from "axios";
+import { saveAs } from "file-saver";
+import store from "../../store";
+
+const buscarIdDoUsuarioPorEmail = async (email) => {
+  try {
+    const response = await axios.get(
+      `http://localhost:8000/buscar-id-usuario-por-email?email=${email}`
+    );
+    return response.data.userId;
+  } catch (error) {
+    console.error("Error fetching user ID:", error);
+    alert(
+      "Erro ao buscar o ID do usuário. Por favor, tente novamente mais tarde."
+    );
+    return null;
+  }
+};
+
 export default {
   name: "EsqueceuSenha",
+  data() {
+    return {
+      email: "",
+      showVerificationCode: false,
+      loading: false,
+    };
+  },
   methods: {
-    onSubmit() {
-      // Validar o formulário
-      // ...
+    async onSubmit() {
+      const emailDigitado = this.email; // Supondo que o email digitado está armazenado em this.email
+      // Validação do email
+      if (!this.validateEmail(this.email)) {
+        alert("Por favor, insira um email válido.");
+        return;
+      }
+      this.loading = true;
 
-      this.$router.push("./ReceberCodigo.vue");
+      const userId = await buscarIdDoUsuarioPorEmail(emailDigitado);
+      if (userId) {
+        this.$router.push({ path: "/validarcodigo", query: { id: userId } });
+      } else {
+        alert("Email não encontrado!");
+      }
+      this.loading = false;
+
+      try {
+        this.loading = true;
+        // Validação do email
+        if (!this.validateEmail(this.email)) {
+          alert("Por favor, insira um email válido.");
+          this.loading = false;
+          return;
+        }
+
+        // Verificar se o email existe no banco de dados
+        const response = await axios.get("http://localhost:8000/api/user", {
+          params: {
+            email: this.email,
+          },
+        });
+
+        if (response.status === 200) {
+          // Email encontrado no banco de dados
+          // Enviar email com código aleatório
+          // const codigoAleatorio = Math.floor(1000 + Math.random() * 9000); // 4 dígitos aleatórios
+          // await axios.post('http://localhost:8000/enviar-email', {
+          //   destinatario: this.email,
+          //   assunto: 'Código de recuperação de senha',
+          //   corpo: `Seu código de recuperação de senha é: ${codigoAleatorio}`,
+          // });
+
+          // Gerar 4 números aleatórios
+          const numerosAleatorios = Array.from({ length: 4 }, () =>
+            Math.floor(Math.random() * 10)
+          );
+          const codigoAleatorio = numerosAleatorios.join(""); // Transforma o array em uma string de 4 dígitos
+
+          // Salvar o código aleatório na localStorage
+          localStorage.setItem("codigoGerado", codigoAleatorio);
+          console.log(
+            "Codigo aleatório salvo na localStorage:",
+            codigoAleatorio
+          );
+
+          // Enviar email com código aleatório
+          await axios.post("http://localhost:8000/enviar-email", {
+            destinatario: this.email,
+            assunto: "Código de recuperação de senha",
+            corpo: `Seu código de recuperação de senha é: ${codigoAleatorio}`,
+          });
+
+          // Salvar os números aleatórios no estado compartilhado usando Vuex
+          store.dispatch("salvarCodigoAleatorio", codigoAleatorio);
+          this.$store.commit("setCodigoAleatorio", codigoAleatorio);
+          console.log("numero aleatório salvo:", numerosAleatorios);
+          console.log("Codigo aleatório salvo:", codigoAleatorio);
+          this.$store.dispatch("setNumeroCriado", this.numeroCriado);
+
+          // Salvar os números em um arquivo local
+          const blob = new Blob([codigoAleatorio], {
+            type: "text/plain;charset=utf-8",
+          });
+          saveAs(blob, "codigo.txt");
+
+          // Enviar email com código aleatório
+          await axios.post("http://localhost:8000/enviar-email", {
+            destinatario: this.email,
+            assunto: "Código de recuperação de senha",
+            corpo: `Seu código de recuperação de senha é: ${codigoAleatorio}`,
+          });
+
+          // Redirecionar para a página de recebimento de código
+          // this.$router.push({ name: 'ReceberCodigo', params: { id: userId } });
+          this.$router.push({ path: "/validarcodigo", query: { id: userId } });
+        } else {
+          // Email não encontrado no banco de dados
+          alert("Email não encontrado!");
+        }
+      } catch (error) {
+        console.error("Erro ao processar a solicitação:", error);
+        alert("Erro ao processar a solicitação");
+      } finally {
+        this.loading = false;
+      }
+    },
+    validateEmail(email) {
+      const emailRegex = /\S+@\S+\.\S+/;
+      return emailRegex.test(email);
     },
   },
 };
@@ -67,6 +191,7 @@ h1 {
   background-color: #f5ebda;
   opacity: 0.9;
 }
+
 .textBox {
   width: 390px;
   height: 110px;
@@ -94,6 +219,7 @@ h1 {
   text-align: left;
   font-family: montserrat;
 }
+
 /* Estilo do botão de login */
 #bt {
   background-color: var(--color-background-light);

@@ -14,6 +14,14 @@
         id="email"
         placeholder="Digite seu e-mail"
       />
+    <h1>Receber senha?</h1>
+
+    <input v-model="email" type="email" id="email" placeholder="Digite seu e-mail" />
+    <button @click="sendEmail">Enviar código</button>
+
+    <div v-if="showVerificationCode">
+      <input v-model="verificationCode" type="text" id="email" placeholder="Digite o código de verificação" />
+      <button @click="validateCode" id="bt">Validar código</button>
     </div>
     <button id="bt" @click="sendEmail">
       <router-link to="ValidarCodigo">Enviar código</router-link>
@@ -22,36 +30,30 @@
 </template>
 
 <script>
+import store from '../../store';
+import { mapState, mapActions } from 'vuex';
+const codigoAleatorio = store.state.codigoAleatorio;
+
 export default {
   name: "ReceberCodigo",
-  setup() {
-    // const email = ref("");
-    // const verificationCode = ref("");
-    // const showVerificationCode = ref(false);
-
-    // const sendEmail = async () => {
-    //   // Utilize o serviço de API para enviar um e-mail com o código de verificação para o endereço digitado.
-    //   // O código de verificação deve ser um número aleatório de 4 dígitos.
-
-    //   // Exiba um alerta de sucesso ou erro ao enviar o e-mail.
-
-    //   showVerificationCode.value = true;
-    // };
-
-    // const validateCode = async () => {
-    //   // Verifique se o código de verificação digitado é igual ao código enviado por e-mail.
-    //   // Se o código for válido, redirecione o usuário para outro componente.
-    //   // Utilize o roteador do Vue.js para realizar o redirecionamento.
-    //   // Exiba um alerta de sucesso ou erro ao validar o código.
-    // };
-
-    return {
-      //   email,
-      //   verificationCode,
-      //   showVerificationCode,
-      //   sendEmail,
-      //   validateCode,
-    };
+  computed: {
+    ...mapState(['codigoAleatorio']),
+  },
+  methods: {
+    ...mapActions(['salvarCodigoAleatorio']),
+    sendEmail() {
+      // Lógica para enviar o e-mail com o código de verificação
+      this.showVerificationCode = true;
+    },
+    validateCode() {
+      if (this.verificationCode === this.codigoAleatorio) {
+        // Código válido, redirecionar para a rota do usuário com o ID em questão
+        this.$router.push(`/usuario/${this.userId}`);
+        // Exibir alerta de sucesso
+      } else {
+        // Código inválido, exibir alerta de erro
+      }
+    },
   },
 };
 </script>

@@ -12,7 +12,9 @@ type UserDTO = {
     address: string,
     birthday: Date,
     gender: string,
-    telephone: number,
+    telephone: string,
+    img: string,
+
 }
 
 type ReviewDTO = {
@@ -82,7 +84,8 @@ let user1: UserDTO = {
     address: 'Rua dos vinhos, 123',
     birthday: new Date(1982, 0, 7), //ano, mes, dia e janeiro = 0  
     gender: 'Masculino',
-    telephone: 5547988035265,
+    telephone: '5547988035265',
+    img: ''
 }
 
 let user2: UserDTO = {
@@ -92,7 +95,8 @@ let user2: UserDTO = {
     address: 'Rua dos vinhos, 123',
     birthday: new Date(1990, 11, 26), //ano, mes, dia e janeiro = 0  
     gender: 'Masculino',
-    telephone: 5547996740173,
+    telephone: '5547996740173',
+    img: ''
 }
 
 let user3: UserDTO = {
@@ -102,7 +106,8 @@ let user3: UserDTO = {
     address: 'Rua Bonifácio Carlos Deschamps, 120',
     birthday: new Date(2005, 2, 16), //ano, mes, dia e janeiro = 0  
     gender: 'Feminino',
-    telephone: 5547984196733,
+    telephone: '5547984196733',
+    img: ''
 }
 
 let user4: UserDTO = {
@@ -112,7 +117,8 @@ let user4: UserDTO = {
     address: 'Estrada das Videiras S/N, km 88',
     birthday: new Date(1981, 0, 30), //ano, mes, dia e janeiro = 0  
     gender: 'Masculino',
-    telephone: 5547992421400,
+    telephone: '5547992421400',
+    img: ''
 }
 
 //rodar a funcao pra criar os 4 usuarios
@@ -936,6 +942,7 @@ async function addNewWine(wine: WineDTO, typeId: number, countryId: number, grap
                 vinicula: wine.vinicula,
                 alchoolic: wine.alchoolic,
                 description: wine.description,
+                img: '',
 
                 type: {
                     connect: {

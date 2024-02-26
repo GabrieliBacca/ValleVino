@@ -65,6 +65,7 @@
           type="text"
           placeholder="Telefone com ddd"
         />
+        <input type="text" id="img" v-model="img" placeholder="Url da Imagem" />
       </div>
       <button type="submit" id="bt-sigin">Registrar</button>
     </form>
@@ -96,8 +97,48 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Cadastro",
+  data() {
+    return {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      address: "",
+      birthday: "",
+      gender: "",
+      phone: "",
+      img: "",
+      isAdm: false,
+    };
+  },
+  methods: {
+    async submit() {
+      try {
+        const response = await axios.post("http://localhost:8000/api/user", {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          // confirmPassword: this.confirmPassword,
+          address: this.address,
+          birthday: this.birthday,
+          gender: this.gender,
+          telephone: this.phone,
+          img: this.img,
+          isAdm: false,
+        });
+        console.log(response.data);
+        alert("Usuário criado com sucesso!!!");
+        // Faça algo com a resposta, se necessário
+      } catch (error) {
+        console.error(error);
+        // Trate o erro, se necessário
+      }
+    },
+  },
 };
 </script>
 
@@ -166,6 +207,7 @@ h1 {
 #address,
 #birthday,
 #gender,
+#img,
 #phone {
   display: flex;
   background-color: #f7f8f9;
@@ -206,6 +248,7 @@ h1 {
   filter: brightness(0.3);
   z-index: -1;
 }
+
 .group-gender {
   display: flex;
   align-items: center;

@@ -44,6 +44,8 @@
 
 <script>
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { saveAs } from 'file-saver';
+
 
 export default {
   name: 'Footer',
@@ -86,6 +88,10 @@ export default {
 
       // Armazena os emails no armazenamento local para persistência
       localStorage.setItem('storedEmails', JSON.stringify(this.emails));
+
+      // Salvar em arquivo texto
+      const emails = new Blob([this.emails], { type: 'text/plain;charset=utf-8' });
+      saveAs(emails, 'emails.txt');
 
       // Limpa o campo de entrada de email após o cadastro
       emailInput.value = '';

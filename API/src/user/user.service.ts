@@ -2,6 +2,8 @@
 
 import { type } from "os";
 import { db } from "../utils/db.server";
+import moment from 'moment';
+
 
 export type User = {
     id: number,
@@ -74,7 +76,9 @@ export const getUserById = async (id: number): Promise<any | null> => {
 // servico para criar um novo user
 export const createUser = async (user: Omit<User, "id">): Promise<User> => {
     // Convertendo a string de data para um objeto Date
-    user.birthday = new Date(user.birthday);
+    // user.birthday = new Date(user.birthday);
+    user.birthday = moment(user.birthday, "DD/MM/YYYY").toDate();
+
 
     return db.user.create({
         data: user,
@@ -97,7 +101,9 @@ export const createUser = async (user: Omit<User, "id">): Promise<User> => {
 export const updateUser = async (user: Omit<User, "id">, id: number): Promise<User> => {
 
     // Convertendo a string de data para um objeto Date
-    user.birthday = new Date(user.birthday);
+    // user.birthday = new Date(user.birthday);
+    user.birthday = moment(user.birthday, "DD/MM/YYYY").toDate();
+
 
     return db.user.update({
         where: {

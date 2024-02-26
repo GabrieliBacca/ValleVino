@@ -1,10 +1,6 @@
 <template>
   <div class="container">
-    <img
-      class="img-bg"
-      src="../../assets/img/validar-codigo-bg.svg"
-      alt="background Image"
-    />
+    <img class="img-bg" src="../../assets/img/validar-codigo-bg.svg" alt="background Image" />
     <h1>Verificação de código</h1>
     <h3>
       Digite o código de verificação que acabamos de enviar em seu endereço de
@@ -12,20 +8,68 @@
     </h3>
     <form @submit.prevent="login">
       <div class="textBox">
-        <input v-model="cod1" id="validaCodigo1" type="text" placeholder="9" />
-        <input v-model="cod2" id="validaCodigo2" type="text" placeholder="9" />
-        <input v-model="cod3" id="validaCodigo3" type="text" placeholder="9" />
-        <input v-model="cod4" id="validaCodigo4" type="text" placeholder="9" />
+        <input v-model="cod1" id="validaCodigo1" type="text" placeholder="*" />
+        <input v-model="cod2" id="validaCodigo2" type="text" placeholder="*" />
+        <input v-model="cod3" id="validaCodigo3" type="text" placeholder="*" />
+        <input v-model="cod4" id="validaCodigo4" type="text" placeholder="*" />
       </div>
       <button type="submit" id="bt">Validar Código</button>
     </form>
   </div>
 </template>
 <script>
+import { mapState, mapGetters } from 'vuex';
+import ValidarCodigo from '@/pages/Login/ValidarCodigo.vue';
+
+
+
 export default {
   name: "ValidarCodigo",
+  created() {
+    //   const codigoSalvo = this.$store.state.codigoAleatorio;
+    //   this.numeroCriado = this.$route.params.numeroCriado;
+    //   console.log('Código aleatório do Vuex2:', this.numeroCriado);
+    // },
+    const codigoGerado = localStorage.getItem('codigoGerado');
+    console.log('Codigo aleatório recuperado da localStorage:', codigoGerado);
+  },
+  computed: {
+    ...mapState({
+      codigoAleatorio: state => state.codigoAleatorio
+    }),
+    ...mapGetters(['getCodigoAleatorio']),
+    randomCode() {
+      return this.getCodigoAleatorio;
+    }
+  },
+  data() {
+    return {
+      cod1: "",
+      cod2: "",
+      cod3: "",
+      cod4: "",
+    };
+  },
   components: {},
+  methods: {
+    login() {
+      const codigoInserido = this.cod1 + this.cod2 + this.cod3 + this.cod4;
+      const codigoSalvo = localStorage.getItem('codigoGerado');
+      console.log("Código inserido:", codigoInserido);
+      console.log("Código salvo:", codigoSalvo);
+
+      if (codigoInserido === codigoSalvo) {
+        // Código correto, redirecionar para a rota userprofile/:id
+        const userId = this.$route.query.id; // Substitua isso pela lógica real para obter o ID do usuário
+        this.$router.push(`/userProfileSenha/${userId}`);
+      } else {
+        // Código incorreto, mostrar mensagem de erro ou tomar outra ação
+        alert("Código incorreto. Por favor, tente novamente.");
+      }
+    },
+  },
 };
+
 </script>
 
 <style scoped>
@@ -66,6 +110,7 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
 #validaCodigo1,
 #validaCodigo2,
 #validaCodigo3,
@@ -83,6 +128,7 @@ h1 {
   text-align: center;
   font-family: montserrat;
 }
+
 /* Estilo do botão */
 #bt {
   background-color: var(--color-background-light);
