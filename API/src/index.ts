@@ -56,7 +56,7 @@ const transporter = nodemailer.createTransport({
     // secure: true,
     auth: {
         user: "ulirbraz@terra.com.br",
-        pass: "4ng4"
+        pass: "t4ng4"
     },
     requireTLS: true
 
@@ -70,6 +70,7 @@ const enviarEmail = async (destinatario: string, assunto: string, corpo: string)
             to: destinatario,
             subject: assunto,
             text: corpo,
+            html: corpo,
         });
         console.log('Email enviado com sucesso');
     } catch (error) {
