@@ -3,22 +3,13 @@
     <footer class="footer">
       <v-row justify="start">
         <v-col class="pa-1">
-          <img
-            class="tamanho-da-imagem"
-            :src="'../src/assets/img/logoValleVinoBlack.png'"
-            alt="logo"
-          />
+          <img class="tamanho-da-imagem" :src="'../src/assets/img/logoValleVinoBlack.png'" alt="logo" />
         </v-col>
         <v-col cols="12" sm="1" md="4" class="pa-1">
           <h2>NEWSLETTER</h2>
           <p>Receba as novidades em primeira mão</p>
           <form action="#">
-            <input
-              type="email"
-              id="emailInput"
-              v-model="newEmail"
-              placeholder="Digite seu email"
-            />
+            <input type="email" id="emailInput" v-model="newEmail" placeholder="Digite seu email" />
             <button type="submit" @click.prevent="handleClick">
               INSCREVA-SE
             </button>
@@ -29,26 +20,17 @@
           <h2>Contato</h2>
           <p>Blumenau | SC</p>
           <a class="bi bi-envelope" href="mailto:falecom@vallevino.com.br">
-            falecom@vallevino.com.br</a
-          >
+            falecom@vallevino.com.br</a>
           <br />
-          <a
-            class="bi bi-whatsapp"
+          <a class="bi bi-whatsapp"
             href="https://wa.me/5547988035265?text=Oi!%20Estava%20visitando%20o%20site%20e%20tenho%20uma%20pergunta."
-            target="_blank"
-          >
+            target="_blank">
             +55 (47) 99123-4567
           </a>
           <br />
 
-          <a
-            href="https://www.instagram.com/vallevinoblumenau/"
-            target="_blank"
-            class="bi bi-instagram"
-            alt="Instagram"
-          >
-            Nosso Instagram</a
-          >
+          <a href="https://www.instagram.com/vallevinoblumenau/" target="_blank" class="bi bi-instagram" alt="Instagram">
+            Nosso Instagram</a>
         </v-col>
         <v-col cols="12" sm="6" md="4" class="pa-1">
           <h2>Sobre nós</h2>
@@ -89,7 +71,71 @@ export default {
       axios.post("http://localhost:8000/enviar-email", {
         destinatario: email,
         assunto: "Newsletter ValleVino",
-        corpo: `Muito obrigado por se cadastrar em nossa Newsletter!<br>Em breve você receberá as novidades!!!<br>Equipe ValleVino`,
+        corpo: `<!DOCTYPE html>
+  <html>
+  <head>
+  <style>
+  body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .assinatura {
+            text-align: right;
+            font-size: 12px;
+        }
+  </style>
+  </head>
+  <body>
+    <img src="https://storage.mlcdn.com/account_image/843489/859NnR5DEJTLpty8HTixIr4Nw0FDSR8giEJ9b9bF.png" class="logo"  width="320" height="240"> 
+<br>
+ <h1> Muito obrigado por se cadastrar em nossa Newsletter!<br>Em breve você receberá as novidades!!!<br>Equipe ValleVino</h1>
+ <h2> Somos um grupo de TCC do programa Entra21 de Vue.js</h2>
+
+<h2>Integrantes 👨‍💻</h2>
+
+<h2>Bruno <a href="https://www.linkedin.com/in/brunobride/">@brunobride</a> </h2>
+
+<h2>Gabrieli Bacca <a href="https://www.linkedin.com/in/gabrieli-bacca/">@gabrieli-bacca</a> </h2>
+
+<h2>Rodrigo Luchtenberg <a href="https://www.linkedin.com/in/rodrigo-luchtenberg/">@rodrigo-luchtenberg</a> </h2>
+
+<h2>Rodrigo Ulir Braz <a href="https://www.linkedin.com/in/rodrigo-ulir-braz/">@rodrigo-ulir-braz</a> </h2>
+
+<h3>Em breve você receberá as novidades da ValleVino.</h3>
+<img src="https://storage.mlcdn.com/account_image/843489/WwTvhk0l4kWcnvfKmBOnwr1BjPdNSQICYSwFA6Q2.jpg" width="640" height="480">
+<br>
+  </body>
+  </html>`
         //             corpo: `<!DOCTYPE html>
         //   <html>
         //   <head>
@@ -310,6 +356,7 @@ h2 {
   height: auto;
   margin: 0 auto 20px;
 }
+
 /* Estilos gerais para o container do footer */
 .footer-container {
   position: relative;
@@ -356,6 +403,7 @@ a {
   padding: 5px 10px;
   border-radius: 5px;
 }
+
 .footer input::placeholder {
   color: #d1b991;
 }
@@ -394,6 +442,7 @@ a {
 /* RESPONSIVIDADE */
 
 @media (max-width: 768px) {
+
   /* Ajusta o layout do footer para telas menores */
   .footer {
     flex-direction: column;
@@ -416,6 +465,7 @@ a {
   .footer input {
     width: 90vw;
   }
+
   .footer p,
   a {
     font-size: 15px;
@@ -423,11 +473,13 @@ a {
 }
 
 @media (max-width: 576px) {
+
   /* Ajusta o layout do footer para telas muito pequenas */
   .footer-container .pa-1 {
     justify-content: center;
     margin: 10px;
   }
+
   .footer {
     /* padding: 10px 20px; */
     justify-content: right;
@@ -437,6 +489,7 @@ a {
     width: 85%;
     margin-bottom: 15px;
   }
+
   .footer button {
     margin-bottom: 10px;
     width: 132px;

@@ -1,10 +1,6 @@
 <template>
   <div class="container">
-    <img
-      class="img-bg"
-      src="../../assets/img/login-bg.svg"
-      alt="background Image"
-    />
+    <img class="img-bg" src="../../assets/img/login-bg.svg" alt="background Image" />
     <div v-for="(usuario, i) in usuarios" :key="i">
       <p>{{ usuario.nome }}</p>
     </div>
@@ -16,18 +12,8 @@
 
     <form @submit.prevent="login">
       <div class="textBox">
-        <input
-          v-model="email"
-          id="email"
-          type="text"
-          placeholder="Digite seu email"
-        />
-        <input
-          v-model="password"
-          id="password"
-          type="password"
-          placeholder="Digite sua senha"
-        />
+        <input v-model="email" id="email" type="text" placeholder="Digite seu email" />
+        <input v-model="password" id="password" type="password" placeholder="Digite sua senha" />
         <!-- //! colocar o icone de olho no text para revelar  a senha -->
         <p class="txtInfo-senha">
           <RouterLink to="/esqueceusenha">Esqueceu a senha?</RouterLink>
@@ -40,22 +26,10 @@
     <div class="textWhitSocialMedia">
       <p class="txtInfo">Ou faça login com</p>
 
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Facebook.svg"
-        alt="botão login com Facebook"
-        @click="loginWithFacebook"
-      />
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Google.svg"
-        alt="botão login com Google"
-      />
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Apple.svg"
-        alt="botão login com Apple"
-      />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Facebook.svg" alt="botão login com Facebook"
+        @click="loginWithFacebook" />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Google.svg" alt="botão login com Google" />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Apple.svg" alt="botão login com Apple" />
 
       <p class="txtInfo">
         Não tem uma conta?
@@ -81,7 +55,7 @@ export default {
 
     const fetchUsuarios = () =>
       api
-        .get("http://localhost:8000/api/users")
+        .get("http://localhost:8000/api/user")
         .then((res) => (usuarios.value = res.data));
 
     const login = () => {
@@ -286,6 +260,7 @@ h1 {
 /* responsividade */
 
 @media (max-width: 575px) {
+
   /* Ajustes para smartphones */
   .container {
     padding: 10px;
@@ -319,10 +294,12 @@ h1 {
     max-width: 330px;
     margin: 15px;
   }
+
   .textBox {
     max-width: 388px;
     height: auto;
   }
+
   #bt-login {
     max-width: 330px;
     height: auto;
@@ -330,6 +307,7 @@ h1 {
 }
 
 @media (min-width: 768px) {
+
   /* Ajustes para desktops */
   .container {
     width: 100%;
