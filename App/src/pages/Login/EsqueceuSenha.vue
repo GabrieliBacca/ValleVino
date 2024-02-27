@@ -119,47 +119,48 @@ export default {
   <head>
   <style>
   body {
-    display: flex
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #fff;
-  }
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+        }
 
-  .logo {
-     display: flex;
-  align-items: center;
-  margin-right: 20px;
-  flex-direction: column;
-    
-  }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-  h1 {
-    font-size: 24px;
-    margin-top: 0;
-  }
+        .logo img {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+        }
 
-  p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
+        h1 {
+            font-size: 24px;
+            margin: 20px 0;
+        }
 
-  img {
-    display: block;
-    margin: 0 auto;
-    
-  }
+        h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
 
-  .assinatura {
-    text-align: right;
-    font-size: 12px;
-  }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .assinatura {
+            text-align: right;
+            font-size: 12px;
+        }
   </style>
   </head>
   <body>
   <br>
   <img src="https://storage.mlcdn.com/account_image/843489/859NnR5DEJTLpty8HTixIr4Nw0FDSR8giEJ9b9bF.png" class="logo"  width="640" height="480"> 
-  <br> <br>
-  <br>
 <br>
  <h1> Bem vindo a newsletter da Valle Vino!</h1>
  <h2> Somos um grupo de TCC do programa Entra21 de Vue.js</h2>
