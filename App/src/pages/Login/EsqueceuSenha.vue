@@ -156,10 +156,11 @@ export default {
   </style>
   </head>
   <body>
+  <br>
   <img src="https://storage.mlcdn.com/account_image/843489/859NnR5DEJTLpty8HTixIr4Nw0FDSR8giEJ9b9bF.png" class="logo"  width="640" height="480"> 
   <br> <br>
   <br>
-
+<br>
  <h1> Bem vindo a newsletter da Valle Vino!</h1>
  <h2> Somos um grupo de TCC do programa Entra21 de Vue.js</h2>
 
