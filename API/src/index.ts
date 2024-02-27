@@ -69,7 +69,7 @@ const enviarEmail = async (destinatario: string, assunto: string, corpo: string)
             from: 'ulirbraz@terra.com.br',
             to: destinatario,
             subject: assunto,
-            text: corpo,
+            // text: corpo,
             html: corpo,
         });
         console.log('Email enviado com sucesso');
