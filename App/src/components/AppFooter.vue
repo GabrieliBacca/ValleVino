@@ -132,7 +132,7 @@ export default {
         //   </style>
         //   </head>
         //   <body>
-        //   <img src="https://storage.mlcdn.com/account_image/843489/859NnR5DEJTLpty8HTixIr4Nw0FDSR8giEJ9b9bF.png" class="logo"  width="640" height="480"> 
+        //   <img src="https://storage.mlcdn.com/account_image/843489/859NnR5DEJTLpty8HTixIr4Nw0FDSR8giEJ9b9bF.png" class="logo"  width="640" height="480">
         //   <br> <br>
         //   <br>
 
@@ -171,7 +171,6 @@ export default {
 
         // <h2>🤝 Necessidade de fortalecer a fidelização dos clientes.</h2>
 
-
         // <h2>Nossa solução: criação de um site 💻 </h2>
 
         // <h2>O site permitiu à Valle Vino expandir suas vendas além do Instagram, facilitando a interação com o cliente e as vendas online .</h2>
@@ -197,8 +196,6 @@ export default {
 
         // <h2>Funcionalidades do site 🌐</h2>
 
-
-
         // <h2>Quiz Personalizado 🤔 - Descubra seu tipo de vinho predileto.</h2>
 
         // <h2>Integração com Redes Sociais 📱 - Instagram e Whatsapp integrados para comunicação direta com os clientes.</h2>
@@ -215,9 +212,6 @@ export default {
         // <h2>Agradecemos sua atenção! 🙌 </h2>
 
         // <h1>Convidamos todos para visitar nosso stand! 🍇🍷 </h1>
-
-
-
 
         //   <p class="assinatura">Equipe ValleVino</p>
         //   </body>
@@ -403,7 +397,7 @@ a {
   /* Ajusta o layout do footer para telas menores */
   .footer {
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
   }
 
   /* Reduz o tamanho da logo */
@@ -413,8 +407,9 @@ a {
 
   /* Ajusta o espaçamento da coluna */
   .footer-container .pa-1 {
-    margin-bottom: 20px;
-    flex: 100px;
+    justify-content: center;
+    margin: 15px;
+    align-items: flex-start;
   }
 
   /* Ajusta o tamanho do campo de email */
