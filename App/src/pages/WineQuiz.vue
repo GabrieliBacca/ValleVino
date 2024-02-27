@@ -162,7 +162,7 @@ export default {
     height: 100%;
     /* Definir a altura como 100% */
     object-fit: cover;
-    opacity: 0.8;
+    opacity: 0.6;
     border-radius: 5px;
 }
 
@@ -177,7 +177,7 @@ export default {
     margin: 0;
     padding: 0;
     /* Remover o padding */
-    background: rgba(250, 247, 242, 0.25);
+    background: rgba(87, 82, 82, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -188,7 +188,7 @@ export default {
     border-radius: 8px;
     margin: 5% auto;
     color: --color-background-dark;
-    color: #a01616;
+    color: black;
     font-family: "Libre Baskerville";
     font-size: 24px;
     font-style: normal;
@@ -200,7 +200,7 @@ export default {
 
 .question-text {
     font-size: 3vw;
-    color: darkred;
+    color: black;
     font-family: lora;
     font-style: italic;
     font-weight: bold;
@@ -222,7 +222,7 @@ export default {
     border-radius: 8px;
     margin: 5% auto;
     color: --color-background-dark;
-    color: #a01616;
+    color: black;
     font-family: "Libre Baskerville";
     font-size: 24px;
     font-style: normal;
