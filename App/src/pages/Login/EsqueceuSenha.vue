@@ -215,16 +215,14 @@ export default {
 <h2>Fidelização dos Clientes 🤝 - Oferta de uma experiência personalizada promove a fidelização.</h2>
 
 <h2>Tecnologias aplicadas no projeto 💻</h2>
-
+<br>
 <h2>Typescript</h2>
 <h2>Node.js</h2>
 <h2>Vue.js</h2>
 <h2>Prisma</h2>
-
+<br>
 <h2>Funcionalidades do site 🌐</h2>
-
-
-
+<br>
 <h2>Quiz Personalizado 🤔 - Descubra seu tipo de vinho predileto.</h2>
 
 <h2>Integração com Redes Sociais 📱 - Instagram e Whatsapp integrados para comunicação direta com os clientes.</h2>
@@ -238,11 +236,10 @@ export default {
 <h2>🌍 - Planos incluem expansão para novas regiões e captação de novos clientes. Continuidade de Inovações </h2>
 
 <h2>🚀 - Comprometidos com a inovação para aprimorar a experiência do cliente.</h2>
+<br>
 <h2>Agradecemos sua atenção! 🙌 </h2>
 
 <h1>Convidamos todos para visitar nosso stand! 🍇🍷 </h1>
-
-
 
 
   <p class="assinatura">Equipe ValleVino</p>
