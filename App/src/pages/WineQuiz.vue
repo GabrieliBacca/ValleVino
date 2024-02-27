@@ -159,12 +159,10 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    max-width: auto;
-    height: auto;
-    max-height: 40vh;
+    height: 100%;
+    /* Definir a altura como 100% */
     object-fit: cover;
     opacity: 0.8;
-    margin: 0 auto;
     border-radius: 5px;
 }
 
@@ -178,10 +176,9 @@ export default {
     max-width: var(--max-width);
     margin: 0;
     padding: 0;
+    /* Remover o padding */
     background: rgba(250, 247, 242, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    /* background-color: #f5ebda; */
-
 }
 
 .card {
@@ -189,7 +186,7 @@ export default {
     border-color: transparent;
     padding: 20px;
     border-radius: 8px;
-    margin: 20px 0px 0px 40px;
+    margin: 5% auto;
     color: --color-background-dark;
     color: #a01616;
     font-family: "Libre Baskerville";
@@ -202,7 +199,7 @@ export default {
 }
 
 .question-text {
-    font-size: 36px;
+    font-size: 3vw;
     color: darkred;
     font-family: lora;
     font-style: italic;
@@ -223,7 +220,7 @@ export default {
     border-color: transparent;
     padding: 20px;
     border-radius: 8px;
-    margin: 20px 0px 0px 40px;
+    margin: 5% auto;
     color: --color-background-dark;
     color: #a01616;
     font-family: "Libre Baskerville";
