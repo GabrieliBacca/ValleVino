@@ -1,10 +1,6 @@
 <template>
   <div class="container">
-    <img
-      class="img-bg"
-      src="../../assets/img/validar-codigo-bg.svg"
-      alt="background Image"
-    />
+    <img class="img-bg" src="../../assets/img/validar-codigo-bg.svg" alt="background Image" />
     <h1>Verificação de código</h1>
     <h3>
       Digite o código de verificação que acabamos de enviar em seu endereço de
@@ -12,10 +8,10 @@
     </h3>
     <form @submit.prevent="login">
       <div class="textBox">
-        <input v-model="cod1" id="validaCodigo1" type="text" placeholder="*" />
-        <input v-model="cod2" id="validaCodigo2" type="text" placeholder="*" />
-        <input v-model="cod3" id="validaCodigo3" type="text" placeholder="*" />
-        <input v-model="cod4" id="validaCodigo4" type="text" placeholder="*" />
+        <input v-model="cod1" id="validaCodigo1" type="text" placeholder="*" maxlength="1" autofocus />
+        <input v-model="cod2" id="validaCodigo2" type="text" placeholder="*" maxlength="1" />
+        <input v-model="cod3" id="validaCodigo3" type="text" placeholder="*" maxlength="1" />
+        <input v-model="cod4" id="validaCodigo4" type="text" placeholder="*" maxlength="1" />
       </div>
       <button type="submit" id="bt">Validar Código</button>
     </form>
@@ -159,6 +155,7 @@ h1 {
 /* responsividade */
 
 @media (max-width: 575px) {
+
   /* Ajustes para smartphones */
   .container {
     padding: 10px;
@@ -198,6 +195,7 @@ h1 {
     max-width: 380px;
     height: auto;
   }
+
   #bt {
     max-width: 330px;
     height: auto;
@@ -205,6 +203,7 @@ h1 {
 }
 
 @media (min-width: 768px) {
+
   /* Ajustes para desktops */
   .container {
     width: 100%;
