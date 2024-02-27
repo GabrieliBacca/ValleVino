@@ -80,7 +80,7 @@ export default {
         }
 
         // Verificar se o email existe no banco de dados
-        const response = await axios.get("http://localhost:8000/api/user", {
+        const response = await axios.get("http://localhost:8000/api/useremail", {
           params: {
             email: this.email,
           },

@@ -36,7 +36,7 @@ UserRouter.get("/:id", async (request: Request, response: Response) => {
 })
 
 // rota para criar um novo user
-UserRouter.post('/', body("name").isString(), body("email").isString(), body("password").isString(), body("address").isString(), body("birthday").isDate(), body("gender").isString(), body("telephone").isString(),
+UserRouter.post('/', body("name").isString(), body("email").isString(), body("password").isString(), body("address").isString(), body("birthday").isDate(), body("gender").isString(), body("telephone").isString(), body("img").isString(),
 
 
     async (request: Request, response: Response) => {

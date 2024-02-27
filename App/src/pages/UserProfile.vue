@@ -40,7 +40,7 @@ export default {
         const userId = this.$route.params.id;
         console.log('User ID:', userId);
         if (userId) {
-            axios.get(`http://localhost:8000/api/users/${userId}`)
+            axios.get(`http://localhost:8000/api/user/${userId}`)
                 .then(response => {
                     this.userData = response.data;
                 })

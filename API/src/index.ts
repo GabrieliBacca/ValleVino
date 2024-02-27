@@ -116,7 +116,7 @@ app.get('/buscar-id-usuario-por-email', async (req, res) => {
 });
 
 // Rota para verificar se o email está cadastrado
-app.get('/api/user', async (req, res) => {
+app.get('/api/useremail', async (req, res) => {
     const email = req.query.email;
     if (!email) {
         return res.status(400).send('O parâmetro email é obrigatório');
@@ -150,7 +150,7 @@ app.use("/api/country", CountryRouter)
 app.use("/api/grape", GrapeRouter)
 app.use("/api/harmony", HarmonyRouter)
 app.use("/api/type", TypeRouter)
-app.use("/api/users", UserRouter)
+app.use("/api/user", UserRouter)
 app.use("/api/shopping", ShoppingRouter)
 app.use("/api/review", ReviewRouter)
 app.use("/api/wines", WineRouter)

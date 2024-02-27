@@ -1,10 +1,6 @@
 <template>
   <div class="container">
-    <img
-      class="img-bg"
-      src="../../assets/img/inscreva-se-bg.svg"
-      alt="background Image"
-    />
+    <img class="img-bg" src="../../assets/img/inscreva-se-bg.svg" alt="background Image" />
 
     <h1>
       Olá! <br />
@@ -13,59 +9,22 @@
 
     <form @submit.prevent="submit">
       <div class="textBox">
-        <input
-          v-model="name"
-          id="user"
-          type="text"
-          placeholder="Nome de usuário"
-        />
+        <input v-model="name" id="user" type="text" placeholder="Nome de usuário" />
         <input v-model="email" id="email" type="text" placeholder="Seu email" />
-        <input
-          v-model="password"
-          id="password"
-          type="password"
-          placeholder="Senha"
-        />
-        <input
-          v-model="confirmPassword"
-          id="confirmPassword"
-          type="password"
-          placeholder="Confirme sua senha"
-        />
+        <input v-model="password" id="password" type="password" placeholder="Senha" />
+        <input v-model="confirmPassword" id="confirmPassword" type="password" placeholder="Confirme sua senha" />
 
-        <input
-          v-model="address"
-          type="text"
-          id="address"
-          placeholder="Endereço"
-        />
+        <input v-model="address" type="text" id="address" placeholder="Endereço" />
         <input v-model="birthday" type="date" id="birthday" />
         <div class="group-gender">
           <label for="masculino">Masculino</label>
-          <input
-            v-model="gender"
-            type="radio"
-            id="masculino"
-            name="gender"
-            value="masculino"
-          />
+          <input v-model="gender" type="radio" id="masculino" name="gender" value="masculino" />
 
           <label for="feminino">Feminino</label>
-          <input
-            v-model="gender"
-            type="radio"
-            id="feminino"
-            name="gender"
-            value="feminino"
-          />
+          <input v-model="gender" type="radio" id="feminino" name="gender" value="feminino" />
         </div>
 
-        <input
-          v-model="phone"
-          id="phone"
-          type="text"
-          placeholder="Telefone com ddd"
-        />
+        <input v-model="phone" id="phone" type="text" placeholder="Telefone com ddd" />
         <input type="text" id="img" v-model="img" placeholder="Url da Imagem" />
       </div>
       <button type="submit" id="bt-sigin">Registrar</button>
@@ -74,21 +33,9 @@
     <div class="textWhitSocialMedia">
       <p class="txtInfo">Ou faça login com</p>
 
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Facebook.svg"
-        alt="botão login com Facebook"
-      />
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Google.svg"
-        alt="botão login com Google"
-      />
-      <img
-        id="loginSocialMedia"
-        src="../../assets/img/bt-Apple.svg"
-        alt="botão login com Apple"
-      />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Facebook.svg" alt="botão login com Facebook" />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Google.svg" alt="botão login com Google" />
+      <img id="loginSocialMedia" src="../../assets/img/bt-Apple.svg" alt="botão login com Apple" />
 
       <p class="txtInfo">
         Ja possui uma conta?<RouterLink to="/login"> Logar Agora!</RouterLink>
@@ -99,6 +46,8 @@
 
 <script>
 import axios from "axios";
+import moment from 'moment';
+
 
 export default {
   name: "Cadastro",
@@ -119,11 +68,11 @@ export default {
   methods: {
     async submit() {
       try {
-        const response = await axios.post("http://localhost:8000/api/user", {
+        // const birthdayDate = moment(this.birthday, "DD/MM/YYYY");
+        const response = await axios.post("http://localhost:8000/api/user/", {
           name: this.name,
           email: this.email,
           password: this.password,
-          // confirmPassword: this.confirmPassword,
           address: this.address,
           birthday: this.birthday,
           gender: this.gender,
@@ -136,6 +85,7 @@ export default {
         // Faça algo com a resposta, se necessário
       } catch (error) {
         console.error(error);
+        alert("Erro ao registrar o usuário. Por favor, tente novamente mais tarde.");
         // Trate o erro, se necessário
       }
     },
@@ -276,6 +226,7 @@ select {
 /* responsividade */
 
 @media (max-width: 575px) {
+
   /* Ajustes para smartphones */
   .container {
     padding: 10px;
@@ -323,10 +274,12 @@ select {
     max-width: 330px;
     margin: 15px;
   }
+
   .textBox {
     max-width: 388px;
     height: auto;
   }
+
   #bt-login {
     max-width: 330px;
     height: auto;
@@ -334,6 +287,7 @@ select {
 }
 
 @media (min-width: 768px) {
+
   /* Ajustes para desktops */
   .container {
     width: 100%;
