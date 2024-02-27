@@ -5,15 +5,16 @@
         <v-col class="pa-1">
           <img class="tamanho-da-imagem" :src="'../src/assets/img/logoValleVinoBlack.png'" alt="logo" />
         </v-col>
-        <v-col cols="12" sm="1" md="4" class="pa-1">
+        <v-col cols="18" sm="9" md="8" class="pa-1">
           <h2>NEWSLETTER</h2>
           <p>Receba as novidades em primeira mão</p>
           <form action="#">
             <input type="email" id="emailInput" v-model="newEmail" placeholder="Digite seu email" />
+            <br>
             <button type="submit" @click.prevent="handleClick">
               INSCREVA-SE
             </button>
-            <button @click="realizarSorteio">Sortear Email</button>
+            <button @click="realizarSorteio">SORTEAR</button>
           </form>
         </v-col>
         <v-col cols="12" sm="6" md="4" class="pa-1">
@@ -118,7 +119,7 @@ export default {
   <body>
     <img src="https://storage.mlcdn.com/account_image/843489/859NnR5DEJTLpty8HTixIr4Nw0FDSR8giEJ9b9bF.png" class="logo"  width="320" height="240"> 
 <br>
- <h1> Muito obrigado por se cadastrar em nossa Newsletter!<br>Em breve você receberá as novidades!!!<br>Equipe ValleVino</h1>
+ <h1> Muito obrigado por se cadastrar em nossa Newsletter!<br></h1>
  <h2> Somos um grupo de TCC do programa Entra21 de Vue.js</h2>
 
 <h2>Integrantes 👨‍💻</h2>
@@ -389,7 +390,7 @@ h2 {
 .footer p,
 a {
   color: #9e845c;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1.5;
   margin-bottom: 10px;
   font-family: "lora";
