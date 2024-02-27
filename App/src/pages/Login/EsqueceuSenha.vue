@@ -11,9 +11,7 @@
       <div class="textBox">
         <input v-model="email" id="email" type="text" placeholder="Digite seu email" />
       </div>
-      <button type="submit" id="bt">
-        <!-- <RouterLink to="/ValidarCodigo">Receber Codigo</RouterLink> -->
-      </button>
+      <button type="submit" id="bt">Receber Codigo</button>
     </form>
 
     <p v-else>Processando solicitação...</p>
