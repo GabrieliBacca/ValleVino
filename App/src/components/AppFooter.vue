@@ -73,6 +73,138 @@ export default {
         destinatario: email,
         assunto: "Newsletter ValleVino",
         corpo: `Muito obrigado por se cadastrar em nossa Newsletter!<br>Em breve você receberá as novidades!!!<br>Equipe ValleVino`,
+        //             corpo: `<!DOCTYPE html>
+        //   <html>
+        //   <head>
+        //   <style>
+        //   body {
+        //     display: flex
+        //     font-family: Arial, sans-serif;
+        //     color: #333;
+        //     background-color: #fff;
+        //   }
+
+        //   .logo {
+        //      display: flex;
+        //   align-items: center;
+        //   margin-right: 20px;
+        //   flex-direction: column;
+
+        //   }
+
+        //   h1 {
+        //     font-size: 24px;
+        //     margin-top: 0;
+        //   }
+
+        //   p {
+        //     font-size: 16px;
+        //     line-height: 1.5;
+        //   }
+
+        //   img {
+        //     display: block;
+        //     margin: 0 auto;
+
+        //   }
+
+        //   .assinatura {
+        //     text-align: right;
+        //     font-size: 12px;
+        //   }
+        //   </style>
+        //   </head>
+        //   <body>
+        //   <img src="https://storage.mlcdn.com/account_image/843489/859NnR5DEJTLpty8HTixIr4Nw0FDSR8giEJ9b9bF.png" class="logo"  width="640" height="480"> 
+        //   <br> <br>
+        //   <br>
+
+        //  <h1> Bem vindo a newsletter da Valle Vino!</h1>
+        //  <h2> Somos um grupo de TCC do programa Entra21 de Vue.js</h2>
+
+        // <h2>Integrantes 👨‍💻</h2>
+
+        // <h2>Bruno @brunobride </h2>
+
+        // <h2>Gabrieli Bacca @gabrieli-bacca </h2>
+
+        // <h2>Rodrigo Luchtenberg @rodrigo-luchtenberg </h2>
+
+        // <h2>Rodrigo Ulir Braz @rodrigo-ulir-braz </h2>
+
+        // <h2>Temos o prazer de informar que: </h3>
+
+        // <h1>Você está participando de um sorteio de um vinho  🥳🍷🤩</h3>
+
+        //   <h3>Obrigado por se cadastrar!</h3>
+        //   <h3>Em breve você receberá as novidades da ValleVino.</h3>
+        //   <img src="https://storage.mlcdn.com/account_image/843489/WwTvhk0l4kWcnvfKmBOnwr1BjPdNSQICYSwFA6Q2.jpg" width="640" height="480">
+        // <h2>Ao assinar nossa newsletter você concorre a esse sorteio, será realizado no dia 29/02 às 17 horas em nosso stand. </h2>
+        // <h2>Quer conhecer um pouco mais sobre nosso projeto?</h2>
+
+        // <h2>A Valle Vino, conhecida por vender vinhos selecionados via Instagram, decidiu ampliar seu alcance e proporcionar uma experiência mais completa aos clientes.</h2>
+
+        // <h2>Desafios enfrentados </h2>
+
+        // <h2>🤔 Alcance Limitado </h2>
+
+        // <h2>🌐 Dependência exclusiva do Instagram, limitando a exposição. Falta de Personalização </h2>
+
+        // <h2>🤷‍♂️ Incapacidade de oferecer uma experiência personalizada. Fidelização do cliente </h2>
+
+        // <h2>🤝 Necessidade de fortalecer a fidelização dos clientes.</h2>
+
+
+        // <h2>Nossa solução: criação de um site 💻 </h2>
+
+        // <h2>O site permitiu à Valle Vino expandir suas vendas além do Instagram, facilitando a interação com o cliente e as vendas online .</h2>
+
+        // <h2>Experiência Personalizada 🍇 Os clientes podem realizar o Quiz para descobrir o tipo de vinho ideal e conhecer a história por trás de cada produto.</h2>
+
+        // <h2>Visibilidade Aprimorada 👁️ O site aumenta a presença online da empresa, atraindo novos clientes.</h2>
+
+        // <h2>Benefícios de ter um site para a Valle Vino 🌈</h2>
+
+        // <h2>Ampla Exposição 🚀 - Expansão significativa do alcance, alcançando novos públicos. </h2>
+
+        // <h2>Decisões Informadas 🧐 - Clientes podem tomar decisões embasadas em informações detalhadas. </h2>
+
+        // <h2>Fidelização dos Clientes 🤝 - Oferta de uma experiência personalizada promove a fidelização.</h2>
+
+        // <h2>Tecnologias aplicadas no projeto 💻</h2>
+
+        // <h2>Typescript</h2>
+        // <h2>Node.js</h2>
+        // <h2>Vue.js</h2>
+        // <h2>Prisma</h2>
+
+        // <h2>Funcionalidades do site 🌐</h2>
+
+
+
+        // <h2>Quiz Personalizado 🤔 - Descubra seu tipo de vinho predileto.</h2>
+
+        // <h2>Integração com Redes Sociais 📱 - Instagram e Whatsapp integrados para comunicação direta com os clientes.</h2>
+
+        // <h2>Detalhes dos Vinhos 🍇 - Informações detalhadas sobre origem, características e harmonização. </h2>
+
+        // <h2>Carrinho de Compras 🛒 - Facilita a compra com seleção rápida e fácil dos produtos. </h2>
+
+        // <h2>Gerenciamento Simplificado 🎛️ Front-end e API integrada ao banco de dados para total controle sobre produtos. Atualize, cadastre novos produtos, e gerencie estoques de forma intuitiva.</h2>
+
+        // <h2>🌍 - Planos incluem expansão para novas regiões e captação de novos clientes. Continuidade de Inovações </h2>
+
+        // <h2>🚀 - Comprometidos com a inovação para aprimorar a experiência do cliente.</h2>
+        // <h2>Agradecemos sua atenção! 🙌 </h2>
+
+        // <h1>Convidamos todos para visitar nosso stand! 🍇🍷 </h1>
+
+
+
+
+        //   <p class="assinatura">Equipe ValleVino</p>
+        //   </body>
+        //   </html>`
       });
     },
 
