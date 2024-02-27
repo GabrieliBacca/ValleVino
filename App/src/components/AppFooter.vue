@@ -10,7 +10,7 @@
           <p>Receba as novidades em primeira mão</p>
           <form action="#">
             <input type="email" id="emailInput" v-model="newEmail" placeholder="Digite seu email">
-            <button type="submit" @click.prevent="displaySuccessMessage">INSCREVA-SE</button>
+            <button type="submit" @click.prevent="handleClick">INSCREVA-SE</button>
             <button @click="realizarSorteio">Sortear Email</button>
 
           </form>
@@ -45,6 +45,8 @@
 <script>
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { saveAs } from 'file-saver';
+import axios from "axios";
+
 
 
 export default {
@@ -63,12 +65,28 @@ export default {
     }
   },
   methods: {
+
+    // Enviar email com código aleatório
+    sendEmail() {
+      const email = this.newEmail
+      axios.post("http://localhost:8000/enviar-email", {
+        destinatario: email,
+        assunto: "Newsletter ValleVino",
+        corpo: `Muito obrigado por se cadastrar em nossa Newsletter!<br>Em breve você receberá as novidades!!!<br>Equipe ValleVino`,
+      });
+    },
+
     getAboutUsLink() {
       if (this.$route.path !== '/home') {
         return '/home#sobre-nos';
       } else {
         return '#sobre-nos';
       }
+    },
+    handleClick() {
+      // Call both functions here
+      this.displaySuccessMessage();
+      this.sendEmail();
     },
     displaySuccessMessage() {
       // Obtém o email digitado
