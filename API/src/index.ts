@@ -56,7 +56,7 @@ const transporter = nodemailer.createTransport({
     // secure: true,
     auth: {
         user: "ulirbraz@terra.com.br",
-        pass: "t4ng4"
+        pass: "preencher"
     },
     requireTLS: true
 
